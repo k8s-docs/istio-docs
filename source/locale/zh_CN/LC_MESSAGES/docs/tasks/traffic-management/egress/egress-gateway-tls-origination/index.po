@@ -1,0 +1,1058 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:2
+msgid "Egress Gateways with TLS Origination"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:4
+msgid ""
+"The `TLS Origination for Egress Traffic </docs/tasks/traffic-"
+"management/egress/egress-tls-origination/>`_ example shows how to "
+"configure Istio to perform {{< gloss >}}TLS origination{{< /gloss >}} for"
+" traffic to an external service. The `Configure an Egress Gateway "
+"</docs/tasks/traffic-management/egress/egress-gateway/>`_ example shows "
+"how to configure Istio to direct egress traffic through a dedicated "
+"*egress gateway* service. This example combines the previous two by "
+"describing how to configure an egress gateway to perform TLS origination "
+"for traffic to external services."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:16
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:18
+msgid ""
+"Setup Istio by following the instructions in the `Installation guide "
+"</docs/setup/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:21
+#, python-format
+msgid ""
+"Start the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ "
+"sample which will be used as a test source for external calls."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:25
+msgid ""
+"If you have enabled `automatic sidecar injection </docs/setup/additional-"
+"setup/sidecar-injection/#automatic-sidecar-injection>`_, do"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:33
+msgid ""
+"otherwise, you have to manually inject the sidecar before deploying the "
+"``sleep`` application:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:39
+msgid "@samples/sleep/sleep.yaml@)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:41
+msgid "Note that any pod that you can ``exec`` and ``curl`` from would do."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:43
+#, python-format
+msgid ""
+"Create a shell variable to hold the name of the source pod for sending "
+"requests to external services. If you used the `sleep "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ sample, run:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:51
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:491
+msgid "-o jsonpath={.items..metadata.name})"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:53
+msgid ""
+"`Deploy Istio egress gateway </docs/tasks/traffic-management/egress"
+"/egress-gateway/#deploy-istio-egress-gateway>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:56
+msgid ""
+"`Enable Envoy’s access logging </docs/tasks/observability/logs/access-log"
+"/#enable-envoy-s-access-logging>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:60
+msgid "Perform TLS origination with an egress gateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:62
+msgid ""
+"This section describes how to perform the same TLS origination as in the "
+"`TLS Origination for Egress Traffic </docs/tasks/traffic-"
+"management/egress/egress-tls-origination/>`_ example, only this time "
+"using an egress gateway. Note that in this case the TLS origination will "
+"be done by the egress gateway, as opposed to by the sidecar in the "
+"previous example."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:69
+msgid "Define a ``ServiceEntry`` for ``edition.cnn.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:74
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: cnn spec:"
+" hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:77
+msgid "edition.cnn.com ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:78
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:409
+msgid "number: 80 name: http protocol: HTTP"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:79
+msgid "number: 443 name: https protocol: HTTPS resolution: DNS EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:81
+msgid ""
+"Verify that your ``ServiceEntry`` was applied correctly by sending a "
+"request to `http://edition.cnn.com/politics "
+"<https://edition.cnn.com/politics>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:88
+msgid ""
+"-o /dev/null -D - http://edition.cnn.com/politics HTTP/1.1 301 Moved "
+"Permanently … location: https://edition.cnn.com/politics …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:91
+msgid "command terminated with exit code 35"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:93
+msgid ""
+"Your ``ServiceEntry`` was configured correctly if you see *301 Moved "
+"Permanently* in the output."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:96
+msgid ""
+"Create an egress ``Gateway`` for *edition.cnn.com*, port 443, and a "
+"destination rule for sidecar requests that will be directed to the egress"
+" gateway."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:100
+msgid ""
+"Choose the instructions corresponding to whether or not you want to "
+"enable `mutual TLS Authentication </docs/tasks/security/authentication"
+"/authn-policy/>`_ between the source pod and the egress gateway."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:107
+msgid ""
+"You may want to enable mutual TLS so the traffic between the source pod "
+"and the egress gateway will be encrypted. In addition, mutual TLS will "
+"allow the egress gateway to monitor the identity of the source pods and "
+"enable Mixer policy enforcement based on that identity."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:113
+msgid "{{< tabset category-name=“mtls” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:115
+msgid "{{< tab name=“mutual TLS enabled” category-value=“enabled” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:120
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:145
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:709
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: istio-"
+"egressgateway spec: selector: istio: egressgateway servers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:123
+msgid "port: number: 80 name: https protocol: HTTPS hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:125
+msgid ""
+"edition.cnn.com tls: mode: MUTUAL serverCertificate: /etc/certs/cert-"
+"chain.pem privateKey: /etc/certs/key.pem caCertificates: /etc/certs/root-"
+"cert.pem — apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule"
+" metadata: name: egressgateway-for-cnn spec: host: istio-egressgateway"
+".istio-system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:132
+msgid ""
+"name: cnn trafficPolicy: loadBalancer: simple: ROUND_ROBIN "
+"portLevelSettings:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:135
+msgid "port: number: 80 tls: mode: ISTIO_MUTUAL sni: edition.cnn.com EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:138
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:160
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:140
+msgid "{{< tab name=“mutual TLS disabled” category-value=“disabled” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:148
+msgid "port: number: 80 name: http-port-for-tls-origination protocol: HTTP hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid "edition.cnn.com"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:154
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule metadata: "
+"name: egressgateway-for-cnn spec: host: istio-egressgateway.istio-"
+"system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:158
+msgid "name: cnn EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:162
+msgid "{{< /tabset >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:164
+msgid ""
+"Define a ``VirtualService`` to direct the traffic through the egress "
+"gateway, and a ``DestinationRule`` to perform TLS origination for "
+"requests to ``edition.cnn.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:171
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: direct-"
+"cnn-through-egress-gateway spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:174
+msgid "edition.cnn.com gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:175
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:737
+msgid "istio-egressgateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:176
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:738
+msgid "mesh http:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:177
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:187
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:415
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:739
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:749
+msgid "match:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:179
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:189
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:741
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:751
+msgid "gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:181
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:743
+msgid "mesh port: 80 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:183
+msgid ""
+"destination: host: istio-egressgateway.istio-system.svc.cluster.local "
+"subset: cnn port: number: 80 weight: 100"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:191
+msgid "istio-egressgateway port: 80 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:193
+msgid ""
+"destination: host: edition.cnn.com port: number: 443 weight: 100 — "
+"apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule metadata: "
+"name: originate-tls-for-edition-cnn-com spec: host: edition.cnn.com "
+"trafficPolicy: loadBalancer: simple: ROUND_ROBIN portLevelSettings:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:199
+msgid ""
+"port: number: 443 tls: mode: SIMPLE # initiates HTTPS for connections to "
+"edition.cnn.com EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:202
+msgid ""
+"Send an HTTP request to `http://edition.cnn.com/politics "
+"<https://edition.cnn.com/politics>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:208
+msgid ""
+"-o /dev/null -D - http://edition.cnn.com/politics HTTP/1.1 200 OK … "
+"content-length: 150793 …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:211
+msgid ""
+"The output should be the same as in the `TLS Origination for Egress "
+"Traffic </docs/tasks/traffic-management/egress/egress-tls-origination/>`_"
+" example, with TLS origination: without the *301 Moved Permanently* "
+"message."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:216
+msgid ""
+"Check the log of the ``istio-egressgateway`` pod and you should see a "
+"line corresponding to our request. If Istio is deployed in the ``istio-"
+"system`` namespace, the command to print the log is:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:223
+msgid "istio-proxy -n istio-system \\| tail"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:225
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:803
+msgid "You should see a line similar to the following:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:227
+msgid ""
+"{{< text plain>}} “[2018-06-14T13:49:36.340Z]”GET /politics HTTP/1.1\" "
+"200 - 0 148528 5096 90 “172.30.146.87” “curl/7.35.0” “c6bfdfc3-07ec-"
+"9c30-8957-6904230fd037” “edition.cnn.com” “151.101.65.67:443”"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:233
+msgid "Cleanup the TLS origination example"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:235
+msgid "Remove the Istio configuration items you created:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:240
+msgid ""
+"delete serviceentry cnn $ kubectl delete virtualservice direct-cnn-"
+"through-egress-gateway $ kubectl delete destinationrule originate-tls-"
+"for-edition-cnn-com $ kubectl delete destinationrule egressgateway-for-"
+"cnn"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:246
+msgid "Perform mutual TLS origination with an egress gateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:248
+msgid ""
+"Similar to the previous section, this section describes how to configure "
+"an egress gateway to perform TLS origination for an external service, "
+"only this time using a service that requires mutual TLS."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:252
+msgid "This example is considerably more involved because you need to first:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:254
+msgid "generate client and server certificates"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:255
+msgid "deploy an external service that supports the mutual TLS protocol"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:256
+msgid "redeploy the egress gateway with the needed mutual TLS certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:258
+msgid ""
+"Only then can you configure the external traffic to go through the egress"
+" gateway which will perform TLS origination."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:262
+msgid "Generate client and server certificates and keys"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:264
+msgid "Clone the https://github.com/nicholasjackson/mtls-go-example repository:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:270
+msgid "https://github.com/nicholasjackson/mtls-go-example"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:272
+msgid "Change directory to the cloned repository:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:278
+msgid ""
+"Generate the certificates for ``nginx.example.com``. Use any password "
+"with the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:285
+msgid "Select ``y`` for all prompts that appear."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:287
+msgid "Move the certificates into the ``nginx.example.com`` directory:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:292
+msgid "2_intermediate 3_application 4_client ../nginx.example.com {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:295
+msgid "Go back to your previous directory:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:302
+msgid "Deploy a mutual TLS server"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:304
+msgid ""
+"To simulate an actual external service that supports the mutual TLS "
+"protocol, deploy an `NGINX <https://www.nginx.com>`_ server in your "
+"Kubernetes cluster, but running outside of the Istio service mesh, i.e., "
+"in a namespace without Istio sidecar proxy injection enabled."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:309
+msgid ""
+"Create a namespace to represent services outside the Istio mesh, namely "
+"``mesh-external``. Note that the sidecar proxy will not be automatically "
+"injected into the pods in this namespace since the automatic sidecar "
+"injection was not `enabled </docs/setup/additional-setup/sidecar-"
+"injection/#deploying-an-app>`_ on it."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:319
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:321
+msgid ""
+"Create Kubernetes `Secrets "
+"<https://kubernetes.io/docs/concepts/configuration/secret/>`_ to hold the"
+" server’s and CA certificates."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:328
+msgid ""
+"nginx-server-certs –key "
+"nginx.example.com/3_application/private/nginx.example.com.key.pem –cert "
+"nginx.example.com/3_application/certs/nginx.example.com.cert.pem $ "
+"kubectl create -n mesh-external secret generic nginx-ca-certs –from-"
+"file=nginx.example.com/2_intermediate/certs/ca-chain.cert.pem"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:336
+msgid "Create a configuration file for the NGINX server:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:342
+msgid ""
+"http { log_format main ‘$remote_addr - :math:`remote_user [`\\ "
+"time_local] :math:`status '  '\"`\\ request\" :math:`body_bytes_sent "
+"\"`\\ http_referer\"’ ‘“:math:`http_user_agent\" \"`\\ "
+"http_x_forwarded_for”’; access_log /var/log/nginx/access.log main; "
+"error_log /var/log/nginx/error.log;"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:348
+msgid "server { listen 443 ssl;"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:361
+msgid "} } EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:363
+msgid ""
+"Create a Kubernetes `ConfigMap <https://kubernetes.io/docs/tasks"
+"/configure-pod-container/configure-pod-configmap/>`_ to hold the "
+"configuration of the NGINX server:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:370
+msgid "mesh-external –from-file=nginx.conf=./nginx.conf"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:372
+msgid "Deploy the NGINX server:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:377
+msgid ""
+"Service metadata: name: my-nginx namespace: mesh-external labels: run: "
+"my-nginx spec: ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:380
+msgid ""
+"port: 443 protocol: TCP selector: run: my-nginx — apiVersion: apps/v1 "
+"kind: Deployment metadata: name: my-nginx namespace: mesh-external spec: "
+"selector: matchLabels: run: my-nginx replicas: 1 template: metadata: "
+"labels: run: my-nginx spec: containers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:385
+msgid "name: my-nginx image: nginx ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:387
+msgid "containerPort: 443 volumeMounts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:388
+msgid "name: nginx-config mountPath: /etc/nginx readOnly: true"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:389
+msgid "name: nginx-server-certs mountPath: /etc/nginx-server-certs readOnly: true"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:391
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:480
+msgid ""
+"name: nginx-ca-certs mountPath: /etc/nginx-ca-certs readOnly: true "
+"volumes:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:394
+msgid "name: nginx-config configMap: name: nginx-configmap"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:395
+msgid "name: nginx-server-certs secret: secretName: nginx-server-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:396
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:484
+msgid "name: nginx-ca-certs secret: secretName: nginx-ca-certs EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:398
+msgid ""
+"Define a ``ServiceEntry`` and a ``VirtualService`` for "
+"``nginx.example.com`` to instruct Istio to direct traffic destined to "
+"``nginx.example.com`` to your NGINX server:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:405
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: nginx "
+"spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:408
+msgid "nginx.example.com ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:410
+msgid "number: 443 name: https protocol: HTTPS resolution: DNS endpoints:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:411
+msgid ""
+"address: my-nginx.mesh-external.svc.cluster.local ports: https: 443 — "
+"apiVersion: networking.istio.io/v1alpha3 kind: VirtualService metadata: "
+"name: nginx spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:414
+msgid "nginx.example.com tls:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:417
+msgid "port: 443 sni_hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:419
+msgid "nginx.example.com route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:421
+msgid "destination: host: nginx.example.com port: number: 443 weight: 100 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:425
+msgid "Deploy a container to test the NGINX deployment"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:427
+msgid ""
+"Create Kubernetes `Secrets "
+"<https://kubernetes.io/docs/concepts/configuration/secret/>`_ to hold the"
+" client’s and CA certificates:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:434
+msgid ""
+"nginx.example.com/4_client/private/nginx.example.com.key.pem –cert "
+"nginx.example.com/4_client/certs/nginx.example.com.cert.pem $ kubectl "
+"create secret generic nginx-ca-certs –from-"
+"file=nginx.example.com/2_intermediate/certs/ca-chain.cert.pem"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:440
+#, python-format
+msgid ""
+"Deploy the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ "
+"sample with mounted client and CA certificates to test sending requests "
+"to the NGINX server:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:448
+msgid ""
+"Authors # # Licensed under the Apache License, Version 2.0 (the "
+"“License”); # you may not use this file except in compliance with the "
+"License. # You may obtain a copy of the License at # # "
+"http://www.apache.org/licenses/LICENSE-2.0 # # Unless required by "
+"applicable law or agreed to in writing, software # distributed under the "
+"License is distributed on an “AS IS” BASIS, # WITHOUT WARRANTIES OR "
+"CONDITIONS OF ANY KIND, either express or implied. # See the License for "
+"the specific language governing permissions and # limitations under the "
+"License."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid "Sleep service"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:467
+msgid ""
+"apiVersion: v1 kind: Service metadata: name: sleep labels: app: sleep "
+"spec: ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:470
+msgid ""
+"port: 80 name: http selector: app: sleep — apiVersion: apps/v1 kind: "
+"Deployment metadata: name: sleep spec: replicas: 1 template: metadata: "
+"labels: app: sleep spec: containers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:474
+msgid ""
+"name: sleep image: tutum/curl command: [“/bin/sleep”,“infinity”] "
+"imagePullPolicy: IfNotPresent volumeMounts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:478
+msgid "name: nginx-client-certs mountPath: /etc/nginx-client-certs readOnly: true"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:483
+msgid "name: nginx-client-certs secret: secretName: nginx-client-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:486
+msgid "Define an environment variable to hold the name of the ``sleep`` pod:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:493
+#, python-format
+msgid ""
+"Use the deployed `sleep "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ pod to send "
+"requests to the NGINX server. Since ``nginx.example.com`` does not "
+"actually exist and therefore DNS cannot resolve it, the following "
+"``curl`` command uses the ``--resolve`` option to resolve the hostname "
+"manually. The IP value passed in the –resolve option (1.1.1.1 below) is "
+"not significant. Any value other than 127.0.0.1 can be used. Normally, a "
+"DNS entry exists for the destination hostname and you would not use the "
+"``--resolve`` option of ``curl``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:506
+msgid ""
+"–resolve nginx.example.com:443:1.1.1.1 –cacert /etc/nginx-ca-certs/ca-"
+"chain.cert.pem –cert /etc/nginx-client-certs/tls.crt –key /etc/nginx-"
+"client-certs/tls.key https://nginx.example.com … Server certificate: "
+"subject: C=US; ST=Denial; L=Springfield; O=Dis; CN=nginx.example.com "
+"start date: 2018-08-16 04:31:20 GMT expire date: 2019-08-26 04:31:20 GMT "
+"common name: nginx.example.com (matched) issuer: C=US; ST=Denial; O=Dis; "
+"CN=nginx.example.com SSL certificate verify ok. > GET / HTTP/1.1 > User-"
+"Agent: curl/7.35.0 > Host: nginx.example.com … < HTTP/1.1 200 OK"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:516
+msgid "< Server: nginx/1.15.2 … <!DOCTYPE html>"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:530
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:786
+msgid "Welcome to nginx!"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:536
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:792
+msgid "…"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:538
+msgid "Verify that the server requires the client’s certificate:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:543
+msgid ""
+"-o jsonpath={.items..metadata.name}) -c sleep – curl -k –resolve "
+"nginx.example.com:443:1.1.1.1 https://nginx.example.com"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:558
+msgid "400 No required SSL certificate was sent"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:580
+msgid "400 Bad Request"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:594
+msgid "No required SSL certificate was sent"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:608
+msgid "nginx/1.15.2"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:625
+msgid "Redeploy the egress gateway with the client certificates"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:627
+msgid ""
+"Create Kubernetes `Secrets "
+"<https://kubernetes.io/docs/concepts/configuration/secret/>`_ to hold the"
+" client’s and CA certificates."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:634
+msgid ""
+"nginx-client-certs –key "
+"nginx.example.com/4_client/private/nginx.example.com.key.pem –cert "
+"nginx.example.com/4_client/certs/nginx.example.com.cert.pem $ kubectl "
+"create -n istio-system secret generic nginx-ca-certs –from-"
+"file=nginx.example.com/2_intermediate/certs/ca-chain.cert.pem"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:641
+msgid ""
+"Generate the ``istio-egressgateway`` deployment with a volume to be "
+"mounted from the new secrets. Use the same options you used for "
+"generating your ``istio.yaml``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:647
+msgid "$ istioctl manifest generate –set"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:648
+msgid "values.gateways.istio-ingressgateway.enabled=false"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid "–set values.gateways.istio-egressgateway.enabled=true"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-egressgateway.secretVolumes[0].name"
+"’=egressgateway-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-egressgateway.secretVolumes[0].secretName"
+"’=istio-egressgateway-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-"
+"egressgateway.secretVolumes[0].mountPath’=/etc/istio/egressgateway-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-egressgateway.secretVolumes[1].name"
+"’=egressgateway-ca-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-egressgateway.secretVolumes[1].secretName"
+"’=istio-egressgateway-ca-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-"
+"egressgateway.secretVolumes[1].mountPath’=/etc/istio/egressgateway-ca-"
+"certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-egressgateway.secretVolumes[2].name’=nginx-"
+"client-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-egressgateway.secretVolumes[2].secretName"
+"’=nginx-client-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-"
+"egressgateway.secretVolumes[2].mountPath’=/etc/nginx-client-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-egressgateway.secretVolumes[3].name’=nginx-"
+"ca-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-egressgateway.secretVolumes[3].secretName"
+"’=nginx-ca-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid ""
+"–set ‘values.gateways.istio-"
+"egressgateway.secretVolumes[3].mountPath’=/etc/nginx-ca-certs >"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst
+msgid "./istio-egressgateway.yaml"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:677
+msgid "Redeploy ``istio-egressgateway``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:682
+msgid "deployment “istio-egressgateway” configured"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:684
+msgid ""
+"Verify that the key and the certificate are successfully loaded in the "
+"``istio-egressgateway`` pod:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:690
+msgid ""
+"istio-system get pods -l istio=egressgateway -o "
+"jsonpath=‘{.items[0].metadata.name}’) – ls -al /etc/nginx-client-certs "
+"/etc/nginx-ca-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:694
+msgid ""
+"``tls.crt`` and ``tls.key`` should exist in ``/etc/istio/nginx-client-"
+"certs``, while ``ca-chain.cert.pem`` in ``/etc/istio/nginx-ca-certs``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:699
+msgid "Configure mutual TLS origination for egress traffic"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:701
+msgid ""
+"Create an egress ``Gateway`` for ``nginx.example.com``, port 443, and "
+"destination rules and virtual services to direct the traffic through the "
+"egress gateway and from the egress gateway to the external service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:712
+msgid "port: number: 443 name: https protocol: HTTPS hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:714
+msgid ""
+"nginx.example.com tls: mode: MUTUAL serverCertificate: /etc/certs/cert-"
+"chain.pem privateKey: /etc/certs/key.pem caCertificates: /etc/certs/root-"
+"cert.pem — apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule"
+" metadata: name: egressgateway-for-nginx spec: host: istio-egressgateway"
+".istio-system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:721
+msgid ""
+"name: nginx trafficPolicy: loadBalancer: simple: ROUND_ROBIN "
+"portLevelSettings:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:724
+msgid "port: number: 443 tls: mode: ISTIO_MUTUAL sni: nginx.example.com EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:727
+msgid ""
+"Define a ``VirtualService`` to direct the traffic through the egress "
+"gateway, and a ``DestinationRule`` to perform mutual TLS origination:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:733
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: direct-"
+"nginx-through-egress-gateway spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:736
+msgid "nginx.example.com gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:745
+msgid ""
+"destination: host: istio-egressgateway.istio-system.svc.cluster.local "
+"subset: nginx port: number: 443 weight: 100"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:753
+msgid "istio-egressgateway port: 443 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:755
+msgid ""
+"destination: host: nginx.example.com port: number: 443 weight: 100 — "
+"apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule metadata: "
+"name: originate-mtls-for-nginx spec: host: nginx.example.com "
+"trafficPolicy: loadBalancer: simple: ROUND_ROBIN portLevelSettings:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:760
+msgid ""
+"port: number: 443 tls: mode: MUTUAL clientCertificate: /etc/nginx-client-"
+"certs/tls.crt privateKey: /etc/nginx-client-certs/tls.key caCertificates:"
+" /etc/nginx-ca-certs/ca-chain.cert.pem sni: nginx.example.com EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:766
+msgid "Send an HTTP request to ``http://nginx.example.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:771
+msgid ""
+"–resolve nginx.example.com:80:1.1.1.1 http://nginx.example.com <!DOCTYPE "
+"html>"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:794
+msgid ""
+"Check the log of the ``istio-egressgateway`` pod for a line corresponding"
+" to our request. If Istio is deployed in the ``istio-system`` namespace, "
+"the command to print the log is:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:801
+msgid "istio-system \\| grep ‘nginx.example.com’ \\| grep HTTP"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:805
+msgid ""
+"{{< text plain>}} [2018-08-19T18:20:40.096Z] “GET / HTTP/1.1” 200 - 0 612"
+" 7 5 “172.30.146.114” “curl/7.35.0” "
+"“b942b587-fac2-9756-8ec6-303561356204” “nginx.example.com” "
+"“172.21.72.197:443”"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:811
+msgid "Cleanup the mutual TLS origination example"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:813
+msgid "Remove created Kubernetes resources:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:818
+msgid ""
+"nginx-ca-certs -n mesh-external $ kubectl delete secret nginx-client-"
+"certs nginx-ca-certs $ kubectl delete secret nginx-client-certs nginx-ca-"
+"certs -n istio-system $ kubectl delete configmap nginx-configmap -n mesh-"
+"external $ kubectl delete service my-nginx -n mesh-external $ kubectl "
+"delete deployment my-nginx -n mesh-external $ kubectl delete namespace "
+"mesh-external $ kubectl delete gateway istio-egressgateway $ kubectl "
+"delete serviceentry nginx $ kubectl delete virtualservice direct-nginx-"
+"through-egress-gateway $ kubectl delete destinationrule originate-mtls-"
+"for-nginx $ kubectl delete destinationrule egressgateway-for-nginx"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:830
+msgid ""
+"Delete the directory of certificates and the repository used to generate "
+"them:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:837
+msgid "Delete the generated configuration files used in this example:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:844
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:846
+msgid "Delete the ``sleep`` service and deployment:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway-tls-origination/index.rst:851
+msgid "deployment sleep"
+msgstr ""
+

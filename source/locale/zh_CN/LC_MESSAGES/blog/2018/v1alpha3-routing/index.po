@@ -1,0 +1,575 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:2
+msgid "v1alpha3-routing"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:4
+msgid ""
+"Up until now, Istio has provided a simple API for traffic management "
+"using four configuration resources: ``RouteRule``, ``DestinationPolicy``,"
+" ``EgressRule``, and (Kubernetes) ``Ingress``. With this API, users have "
+"been able to easily manage the flow of traffic in an Istio service mesh. "
+"The API has allowed users to route requests to specific versions of "
+"services, inject delays and failures for resilience testing, add timeouts"
+" and circuit breakers, and more, all without changing the application "
+"code itself."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:13
+msgid ""
+"While this functionality has proven to be a very compelling part of "
+"Istio, user feedback has also shown that this API does have some "
+"shortcomings, specifically when using it to manage very large "
+"applications containing thousands of services, and when working with "
+"protocols other than HTTP. Furthermore, the use of Kubernetes ``Ingress``"
+" resources to configure external traffic has proven to be woefully "
+"insufficient for our needs."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:21
+msgid ""
+"To address these, and other concerns, a new traffic management API, "
+"a.k.a. ``v1alpha3``, is being introduced, which will completely replace "
+"the previous API going forward. Although the ``v1alpha3`` model is "
+"fundamentally the same, it is not backward compatible and will require "
+"manual conversion from the old API."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:27
+msgid ""
+"To justify this disruption, the ``v1alpha3`` API has gone through a long "
+"and painstaking community review process that has hopefully resulted in a"
+" greatly improved API that will stand the test of time. In this article, "
+"we will introduce the new configuration model and attempt to explain some"
+" of the motivation and design principles that influenced it."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:34
+msgid "Design principles"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:36
+msgid "A few key design principles played a role in the routing model redesign:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:38
+msgid ""
+"Explicitly model infrastructure as well as intent. For example, in "
+"addition to configuring an ingress gateway, the component (controller) "
+"implementing it can also be specified."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:41
+msgid ""
+"The authoring model should be “producer oriented” and “host centric” as "
+"opposed to compositional. For example, all rules associated with a "
+"particular host are configured together, instead of individually."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:44
+msgid "Clear separation of routing from post-routing behaviors."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:47
+msgid "Configuration resources in v1alpha3"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:49
+msgid ""
+"A typical mesh will have one or more load balancers (we call them "
+"gateways) that terminate TLS from external networks and allow traffic "
+"into the mesh. Traffic then flows through internal services via sidecar "
+"gateways. It is also common for applications to consume external services"
+" (e.g., Google Maps API). These may be called directly or, in certain "
+"deployments, all traffic exiting the mesh may be forced through dedicated"
+" egress gateways. The following diagram depicts this mental model."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:63
+msgid ""
+"With the above setup in mind, ``v1alpha3`` introduces the following new "
+"configuration resources to control traffic routing into, within, and out "
+"of the mesh."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:67
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:84
+msgid "``Gateway``"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:68
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:136
+msgid "``VirtualService``"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:69
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:233
+msgid "``DestinationRule``"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:70
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:269
+msgid "``ServiceEntry``"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:72
+msgid ""
+"``VirtualService``, ``DestinationRule``, and ``ServiceEntry`` replace "
+"``RouteRule``, ``DestinationPolicy``, and ``EgressRule`` respectively. "
+"The ``Gateway`` is a platform independent abstraction to model the "
+"traffic flowing into dedicated middleboxes."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:77
+msgid ""
+"The figure below depicts the flow of control across configuration "
+"resources."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:86
+msgid ""
+"A `Gateway </docs/reference/config/networking/gateway/>`_ configures a "
+"load balancer for HTTP/TCP traffic, regardless of where it will be "
+"running. Any number of gateways can exist within the mesh and multiple "
+"different gateway implementations can co-exist. In fact, a gateway "
+"configuration can be bound to a particular workload by specifying the set"
+" of workload (pod) labels as part of the configuration, allowing users to"
+" reuse off the shelf network appliances by writing a simple gateway "
+"controller."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:95
+msgid ""
+"For ingress traffic management, you might ask: *Why not reuse Kubernetes "
+"Ingress APIs*? The Ingress APIs proved to be incapable of expressing "
+"Istio’s routing needs. By trying to draw a common denominator across "
+"different HTTP proxies, the Ingress is only able to support the most "
+"basic HTTP routing and ends up pushing every other feature of modern "
+"proxies into non-portable annotations."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:102
+msgid ""
+"Istio ``Gateway`` overcomes the ``Ingress`` shortcomings by separating "
+"the L4-L6 spec from L7. It only configures the L4-L6 functions (e.g., "
+"ports to expose, TLS configuration) that are uniformly implemented by all"
+" good L7 proxies. Users can then use standard Istio rules to control HTTP"
+" requests as well as TCP traffic entering a ``Gateway`` by binding a "
+"``VirtualService`` to it."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:109
+msgid ""
+"For example, the following simple ``Gateway`` configures a load balancer "
+"to allow external https traffic for host ``bookinfo.com`` into the mesh:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:115
+msgid ""
+"metadata: name: bookinfo-gateway spec: servers: - port: number: 443 name:"
+" https protocol: HTTPS hosts: - bookinfo.com tls: mode: SIMPLE "
+"serverCertificate: /tmp/tls.crt privateKey: /tmp/tls.key"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:119
+msgid ""
+"To configure the corresponding routes, a ``VirtualService`` (described in"
+" the `following section <#virtualservice>`_) must be defined for the same"
+" host and bound to the ``Gateway`` using the ``gateways`` field in the "
+"configuration:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:127
+msgid ""
+"VirtualService metadata: name: bookinfo spec: hosts: - bookinfo.com "
+"gateways: - bookinfo-gateway # <—- bind to gateway http: - match: - uri: "
+"prefix: /reviews route: …"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:131
+msgid ""
+"The ``Gateway`` can be used to model an edge-proxy or a purely internal "
+"proxy as shown in the first figure. Irrespective of the location, all "
+"gateways can be configured and controlled in the same way."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:138
+msgid ""
+"Replacing route rules with something called “virtual services” might seem"
+" peculiar at first, but in reality it’s fundamentally a much better name "
+"for what is being configured, especially after redesigning the API to "
+"address the scalability issues with the previous model."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:143
+msgid ""
+"In effect, what has changed is that instead of configuring routing using "
+"a set of individual configuration resources (rules) for a particular "
+"destination service, each containing a precedence field to control the "
+"order of evaluation, we now configure the (virtual) destination itself, "
+"with all of its rules in an ordered list within a corresponding "
+"```VirtualService`` </docs/reference/config/networking/virtual-"
+"service/>`_ resource. For example, where previously we had two "
+"``RouteRule`` resources for the `Bookinfo </docs/examples/bookinfo/>`_ "
+"application’s ``reviews`` service, like this:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:156
+msgid ""
+"metadata: name: reviews-default spec: destination: name: reviews "
+"precedence: 1 route: - labels: version: v1 — apiVersion: "
+"config.istio.io/v1alpha2 kind: RouteRule metadata: name: reviews-test-v2 "
+"spec: destination: name: reviews precedence: 2 match: request: headers: "
+"cookie: regex: “^(.\\ *?;)?(user=jason)(;.*)?$” route: - labels: version:"
+" v2"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:163
+msgid ""
+"In ``v1alpha3``, we provide the same configuration in a single "
+"``VirtualService`` resource:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:169
+msgid ""
+"VirtualService metadata: name: reviews spec: hosts: - reviews http: - "
+"match: - headers: cookie: regex: “^(.\\ *?;)?(user=jason)(;.*)?$” route: "
+"- destination: host: reviews subset: v2 - route: - destination: host: "
+"reviews subset: v1"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:174
+msgid ""
+"As you can see, both of the rules for the ``reviews`` service are "
+"consolidated in one place, which at first may or may not seem preferable."
+" However, if you look closer at this new model, you’ll see there are "
+"fundamental differences that make ``v1alpha3`` vastly more functional."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:180
+msgid ""
+"First of all, notice that the destination service for the "
+"``VirtualService`` is specified using a ``hosts`` field (repeated field, "
+"in fact) and is then again specified in a ``destination`` field of each "
+"of the route specifications. This is a very important difference from the"
+" previous model."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:186
+msgid ""
+"A ``VirtualService`` describes the mapping between one or more user-"
+"addressable destinations to the actual destination workloads inside the "
+"mesh. In our example, they are the same, however, the user-addressed "
+"hosts can be any DNS names with optional wildcard prefix or CIDR prefix "
+"that will be used to address the service. This can be particularly useful"
+" in facilitating turning monoliths into a composite service built out of "
+"distinct microservices without requiring the consumers of the service to "
+"adapt to the transition."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:195
+msgid ""
+"For example, the following rule allows users to address both the "
+"``reviews`` and ``ratings`` services of the Bookinfo application as if "
+"they are parts of a bigger (virtual) service at ``http://bookinfo.com/``:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:203
+msgid ""
+"VirtualService metadata: name: bookinfo spec: hosts: - bookinfo.com http:"
+" - match: - uri: prefix: /reviews route: - destination: host: reviews - "
+"match: - uri: prefix: /ratings route: - destination: host: ratings …"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:208
+msgid ""
+"The hosts of a ``VirtualService`` do not actually have to be part of the "
+"service registry, they are simply virtual destinations. This allows users"
+" to model traffic for virtual hosts that do not have routable entries "
+"inside the mesh. These hosts can be exposed outside the mesh by binding "
+"the ``VirtualService`` to a ``Gateway`` configuration for the same host "
+"(as described in the `previous section <#gateway>`_)."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:215
+msgid ""
+"In addition to this fundamental restructuring, ``VirtualService`` "
+"includes several other important changes:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:218
+msgid ""
+"Multiple match conditions can be expressed inside the ``VirtualService`` "
+"configuration, reducing the need for redundant rules."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:222
+msgid ""
+"Each service version has a name (called a service subset). The set of "
+"pods/VMs belonging to a subset is defined in a ``DestinationRule``, "
+"described in the following section."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:226
+msgid ""
+"``VirtualService`` hosts can be specified using wildcard DNS prefixes to "
+"create a single rule for all matching services. For example, in "
+"Kubernetes, to apply the same rewrite rule for all services in the "
+"``foo`` namespace, the ``VirtualService`` would use "
+"``*.foo.svc.cluster.local`` as the host."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:235
+msgid ""
+"A ```DestinationRule`` </docs/reference/config/networking/destination-"
+"rule/>`_ configures the set of policies to be applied while forwarding "
+"traffic to a service. They are intended to be authored by service owners,"
+" describing the circuit breakers, load balancer settings, TLS settings, "
+"etc.. ``DestinationRule`` is more or less the same as its predecessor, "
+"``DestinationPolicy``, with the following exceptions:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:243
+msgid ""
+"The ``host`` of a ``DestinationRule`` can include wildcard prefixes, "
+"allowing a single rule to be specified for many actual services."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:245
+msgid ""
+"A ``DestinationRule`` defines addressable ``subsets`` (i.e., named "
+"versions) of the corresponding destination host. These subsets are used "
+"in ``VirtualService`` route specifications when sending traffic to "
+"specific versions of the service. Naming versions this way allows us to "
+"cleanly refer to them across different virtual services, simplify the "
+"stats that Istio proxies emit, and to encode subsets in SNI headers."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:253
+msgid ""
+"A ``DestinationRule`` that configures policies and subsets for the "
+"reviews service might look something like this:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:259
+msgid ""
+"DestinationRule metadata: name: reviews spec: host: reviews "
+"trafficPolicy: loadBalancer: simple: RANDOM subsets: - name: v1 labels: "
+"version: v1 - name: v2 labels: version: v2 trafficPolicy: loadBalancer: "
+"simple: ROUND_ROBIN - name: v3 labels: version: v3"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:264
+msgid ""
+"Notice that, unlike ``DestinationPolicy``, multiple policies (e.g., "
+"default and v2-specific) are specified in a single ``DestinationRule`` "
+"configuration."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:271
+msgid ""
+"```ServiceEntry`` </docs/reference/config/networking/service-entry/>`_ is"
+" used to add additional entries into the service registry that Istio "
+"maintains internally. It is most commonly used to allow one to model "
+"traffic to external dependencies of the mesh such as APIs consumed from "
+"the web or traffic to services in legacy infrastructure."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:277
+msgid ""
+"Everything you could previously configure using an ``EgressRule`` can "
+"just as easily be done with a ``ServiceEntry``. For example, access to a "
+"simple external service from inside the mesh can be enabled using a "
+"configuration something like this:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:285
+msgid ""
+"ServiceEntry metadata: name: foo-ext spec: hosts: - foo.com ports: - "
+"number: 80 name: http protocol: HTTP"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:288
+msgid ""
+"That said, ``ServiceEntry`` has significantly more functionality than its"
+" predecessor. First of all, a ``ServiceEntry`` is not limited to external"
+" service configuration, it can be of two types: mesh-internal or mesh-"
+"external. Mesh-internal entries are like all other internal services but "
+"are used to explicitly add services to the mesh. They can be used to add "
+"services as part of expanding the service mesh to include unmanaged "
+"infrastructure (e.g., VMs added to a Kubernetes-based service mesh). "
+"Mesh-external entries represent services external to the mesh. For them, "
+"mutual TLS authentication is disabled and policy enforcement is performed"
+" on the client-side, instead of on the usual server-side for internal "
+"service requests."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:300
+msgid ""
+"Because a ``ServiceEntry`` configuration simply adds a destination to the"
+" internal service registry, it can be used in conjunction with a "
+"``VirtualService`` and/or ``DestinationRule``, just like any other "
+"service in the registry. The following ``DestinationRule``, for example, "
+"can be used to initiate mutual TLS connections for an external service:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:309
+msgid ""
+"DestinationRule metadata: name: foo-ext spec: host: foo.com "
+"trafficPolicy: tls: mode: MUTUAL clientCertificate: "
+"/etc/certs/myclientcert.pem privateKey: /etc/certs/client_private_key.pem"
+" caCertificates: /etc/certs/rootcacerts.pem"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:315
+msgid ""
+"In addition to its expanded generality, ``ServiceEntry`` provides several"
+" other improvements over ``EgressRule`` including the following:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:318
+msgid ""
+"A single ``ServiceEntry`` can configure multiple service endpoints, which"
+" previously would have required multiple ``EgressRules``."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:320
+msgid ""
+"The resolution mode for the endpoints is now configurable (``NONE``, "
+"``STATIC``, or ``DNS``)."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:322
+msgid ""
+"Additionally, we are working on addressing another pain point: the need "
+"to access secure external services over plain text ports (e.g., "
+"``http://google.com:443``). This should be fixed in the coming weeks, "
+"allowing you to directly access ``https://google.com`` from your "
+"application. Stay tuned for an Istio patch release (0.8.x) that addresses"
+" this limitation."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:330
+msgid "Creating and deleting v1alpha3 route rules"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:332
+msgid ""
+"Because all route rules for a given destination are now stored together "
+"as an ordered list in a single ``VirtualService`` resource, adding a "
+"second and subsequent rules for a particular destination is no longer "
+"done by creating a new (``RouteRule``) resource, but instead by updating "
+"the one-and-only ``VirtualService`` resource for the destination."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:338
+msgid "old routing rules:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:343
+msgid "my-second-rule-for-destination-abc.yaml"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:345
+msgid "``v1alpha3`` routing rules:"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:350
+msgid "my-updated-rules-for-destination-abc.yaml"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:352
+msgid ""
+"Deleting route rules other than the last one for a particular destination"
+" is also done by updating the existing resource using ``kubectl apply``."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:356
+msgid ""
+"When adding or removing routes that refer to service versions, the "
+"``subsets`` will need to be updated in the service’s corresponding "
+"``DestinationRule``. As you might have guessed, this is also done using "
+"``kubectl apply``."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:362
+msgid "Summary"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:364
+msgid ""
+"The Istio ``v1alpha3`` routing API has significantly more functionality "
+"than its predecessor, but unfortunately is not backwards compatible, "
+"requiring a one time manual conversion. The previous configuration "
+"resources, ``RouteRule``, ``DesintationPolicy``, and ``EgressRule``, will"
+" not be supported from Istio 0.9 onwards. Kubernetes users can continue "
+"to use ``Ingress`` to configure their edge load balancers for basic "
+"routing. However, advanced routing features (e.g., traffic split across "
+"two versions) will require use of ``Gateway``, a significantly more "
+"functional and highly recommended ``Ingress`` replacement."
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:375
+msgid "Acknowledgments"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:377
+msgid ""
+"Credit for the routing model redesign and implementation work goes to the"
+" following people (in alphabetical order):"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:380
+msgid "Frank Budinsky (IBM)"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:381
+msgid "Zack Butcher (Google)"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:382
+msgid "Greg Hanson (IBM)"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:383
+msgid "Costin Manolache (Google)"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:384
+msgid "Martin Ostrowski (Google)"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:385
+msgid "Shriram Rajagopalan (VMware)"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:386
+msgid "Louis Ryan (Google)"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:387
+msgid "Isaiah Snell-Feikema (IBM)"
+msgstr ""
+
+#: ../../source/blog/2018/v1alpha3-routing/index.rst:388
+msgid "Kuat Yessenov (Google)"
+msgstr ""
+

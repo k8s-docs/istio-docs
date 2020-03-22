@@ -1,0 +1,64 @@
+IBM Cloud
+============================
+
+Follow these instructions to prepare a cluster for Istio using the `IBM
+Cloud Kubernetes
+Service <https://cloud.ibm.com/docs/containers?topic=containers-getting-started>`_.
+To install Istio on IBM Cloud Private, refer to `Istio on IBM Cloud
+Private <https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.1/manage_cluster/istio.html>`_
+instead.
+
+.. note::
+
+   IBM offers a {{< gloss >}}managed control plane{{< /gloss
+>}} add-on for the IBM Cloud Kubernetes Service, which you can use
+instead of installing Istio manually. Refer to `Istio on IBM Cloud
+Kubernetes
+Service <https://cloud.ibm.com/docs/containers?topic=containers-istio>`_
+for details and instructions.
+
+To prepare a cluster before manually installing Istio, proceed as
+follows:
+
+1. `Install the IBM Cloud CLI, the IBM Cloud Kubernetes Service plug-in,
+   and the Kubernetes
+   CLI <https://cloud.ibm.com/docs/containers?topic=containers-cs_cli_install>`_.
+
+2. Create a standard Kubernetes cluster using the following command.
+   Replace ``<cluster-name>`` with the name you want to use for your
+   cluster and ``<zone-name>`` with the name of an available zone.
+
+   .. note::
+
+   You can display your available zones by running
+   ``ibmcloud ks zones``. The IBM Cloud Kubernetes Service `Locations
+   Reference
+   Guide <https://cloud.ibm.com/docs/containers?topic=containers-regions-and-zones>`_
+   describes the available zones and how to specify them.
+
+   | .. code:: sh
+
+      $ ibmcloud ks cluster create classic –zone
+     –machine-type b3c.4x16
+   | –workers 3 –name
+
+   .. note::
+
+   If you already have a private or a public VLAN, you must
+   specify them in the above command using the ``--private-vlan`` and
+   ``--public-vlan`` options. Otherwise, they will be automatically
+   created for you. You can view your available VLANs by running
+   ``ibmcloud ks vlans --zone <zone-name>``.
+
+3. Run the following command to download your cluster configuration for
+   ``kubectl`` and then set the ``KUBECONFIG`` environment variable as
+   specified in the command output.
+
+   .. code:: sh
+
+      $ ibmcloud ks cluster config –cluster
+
+   .. warning::
+
+   Make sure to use the ``kubectl`` CLI version that
+   matches the Kubernetes version of your cluster.

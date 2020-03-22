@@ -1,0 +1,356 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/contribute/add-content/index.rst:2
+msgid "add-content"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:4
+msgid "To contribute new documentation to Istio, just follow these steps:"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:6
+msgid "Identify the audience and intended use for the information."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:7
+msgid "Choose the `type of content <#content-types>`_ you wish to contribute."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:9
+msgid "`Choose a title <#choosing-a-title>`_."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:10
+msgid ""
+"Write your contribution following our `documentation contribution guides "
+"</about/contribute>`_."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:12
+msgid ""
+"Submit your contribution to our `GitHub repository "
+"<https://github.com/istio/istio.io>`_."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:14
+msgid ""
+"Follow our `review process </about/contribute/review>`_ until your "
+"contribution is merged."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:18
+msgid "Identify the audience and intended use"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:20
+msgid ""
+"The best documentation starts by knowing the intended readers, their "
+"knowledge, and what you expect them to do with the information. "
+"Otherwise, you cannot determine the appropriate scope and depth of "
+"information to provide, its ideal structure, or the necessary supporting "
+"information. The following examples show this principle in action:"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:26
+msgid ""
+"The reader needs to perform a specific task: Tell them how to recognize "
+"when the task is necessary and provide the task itself as a list of "
+"numbered steps, don’t simply describe the task in general terms."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:31
+msgid ""
+"The reader must understand a concept before they can perform a task: "
+"Before the task, tell them about the prerequisite information and provide"
+" a link to it."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:35
+msgid ""
+"The reader needs to make a decision: Provide the conceptual information "
+"necessary to know when to make the decision, the available options, and "
+"when to choose one option instead of the other."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:40
+msgid ""
+"The reader is an administrator but not a SWE: Provide a script, not a "
+"link to a code sample in a developer’s guide."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:43
+msgid ""
+"The reader needs to extend the features of the product: Provide an "
+"example of how to extend the feature, using a simplified scenario for "
+"illustration purposes."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:47
+msgid ""
+"The reader needs to understand complex feature relationships: Provide a "
+"diagram showing the relationships, rather than writing multiple pages of "
+"content that is tedious to read and understand."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:51
+msgid ""
+"The most important thing to avoid is the common mistake of simply giving "
+"readers all the information you have, because you are unsure about what "
+"information they need."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:55
+msgid ""
+"If you need help identifying the audience for you content, we are happy "
+"to help and answer all your questions during the `Docs Working Group "
+"<https://github.com/istio/community/blob/master/WORKING-GROUPS.md#istio-"
+"working-groups>`_ biweekly meetings."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:61
+msgid "Content types"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:63
+msgid ""
+"When you understand the audience and the intended use for the information"
+" you provide, you can choose content type that best addresses their "
+"needs. To make it easy for you to choose, the following table shows the "
+"supported content types, their intended audiences, and the goals each "
+"type strives to achieve:"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:85
+msgid "Content type"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:95
+msgid "Goals"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:105
+msgid "Audiences"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:127
+msgid "Concepts"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:137
+msgid ""
+"Explain some significant aspect of Istio. For example, a concept page "
+"describes the configuration model of a feature and explains its "
+"functionality. Concept pages don’t include sequences of steps. Instead, "
+"provide links to corresponding tasks."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:150
+msgid ""
+"Readers that want to understand how features work with only basic "
+"knowledge of the project."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:169
+msgid "Reference pages"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:179
+msgid ""
+"Provide exhaustive and detailed technical information. Common examples "
+"include API parameters, command-line options, configuration settings, and"
+" advanced procedures. Reference content is generated from the Istio code "
+"base and tested for accuracy."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:192
+msgid ""
+"Readers with advanced and deep technical knowledge of the project that "
+"needs specific bits of information to complete advanced tasks."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:211
+msgid "Examples"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:221
+msgid ""
+"Describe a working and stand-alone example that highlights a set of "
+"features, an integration of Istio with other projects, or an end-to-end "
+"solution for a use case. Examples must use an existing Istio setup as a "
+"starting point. Examples must include an automated test since they are "
+"maintained for technical accuracy."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:235
+msgid ""
+"Readers that want to quickly run the example themselves and experiment. "
+"Ideally, readers should be able to easily change the example to produce "
+"their own solutions."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:255
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:265
+msgid ""
+"Shows how to achieve a single goal using Istio features. Tasks contain "
+"procedures written as a sequence of steps. Tasks provide minimal "
+"explanation of the features, but include links to the concepts that "
+"provide the related background and knowledge. Tasks must include "
+"automated tests since they are tested and maintained for technical "
+"accuracy."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:280
+msgid "Readers that want to use Istio features."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:298
+msgid "Setup pages"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:308
+msgid ""
+"Focus on the installation steps needed to complete an Istio deployment. "
+"Setup pages must include automated tests since they are tested and "
+"maintained for technical accuracy."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:320
+msgid "New and existing Istio users that want to complete a deployment."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:338
+msgid "Blog posts"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:348
+msgid ""
+"Focus on Istio or products and technologies related to it. Blog posts "
+"fall in one of the following three categories:"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:359
+msgid ""
+"Posts detailing the author’s experience using and configuring Istio, "
+"especially those that articulate a novel experience or perspective."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:370
+msgid "Posts highlighting Istio features."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:380
+msgid ""
+"Posts detailing how to accomplish a task or fulfill a specific use case "
+"using Istio. Unlike Tasks and Examples, the technical accuracy of blog "
+"posts is not maintained and tested after publication."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:400
+msgid ""
+"Readers with a basic understanding of the project who want to learn about"
+" it in an anecdotal, experiential, and more informal way."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:419
+msgid "News entries"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:429
+msgid ""
+"Focus on timely information about Istio and related events. News entries "
+"typically announce new releases or upcoming events."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:440
+msgid ""
+"Readers that want to quickly learn what’s new and what’s happening in the"
+" Istio community."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:459
+msgid "FAQ entries"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:469
+msgid ""
+"Provide quick answers to common questions. Answers don’t introduce any "
+"concepts. Instead, they provide practical advice or insights. Answers "
+"must link to tasks, concepts, or examples in the documentation for "
+"readers to learn more."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:482
+msgid ""
+"Readers with specific questions who are looking for brief answers and "
+"resources to learn more."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:501
+msgid "Operation guides"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:511
+msgid ""
+"Focus on practical solutions that address specific problems encountered "
+"while running Istio in a real-world setting."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:522
+msgid ""
+"Service mesh operators that want to fix problems or implement solutions "
+"for running Istio deployments."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:538
+msgid "Choosing a title"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:540
+msgid ""
+"Choose a title for your topic that has the keywords you want search "
+"engines to find. All content files in Istio are named ``index.md``, but "
+"each content file is within a folder that uses the keywords in the "
+"topic’s title, separated by hyphens, all in lowercase. Keep folder names "
+"as short as possible to make cross-references easier to create and "
+"maintain."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:548
+msgid "Submit your contribution to GitHub"
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:550
+msgid ""
+"If you are not familiar with GitHub, see our `working with GitHub guide "
+"</about/contribute/github>`_ to learn how to submit documentation "
+"changes."
+msgstr ""
+
+#: ../../source/about/contribute/add-content/index.rst:554
+msgid ""
+"If you want to learn more about how and when your contributions are "
+"published, see the `section on branching </about/contribute/github"
+"#branching-strategy>`_ to understand how we use branches and cherry "
+"picking to publish our content."
+msgstr ""
+

@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:2
+msgid "incorrect-sidecar-image-1.2.4"
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:4
+msgid "o the Istio’s user community,"
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:6
+msgid ""
+"For the period between Aug 23rd 2019 09:16PM PST and Sep 6th 2019 09:26AM"
+" PST a Docker image shipped as Istio ``proxyv2`` 1.2.4 (c.f. "
+"https://hub.docker.com/r/istio/proxyv2 ) contained a faulty version of "
+"the proxy against the vulnerabilities `ISTIO-SECURITY-2019-003 "
+"</news/security/istio-security-2019-003/>`_ and `ISTIO-SECURITY-2019-004 "
+"</news/security/istio-security-2019-004/>`_."
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:14
+msgid ""
+"If you have installed Istio 1.2.4 during that time, please consider "
+"upgrading to Istio 1.2.5 that also contains additional security fixes."
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:18
+msgid "Detailed explanation"
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:20
+msgid ""
+"Because of the communication embargo that we have exercised when fixing "
+"the recent HTTP2 DoS vulnerabilities, as it is usual for this type of "
+"release, we have built, in advance, a fixed image of the sidecar "
+"privately. At the moment of the public disclosure, we pushed that image "
+"manually on Docker hub."
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:26
+msgid ""
+"For any release that isn’t fixing a privately disclosed security "
+"vulnerability, this Docker image is usually pushed through our release "
+"pipeline job, entirely automatically."
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:30
+msgid ""
+"Our automated release process does not work correctly with the manual "
+"interactions required by the vulnerability disclosure embargo: the "
+"release pipeline code kept a reference to an outdated version of the "
+"Istio repository."
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:35
+msgid ""
+"For a problem to occur, an automated build needed to be launched on an "
+"old version, this is what happened during the release of Istio 1.2.5: we "
+"have experienced a problem that required a `revert commit "
+"<https://github.com/istio-"
+"releases/pipeline/commit/635d276ad7eac01bef9c3f195520a0f722626c0f>`_ "
+"which triggered a rebuild of 1.2.4 against an outdated version of Istio’s"
+" code."
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:42
+msgid ""
+"This revert commit happened on Aug 23rd 2019 09:16PM PST. We have noticed"
+" this problem and pushed back the fixed image on Sep 6th 2019 09:26AM "
+"PST."
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:46
+msgid ""
+"We are sorry for any inconvenience you may have experienced due to this "
+"incident, and `are working towards a better release system "
+"<https://github.com/istio/istio/issues/16887>`_, as well as a more "
+"efficient way to deal with vulnerability reports."
+msgstr ""
+
+#: ../../source/news/security/incorrect-sidecar-image-1.2.4/index.rst:51
+msgid "The release managers for 1.2"
+msgstr ""
+

@@ -1,0 +1,908 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:2
+msgid "Secure Gateways (SDS)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:4
+msgid ""
+"The `Control Ingress Traffic task </docs/tasks/traffic-"
+"management/ingress>`_ describes how to configure an ingress gateway to "
+"expose an HTTP service to external traffic. This task shows how to expose"
+" a secure HTTPS service using either simple or mutual TLS."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:10
+msgid ""
+"The TLS required private key, server certificate, and root certificate, "
+"are configured using the Secret Discovery Service (SDS)."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:14
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:16
+#, python-format
+msgid ""
+"Perform the steps in the `Before you begin </docs/tasks/traffic-"
+"management/ingress/ingress-control#before-you-begin>`_ and `Determining "
+"the ingress IP and ports </docs/tasks/traffic-management/ingress/ingress-"
+"control/#determining-the-ingress-ip-and-ports>`_ sections of the `Control"
+" Ingress Traffic </docs/tasks/traffic-management/ingress/ingress-"
+"control>`_ task. After performing those steps you should have Istio and "
+"the `httpbin <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/httpbin>`_ "
+"service deployed, and the environment variables ``INGRESS_HOST`` and "
+"``SECURE_INGRESS_PORT`` set."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:27
+msgid ""
+"For macOS users, verify that you use ``curl`` compiled with the `LibreSSL"
+" <http://www.libressl.org>`_ library:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:33
+msgid ""
+"(x86_64-apple-darwin17.0) libcurl/7.54.0 LibreSSL/2.0.20 zlib/1.2.11 "
+"nghttp2/1.24.0"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:36
+msgid ""
+"If the previous command outputs a version of LibreSSL as shown, your "
+"``curl`` command should work correctly with the instructions in this "
+"task. Otherwise, try a different implementation of ``curl``, for example "
+"on a Linux machine."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:43
+msgid "If you configured an ingress gateway using the `file"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:44
+msgid ""
+"mount-based approach </docs/tasks/traffic-management/ingress/secure-"
+"ingress-mount>`_, and you want to migrate your ingress gateway to use the"
+" SDS approach, there are no extra steps required."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:50
+msgid "Generate client and server certificates and keys"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:52
+msgid ""
+"For this task you can use your favorite tool to generate certificates and"
+" keys. The commands below use `openssl "
+"<https://man.openbsd.org/openssl.1>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:56
+msgid ""
+"Create a root certificate and private key to sign the certificates for "
+"your services:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:62
+msgid ""
+"-newkey rsa:2048 -subj ‘/O=example Inc./CN=example.com’ -keyout "
+"example.com.key -out example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:65
+msgid "Create a certificate and a private key for ``httpbin.example.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:70
+msgid ""
+"rsa:2048 -nodes -keyout httpbin.example.com.key -subj "
+"“/CN=httpbin.example.com/O=httpbin organization” $ openssl x509 -req "
+"-days 365 -CA example.com.crt -CAkey example.com.key -set_serial 0 -in "
+"httpbin.example.com.csr -out httpbin.example.com.crt {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:77
+msgid "Configure a TLS ingress gateway using SDS"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:79
+msgid ""
+"You can configure a TLS ingress gateway to fetch credentials from the "
+"ingress gateway agent via secret discovery service (SDS). The ingress "
+"gateway agent runs in the same pod as the ingress gateway and watches the"
+" credentials created in the same namespace as the ingress gateway. "
+"Enabling SDS at ingress gateway brings the following benefits."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:85
+msgid ""
+"The ingress gateway can dynamically add, delete, or update its "
+"key/certificate pairs and its root certificate. You do not have to "
+"restart the ingress gateway."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:89
+msgid ""
+"No secret volume mount is needed. Once you create a ``kubernetes`` "
+"secret, that secret is captured by the gateway agent and sent to ingress "
+"gateway as key/certificate or root certificate."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:93
+msgid ""
+"The gateway agent can watch multiple key/certificate pairs. You only need"
+" to create secrets for multiple hosts and update the gateway definitions."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:97
+msgid ""
+"Enable SDS at ingress gateway and deploy the ingress gateway agent. Since"
+" this feature is disabled by default, you need to enable the ``istio-"
+"ingressgateway.sds.enabled`` installation option and generate the "
+"``istio-ingressgateway.yaml`` file:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:403
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:104
+msgid "$ istioctl manifest generate"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid "–set values.gateways.istio-egressgateway.enabled=false"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid "–set values.gateways.istio-ingressgateway.sds.enabled=true >"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"$HOME/istio-ingressgateway.yaml $ kubectl apply -f $HOME/istio-"
+"ingressgateway.yaml"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:110
+msgid ""
+"Set the environment variables ``INGRESS_HOST`` and "
+"``SECURE_INGRESS_PORT``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:115
+msgid "$ export SECURE_INGRESS_PORT=$(kubectl -n"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:116
+msgid "istio-system"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"get service istio-ingressgateway -o "
+"jsonpath=‘{.spec.ports[?(@.name==“https”)].port}’) $ export "
+"INGRESS_HOST=$(kubectl -n istio-system"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"get service istio-ingressgateway -o "
+"jsonpath=‘{.status.loadBalancer.ingress[0].ip}’)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:124
+msgid "Configure a TLS ingress gateway for a single host"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:126
+msgid "Start the ``httpbin`` sample:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:131
+msgid "kind: Service metadata: name: httpbin labels: app: httpbin spec: ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:134
+msgid ""
+"name: http port: 8000 selector: app: httpbin — apiVersion: apps/v1 kind: "
+"Deployment metadata: name: httpbin spec: replicas: 1 selector: "
+"matchLabels: app: httpbin version: v1 template: metadata: labels: app: "
+"httpbin version: v1 spec: containers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:139
+msgid ""
+"image: docker.io/citizenstig/httpbin imagePullPolicy: IfNotPresent name: "
+"httpbin ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:142
+msgid "containerPort: 8000 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:144
+msgid "Create a secret for the ingress gateway:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:148
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:319
+msgid "$ kubectl create -n istio-system secret generic"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:149
+msgid "httpbin-credential –from-file=key=httpbin.example.com.key"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid "–from-file=cert=httpbin.example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:154
+msgid ""
+"The secret name **should not** begin with ``istio`` or ``prometheus``, "
+"and the secret **should not** contain a ``token`` field."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:158
+msgid ""
+"Define a gateway with a ``servers:`` section for port 443, and specify "
+"values for ``credentialName`` to be ``httpbin-credential``. The values "
+"are the same as the secret’s name. The TLS mode should have the value of "
+"``SIMPLE``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:166
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:330
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:416
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: mygateway "
+"spec: selector: istio: ingressgateway # use istio default ingress gateway"
+" servers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:170
+msgid ""
+"port: number: 443 name: https protocol: HTTPS tls: mode: SIMPLE "
+"credentialName: httpbin-credential # must be the same as secret hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:174
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:424
+msgid "httpbin.example.com EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:176
+msgid ""
+"Configure the gateway’s ingress traffic routes. Define the corresponding "
+"virtual service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:182
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: httpbin"
+" spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:185
+msgid "“httpbin.example.com” gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:186
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:354
+msgid "mygateway http:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:187
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:355
+msgid "match:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:189
+msgid "uri: prefix: /status"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:190
+msgid "uri: prefix: /delay route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:191
+msgid "destination: port: number: 8000 host: httpbin EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:193
+msgid "Send an HTTPS request to access the ``httpbin`` service through HTTPS:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:198
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:237
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:252
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:376
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:431
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:467
+msgid "$ curl -v -HHost:httpbin.example.com –resolve"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:199
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:238
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:253
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:377
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:432
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:468
+msgid "httpbin.example.com:\\ :math:`SECURE_INGRESS_PORT:`\\ INGRESS_HOST"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"–cacert example.com.crt "
+"https://httpbin.example.com:$SECURE_INGRESS_PORT/status/418"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:203
+msgid ""
+"The ``httpbin`` service will return the `418 I’m a Teapot "
+"<https://tools.ietf.org/html/rfc7168#section-2.3.3>`_ code."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:206
+msgid ""
+"Delete the gateway’s secret and create a new one to change the ingress "
+"gateway’s credentials."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:212
+msgid "httpbin-credential"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:216
+msgid "$ mkdir new_certificates $ openssl req -x509"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:217
+msgid ""
+"-sha256 -nodes -days 365 -newkey rsa:2048 -subj ‘/O=example "
+"Inc./CN=example.com’ -keyout new_certificates/example.com.key -out "
+"new_certificates/example.com.crt $ openssl req -out "
+"new_certificates/httpbin.example.com.csr -newkey rsa:2048 -nodes -keyout "
+"new_certificates/httpbin.example.com.key -subj "
+"“/CN=httpbin.example.com/O=httpbin organization” $ openssl x509 -req "
+"-days 365 -CA new_certificates/example.com.crt -CAkey "
+"new_certificates/example.com.key -set_serial 0 -in "
+"new_certificates/httpbin.example.com.csr -out "
+"new_certificates/httpbin.example.com.crt $ kubectl create -n istio-system"
+" secret generic httpbin-credential"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid "–from-file=key=new_certificates/httpbin.example.com.key"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid "–from-file=cert=new_certificates/httpbin.example.com.crt {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:232
+msgid ""
+"Access the ``httpbin`` service using ``curl`` using the new certificate "
+"chain:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"–cacert new_certificates/example.com.crt "
+"https://httpbin.example.com:$SECURE_INGRESS_PORT/status/418 … HTTP/2 418 "
+"… -=[ teapot ]=-"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:243
+msgid ""
+"*….* .’ \\_ \\_ ``. | .\"`` ^ ``\". _, \\_;``\\ “—”\\ ``|//   |       ;/"
+"   \\_     _/``\"\"\"\\` {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:247
+msgid ""
+"If you try to access ``httpbin`` with the previous certificate chain, the"
+" attempt now fails."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"–cacert example.com.crt "
+"https://httpbin.example.com:$SECURE_INGRESS_PORT/status/418 …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:257
+msgid "TLSv1.2 (OUT), TLS handshake, Client hello (1):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:258
+msgid "TLSv1.2 (IN), TLS handshake, Server hello (2):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:259
+msgid "TLSv1.2 (IN), TLS handshake, Certificate (11):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:260
+msgid "TLSv1.2 (OUT), TLS alert, Server hello (2):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:261
+msgid ""
+"curl: (35) error:04FFF06A:rsa routines:CRYPTO_internal:block type is not "
+"01"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:265
+msgid "Configure a TLS ingress gateway for multiple hosts"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:267
+msgid ""
+"You can configure an ingress gateway for multiple hosts, "
+"``httpbin.example.com`` and ``helloworld-v1.example.com``, for example. "
+"The ingress gateway retrieves unique credentials corresponding to a "
+"specific ``credentialName``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:272
+msgid ""
+"To restore the credentials for ``httpbin``, delete its secret and create "
+"it again."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:277
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:405
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:497
+msgid "$ kubectl -n istio-system delete secret"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:278
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:498
+msgid ""
+"httpbin-credential $ kubectl create -n istio-system secret generic "
+"httpbin-credential"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid "–from-file=key=httpbin.example.com.key"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:283
+msgid "Start the ``helloworld-v1`` sample"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:288
+msgid ""
+"kind: Service metadata: name: helloworld-v1 labels: app: helloworld-v1 "
+"spec: ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:291
+msgid ""
+"name: http port: 5000 selector: app: helloworld-v1 — apiVersion: apps/v1 "
+"kind: Deployment metadata: name: helloworld-v1 spec: replicas: 1 "
+"selector: matchLabels: app: helloworld-v1 version: v1 template: metadata:"
+" labels: app: helloworld-v1 version: v1 spec: containers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:297
+msgid ""
+"name: helloworld image: istio/examples-helloworld-v1 resources: requests:"
+" cpu: “100m” imagePullPolicy: IfNotPresent #Always ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:301
+msgid "containerPort: 5000 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:303
+msgid ""
+"Generate a certificate and a private key for "
+"``helloworld-v1.example.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:309
+msgid ""
+"-newkey rsa:2048 -nodes -keyout helloworld-v1.example.com.key -subj "
+"“/CN=helloworld-v1.example.com/O=helloworld organization” $ openssl x509 "
+"-req -days 365 -CA example.com.crt -CAkey example.com.key -set_serial 1 "
+"-in helloworld-v1.example.com.csr -out helloworld-v1.example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:315
+msgid "Create the ``helloworld-credential`` secret:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:320
+msgid "helloworld-credential –from-file=key=helloworld-v1.example.com.key"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid "–from-file=cert=helloworld-v1.example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:323
+msgid ""
+"Define a gateway with two server sections for port 443. Set the value of "
+"``credentialName`` on each port to ``httpbin-credential`` and "
+"``helloworld-credential`` respectively. Set TLS mode to ``SIMPLE``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:334
+msgid ""
+"port: number: 443 name: https-httpbin protocol: HTTPS tls: mode: SIMPLE "
+"credentialName: httpbin-credential hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:337
+msgid "httpbin.example.com"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:339
+msgid ""
+"port: number: 443 name: https-helloworld protocol: HTTPS tls: mode: "
+"SIMPLE credentialName: helloworld-credential hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:342
+msgid "helloworld-v1.example.com EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:344
+msgid ""
+"Configure the gateway’s traffic routes. Define the corresponding virtual "
+"service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:350
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: "
+"helloworld-v1 spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:353
+msgid "helloworld-v1.example.com gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:357
+msgid "uri: exact: /hello route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:358
+msgid "destination: host: helloworld-v1 port: number: 5000 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:360
+msgid "Send an HTTPS request to ``helloworld-v1.example.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:364
+msgid "$ curl -v -HHost:helloworld-v1.example.com"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:365
+msgid ""
+"–resolve helloworld-v1.example.com:\\ :math:`SECURE_INGRESS_PORT:`\\ "
+"INGRESS_HOST"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"–cacert example.com.crt "
+"https://helloworld-v1.example.com:$SECURE_INGRESS_PORT/hello HTTP/2 200"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:371
+msgid ""
+"Send an HTTPS request to ``httpbin.example.com`` and still get a teapot "
+"in return:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"–cacert example.com.crt "
+"https://httpbin.example.com:$SECURE_INGRESS_PORT/status/418 -=[ teapot "
+"]=-"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:395
+msgid "Configure a mutual TLS ingress gateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:397
+msgid ""
+"You can extend your gateway’s definition to support `mutual TLS "
+"<https://en.wikipedia.org/wiki/Mutual_authentication>`_. Change the "
+"credentials of the ingress gateway by deleting its secret and creating a "
+"new one. The server uses the CA certificate to verify its clients, and we"
+" must use the name ``cacert`` to hold the CA certificate."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:406
+msgid ""
+"httpbin-credential $ kubectl create -n istio-system secret generic "
+"httpbin-credential –from-file=key=httpbin.example.com.key"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:409
+msgid "–from-file=cert=httpbin.example.com.crt –from-file=cacert=example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:411
+msgid "Change the gateway’s definition to set the TLS mode to ``MUTUAL``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:420
+msgid ""
+"port: number: 443 name: https protocol: HTTPS tls: mode: MUTUAL "
+"credentialName: httpbin-credential # must be the same as secret hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:426
+msgid ""
+"Attempt to send an HTTPS request using the prior approach and see how it "
+"fails:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:436
+msgid "TLSv1.3 (OUT), TLS handshake, Client hello (1):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:437
+msgid "TLSv1.3 (IN), TLS handshake, Server hello (2):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:438
+msgid "TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:439
+msgid "TLSv1.3 (IN), TLS handshake, Request CERT (13):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:440
+msgid "TLSv1.3 (IN), TLS handshake, Certificate (11):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:441
+msgid "TLSv1.3 (IN), TLS handshake, CERT verify (15):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:442
+msgid "TLSv1.3 (IN), TLS handshake, Finished (20):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:443
+msgid "TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:444
+msgid "TLSv1.3 (OUT), TLS handshake, Certificate (11):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:445
+msgid "TLSv1.3 (OUT), TLS handshake, Finished (20):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:446
+msgid "TLSv1.3 (IN), TLS alert, unknown (628):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:447
+msgid ""
+"OpenSSL SSL_read: error:1409445C:SSL routines:ssl3_read_bytes:tlsv13 "
+"alert certificate required, errno 0"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:451
+msgid "Generate client certificate and private key:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:456
+msgid ""
+"rsa:2048 -nodes -keyout client.example.com.key -subj "
+"“/CN=client.example.com/O=client organization” $ openssl x509 -req -days "
+"365 -CA example.com.crt -CAkey example.com.key -set_serial 1 -in "
+"client.example.com.csr -out client.example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:461
+msgid ""
+"Pass a client certificate and private key to ``curl`` and resend the "
+"request. Pass your client’s certificate with the ``--cert`` flag and your"
+" private key with the ``--key`` flag to ``curl``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"–cacert example.com.crt –cert client.example.com.crt –key "
+"client.example.com.key"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid "https://httpbin.example.com:$SECURE_INGRESS_PORT/status/418"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:486
+msgid ""
+"Instead of creating a ``httpbin-credential`` secret to hold all the "
+"credentials, you can create two separate secrets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:489
+msgid "``httpbin-credential`` holds the server’s key and certificate"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:490
+msgid ""
+"``httpbin-credential-cacert`` holds the client’s CA certificate and must "
+"have the ``-cacert`` suffix"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:493
+msgid "Create the two separate secrets with the following commands:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"–from-file=key=httpbin.example.com.key –from-"
+"file=cert=httpbin.example.com.crt $ kubectl create -n istio-system secret"
+" generic httpbin-credential-cacert"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid "–from-file=cacert=example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:506
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:508
+msgid ""
+"Inspect the values of the ``INGRESS_HOST`` and ``SECURE_INGRESS_PORT`` "
+"environment variables. Make sure they have valid values, according to the"
+" output of the following commands:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:515
+msgid ""
+"INGRESS_HOST=\\ :math:`INGRESS_HOST, SECURE_INGRESS_PORT=`\\ "
+"SECURE_INGRESS_PORT"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:518
+msgid ""
+"Check the log of the ``istio-ingressgateway`` controller for error "
+"messages:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:523
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:547
+msgid "$ kubectl logs -n istio-system $(kubectl get pod"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:524
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:548
+msgid "-l istio=ingressgateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid "-n istio-system -o jsonpath=‘{.items[0].metadata.name}’) {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:528
+msgid ""
+"If using macOS, verify you are using ``curl`` compiled with the `LibreSSL"
+" <http://www.libressl.org>`_ library, as described in the `Before you "
+"begin <#before-you-begin>`_ section."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:532
+msgid ""
+"Verify that the secrets are successfully created in the ``istio-system`` "
+"namespace:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:539
+msgid ""
+"``httpbin-credential`` and ``helloworld-credential`` should show in the "
+"secrets list."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:542
+msgid ""
+"Check the logs to verify that the ingress gateway agent has pushed the "
+"key/certificate pair to the ingress gateway."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:552
+msgid ""
+"The log should show that the ``httpbin-credential`` secret was added. If "
+"using mutual TLS, then the ``httpbin-credential-cacert`` secret should "
+"also appear. Verify the log shows that the gateway agent receives SDS "
+"requests from the ingress gateway, that the resource’s name is ``httpbin-"
+"credential``, and that the ingress gateway obtained the key/certificate "
+"pair. If using mutual TLS, the log should show key/certificate was sent "
+"to the ingress gateway, that the gateway agent received the SDS request "
+"with the ``httpbin-credential-cacert`` resource name, and that the "
+"ingress gateway obtained the root certificate."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:564
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:566
+msgid ""
+"Delete the gateway configuration, the virtual service definition, and the"
+" secrets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:571
+msgid "$ kubectl delete gateway mygateway $ kubectl"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:572
+msgid ""
+"delete virtualservice httpbin $ kubectl delete –ignore-not-found=true -n "
+"istio-system secret httpbin-credential"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst
+msgid ""
+"helloworld-credential $ kubectl delete –ignore-not-found=true "
+"virtualservice helloworld-v1"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:577
+msgid "Delete the certificates and keys:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:582
+msgid ""
+"httpbin.example.com.crt httpbin.example.com.key httpbin.example.com.csr "
+"helloworld-v1.example.com.crt helloworld-v1.example.com.key "
+"helloworld-v1.example.com.csr client.example.com.crt "
+"client.example.com.csr client.example.com.key ./new_certificates"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:588
+msgid "Remove the file you used for redeployment of the ingress gateway."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:593
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:595
+msgid "Shutdown the ``httpbin`` and ``helloworld-v1`` services:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-sds/index.rst:600
+msgid ""
+"httpbin helloworld-v1 $ kubectl delete service –ignore-not-found=true "
+"httpbin helloworld-v1"
+msgstr ""
+

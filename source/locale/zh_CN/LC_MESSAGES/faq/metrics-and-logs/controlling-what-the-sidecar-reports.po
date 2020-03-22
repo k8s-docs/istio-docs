@@ -1,0 +1,32 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/metrics-and-logs/controlling-what-the-sidecar-reports.rst:2
+msgid "controlling-what-the-sidecar-reports"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/controlling-what-the-sidecar-reports.rst:4
+msgid ""
+"It is sometimes useful to exclude access to specific URLs from being "
+"reported. For example, you might wish to exclude some health-checking "
+"URLs. You can skip telemetry reports specific to certain URLs by "
+"excluding them using a ``match`` clause of the telemetry configuration "
+"such as:"
+msgstr ""
+

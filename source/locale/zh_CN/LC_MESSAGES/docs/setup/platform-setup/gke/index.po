@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:2
+msgid "Google kubectl Engine"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:4
+msgid "Follow these instructions to prepare a GKE cluster for Istio."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:6
+msgid "Create a new cluster."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:10
+msgid "$ gcloud container clusters create"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst
+msgid "–cluster-version latest"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst
+msgid "–machine-type=n1-standard-2"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst
+msgid "–num-nodes 4"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst
+msgid "–zone"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst
+msgid "–project"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:19
+msgid ""
+"The default installation of Istio requires nodes with >1 vCPU. If you are"
+" installing with the `demo configuration profile </docs/setup/additional-"
+"setup/config-profiles/>`_, you can remove the ``--machine-type`` argument"
+" to use the smaller ``n1-standard-1`` machine size instead."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:27
+msgid ""
+"To use the Istio CNI feature, the `network-policy "
+"<https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy>`_"
+" GKE feature must be enabled in the cluster. Use the ``--enable-network-"
+"policy`` flag in the ``gcloud container clusters create`` command."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:33
+msgid "Retrieve your credentials for ``kubectl``."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:37
+msgid "$ gcloud container clusters get-credentials"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:41
+msgid ""
+"Grant cluster administrator (admin) permissions to the current user. To "
+"create the necessary RBAC rules for Istio, the current user requires "
+"admin permissions."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:47
+msgid "$ kubectl create clusterrolebinding"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst:48
+msgid "cluster-admin-binding"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst
+msgid "–clusterrole=cluster-admin"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gke/index.rst
+msgid "–user=$(gcloud config get-value core/account)"
+msgstr ""
+

@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/general/why-use-istio.rst:2
+msgid "why-use-istio"
+msgstr ""
+
+#: ../../source/faq/general/why-use-istio.rst:4
+msgid ""
+"Traditionally, much of the logic handled by Istio has been built directly"
+" into applications. Across a fleet of services, managing updates to this "
+"communications logic can be a large burden. Istio provides an "
+"infrastructure-level solution to managing service communications."
+msgstr ""
+
+#: ../../source/faq/general/why-use-istio.rst:9
+msgid ""
+"*Application developers*: With Istio managing how traffic flows across "
+"their services, developers can focus exclusively on business logic and "
+"iterate quickly on new features."
+msgstr ""
+
+#: ../../source/faq/general/why-use-istio.rst:13
+msgid ""
+"*Service operators*: Istio enables policy enforcement and mesh monitoring"
+" from a single centralized control point, independent of application "
+"evolution. As a result, operators can ensure continuous policy compliance"
+" through a simplified management plane."
+msgstr ""
+

@@ -1,0 +1,357 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:2
+msgid "Upgrade using Helm"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:4
+msgid ""
+"Follow this guide to upgrade the Istio control plane and sidecar proxies "
+"of an existing Istio deployment that was previously installed using Helm."
+" The upgrade process may install new binaries and may change "
+"configuration and API schemas. The upgrade process may result in service "
+"downtime. To minimize downtime, please ensure your Istio control plane "
+"components and your applications are highly available with multiple "
+"replicas."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:14
+msgid "Be sure to check out the `upgrade"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:15
+#, python-format
+msgid ""
+"notes "
+"</news/releases/%7B%7B%3C%20istio_version%20%3E%7D%7D.x/announcing-%7B%7B%3C%20istio_version%20%3E%7D%7D"
+"/upgrade-notes>`_ for a concise list of things you should know before "
+"upgrading your deployment to Istio {{< istio_version >}}."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:21
+msgid "Istio does **NOT** support skip level upgrades. Only"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:22
+msgid ""
+"upgrades from {{< istio_previous_version >}} to {{< istio_version >}} are"
+" supported. If you are on an older version, please upgrade to {{< "
+"istio_previous_version >}} first."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:27
+msgid "Upgrade steps"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:29
+msgid ""
+"`Download the new Istio release </docs/setup/getting-started/#download>`_"
+" and change directory to the new release directory."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:34
+msgid "Istio CNI upgrade"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:36
+msgid ""
+"If you have installed or are planning to install `Istio CNI </docs/setup"
+"/additional-setup/cni/>`_, choose one of the following **mutually "
+"exclusive** options to check whether Istio CNI is already installed and "
+"to upgrade it:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:41
+msgid ""
+"{{< tabset category-name=“controlplaneupdate” >}} {{< tab "
+"name=“Kubernetes rolling update” category-value=“k8supdate” >}}"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:44
+msgid ""
+"You can use Kubernetes’ rolling update mechanism to upgrade the Istio CNI"
+" components. This is suitable for cases where ``kubectl apply`` was used "
+"to deploy Istio CNI."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:48
+msgid ""
+"To check whether ``istio-cni`` is installed, search for ``istio-cni-"
+"node`` pods and in which namespace they are running (typically, ``kube-"
+"system`` or ``istio-system``):"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:55
+msgid ""
+"–all-namespaces $ NAMESPACE=$(kubectl get pods -l k8s-app=istio-cni-node "
+"–all-namespaces –output=‘jsonpath={.items[0].metadata.namespace}’)"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:59
+msgid ""
+"If ``istio-cni`` is currently installed in a namespace other than ``kube-"
+"system`` (for example, ``istio-system``), delete ``istio-cni``:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:66
+msgid "–name=istio-cni –namespace=$NAMESPACE \\| kubectl delete -f -"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:68
+msgid "Install or upgrade ``istio-cni`` in the ``kube-system`` namespace:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:73
+msgid "–name=istio-cni –namespace=kube-system \\| kubectl apply -f -"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:75
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:77
+msgid "{{< tab name=“Helm upgrade” category-value=“helmupgrade” >}}"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:79
+msgid ""
+"If you installed Istio CNI using `Helm and Tiller "
+"</docs/setup/install/helm/#option-2-install-with-helm-and-tiller-via-"
+"helm-install>`_, the preferred upgrade option is to let Helm take care of"
+" the upgrade."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:83
+msgid "Check whether ``istio-cni`` is installed, and in which namespace:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:89
+msgid "(Re-)install or upgrade ``istio-cni`` depending on the status:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:91
+msgid "If ``istio-cni`` is not currently installed and you decide to install it:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:96
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:110
+msgid ""
+"$ helm install install/kubernetes/helm/istio-cni –name istio-cni "
+"–namespace kube-system"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:99
+msgid ""
+"If ``istio-cni`` is currently installed in a namespace other than ``kube-"
+"system`` (for example, ``istio-system``), delete it:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:104
+msgid "$ helm delete –purge istio-cni"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:106
+msgid "Then install it again in the ``kube-system`` namespace:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:113
+msgid ""
+"If ``istio-cni`` is currently installed in the ``kube-system`` namespace,"
+" upgrade it:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:118
+msgid ""
+"$ helm upgrade istio-cni install/kubernetes/helm/istio-cni –namespace "
+"kube-system {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:122
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:194
+msgid "{{< /tab >}} {{< /tabset >}}"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:125
+msgid "Control plane upgrade"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:127
+msgid ""
+"Pilot, Galley, Policy, Telemetry and Sidecar injector. Choose one of the "
+"following **mutually exclusive** options to update the control plane:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:130
+msgid ""
+"{{< tabset category-name=“controlplaneupdate” >}} {{< tab "
+"name=“Kubernetes rolling update” category-value=“k8supdate” >}} You can "
+"use Kubernetes’ rolling update mechanism to upgrade the control plane "
+"components. This is suitable for cases where ``kubectl apply`` was used "
+"to deploy the Istio components, including configurations generated using "
+"`helm template </docs/setup/install/helm/#option-1-install-with-helm-via-"
+"helm-template>`_."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:138
+msgid ""
+"Use ``kubectl apply`` to upgrade all of Istio’s CRDs. Wait a few seconds "
+"for the Kubernetes API server to commit the upgraded CRDs:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:144
+msgid "install/kubernetes/helm/istio-init/files/"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:146
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:182
+msgid "{{< boilerplate verify-crds >}}"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:148
+msgid "Apply the update templates:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:230
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:152
+msgid "$ helm template install/kubernetes/helm/istio"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:153
+msgid "–name istio"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst
+msgid "–namespace istio-system \\| kubectl apply -f -"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:156
+msgid ""
+"You must pass the same settings as when you first `installed Istio "
+"</docs/setup/install/helm>`_."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:159
+msgid ""
+"The rolling update process will upgrade all deployments and configmaps to"
+" the new version. After this process finishes, your Istio control plane "
+"should be updated to the new version. Your existing application should "
+"continue to work without any change. If there is any critical issue with "
+"the new control plane, you can rollback the changes by applying the yaml "
+"files from the old version. {{< /tab >}}"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:166
+msgid ""
+"{{< tab name=“Helm upgrade” category-value=“helmupgrade” >}} If you "
+"installed Istio using `Helm and Tiller "
+"</docs/setup/install/helm/#option-2-install-with-helm-and-tiller-via-"
+"helm-install>`_, the preferred upgrade option is to let Helm take care of"
+" the upgrade."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:171
+msgid ""
+"Upgrade the ``istio-init`` chart to update all the Istio `Custom Resource"
+" Definitions <https://kubernetes.io/docs/concepts/extend-kubernetes/api-"
+"extension/custom-resources/#customresourcedefinitions>`_ (CRDs)."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:179
+msgid "install/kubernetes/helm/istio-init –namespace istio-system {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:184
+msgid "Upgrade the ``istio`` chart:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:189
+msgid "–namespace istio-system"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:191
+msgid ""
+"If Istio CNI is installed, enable it by adding the ``--set "
+"istio_cni.enabled=true`` setting."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:197
+msgid "Sidecar upgrade"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:199
+msgid ""
+"After the control plane upgrade, the applications already running Istio "
+"will still be using an older sidecar. To upgrade the sidecar, you will "
+"need to re-inject it."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:203
+msgid ""
+"If you’re using automatic sidecar injection, you can upgrade the sidecar "
+"by doing a rolling update for all the pods, so that the new version of "
+"the sidecar will be automatically re-injected."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:209
+msgid "Your ``kubectl`` version must be >= 1.15 to run the"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:210
+msgid "following command. Upgrade if necessary."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:215
+msgid "default"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:217
+msgid ""
+"If you’re using manual injection, you can upgrade the sidecar by "
+"executing:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:223
+msgid "$ORIGINAL_DEPLOYMENT_YAML)"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:225
+msgid ""
+"If the sidecar was previously injected with some customized inject "
+"configuration files, you will need to change the version tag in the "
+"configuration files to the new version and re-inject the sidecar as "
+"follows:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:232
+msgid "$ kubectl apply -f <(istioctl kube-inject"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:233
+msgid "–injectConfigFile inject-config.yaml"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/cni-helm-upgrade/index.rst:234
+msgid "–filename $ORIGINAL_DEPLOYMENT_YAML)"
+msgstr ""
+

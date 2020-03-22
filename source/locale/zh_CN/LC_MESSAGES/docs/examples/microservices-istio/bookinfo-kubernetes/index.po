@@ -1,0 +1,303 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:2
+msgid "bookinfo-kubernetes"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:4
+msgid "{{< boilerplate work-in-progress >}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:6
+msgid ""
+"This module shows you an application composed of four microservices "
+"written in different programming languages: ``productpage``, ``details``,"
+" ``ratings`` and ``reviews``. We call the composed application "
+"``Bookinfo``, and you can learn more about it on the `Bookinfo example "
+"</docs/examples/bookinfo>`_ page."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:12
+msgid ""
+"The `Bookinfo example </docs/examples/bookinfo>`_ shows the final state "
+"of the application, in which the ``reviews`` microservice has three "
+"versions: ``v1``, ``v2``, ``v3``. In this module, the application only "
+"uses the ``v1`` version of the ``reviews`` microservice. The next modules"
+" enhance the application by deploying newer versions of the ``reviews`` "
+"microservice."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:20
+msgid "Deploy the application and a testing pod"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:22
+msgid ""
+"Set the ``MYHOST`` environment variable to hold the URL of the "
+"application:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:28
+msgid "jsonpath={.contexts..namespace}).bookinfo.com"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:30
+#, python-format
+msgid ""
+"Skim `bookinfo.yaml "
+"<%7B%7B%3C%20github_blob%20%3E%7D%7D/samples/bookinfo/platform/kube/bookinfo.yaml>`_."
+" This is the Kubernetes deployment spec of the app. Notice the services "
+"and the deployments."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:35
+msgid "Deploy the application to your Kubernetes cluster:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:40
+msgid ""
+"github_file >}}/samples/bookinfo/platform/kube/bookinfo.yaml service "
+"“details” created deployment “details-v1” created service “ratings” "
+"created deployment “ratings-v1” created service “reviews” created "
+"deployment “reviews-v1” created service “productpage” created deployment "
+"“productpage-v1” created"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:46
+msgid "Check the status of the pods:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:51
+msgid ""
+"details-v1-6d86fd9949-q8rrf 1/1 Running 0 10s "
+"productpage-v1-c9965499-tjdjx 1/1 Running 0 8s "
+"ratings-v1-7bf577cb77-pq9kg 1/1 Running 0 9s reviews-v1-77c65dc5c6-kjvxs "
+"1/1 Running 0 9s"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:56
+msgid ""
+"After the four services achieve the ``Running`` status, you can scale the"
+" deployment. To let each version of each microservice run in three pods, "
+"execute the following command:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:63
+msgid ""
+"deployment “details-v1” scaled deployment “productpage-v1” scaled "
+"deployment “ratings-v1” scaled deployment “reviews-v1” scaled deployment "
+"“reviews-v2” scaled deployment “reviews-v3” scaled"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:67
+msgid "Check the pods status. Notice that each microservice has three pods:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:72
+msgid ""
+"details-v1-6d86fd9949-fr59p 1/1 Running 0 50s details-v1-6d86fd9949-mksv7"
+" 1/1 Running 0 50s details-v1-6d86fd9949-q8rrf 1/1 Running 0 1m "
+"productpage-v1-c9965499-hwhcn 1/1 Running 0 50s "
+"productpage-v1-c9965499-nccwq 1/1 Running 0 50s "
+"productpage-v1-c9965499-tjdjx 1/1 Running 0 1m "
+"ratings-v1-7bf577cb77-cbdsg 1/1 Running 0 50s ratings-v1-7bf577cb77-cz6jm"
+" 1/1 Running 0 50s ratings-v1-7bf577cb77-pq9kg 1/1 Running 0 1m "
+"reviews-v1-77c65dc5c6-5wt8g 1/1 Running 0 49s reviews-v1-77c65dc5c6-kjvxs"
+" 1/1 Running 0 1m reviews-v1-77c65dc5c6-r55tl 1/1 Running 0 49s"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:85
+#, python-format
+msgid ""
+"After the services achieve the ``Running`` status, deploy a testing pod, "
+"`sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_, to use for "
+"sending requests to your microservices:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:92
+msgid ">}}/samples/sleep/sleep.yaml"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:94
+msgid ""
+"To confirm that the Bookinfo application is running, send a request to it"
+" with a curl command from your testing pod:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:100
+msgid ""
+"-o jsonpath=‘{.items[0].metadata.name}’) -c sleep – curl "
+"productpage:9080/productpage \\| grep -o \""
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:107
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:204
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:259
+msgid ".\\*"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:113
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:210
+msgid "\""
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:119
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:216
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:271
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:281
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:291
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:301
+msgid "Simple Bookstore App"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:128
+msgid "Enable external access to the application"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:130
+msgid ""
+"Once your application is running, enable clients from outside the cluster"
+" to access it. Once you configure the steps below successfully, you can "
+"access the application from your laptop’s browser."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:138
+msgid ""
+"If your cluster runs on GKE, change the ``productpage`` service type to "
+"``LoadBalancer``:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:144
+msgid "“LoadBalancer”}}’ service/productpage patched"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:149
+msgid ""
+"Configure the Kubernetes Ingress resource and access your application’s "
+"webpage"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:151
+msgid "Create a Kubernetes Ingress resource:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:156
+msgid "extensions/v1beta1 kind: Ingress metadata: name: bookinfo spec: rules:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:159
+msgid "host: $MYHOST http: paths:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:161
+msgid "path: /productpage backend: serviceName: productpage servicePort: 9080"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:163
+msgid "path: /login backend: serviceName: productpage servicePort: 9080"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:165
+msgid "path: /logout backend: serviceName: productpage servicePort: 9080"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:167
+msgid "path: /static/\\* backend: serviceName: productpage servicePort: 9080 EOF"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:171
+msgid "Update your ``/etc/hosts`` configuration file"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:173
+msgid "Get the IP address for the Kubernetes ingress named ``bookinfo``:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:179
+msgid ""
+"In your ``/etc/hosts`` file, add the previous IP address to the host "
+"entries provided by the following command. You should have a `Superuser "
+"<https://en.wikipedia.org/wiki/Superuser>`_ privilege and probably use "
+"`sudo <https://en.wikipedia.org/wiki/Sudo>`_ to edit ``/etc/hosts``."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:188
+msgid ""
+"istio-system -o jsonpath=‘{..ip} {..host}’) $(kubectl get ingress "
+"bookinfo -o jsonpath=‘{..host}’)"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:192
+msgid "Access your application"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:194
+msgid "Access the application’s home page from the command line:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:224
+msgid "Paste the output of the following command in your browser address bar:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:231
+msgid "You should see the following webpage:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:238
+#, python-format
+msgid ""
+"Observe how microservices call each other. For example, ``reviews`` calls"
+" the ``ratings`` microservice using the ``http://ratings:9080/ratings`` "
+"URL. See the `code of ``reviews`` "
+"<%7B%7B%3C%20github_blob%20%3E%7D%7D/samples/bookinfo/src/reviews"
+"/reviews-"
+"application/src/main/java/application/rest/LibertyRestEndpoint.java>`_:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:243
+msgid ""
+"{{< text java >}} private final static String ratings_service = "
+"“http://ratings:9080/ratings”;"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:246
+msgid ""
+"Set an infinite loop in a separate terminal window to send traffic to "
+"your application to simulate the constant user traffic in the real world:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:253
+msgid "-o \""
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:265
+msgid "\"; sleep 1; done"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:307
+msgid "…"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/bookinfo-kubernetes/index.rst:309
+msgid ""
+"You are ready to `test the application </docs/examples/microservices-"
+"istio/production-testing>`_."
+msgstr ""
+

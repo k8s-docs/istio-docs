@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:2
+msgid "announcing-1.1.1"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:4
+msgid ""
+"We’re pleased to announce the availability of Istio 1.1.1. Please see "
+"below for what’s changed."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:10
+msgid "Bug fixes and minor enhancements"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:12
+msgid ""
+"Configure Prometheus to monitor Citadel (`Issue 12175 "
+"<https://github.com/istio/istio/pull/12175>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:14
+msgid ""
+"Improve output of `istioctl verify-install "
+"</docs/reference/commands/istioctl/#istioctl-verify-install>`_ command "
+"(`Issue 12174 <https://github.com/istio/istio/pull/12174>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:17
+msgid ""
+"Reduce log level for missing service account messages for a SPIFFE URI "
+"(`Issue 12108 <https://github.com/istio/istio/issues/12108>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:19
+msgid ""
+"Fix broken path on the opt-in SDS feature’s Unix domain socket (`Issue "
+"12688 <https://github.com/istio/istio/pull/12688>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:21
+msgid ""
+"Fix Envoy tracing that was preventing a child span from being created if "
+"the parent span was propagated with an empty string (`Envoy Issue 6263 "
+"<https://github.com/envoyproxy/envoy/pull/6263>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:24
+msgid "Add namespace scoping to the Gateway ‘port’ names. This fixes two issues:"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:27
+msgid ""
+"``IngressGateway`` only respects first port 443 Gateway definition "
+"(`Issue 11509 <https://github.com/istio/istio/issues/11509>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:29
+msgid ""
+"Istio ``IngressGateway`` routing broken with two different gateways with "
+"same port name (SDS) (`Issue 12500 "
+"<https://github.com/istio/istio/issues/12500>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:33
+msgid "Five bug fixes for locality weighted load balancing:"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:35
+msgid ""
+"Fix bug causing empty endpoints per locality (`Issue 12610 "
+"<https://github.com/istio/istio/issues/12610>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:37
+msgid ""
+"Apply locality weighted load balancing configuration correctly (`Issue "
+"12587 <https://github.com/istio/istio/issues/12587>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:39
+msgid ""
+"Locality label ``istio-locality`` in Kubernetes should not contain ``/``,"
+" use ``.`` (`Issue 12582 <https://github.com/istio/istio/issues/12582>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:42
+msgid ""
+"Fix crash in locality load balancing (`Issue 12649 "
+"<https://github.com/istio/istio/pull/12649>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:44
+msgid ""
+"Fix bug in locality load balancing normalization (`Issue 12579 "
+"<https://github.com/istio/istio/pull/12579>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:47
+msgid ""
+"Propagate Envoy Metrics Service configuration (`Issue 12569 "
+"<https://github.com/istio/istio/issues/12569>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.1/index.rst:49
+msgid ""
+"Do not apply ``VirtualService`` rule to the wrong gateway (`Issue 10313 "
+"<https://github.com/istio/istio/issues/10313>`_)"
+msgstr ""
+

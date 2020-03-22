@@ -1,0 +1,563 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:2
+msgid "expression language"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:4
+msgid ""
+"This page describes how to use the Mixer configuration expression "
+"language (CEXL)."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:8
+msgid "Background"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:10
+#, python-format
+msgid ""
+"Mixer configuration uses an expression language (CEXL) to specify match "
+"expressions and `mapping expressions </docs/reference/config/policy-and-"
+"telemetry/mixer-overview/#attribute-expressions>`_. CEXL expressions map "
+"a set of typed `attributes </docs/reference/config/policy-and-telemetry"
+"/mixer-overview/#attributes>`_ and constants to a typed `value "
+"<https://github.com/istio/api/blob/%7B%7B%3C%20source_branch_name%20%3E%7D%7D/policy/v1beta1/value_type.proto>`_."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:19
+msgid "Syntax"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:21
+msgid ""
+"CEXL accepts a subset of `Go expressions "
+"<https://golang.org/ref/spec#Expressions>`_, which defines the syntax. "
+"CEXL implements a subset of the Go operators that constrains the set of "
+"accepted Go expressions. CEXL also supports arbitrary parenthesization."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:28
+msgid "Functions"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:30
+msgid "CEXL supports the following functions."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:33
+msgid "Operator/Function"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:33
+msgid "Definition"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:33
+msgid "Example"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:33
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:241
+msgid "Description"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:35
+msgid "``==``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:35
+msgid "Equals"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:35
+msgid "``reques t.size = = 200``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:39
+msgid "``!=``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:39
+msgid "Not Equals"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:39
+msgid "``reques t.auth.p rincipal"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:42
+msgid "!= \"adm"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:43
+msgid "in\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:45
+msgid "\\|\\|"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:45
+msgid "Logical OR"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:45
+msgid ""
+"``(reque st.size == 200)` ` \\|\\| ``(reque st.auth. principa l == \"ad "
+"min\")``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:56
+msgid "``&&``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:56
+msgid "Logical AND"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:56
+msgid "``(reque st.size == 200) && (requ est.auth .princip al == \"a dmin\")``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:65
+msgid "``[ ]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:65
+msgid "Map Access"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:65
+msgid "``reques t.header s[\"x-req uest-id\" ]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:71
+msgid "``+``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:71
+msgid "Add"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:71
+msgid "``reques t.host +"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:73
+msgid "request"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:74
+msgid ".path``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:76
+msgid "``>``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:76
+msgid "Greater Than"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:76
+msgid "``respon se.code > 200``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:80
+msgid "``>=``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:80
+msgid "Greater Than or Equal to"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:80
+msgid "``reques t.size > = 100``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:84
+msgid "``<``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:84
+msgid "Less Than"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:84
+msgid "``respon se.code < 500``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:88
+msgid "``<=``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:88
+msgid "Less Than or Equal to"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:88
+msgid "``reques t.size < = 100``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:92
+msgid "\\|"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:92
+msgid "First non empty"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:92
+msgid ""
+"``source .labels[ \"app\"]`` \\| ``source .labels[ \"svc\"]`` \\| "
+"``\"unkno wn\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:103
+msgid "``match``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:103
+msgid "Glob match"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:103
+msgid "``match( destinat ion.serv ice, \"*. ns1.svc. cluster. local\")` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:103
+msgid "Matches prefix or suffix based on the location of ``*``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:112
+msgid "``email``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:112
+msgid "Convert a textual e-mail into the ``EMAIL_ADDRE SS`` type"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:112
+msgid "``email( \"awesome @istio.i o\")``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:112
+msgid "Use the ``email`` function to create an ``EMAIL_ADDRES S`` literal."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:120
+msgid "``dnsName``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:120
+msgid "Convert a textual DNS name into the ``DNS_NAME`` type"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:120
+msgid "``dnsNam e(\"www.i stio.io\" )``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:120
+msgid "Use the ``dnsName`` function to create a ``DNS_NAME`` literal."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:127
+msgid "``ip``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:127
+msgid "Convert a textual IPv4 address into the ``IP_ADDRESS` ` type"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:127
+msgid "``source .ip == i p(\"10.11 .12.13\") ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:127
+msgid "Use the ``ip`` function to create an ``IP_ADDRESS`` literal."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:135
+msgid "``timestamp``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:135
+msgid "Convert a textual timestamp in RFC 3339 format into the ``TIMESTAMP`` type"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:135
+msgid "``timest amp(\"201 5-01-02T 15:04:35 Z\")``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:135
+msgid "Use the ``timestamp`` function to create a ``TIMESTAMP`` literal."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:144
+msgid "``uri``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:144
+msgid "Convert a textual URI into the ``URI`` type"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:144
+msgid "``uri(\"h ttp://is tio.io\") ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:144
+msgid "Use the ``uri`` function to create a ``URI`` literal."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:151
+msgid "``.matches``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:151
+msgid "Regular expression match"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:151
+msgid "``\"svc.* \".matche s(destin ation.se rvice)``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:151
+msgid ""
+"Matches ``destination. service`` against regular expression pattern "
+"``\"svc.*\"``."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:160
+msgid "``.startsWith``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:160
+msgid "string prefix match"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:160
+msgid "``destin ation.se rvice.st artsWith (\"acme\") ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:160
+msgid "Checks whether ``destination. service`` starts with ``\"acme\"``."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:167
+msgid "``.endsWith``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:167
+msgid "string postfix match"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:167
+msgid "``destin ation.se rvice.en dsWith(\" acme\")``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:167
+msgid "Checks whether ``destination. service`` ends with ``\"acme\"``."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:173
+msgid "``emptyStringMap``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:173
+msgid "Create an empty string map"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:173
+msgid "``reques t.header s`` \\| ``emptyS tringMap ()``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:173
+msgid ""
+"Use ``emptyStringM ap`` to create an empty string map for default value "
+"of ``request.head ers``."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:184
+msgid "``conditional``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:184
+msgid "Simulate ternary operator"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:184
+msgid ""
+"``condit ional((c ontext.r eporter. kind`` \\| ``\"inbou nd\") == "
+"\"outboun d\", \"cli ent\", \"s erver\")` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:184
+msgid ""
+"Returns ``\"client\"`` if report kind is ``outbound`` otherwise returns "
+"``\"server\"``."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:198
+msgid "``toLower``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:198
+msgid "Convert a string to lowercase letters"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:198
+msgid "``toLowe r(\"User- Agent\")` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:198
+msgid "Returns ``\"user-agent\" ``."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:203
+msgid "``size``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:203
+msgid "Length of a string"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:203
+msgid "``size(\" admin\")` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:203
+msgid "Returns 5"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:209
+msgid "Type checking"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:211
+msgid ""
+"CEXL variables are attributes from the typed `attribute vocabulary "
+"</docs/reference/config/policy-and-telemetry/attribute-vocabulary/>`_, "
+"constants are implicitly typed and, functions are explicitly typed."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:215
+msgid ""
+"Mixer validates a CEXL expression and resolves it to a type during "
+"configuration validation. Selectors must resolve to a boolean value and "
+"mapping expressions must resolve to the type they are mapping into. "
+"Configuration validation fails if a selector fails to resolve to a "
+"boolean or if a mapping expression resolves to an incorrect type."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:221
+msgid ""
+"For example, if an operator specifies a *string* label as ``request.size "
+"| 200``, validation fails because the expression resolves to an integer."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:226
+msgid "Missing attributes"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:228
+msgid ""
+"If an expression uses an attribute that is not available during request "
+"processing, the expression evaluation fails. Use the ``|`` operator to "
+"provide a default value if an attribute may be missing."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:232
+msgid ""
+"For example, the expression ``request.auth.principal == \"user1\"`` fails"
+" evaluation if the ``request.auth.principal`` attribute is missing. The "
+"``|`` (OR) operator addresses the problem: ``(request.auth.principal | "
+"\"nobody\" ) == \"user1\"``."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:238
+msgid "Examples"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:241
+msgid "Expression"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:241
+msgid "Return Type"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:243
+msgid "``request.size`` \\| 200"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:243
+msgid "**int**"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:243
+msgid "``request.size`` if available, otherwise 200."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:247
+msgid "``request.headers[\"x -forwarded-host\"] =="
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:249
+msgid "\"myhost\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:247
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:251
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:258
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:268
+msgid "**boolean**"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:251
+msgid ""
+"``(request.headers[\" x-user-group\"] == \"a dmin\")`` \\|\\| "
+"``(request.auth.prin cipal == \"admin\")``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:251
+msgid "True if the user is admin or in the admin group."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:258
+msgid "``(request.auth.prin cipal`` \\| ``\"nobody\" ) == \"use r1\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:258
+msgid ""
+"True if ``request.auth.princ ipal`` is “user1”, The expression will not "
+"error out if ``request.auth.princ ipal`` is missing."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:268
+msgid ""
+"``source.labels[\"app \"]==\"reviews\" && sou rce.labels[\"version\" "
+"]==\"v3\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/expression-language/index.rst:268
+msgid "True if app label is reviews and version label is v3, false otherwise."
+msgstr ""
+

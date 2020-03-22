@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:2
+msgid "protocol-selection"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:4
+msgid ""
+"Istio supports proxying all TCP traffic by default, but in order to "
+"provide additional capabilities, such as routing and rich metrics, the "
+"protocol must be determined. This can be done automatically or explicitly"
+" specified."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:10
+msgid "Manual protocol selection"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:12
+msgid ""
+"Protocols can be specified manually by naming the Service port ``name: "
+"<protocol>[-<suffix>]``. The following protocols are supported:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:15
+msgid "``grpc``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:16
+msgid "``grpc-web``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:17
+msgid "``http``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:18
+msgid "``http2``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:19
+msgid "``https``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:20
+msgid "``mongo``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:21
+msgid "``mysql``\\ \\*"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:22
+msgid "``redis``\\ \\*"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:23
+msgid "``tcp``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:24
+msgid "``tls``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:25
+msgid "``udp``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:27
+msgid ""
+"\\* These protocols are disabled by default to avoid accidentally "
+"enabling experimental features. To enable them, configure the "
+"corresponding Pilot `environment variables </docs/reference/commands"
+"/pilot-discovery/#envvars>`_."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:32
+msgid ""
+"Below is an example of a Service that defines a ``mysql`` port and an "
+"``http`` port:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:38
+msgid "number: 3306 name: mysql - number: 80 name: http-web"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:41
+msgid "Automatic protocol selection"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:43
+msgid ""
+"Istio can automatically detect HTTP and HTTP/2 traffic. If the protocol "
+"cannot automatically be determined, traffic will be treated as plain TCP "
+"traffic."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:47
+msgid ""
+"This feature is enabled by default. It can be turned off by providing the"
+" following install options:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:50
+msgid ""
+"``--set values.pilot.enableProtocolSniffingForOutbound=false`` to disable"
+" protocol detection for outbound listeners whose port protocol is not "
+"specified or unsupported."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/protocol-selection/index.rst:53
+msgid ""
+"``--set values.pilot.enableProtocolSniffingForInbound=false`` to disable "
+"protocol detection for inbound listeners whose port protocol is not "
+"specified or unsupported."
+msgstr ""
+

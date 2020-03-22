@@ -1,0 +1,430 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:2
+msgid "injection"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:6
+msgid "The result of sidecar injection was not what I expected"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:8
+msgid ""
+"This includes an injected sidecar when it wasn’t expected and a lack of "
+"injected sidecar when it was."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:11
+msgid ""
+"Ensure your pod is not in the ``kube-system`` or ``kube-public`` "
+"namespace. Automatic sidecar injection will be ignored for pods in these "
+"namespaces."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:15
+msgid ""
+"Ensure your pod does not have ``hostNetwork: true`` in its pod spec. "
+"Automatic sidecar injection will be ignored for pods that are on the host"
+" network."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:19
+msgid ""
+"The sidecar model assumes that the iptables changes required for Envoy to"
+" intercept traffic are within the pod. For pods on the host network this "
+"assumption is violated, and this can lead to routing failures at the host"
+" level."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:24
+msgid ""
+"Check the webhook’s ``namespaceSelector`` to determine whether the "
+"webhook is scoped to opt-in or opt-out for the target namespace."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:27
+msgid "The ``namespaceSelector`` for opt-in will look like the following:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:32
+msgid ""
+"istio-sidecar-injector -o yaml \\| grep “namespaceSelector:” -A5 "
+"namespaceSelector: matchLabels: istio-injection: enabled rules:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:35
+#: ../../source/docs/ops/common-problems/injection/index.rst:57
+msgid "apiGroups:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:37
+#: ../../source/docs/ops/common-problems/injection/index.rst:59
+msgid "\"\""
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:39
+msgid ""
+"The injection webhook will be invoked for pods created in namespaces with"
+" the ``istio-injection=enabled`` label."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:45
+msgid ""
+"STATUS AGE ISTIO-INJECTION default Active 18d enabled istio-system Active"
+" 3d kube-public Active 18d kube-system Active 18d"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:48
+msgid "The ``namespaceSelector`` for opt-out will look like the following:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:53
+msgid ""
+"istio-sidecar-injector -o yaml \\| grep “namespaceSelector:” -A5 "
+"namespaceSelector: matchExpressions: - key: istio-injection operator: "
+"NotIn values: - disabled rules:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:61
+msgid ""
+"The injection webhook will be invoked for pods created in namespaces "
+"without the ``istio-injection=disabled`` label."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:67
+msgid ""
+"STATUS AGE ISTIO-INJECTION default Active 18d istio-system Active 3d "
+"disabled kube-public Active 18d disabled kube-system Active 18d disabled"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:71
+msgid ""
+"Verify the application pod’s namespace is labeled properly and (re) label"
+" accordingly, e.g."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:77
+msgid "istio-injection=disabled –overwrite"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:79
+msgid ""
+"(repeat for all namespaces in which the injection webhook should be "
+"invoked for new pods)"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:85
+msgid "istio-injection=enabled –overwrite"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:87
+msgid "Check default policy"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:89
+msgid ""
+"Check the default injection policy in the ``istio-sidecar-injector "
+"configmap``."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:95
+msgid ""
+"istio-sidecar-injector -o jsonpath=‘{.data.config}’ \\| grep policy: "
+"policy: enabled"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:98
+msgid ""
+"Allowed policy values are ``disabled`` and ``enabled``. The default "
+"policy only applies if the webhook’s ``namespaceSelector`` matches the "
+"target namespace. Unrecognized policy causes injection to be disabled "
+"completely."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:103
+msgid "Check the per-pod override annotation"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:105
+msgid ""
+"The default policy can be overridden with the ``sidecar.istio.io/inject``"
+" annotation in the *pod template spec’s metadata*. The deployment’s "
+"metadata is ignored. Annotation value of ``true`` forces the sidecar to "
+"be injected while a value of ``false`` forces the sidecar to *not* be "
+"injected."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:111
+msgid ""
+"The following annotation overrides whatever the default ``policy`` was to"
+" force the sidecar to be injected:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:117
+msgid ""
+"“sidecar.istio.io/inject:” -C3 template: metadata: annotations: "
+"sidecar.istio.io/inject: “true” labels: app: sleep"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:121
+msgid "Pods cannot be created at all"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:123
+msgid ""
+"Run ``kubectl describe -n namespace deployment name`` on the failing "
+"pod’s deployment. Failure to invoke the injection webhook will typically "
+"be captured in the event log."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:128
+msgid "x509 certificate related errors"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:131
+msgid ""
+"{{< text plain >}} Warning FailedCreate 3m (x17 over 8m) replicaset-"
+"controller Error creating: Internal error occurred:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:133
+msgid ""
+"failed calling admission webhook “sidecar-injector.istio.io”: Post https"
+"://istio-sidecar-injector.istio-system.svc:443/inject:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:135
+msgid ""
+"x509: certificate signed by unknown authority (possibly because of "
+"“crypto/rsa: verification error” while trying"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:136
+msgid "to verify candidate authority certificate “Kubernetes.cluster.local”)"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:139
+msgid ""
+"``x509: certificate signed by unknown authority`` errors are typically "
+"caused by an empty ``caBundle`` in the webhook configuration."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:142
+msgid ""
+"Verify the ``caBundle`` in the ``mutatingwebhookconfiguration`` matches "
+"the root certificate mounted in the ``istio-sidecar-injector`` pod."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:148
+msgid ""
+"istio-sidecar-injector -o yaml -o "
+"jsonpath=‘{.webhooks[0].clientConfig.caBundle}’ \\| md5sum "
+"4b95d2ba22ce8971c7c92084da31faf0 - $ kubectl -n istio-system get secret "
+"istio.istio-sidecar-injector-service-account -o jsonpath=‘{.data.root-"
+"cert.pem}’ \\| md5sum 4b95d2ba22ce8971c7c92084da31faf0 -"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:155
+msgid ""
+"The CA certificate should match. If they do not, restart the sidecar-"
+"injector pods."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:158
+#: ../../source/docs/ops/common-problems/injection/index.rst:196
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:160
+msgid "$ kubectl -n istio-system patch deployment"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:161
+msgid "istio-sidecar-injector"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:164
+#, python-format
+msgid ""
+"-p “{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"``date "
+"+'%s'``\"}}}}}” deployment.extensions “istio-sidecar-injector” patched"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:167
+msgid ""
+"``no such hosts`` or ``no endpoints available`` errors in deployment "
+"status"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:169
+msgid ""
+"Injection is fail-close. If the ``istio-sidecar-injector`` pod is not "
+"ready, pods cannot be created. In such cases you’ll see an error about "
+"``no endpoints available``."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:174
+msgid ""
+"{{< text plain >}} Internal error occurred: failed calling admission "
+"webhook “istio-sidecar-injector.istio.io”:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:176
+msgid ""
+"Post https://istio-sidecar-injector.istio-"
+"system.svc:443/admitPilot?timeout=30s:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:178
+msgid "no endpoints available for service “istio-sidecar-injector” {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:183
+msgid ""
+"-listio=sidecar-injector NAME READY STATUS RESTARTS AGE istio-sidecar-"
+"injector-5dbbbdb746-d676g 1/1 Running 0 2d"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:189
+msgid ""
+"istio-sidecar-injector NAME ENDPOINTS AGE istio-sidecar-injector "
+"10.48.6.108:15014,10.48.6.108:443 3d"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:192
+msgid ""
+"If the pods or endpoints aren’t ready, check the pod logs and status for "
+"any indication about why the webhook pod is failing to start and serve "
+"traffic."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:198
+msgid "$ for pod in $(kubectl -n istio-system get pod"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:199
+msgid "-listio=sidecar-injector -o jsonpath=‘{.items[*].metadata.name}’); do"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:200
+msgid "kubectl -n istio-system logs ${pod}"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:201
+#: ../../source/docs/ops/common-problems/injection/index.rst:206
+msgid "done"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:204
+msgid ""
+"$ for pod in $(kubectl -n istio-system get pod -listio=sidecar-injector "
+"-o name); do"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:205
+msgid "kubectl -n istio-system describe ${pod}"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:209
+msgid ""
+"Automatic sidecar injection fails if the Kubernetes API server has proxy "
+"settings"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:211
+msgid "When the Kubernetes API server includes proxy settings such as:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:216
+msgid ""
+"http://proxy-wsa.esl.foo.com:80 - name: https_proxy value: http://proxy-"
+"wsa.esl.foo.com:80 - name: no_proxy value: "
+"127.0.0.1,localhost,dockerhub.foo.com,devhub-"
+"docker.foo.com,10.84.100.125,10.84.100.126,10.84.100.127"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:221
+msgid ""
+"With these settings, Sidecar injection fails. The only related failure "
+"log can be found in ``kube-apiserver`` log:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:224
+msgid ""
+"{{< text plain >}} W0227 21:51:03.156818 1 admission.go:257] Failed "
+"calling webhook, failing open sidecar-injector.istio.io: failed calling "
+"admission webhook “sidecar-injector.istio.io”: Post https://istio-"
+"sidecar-injector.istio-system.svc:443/inject: Service Unavailable"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:230
+msgid ""
+"Make sure both pod and service CIDRs are not proxied according to "
+"``*_proxy`` variables. Check the ``kube-apiserver`` files and logs to "
+"verify the configuration and whether any requests are being proxied."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:234
+msgid ""
+"One workaround is to remove the proxy settings from the ``kube-"
+"apiserver`` manifest, another workaround is to include ``istio-sidecar-"
+"injector.istio-system.svc`` or ``.svc`` in the ``no_proxy`` value. Make "
+"sure that ``kube-apiserver`` is restarted after each workaround."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:240
+msgid ""
+"An `issue <https://github.com/kubernetes/kubeadm/issues/666>`_ was filed "
+"with Kubernetes related to this and has since been closed. "
+"https://github.com/kubernetes/kubernetes/pull/58698#discussion_r163879443"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:245
+msgid "Limitations for using Tcpdump in pods"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:247
+msgid ""
+"Tcpdump doesn’t work in the sidecar pod - the container doesn’t run as "
+"root. However any other container in the same pod will see all the "
+"packets, since the network namespace is shared. ``iptables`` will also "
+"see the pod-wide configuration."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:252
+msgid ""
+"Communication between Envoy and the app happens on 127.0.0.1, and is not "
+"encrypted."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:256
+msgid "Cluster is not scaled down automatically"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/injection/index.rst:258
+msgid ""
+"Due to the fact that the sidecar container mounts a local storage volume,"
+" the node autoscaler is unable to evict nodes with the injected pods. "
+"This is a `known issue <https://github.com/istio/istio/issues/19395>`_. "
+"The workaround is to add a pod annotation ``\"cluster-"
+"autoscaler.kubernetes.io/safe-to-evict\": \"true\"`` to the injected "
+"pods."
+msgstr ""
+

@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/dns-cert/index.rst:2
+msgid "dns-cert"
+msgstr ""
+
+#: ../../source/blog/2019/dns-cert/index.rst:4
+msgid ""
+"By default, Citadel manages the DNS certificates of the Istio control "
+"plane. Citadel is a large component that maintains its own private "
+"signing key, and acts as a Certificate Authority (CA)."
+msgstr ""
+
+#: ../../source/blog/2019/dns-cert/index.rst:8
+msgid ""
+"New in Istio 1.4, we introduce a feature to securely provision and manage"
+" DNS certificates signed by the Kubernetes CA, which has the following "
+"advantages."
+msgstr ""
+
+#: ../../source/blog/2019/dns-cert/index.rst:12
+msgid "Lighter weight DNS certificate management with no dependency on Citadel."
+msgstr ""
+
+#: ../../source/blog/2019/dns-cert/index.rst:15
+msgid ""
+"Unlike Citadel, this feature doesn’t maintain a private signing key, "
+"which enhances security."
+msgstr ""
+
+#: ../../source/blog/2019/dns-cert/index.rst:18
+msgid ""
+"Simplified root certificate distribution to TLS clients. Clients no "
+"longer need to wait for Citadel to generate and distribute its CA "
+"certificate."
+msgstr ""
+
+#: ../../source/blog/2019/dns-cert/index.rst:22
+msgid ""
+"The following diagram shows the architecture of provisioning and managing"
+" DNS certificates in Istio. Chiron is the component provisioning and "
+"managing DNS certificates in Istio."
+msgstr ""
+
+#: ../../source/blog/2019/dns-cert/index.rst:31
+msgid ""
+"To try this new feature, refer to the `DNS certificate management task "
+"</docs/tasks/security/dns-cert>`_."
+msgstr ""
+

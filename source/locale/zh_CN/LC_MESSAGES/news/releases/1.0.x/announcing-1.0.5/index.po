@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.5/index.rst:2
+msgid "announcing-1.0.5"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.5/index.rst:4
+msgid ""
+"We’re pleased to announce the availability of Istio 1.0.5. Please see "
+"below for what’s changed."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.5/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.5/index.rst:10
+msgid "General"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.5/index.rst:12
+msgid ""
+"Disabled the precondition cache in the ``istio-policy`` service as it "
+"lead to invalid results. The cache will be reintroduced in a later "
+"release."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.5/index.rst:16
+msgid ""
+"Mixer now only generates spans when there is an enabled ``tracespan`` "
+"adapter, resulting in lower CPU overhead in normal cases."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.5/index.rst:19
+msgid "Fixed a problem that could lead Pilot to hang."
+msgstr ""
+

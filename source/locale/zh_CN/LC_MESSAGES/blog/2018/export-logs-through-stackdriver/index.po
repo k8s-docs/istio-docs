@@ -1,0 +1,378 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:2
+msgid "export-logs-through-stackdriver"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:4
+msgid ""
+"This post shows how to direct Istio logs to `Stackdriver "
+"<https://cloud.google.com/stackdriver/>`_ and export those logs to "
+"various configured sinks such as such as `BigQuery "
+"<https://cloud.google.com/bigquery/>`_, `Google Cloud Storage "
+"<https://cloud.google.com/storage/>`_ or `Cloud Pub/Sub "
+"<https://cloud.google.com/pubsub/>`_. At the end of this post you can "
+"perform analytics on Istio data from your favorite places such as "
+"BigQuery, GCS or Cloud Pub/Sub."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:13
+msgid ""
+"The `Bookinfo </docs/examples/bookinfo/>`_ sample application is used as "
+"the example application throughout this task."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:17
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:19
+msgid "`Install Istio </docs/setup/>`_ in your cluster and deploy an application."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:23
+msgid "Configuring Istio to export logs"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:25
+msgid ""
+"Istio exports logs using the ``logentry`` `template "
+"</docs/reference/config/policy-and-telemetry/templates/logentry>`_. This "
+"specifies all the variables that are available for analysis. It contains "
+"information like source service, destination service, auth metrics "
+"(coming..) among others. Following is a diagram of the pipeline:"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:35
+msgid ""
+"Istio supports exporting logs to Stackdriver which can in turn be "
+"configured to export logs to your favorite sink like BigQuery, Pub/Sub or"
+" GCS. Please follow the steps below to setup your favorite sink for "
+"exporting logs first and then Stackdriver in Istio."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:41
+msgid "Setting up various log sinks"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:43
+msgid "Common setup for all sinks:"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:45
+msgid ""
+"Enable `Stackdriver Monitoring API "
+"<https://cloud.google.com/monitoring/api/enable-api>`_ for the project."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:46
+msgid ""
+"Make sure ``principalEmail`` that would be setting up the sink has write "
+"access to the project and Logging Admin role permissions."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:47
+msgid ""
+"Make sure the ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable is "
+"set. Please follow instructions `here "
+"<https://cloud.google.com/docs/authentication/getting-started>`_ to set "
+"it up."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:53
+msgid "BigQuery"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:55
+msgid ""
+"`Create a BigQuery dataset "
+"<https://cloud.google.com/bigquery/docs/datasets>`_ as a destination for "
+"the logs export."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:58
+msgid ""
+"Record the ID of the dataset. It will be needed to configure the "
+"Stackdriver handler. It would be of the form "
+"``bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET_ID]``"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:61
+msgid ""
+"Give `sink’s writer identity "
+"<https://cloud.google.com/logging/docs/api/tasks/exporting-"
+"logs#writing_to_the_destination>`_: ``cloud-"
+"logs@system.gserviceaccount.com`` BigQuery Data Editor role in IAM."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:65
+msgid ""
+"If using `Google Kubernetes Engine </docs/setup/platform-setup/gke/>`_, "
+"make sure ``bigquery`` `Scope "
+"<https://cloud.google.com/sdk/gcloud/reference/container/clusters/create>`_"
+" is enabled on the cluster."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:71
+msgid "Google Cloud Storage (GCS)"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:73
+msgid ""
+"`Create a GCS bucket <https://cloud.google.com/storage/docs/creating-"
+"buckets>`_ where you would like logs to get exported in GCS."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:76
+msgid ""
+"Recode the ID of the bucket. It will be needed to configure Stackdriver. "
+"It would be of the form ``storage.googleapis.com/[BUCKET_ID]``"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:79
+msgid ""
+"Give `sink’s writer identity "
+"<https://cloud.google.com/logging/docs/api/tasks/exporting-"
+"logs#writing_to_the_destination>`_: ``cloud-"
+"logs@system.gserviceaccount.com`` Storage Object Creator role in IAM."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:85
+msgid "Google Cloud Pub/Sub"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:87
+msgid ""
+"`Create a topic <https://cloud.google.com/pubsub/docs/admin>`_ where you "
+"would like logs to get exported in Google Cloud Pub/Sub."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:89
+msgid ""
+"Recode the ID of the topic. It will be needed to configure Stackdriver. "
+"It would be of the form "
+"``pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]``"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:92
+msgid ""
+"Give `sink’s writer identity "
+"<https://cloud.google.com/logging/docs/api/tasks/exporting-"
+"logs#writing_to_the_destination>`_: ``cloud-"
+"logs@system.gserviceaccount.com`` Pub/Sub Publisher role in IAM."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:96
+msgid ""
+"If using `Google Kubernetes Engine </docs/setup/platform-setup/gke/>`_, "
+"make sure ``pubsub`` `Scope "
+"<https://cloud.google.com/sdk/gcloud/reference/container/clusters/create>`_"
+" is enabled on the cluster."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:102
+msgid "Setting up Stackdriver"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:104
+msgid ""
+"A Stackdriver handler must be created to export data to Stackdriver. The "
+"configuration for a Stackdriver handler is described `here "
+"</docs/reference/config/policy-and-telemetry/adapters/stackdriver/>`_."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:108
+msgid ""
+"Save the following yaml file as ``stackdriver.yaml``. Replace "
+"``<project_id>, <sink_id>, <sink_destination>, <log_filter>`` with their "
+"specific values."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:115
+msgid ""
+"stackdriver metadata: name: handler namespace: istio-system spec: # We’ll"
+" use the default value from the adapter, once per minute, so we don’t "
+"need to supply a value. # pushInterval: 1m # Must be supplied for the "
+"Stackdriver adapter to work project_id: “” # One of the following must be"
+" set; the preferred method is ``appCredentials``, which corresponds to # "
+"Google Application Default Credentials. # If none is provided we default "
+"to app credentials. # appCredentials: # apiKey: # serviceAccountPath: # "
+"Describes how to map Istio logs into Stackdriver. logInfo: "
+"accesslog.logentry.istio-system: payloadTemplate: ‘{{or (.sourceIp) “-”}}"
+" - {{or (.sourceUser) “-”}} [{{or (.timestamp.Format "
+"“02/Jan/2006:15:04:05 -0700”) “-”}}] “{{or (.method)”-“}} {{or "
+"(.url)”-“}} {{or (.protocol)”-“}}” {{or (.responseCode) “-”}} {{or "
+"(.responseSize) “-”}}’ httpMapping: url: url status: responseCode "
+"requestSize: requestSize responseSize: responseSize latency: latency "
+"localIp: sourceIp remoteIp: destinationIp method: method userAgent: "
+"userAgent referer: referer labelNames: - sourceIp - destinationIp - "
+"sourceService - sourceUser - sourceNamespace - destinationIp - "
+"destinationService - destinationNamespace - apiClaims - apiKey - protocol"
+" - method - url - responseCode - responseSize - requestSize - latency - "
+"connectionMtls - userAgent - responseTimestamp - receivedBytes - "
+"sentBytes - referer sinkInfo: id: ‘’ destination: ‘’ filter: ‘’ — "
+"apiVersion: “config.istio.io/v1alpha2” kind: rule metadata: name: "
+"stackdriver namespace: istio-system spec: match: “true” # If omitted "
+"match is true. actions:"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:141
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:224
+msgid "handler: handler.stackdriver instances:"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:226
+msgid "accesslog.logentry"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:148
+msgid "Push the configuration"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:153
+msgid ""
+"“handler” created rule “stackdriver” created logentry "
+"“stackdriverglobalmr” created metric “stackdriverrequestcount” created "
+"metric “stackdriverrequestduration” created metric "
+"“stackdriverrequestsize” created metric “stackdriverresponsesize” created"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:159
+msgid "Send traffic to the sample application."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:161
+msgid ""
+"For the Bookinfo sample, visit ``http://$GATEWAY_URL/productpage`` in "
+"your web browser or issue the following command:"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:167
+msgid ">}}"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:169
+msgid "Verify that logs are flowing through Stackdriver to the configured sink."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:172
+msgid ""
+"Stackdriver: Navigate to the `Stackdriver Logs Viewer "
+"<https://pantheon.corp.google.com/logs/viewer>`_ for your project and "
+"look under “GKE Container” -> “Cluster Name” -> “Namespace Id” for Istio "
+"Access logs."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:176
+msgid ""
+"BigQuery: Navigate to the `BigQuery Interface "
+"<https://bigquery.cloud.google.com/>`_ for your project and you should "
+"find a table with prefix ``accesslog_logentry_istio`` in your sink "
+"dataset."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:180
+msgid ""
+"GCS: Navigate to the `Storage Browser "
+"<https://pantheon.corp.google.com/storage/browser/>`_ for your project "
+"and you should find a bucket named ``accesslog.logentry.istio-system`` in"
+" your sink bucket."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:184
+msgid ""
+"Pub/Sub: Navigate to the `Pub/Sub Topic List "
+"<https://pantheon.corp.google.com/cloudpubsub/topicList>`_ for your "
+"project and you should find a topic for ``accesslog`` in your sink topic."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:190
+msgid "Understanding what happened"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:192
+msgid ""
+"``Stackdriver.yaml`` file above configured Istio to send access logs to "
+"Stackdriver and then added a sink configuration where these logs could be"
+" exported. In detail as follows:"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:196
+msgid "Added a handler of kind ``stackdriver``"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:201
+msgid "stackdriver metadata: name: handler namespace:"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:203
+msgid "Added ``logInfo`` in spec"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:208
+msgid ""
+"labelNames: - sourceIp - destinationIp … … sinkInfo: id: ‘’ destination: "
+"‘’ filter: ‘’"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:211
+msgid ""
+"In the above configuration sinkInfo contains information about the sink "
+"where you want the logs to get exported to. For more information on how "
+"this gets filled for different sinks please refer `here "
+"<https://cloud.google.com/logging/docs/export/#sink-terms>`_."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:216
+msgid "Added a rule for Stackdriver"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:221
+msgid ""
+"metadata: name: stackdriver namespace: istio-system spec: match: “true” #"
+" If omitted match is true actions:"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:229
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:231
+msgid "Remove the new Stackdriver configuration:"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:237
+msgid ""
+"If you are not planning to explore any follow-on tasks, refer to the "
+"`Bookinfo cleanup </docs/examples/bookinfo/#cleanup>`_ instructions to "
+"shutdown the application."
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:242
+msgid "Availability of logs in export sinks"
+msgstr ""
+
+#: ../../source/blog/2018/export-logs-through-stackdriver/index.rst:244
+msgid ""
+"Export to BigQuery is within minutes (we see it to be almost instant), "
+"GCS can have a delay of 2 to 12 hours and Pub/Sub is almost immediately."
+msgstr ""
+

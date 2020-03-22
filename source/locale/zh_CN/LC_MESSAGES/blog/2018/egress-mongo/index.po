@@ -1,0 +1,1447 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2018/egress-mongo/index.rst:2
+msgid "egress-mongo"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:4
+msgid ""
+"In the `Consuming External TCP Services </blog/2018/egress-tcp/>`_ blog "
+"post, I described how external services can be consumed by in-mesh Istio "
+"applications via TCP. In this post, I demonstrate consuming external "
+"MongoDB services. You use the `Istio Bookinfo sample application "
+"</docs/examples/bookinfo/>`_, the version in which the book ratings data "
+"is persisted in a MongoDB database. You deploy this database outside the "
+"cluster and configure the *ratings* microservice to use it. You will "
+"learn multiple options of controlling traffic to external MongoDB "
+"services and their pros and cons."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:15
+msgid "Bookinfo with external ratings database"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:17
+msgid ""
+"First, you set up a MongoDB database instance to hold book ratings data "
+"outside of your Kubernetes cluster. Then you modify the `Bookinfo sample "
+"application </docs/examples/bookinfo/>`_ to use your database."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:22
+msgid "Setting up the ratings database"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:24
+msgid ""
+"For this task you set up an instance of `MongoDB "
+"<https://www.mongodb.com>`_. You can use any MongoDB instance; I used "
+"`Compose for MongoDB <https://www.ibm.com/cloud/compose/mongodb>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:29
+msgid ""
+"Set an environment variable for the password of your ``admin`` user. To "
+"prevent the password from being preserved in the Bash history, remove the"
+" command from the history immediately after running the command, using "
+"`history -d <https://www.gnu.org/software/bash/manual/html_node/Bash-"
+"History-Builtins.html#Bash-History-Builtins>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:39
+msgid ""
+"Set an environment variable for the password of the new user you will "
+"create, namely ``bookinfo``. Remove the command from the history using "
+"`history -d <https://www.gnu.org/software/bash/manual/html_node/Bash-"
+"History-Builtins.html#Bash-History-Builtins>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:48
+msgid ""
+"Set environment variables for your MongoDB service, ``MONGODB_HOST`` and "
+"``MONGODB_PORT``."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:51
+msgid "Create the ``bookinfo`` user:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:56
+msgid ""
+"–sslAllowInvalidCertificates :math:`MONGODB_HOST:`\\ MONGODB_PORT -u "
+"admin -p :math:`MONGO_ADMIN_PASSWORD --authenticationDatabase admin use "
+"test db.createUser(  {  user: \"bookinfo\",  pwd: \"`\\ "
+"BOOKINFO_PASSWORD\", roles: [ “read”] } ); EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:61
+msgid ""
+"Create a *collection* to hold ratings. The following command sets both "
+"ratings to be equal ``1`` to provide a visual clue when your database is "
+"used by the Bookinfo *ratings* service (the default Bookinfo *ratings* "
+"are ``4`` and ``5``)."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:69
+msgid ""
+"–sslAllowInvalidCertificates :math:`MONGODB_HOST:`\\ MONGODB_PORT -u "
+"admin -p $MONGO_ADMIN_PASSWORD –authenticationDatabase admin use test "
+"db.createCollection(“ratings”); db.ratings.insert( [{rating: 1}, {rating:"
+" 1}] ); EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:74
+msgid "Check that ``bookinfo`` user can get ratings:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:79
+msgid ""
+"–sslAllowInvalidCertificates :math:`MONGODB_HOST:`\\ MONGODB_PORT -u "
+"bookinfo -p $BOOKINFO_PASSWORD –authenticationDatabase test use test "
+"db.ratings.find({}); EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:83
+msgid "The output should be similar to:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:85
+msgid ""
+"{{< text plain >}} MongoDB server version: 3.4.10 switched to db test { "
+"\"_id\" : ObjectId(“5b7c29efd7596e65b6ed2572”), “rating” : 1 } { \"_id\" "
+": ObjectId(“5b7c29efd7596e65b6ed2573”), “rating” : 1 } bye"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:90
+msgid "Initial setting of Bookinfo application"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:92
+msgid ""
+"To demonstrate the scenario of using an external database, you start with"
+" a Kubernetes cluster with `Istio installed </docs/setup/getting-"
+"started/>`_. Then you deploy the `Istio Bookinfo sample application "
+"</docs/examples/bookinfo/>`_, `apply the default destination rules "
+"</docs/examples/bookinfo/#apply-default-destination-rules>`_, and `change"
+" Istio to the blocking-egress-by-default policy </docs/tasks/traffic-"
+"management/egress/egress-control/#change-to-the-blocking-by-default-"
+"policy>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:101
+msgid ""
+"This application uses the ``ratings`` microservice to fetch book ratings,"
+" a number between 1 and 5. The ratings are displayed as stars for each "
+"review. There are several versions of the ``ratings`` microservice. You "
+"will deploy the version that uses `MongoDB <https://www.mongodb.com>`_ as"
+" the ratings database in the next subsection."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:108
+msgid "The example commands in this blog post work with Istio 1.0."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:110
+msgid ""
+"As a reminder, here is the end-to-end architecture of the application "
+"from the `Bookinfo sample application </docs/examples/bookinfo/>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:118
+msgid "Use the external database in Bookinfo application"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:120
+msgid ""
+"Deploy the spec of the *ratings* microservice that uses a MongoDB "
+"database (*ratings v2*):"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:126
+msgid ""
+"@samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml@ serviceaccount "
+"“bookinfo-ratings-v2” created deployment “ratings-v2” created"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:130
+msgid ""
+"Update the ``MONGO_DB_URL`` environment variable to the value of your "
+"MongoDB:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:136
+msgid ""
+"“MONGO_DB_URL=mongodb://bookinfo:\\ :math:`BOOKINFO_PASSWORD@`\\ "
+"MONGODB_HOST:$MONGODB_PORT/test?authSource=test&ssl=true” "
+"deployment.extensions/ratings-v2 env updated"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:139
+msgid ""
+"Route all the traffic destined to the *reviews* service to its *v3* "
+"version. You do this to ensure that the *reviews* service always calls "
+"the *ratings* service. In addition, route all the traffic destined to the"
+" *ratings* service to *ratings v2* that uses your database."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:145
+msgid ""
+"Specify the routing for both services above by adding two `virtual "
+"services </docs/reference/config/networking/virtual-service/>`_. These "
+"virtual services are specified in ``samples/bookinfo/networking/virtual-"
+"service-ratings-mongodb.yaml`` of an Istio release archive. "
+"**Important:** make sure you `applied the default destination rules "
+"</docs/examples/bookinfo/#apply-default-destination-rules>`_ before "
+"running the following command."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:157
+msgid "@samples/bookinfo/networking/virtual-service-ratings-db.yaml@"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:159
+msgid ""
+"The updated architecture appears below. Note that the blue arrows inside "
+"the mesh mark the traffic configured according to the virtual services we"
+" added. According to the virtual services, the traffic is sent to "
+"*reviews v3* and *ratings v2*."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:168
+msgid ""
+"Note that the MongoDB database is outside the Istio service mesh, or more"
+" precisely outside the Kubernetes cluster. The boundary of the service "
+"mesh is marked by a dashed line."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:173
+msgid "Access the webpage"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:175
+msgid ""
+"Access the webpage of the application, after `determining the ingress IP "
+"and port </docs/examples/bookinfo/#determine-the-ingress-ip-and-port>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:179
+msgid ""
+"Since you did not configure the egress traffic control yet, the access to"
+" the MongoDB service is blocked by Istio. This is why instead of the "
+"rating stars, the message *“Ratings service is currently unavailable”* is"
+" currently displayed below each review:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:188
+msgid ""
+"In the following sections you will configure egress access to the "
+"external MongoDB service, using different options for egress control in "
+"Istio."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:193
+msgid "Egress control for TCP"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:195
+msgid ""
+"Since `MongoDB Wire Protocol <https://docs.mongodb.com/manual/reference"
+"/mongodb-wire-protocol/>`_ runs on top of TCP, you can control the egress"
+" traffic to your MongoDB as traffic to any other `external TCP service "
+"</blog/2018/egress-tcp/>`_. To control TCP traffic, a block of IPs in the"
+" `CIDR <https://tools.ietf.org/html/rfc2317>`_ notation that includes the"
+" IP address of your MongoDB host must be specified. The caveat here is "
+"that sometimes the IP of the MongoDB host is not stable or known in "
+"advance."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:205
+msgid ""
+"In the cases when the IP of the MongoDB host is not stable, the egress "
+"traffic can either be `controlled as TLS traffic <#egress-control-for-"
+"tls>`_, or the traffic can be routed `directly </docs/tasks/traffic-"
+"management/egress/egress-control/#direct-access-to-external-services>`_, "
+"bypassing the Istio sidecar proxies."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:211
+msgid ""
+"Get the IP address of your MongoDB database instance. As an option, you "
+"can use the `host <https://linux.die.net/man/1/host>`_ command:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:217
+msgid "address \" \\| cut -d\" \" -f4)"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:220
+msgid "Control TCP egress traffic without a gateway"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:222
+msgid ""
+"In case you do not need to direct the traffic through an `egress gateway "
+"</docs/tasks/traffic-management/egress/egress-gateway/#use-case>`_, for "
+"example if you do not have a requirement that all the traffic that exists"
+" your mesh must exit through the gateway, follow the instructions in this"
+" section. Alternatively, if you do want to direct your traffic through an"
+" egress gateway, proceed to `Direct TCP egress traffic through an egress "
+"gateway <#direct-tcp-egress-traffic-through-an-egress-gateway>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:231
+msgid "Define a TCP mesh-external service entry:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:236
+#: ../../source/blog/2018/egress-mongo/index.rst:577
+#: ../../source/blog/2018/egress-mongo/index.rst:615
+#: ../../source/blog/2018/egress-mongo/index.rst:895
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: mongo "
+"spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:239
+msgid "my-mongo.tcp.svc addresses:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:240
+msgid "$MONGODB_IP/32 ports:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:241
+msgid ""
+"number: $MONGODB_PORT name: tcp protocol: TCP location: MESH_EXTERNAL "
+"resolution: STATIC endpoints:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:243
+msgid "address: $MONGODB_IP EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:245
+msgid ""
+"Note that the protocol ``TCP`` is specified instead of ``MONGO`` due to "
+"the fact that the traffic can be encrypted in case `the MongoDB protocol "
+"runs on top of TLS <https://docs.mongodb.com/manual/tutorial/configure-"
+"ssl/>`_. If the traffic is encrypted, the encrypted MongoDB protocol "
+"cannot be parsed by the Istio proxy."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:252
+msgid ""
+"If you know that the plain MongoDB protocol is used, without encryption, "
+"you can specify the protocol as ``MONGO`` and let the Istio proxy produce"
+" `MongoDB related statistics "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/listeners/network_filters/mongo_proxy_filter#statistics>`_."
+" Also note that when the protocol ``TCP`` is specified, the configuration"
+" is not specific for MongoDB, but is the same for any other database with"
+" the protocol on top of TCP."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:260
+msgid ""
+"Note that the host of your MongoDB is not used in TCP routing, so you can"
+" use any host, for example ``my-mongo.tcp.svc``. Notice the ``STATIC`` "
+"resolution and the endpoint with the IP of your MongoDB service. Once you"
+" define such an endpoint, you can access MongoDB services that do not "
+"have a domain name."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:266
+msgid ""
+"Refresh the web page of the application. Now the application should "
+"display the ratings without error:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:277
+msgid ""
+"If you want to direct the traffic through an egress gateway, proceed to "
+"the next section. Otherwise, perform `cleanup <#cleanup-of-tcp-egress-"
+"traffic-control>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:282
+msgid "Direct TCP Egress traffic through an egress gateway"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:284
+msgid ""
+"In this section you handle the case when you need to direct the traffic "
+"through an `egress gateway </docs/tasks/traffic-management/egress/egress-"
+"gateway/#use-case>`_. The sidecar proxy routes TCP connections from the "
+"MongoDB client to the egress gateway, by matching the IP of the MongoDB "
+"host (a CIDR block of length 32). The egress gateway forwards the traffic"
+" to the MongoDB host, by its hostname."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:292
+#: ../../source/blog/2018/egress-mongo/index.rst:607
+msgid ""
+"`Deploy Istio egress gateway </docs/tasks/traffic-management/egress"
+"/egress-gateway/#deploy-istio-egress-gateway>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:295
+msgid ""
+"If you did not perform the steps in `the previous section <#control-tcp-"
+"egress-traffic-without-a-gateway>`_, perform them now."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:299
+msgid ""
+"You may want to enable {{< gloss >}}mutual TLS Authentication{{< /gloss "
+">}} between the sidecar proxies of your MongoDB clients and the egress "
+"gateway to let the egress gateway monitor the identity of the source pods"
+" and to enable Mixer policy enforcement based on that identity. By "
+"enabling mutual TLS you also encrypt the traffic. If you do not want to "
+"enable mutual TLS, proceed to the `Mutual TLS between the sidecar proxies"
+" and the egress gateway <http://localhost:1313/blog/2018/egress-mongo"
+"/#mutual-tls-between-the-sidecar-proxies-and-the-egress-gateway>`_ "
+"section. Otherwise, proceed to the following section."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:310
+msgid "Configure TCP traffic from sidecars to the egress gateway"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:312
+msgid ""
+"Define the ``EGRESS_GATEWAY_MONGODB_PORT`` environment variable to hold "
+"some port for directing traffic through the egress gateway, e.g. \\ "
+"``7777``. You must select a port that is not used for any other service "
+"in the mesh."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:320
+msgid ">}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:322
+msgid ""
+"Add the selected port to the ``istio-egressgateway`` service. You should "
+"use the same values you used for installing Istio, in particular you have"
+" to specify all the ports of the ``istio-egressgateway`` service that you"
+" previously configured."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:330
+msgid ""
+"–name istio-egressgateway –namespace istio-system -x "
+"charts/gateways/templates/deployment.yaml -x "
+"charts/gateways/templates/service.yaml –set gateways.istio-"
+"ingressgateway.enabled=false –set gateways.istio-"
+"egressgateway.enabled=true –set gateways.istio-"
+"egressgateway.ports[0].port=80 –set gateways.istio-"
+"egressgateway.ports[0].name=http –set gateways.istio-"
+"egressgateway.ports[1].port=443 –set gateways.istio-"
+"egressgateway.ports[1].name=https –set gateways.istio-"
+"egressgateway.ports[2].port=$EGRESS_GATEWAY_MONGODB_PORT –set gateways"
+".istio-egressgateway.ports[2].name=mongo \\| kubectl apply -f -"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:343
+msgid ""
+"Check that the ``istio-egressgateway`` service indeed has the selected "
+"port:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:349
+msgid ""
+"istio-system NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE istio-"
+"egressgateway ClusterIP 172.21.202.204 80/TCP,443/TCP,7777/TCP 34d"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:353
+msgid "Disable mutual TLS authentication for the ``istio-egressgateway`` service:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:359
+#: ../../source/blog/2018/egress-mongo/index.rst:439
+msgid ""
+"authentication.istio.io/v1alpha1 kind: Policy metadata: name: istio-"
+"egressgateway namespace: istio-system spec: targets:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:362
+msgid "name: istio-egressgateway EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:364
+#: ../../source/blog/2018/egress-mongo/index.rst:445
+msgid ""
+"Create an egress ``Gateway`` for your MongoDB service, and destination "
+"rules and a virtual service to direct the traffic through the egress "
+"gateway and from the egress gateway to the external service."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:372
+#: ../../source/blog/2018/egress-mongo/index.rst:453
+#: ../../source/blog/2018/egress-mongo/index.rst:645
+#: ../../source/blog/2018/egress-mongo/index.rst:695
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: istio-"
+"egressgateway spec: selector: istio: egressgateway servers:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:375
+msgid "port: number: $EGRESS_GATEWAY_MONGODB_PORT name: tcp protocol: TCP hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst
+msgid "my-mongo.tcp.svc"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:381
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule metadata: "
+"name: egressgateway-for-mongo spec: host: istio-egressgateway.istio-"
+"system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst
+msgid "name: mongo"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:388
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule metadata: "
+"name: mongo spec: host: my-mongo.tcp.svc — apiVersion: "
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: direct-"
+"mongo-through-egress-gateway spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:392
+#: ../../source/blog/2018/egress-mongo/index.rst:475
+msgid "my-mongo.tcp.svc gateways:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:393
+#: ../../source/blog/2018/egress-mongo/index.rst:476
+#: ../../source/blog/2018/egress-mongo/index.rst:666
+#: ../../source/blog/2018/egress-mongo/index.rst:711
+#: ../../source/blog/2018/egress-mongo/index.rst:964
+msgid "mesh"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:394
+#: ../../source/blog/2018/egress-mongo/index.rst:477
+msgid "istio-egressgateway tcp:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:395
+#: ../../source/blog/2018/egress-mongo/index.rst:406
+#: ../../source/blog/2018/egress-mongo/index.rst:478
+#: ../../source/blog/2018/egress-mongo/index.rst:489
+#: ../../source/blog/2018/egress-mongo/index.rst:668
+#: ../../source/blog/2018/egress-mongo/index.rst:679
+#: ../../source/blog/2018/egress-mongo/index.rst:713
+#: ../../source/blog/2018/egress-mongo/index.rst:724
+#: ../../source/blog/2018/egress-mongo/index.rst:966
+#: ../../source/blog/2018/egress-mongo/index.rst:977
+msgid "match:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:397
+#: ../../source/blog/2018/egress-mongo/index.rst:408
+#: ../../source/blog/2018/egress-mongo/index.rst:480
+#: ../../source/blog/2018/egress-mongo/index.rst:491
+#: ../../source/blog/2018/egress-mongo/index.rst:670
+#: ../../source/blog/2018/egress-mongo/index.rst:681
+#: ../../source/blog/2018/egress-mongo/index.rst:715
+#: ../../source/blog/2018/egress-mongo/index.rst:726
+#: ../../source/blog/2018/egress-mongo/index.rst:968
+#: ../../source/blog/2018/egress-mongo/index.rst:979
+msgid "gateways:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:399
+#: ../../source/blog/2018/egress-mongo/index.rst:482
+msgid "mesh destinationSubnets:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:400
+#: ../../source/blog/2018/egress-mongo/index.rst:483
+msgid "$MONGODB_IP/32 port: $MONGODB_PORT route:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:402
+msgid ""
+"destination: host: istio-egressgateway.istio-system.svc.cluster.local "
+"subset: mongo port: number: $EGRESS_GATEWAY_MONGODB_PORT"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:410
+msgid "istio-egressgateway port: $EGRESS_GATEWAY_MONGODB_PORT route:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:413
+#: ../../source/blog/2018/egress-mongo/index.rst:495
+msgid ""
+"destination: host: my-mongo.tcp.svc port: number: $MONGODB_PORT weight: "
+"100 EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:416
+msgid ""
+"`Verify that egress traffic is directed through the egress gateway "
+"<#verify-that-egress-traffic-is-directed-through-the-egress-gateway>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:420
+msgid "Mutual TLS between the sidecar proxies and the egress gateway"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:422
+msgid "Delete the previous configuration:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:427
+msgid ""
+"–ignore-not-found=true $ kubectl delete virtualservice direct-mongo-"
+"through-egress-gateway –ignore-not-found=true $ kubectl delete "
+"destinationrule egressgateway-for-mongo mongo –ignore-not-found=true $ "
+"kubectl delete policy istio-egressgateway -n istio-system –ignore-not-"
+"found=true"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:433
+msgid "Enforce mutual TLS authentication for the ``istio-egressgateway`` service:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:442
+msgid "name: istio-egressgateway peers:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:443
+msgid "mtls: {} EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:456
+#: ../../source/blog/2018/egress-mongo/index.rst:648
+#: ../../source/blog/2018/egress-mongo/index.rst:698
+#: ../../source/blog/2018/egress-mongo/index.rst:917
+msgid "port: number: 443 name: tls protocol: TLS hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:458
+msgid ""
+"my-mongo.tcp.svc tls: mode: MUTUAL serverCertificate: /etc/certs/cert-"
+"chain.pem privateKey: /etc/certs/key.pem caCertificates: /etc/certs/root-"
+"cert.pem — apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule"
+" metadata: name: egressgateway-for-mongo spec: host: istio-egressgateway"
+".istio-system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:465
+#: ../../source/blog/2018/egress-mongo/index.rst:657
+#: ../../source/blog/2018/egress-mongo/index.rst:926
+msgid ""
+"name: mongo trafficPolicy: loadBalancer: simple: ROUND_ROBIN "
+"portLevelSettings:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:468
+msgid ""
+"port: number: 443 tls: mode: ISTIO_MUTUAL sni: my-mongo.tcp.svc — "
+"apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule metadata: "
+"name: mongo spec: host: my-mongo.tcp.svc — apiVersion: "
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: direct-"
+"mongo-through-egress-gateway spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:485
+#: ../../source/blog/2018/egress-mongo/index.rst:720
+msgid ""
+"destination: host: istio-egressgateway.istio-system.svc.cluster.local "
+"subset: mongo port: number: 443"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:493
+#: ../../source/blog/2018/egress-mongo/index.rst:683
+msgid "istio-egressgateway port: 443 route:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:498
+msgid "Proceed to the next section."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:501
+msgid "Verify that egress traffic is directed through the egress gateway"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:503
+#: ../../source/blog/2018/egress-mongo/index.rst:986
+msgid ""
+"Refresh the web page of the application again and verify that the ratings"
+" are still displayed correctly."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:506
+#: ../../source/blog/2018/egress-mongo/index.rst:989
+msgid ""
+"`Enable Envoy’s access logging </docs/tasks/observability/logs/access-log"
+"/#enable-envoy-s-access-logging>`_"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:509
+msgid ""
+"Check the log of the egress gateway’s Envoy and see a line that "
+"corresponds to your requests to the MongoDB service. If Istio is deployed"
+" in the ``istio-system`` namespace, the command to print the log is:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:517
+msgid ""
+"istio-system [2019-04-14T06:12:07.636Z] “- - -” 0 - “-” 1591 4393 94 - "
+"“-” “-” “-” “-” “:” outbound\\|\\||my-mongo.tcp.svc 172.30.146.119:59924 "
+"172.30.146.119:443 172.30.230.1:59206 -"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:522
+msgid "Cleanup of TCP egress traffic control"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:527
+msgid ""
+"gateway istio-egressgateway –ignore-not-found=true $ kubectl delete "
+"virtualservice direct-mongo-through-egress-gateway –ignore-not-found=true"
+" $ kubectl delete destinationrule egressgateway-for-mongo mongo –ignore-"
+"not-found=true $ kubectl delete policy istio-egressgateway -n istio-"
+"system –ignore-not-found=true"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:534
+msgid "Egress control for TLS"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:536
+msgid ""
+"In the real life, most of the communication to the external services must"
+" be encrypted and `the MongoDB protocol runs on top of TLS "
+"<https://docs.mongodb.com/manual/tutorial/configure-ssl/>`_. Also, the "
+"TLS clients usually send `Server Name Indication "
+"<https://en.wikipedia.org/wiki/Server_Name_Indication>`_, SNI, as part of"
+" their handshake. If your MongoDB server runs TLS and your MongoDB client"
+" sends SNI as part of the handshake, you can control your MongoDB egress "
+"traffic as any other TLS-with-SNI traffic. With TLS and SNI, you do not "
+"need to specify the IP addresses of your MongoDB servers. You specify "
+"their host names instead, which is more convenient since you do not have "
+"to rely on the stability of the IP addresses. You can also specify "
+"wildcards as a prefix of the host names, for example allowing access to "
+"any server from the ``*.com`` domain."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:550
+msgid "To check if your MongoDB server supports TLS, run:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:555
+msgid ""
+":math:`MONGODB_HOST:`\\ MONGODB_PORT -servername $MONGODB_HOST {{< /text "
+">}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:558
+msgid ""
+"If the command above prints a certificate returned by the server, the "
+"server supports TLS. If not, you have to control your MongoDB egress "
+"traffic on the TCP level, as described in the previous sections."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:563
+msgid "Control TLS egress traffic without a gateway"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:565
+msgid ""
+"In case you `do not need an egress gateway </docs/tasks/traffic-"
+"management/egress/egress-gateway/#use-case>`_, follow the instructions in"
+" this section. If you want to direct your traffic through an egress "
+"gateway, proceed to `Direct TCP Egress traffic through an egress gateway "
+"<#direct-tcp-egress-traffic-through-an-egress-gateway>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:572
+#: ../../source/blog/2018/egress-mongo/index.rst:610
+msgid "Create a ``ServiceEntry`` for the MongoDB service:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:580
+#: ../../source/blog/2018/egress-mongo/index.rst:618
+msgid "$MONGODB_HOST ports:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:581
+msgid "number: $MONGODB_PORT name: tls protocol: TLS resolution: DNS EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:584
+msgid ""
+"Refresh the web page of the application. The application should display "
+"the ratings without error."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:588
+msgid "Cleanup of the egress configuration for TLS"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:595
+msgid "Direct TLS Egress traffic through an egress gateway"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:597
+msgid ""
+"In this section you handle the case when you need to direct the traffic "
+"through an `egress gateway </docs/tasks/traffic-management/egress/egress-"
+"gateway/#use-case>`_. The sidecar proxy routes TLS connections from the "
+"MongoDB client to the egress gateway, by matching the SNI of the MongoDB "
+"host. The egress gateway forwards the traffic to the MongoDB host. Note "
+"that the sidecar proxy rewrites the destination port to be 443. The "
+"egress gateway accepts the MongoDB traffic on the port 443, matches the "
+"MongoDB host by SNI, and rewrites the port again to be the port of the "
+"MongoDB server."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:619
+msgid "number: $MONGODB_PORT name: tls protocol: TLS"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:620
+msgid ""
+"number: 443 name: tls-port-for-egress-gateway protocol: TLS resolution: "
+"DNS location: MESH_EXTERNAL EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:623
+msgid ""
+"Refresh the web page of the application and verify that the ratings are "
+"displayed correctly."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:626
+msgid ""
+"Create an egress ``Gateway`` for your MongoDB service, and destination "
+"rules and virtual services to direct the traffic through the egress "
+"gateway and from the egress gateway to the external service."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:631
+msgid ""
+"If you want to enable `mutual TLS Authentication "
+"</docs/tasks/security/authentication/authn-policy/>`_ between the sidecar"
+" proxies of your application pods and the egress gateway, use the "
+"following command. (You may want to enable mutual TLS to let the egress "
+"gateway monitor the identity of the source pods and to enable Mixer "
+"policy enforcement based on that identity.)"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:638
+msgid "{{< tabset category-name=“mtls” >}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:640
+msgid "{{< tab name=“mutual TLS enabled” category-value=“enabled” >}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:650
+msgid ""
+"$MONGODB_HOST tls: mode: MUTUAL serverCertificate: /etc/certs/cert-"
+"chain.pem privateKey: /etc/certs/key.pem caCertificates: /etc/certs/root-"
+"cert.pem — apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule"
+" metadata: name: egressgateway-for-mongo spec: host: istio-egressgateway"
+".istio-system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:660
+msgid ""
+"port: number: 443 tls: mode: ISTIO_MUTUAL sni: $MONGODB_HOST — "
+"apiVersion: networking.istio.io/v1alpha3 kind: VirtualService metadata: "
+"name: direct-mongo-through-egress-gateway spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:665
+#: ../../source/blog/2018/egress-mongo/index.rst:710
+msgid "$MONGODB_HOST gateways:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:667
+#: ../../source/blog/2018/egress-mongo/index.rst:712
+msgid "istio-egressgateway tls:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:672
+#: ../../source/blog/2018/egress-mongo/index.rst:717
+#: ../../source/blog/2018/egress-mongo/index.rst:970
+msgid "mesh port: $MONGODB_PORT sni_hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:673
+#: ../../source/blog/2018/egress-mongo/index.rst:718
+#: ../../source/blog/2018/egress-mongo/index.rst:729
+msgid "$MONGODB_HOST route:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:675
+msgid ""
+"destination: host: istio-egressgateway.istio-system.svc.cluster.local "
+"subset: mongo port: number: 443 tcp:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:685
+#: ../../source/blog/2018/egress-mongo/index.rst:731
+msgid ""
+"destination: host: $MONGODB_HOST port: number: $MONGODB_PORT weight: 100 "
+"EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:688
+#: ../../source/blog/2018/egress-mongo/index.rst:734
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:690
+msgid "{{< tab name=“mutual TLS disabled” category-value=“disabled” >}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:700
+msgid ""
+"$MONGODB_HOST tls: mode: PASSTHROUGH — apiVersion: "
+"networking.istio.io/v1alpha3 kind: DestinationRule metadata: name: "
+"egressgateway-for-mongo spec: host: istio-egressgateway.istio-"
+"system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:708
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: VirtualService metadata: "
+"name: direct-mongo-through-egress-gateway spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:728
+msgid "istio-egressgateway port: 443 sni_hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:736
+msgid "{{< /tabset >}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:738
+msgid ""
+"`Verify that the traffic is directed though the egress gateway <#verify-"
+"that-egress-traffic-is-directed-through-the-egress-gateway>`_"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:742
+msgid "Cleanup directing TLS egress traffic through an egress gateway"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:747
+msgid ""
+"gateway istio-egressgateway $ kubectl delete virtualservice direct-mongo-"
+"through-egress-gateway $ kubectl delete destinationrule egressgateway-"
+"for-mongo"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:752
+msgid "Enable MongoDB TLS egress traffic to arbitrary wildcarded domains"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:754
+msgid ""
+"Sometimes you want to configure egress traffic to multiple hostnames from"
+" the same domain, for example traffic to all MongoDB services from "
+"``*.<your company domain>.com``. You do not want to create multiple "
+"configuration items, one for each and every MongoDB service in your "
+"company. To configure access to all the external services from the same "
+"domain by a single configuration, you use *wildcarded* hosts."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:761
+msgid ""
+"In this section you configure egress traffic for a wildcarded domain. I "
+"used a MongoDB instance at ``composedb.com`` domain, so configuring "
+"egress traffic for ``*.com`` worked for me (I could have used "
+"``*.composedb.com`` as well). You can pick a wildcarded domain according "
+"to your MongoDB host."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:767
+msgid ""
+"To configure egress gateway traffic for a wildcarded domain, you will "
+"first need to deploy a custom egress gateway with `an additional SNI "
+"proxy </docs/tasks/traffic-management/egress/wildcard-egress-hosts"
+"/#wildcard-configuration-for-arbitrary-domains>`_. This is needed due to "
+"current limitations of Envoy, the proxy used by the standard Istio egress"
+" gateway."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:774
+msgid "Prepare a new egress gateway with an SNI proxy"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:776
+msgid ""
+"In this subsection you deploy an egress gateway with an SNI proxy, in "
+"addition to the standard Istio Envoy proxy. You can use any SNI proxy "
+"that is capable of routing traffic according to arbitrary, not-"
+"preconfigured SNI values; we used `Nginx <http://nginx.org>`_ to achieve "
+"this functionality."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:782
+msgid ""
+"Create a configuration file for the Nginx SNI proxy. You may want to edit"
+" the file to specify additional Nginx settings, if required."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:789
+msgid "events { }"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:791
+msgid ""
+"stream { log_format log_stream ‘$remote_addr [$time_local] $protocol "
+"[$ssl_preread_server_name]’ ‘$status $bytes_sent $bytes_received "
+"$session_time’;"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:795
+msgid ""
+"access_log /var/log/nginx/access.log log_stream; error_log "
+"/var/log/nginx/error.log;"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:798
+msgid ""
+"# tcp forward proxy by SNI server { resolver 8.8.8.8 ipv6=off; listen "
+"127.0.0.1:\\ :math:`MONGODB_PORT;  proxy_pass "
+"\\$ssl_preread_server_name:`\\ MONGODB_PORT; ssl_preread on; } } EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:802
+msgid ""
+"Create a Kubernetes `ConfigMap <https://kubernetes.io/docs/tasks"
+"/configure-pod-container/configure-pod-configmap/>`_ to hold the "
+"configuration of the Nginx SNI proxy:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:809
+msgid ""
+"egress-sni-proxy-configmap -n istio-system –from-file=nginx.conf=./sni-"
+"proxy.conf"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:812
+msgid ""
+"The following command will generate ``istio-egressgateway-with-sni-"
+"proxy.yaml`` to edit and deploy."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:818
+msgid ""
+"install/kubernetes/helm/istio/ –name istio-egressgateway-with-sni-proxy "
+"–namespace istio-system -x charts/gateways/templates/deployment.yaml -x "
+"charts/gateways/templates/service.yaml -x "
+"charts/gateways/templates/serviceaccount.yaml -x "
+"charts/gateways/templates/autoscale.yaml -x "
+"charts/gateways/templates/role.yaml -x "
+"charts/gateways/templates/rolebindings.yaml –set global.mtls.enabled=true"
+" –set global.istioNamespace=istio-system -f - > ./istio-egressgateway-"
+"with-sni-proxy.yaml gateways: enabled: true istio-ingressgateway: "
+"enabled: false istio-egressgateway: enabled: false istio-egressgateway-"
+"with-sni-proxy: enabled: true labels: app: istio-egressgateway-with-sni-"
+"proxy istio: egressgateway-with-sni-proxy replicaCount: 1 autoscaleMin: 1"
+" autoscaleMax: 5 cpu: targetAverageUtilization: 80 serviceAnnotations: {}"
+" type: ClusterIP ports: - port: 443 name: https secretVolumes: - name: "
+"egressgateway-certs secretName: istio-egressgateway-certs mountPath: "
+"/etc/istio/egressgateway-certs - name: egressgateway-ca-certs secretName:"
+" istio-egressgateway-ca-certs mountPath: /etc/istio/egressgateway-ca-"
+"certs configVolumes: - name: sni-proxy-config configMapName: egress-sni-"
+"proxy-configmap additionalContainers: - name: sni-proxy image: nginx "
+"volumeMounts: - name: sni-proxy-config mountPath: /etc/nginx readOnly: "
+"true EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:842
+msgid "Deploy the new egress gateway:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:847
+msgid ""
+"./istio-egressgateway-with-sni-proxy.yaml serviceaccount “istio-"
+"egressgateway-with-sni-proxy-service-account” created role “istio-"
+"egressgateway-with-sni-proxy-istio-system” created rolebinding “istio-"
+"egressgateway-with-sni-proxy-istio-system” created service “istio-"
+"egressgateway-with-sni-proxy” created deployment “istio-egressgateway-"
+"with-sni-proxy” created horizontalpodautoscaler “istio-egressgateway-"
+"with-sni-proxy” created"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:855
+msgid ""
+"Verify that the new egress gateway is running. Note that the pod has two "
+"containers (one is the Envoy proxy and the second one is the SNI proxy)."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:862
+msgid ""
+"istio=egressgateway-with-sni-proxy -n istio-system NAME READY STATUS "
+"RESTARTS AGE istio-egressgateway-with-sni-proxy-79f6744569-pf9t2 2/2 "
+"Running 0 17s"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:866
+msgid ""
+"Create a service entry with a static address equal to 127.0.0.1 "
+"(``localhost``), and disable mutual TLS on the traffic directed to the "
+"new service entry:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:873
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: sni-proxy"
+" spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:876
+msgid "sni-proxy.local location: MESH_EXTERNAL ports:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:877
+msgid ""
+"number: $MONGODB_PORT name: tcp protocol: TCP resolution: STATIC "
+"endpoints:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst
+msgid "address: 127.0.0.1"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:882
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule metadata: "
+"name: disable-mtls-for-sni-proxy spec: host: sni-proxy.local "
+"trafficPolicy: tls: mode: DISABLE EOF {{< /text >}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:888
+msgid "Configure access to ``*.com`` using the new egress gateway"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:890
+msgid "Define a ``ServiceEntry`` for ``*.com``:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:898
+msgid "\"*.com\" ports:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:899
+msgid "number: 443 name: tls protocol: TLS"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:900
+msgid ""
+"number: $MONGODB_PORT name: tls-mongodb protocol: TLS location: "
+"MESH_EXTERNAL EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:903
+msgid ""
+"Create an egress ``Gateway`` for \\_*.com_, port 443, protocol TLS, a "
+"destination rule to set the `SNI "
+"<https://en.wikipedia.org/wiki/Server_Name_Indication>`_ for the gateway,"
+" and Envoy filters to prevent tampering with SNI by a malicious "
+"application (the filters verify that the SNI issued by the application is"
+" the SNI reported to Mixer)."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:913
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: istio-"
+"egressgateway-with-sni-proxy spec: selector: istio: egressgateway-with-"
+"sni-proxy servers:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:919
+msgid ""
+"\"*.com\" tls: mode: MUTUAL serverCertificate: /etc/certs/cert-chain.pem "
+"privateKey: /etc/certs/key.pem caCertificates: /etc/certs/root-cert.pem —"
+" apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule metadata:"
+" name: mtls-for-egress-gateway spec: host: istio-egressgateway-with-sni-"
+"proxy.istio-system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:929
+msgid ""
+"port: number: 443 tls: mode: ISTIO_MUTUAL — # The following filter is "
+"used to forward the original SNI (sent by the application) as the SNI of "
+"the mutual TLS # connection. # The forwarded SNI will be reported to "
+"Mixer so that policies will be enforced based on the original SNI value. "
+"apiVersion: networking.istio.io/v1alpha3 kind: EnvoyFilter metadata: "
+"name: forward-downstream-sni spec: filters:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:937
+msgid ""
+"listenerMatch: portNumber: $MONGODB_PORT listenerType: SIDECAR_OUTBOUND "
+"filterName: forward_downstream_sni filterType: NETWORK filterConfig: {} —"
+" # The following filter verifies that the SNI of the mutual TLS "
+"connection (the SNI reported to Mixer) is # identical to the original SNI"
+" issued by the application (the SNI used for routing by the SNI proxy). #"
+" The filter prevents Mixer from being deceived by a malicious "
+"application: routing to one SNI while # reporting some other value of "
+"SNI. If the original SNI does not match the SNI of the mutual TLS "
+"connection, the # filter will block the connection to the external "
+"service. apiVersion: networking.istio.io/v1alpha3 kind: EnvoyFilter "
+"metadata: name: egress-gateway-sni-verifier spec: workloadLabels: app: "
+"istio-egressgateway-with-sni-proxy filters:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:950
+msgid ""
+"listenerMatch: portNumber: 443 listenerType: GATEWAY filterName: "
+"sni_verifier filterType: NETWORK filterConfig: {} EOF {{< /text >}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:954
+msgid ""
+"Route the traffic destined for \\_*.com\\_ to the egress gateway and from"
+" the egress gateway to the SNI proxy."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:960
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: direct-"
+"mongo-through-egress-gateway spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:963
+msgid "\"*.com\" gateways:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:965
+msgid "istio-egressgateway-with-sni-proxy tls:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:971
+msgid "\"*.com\" route:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:973
+msgid ""
+"destination: host: istio-egressgateway-with-sni-proxy.istio-"
+"system.svc.cluster.local subset: mongo port: number: 443 weight: 100 tcp:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:981
+msgid "istio-egressgateway-with-sni-proxy port: 443 route:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:983
+msgid ""
+"destination: host: sni-proxy.local port: number: $MONGODB_PORT weight: "
+"100 EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:992
+msgid ""
+"Check the log of the egress gateway’s Envoy proxy. If Istio is deployed "
+"in the ``istio-system`` namespace, the command to print the log is:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:999
+msgid "istio=egressgateway-with-sni-proxy -c istio-proxy -n istio-system"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1001
+msgid "You should see lines similar to the following:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1003
+msgid ""
+"{{< text plain >}} [2019-01-02T17:22:04.602Z] “- - -” 0 - 768 1863 88 - "
+"“-” “-” “-” “-” “127.0.0.1:28543” outbound|28543||sni-proxy.local "
+"127.0.0.1:49976 172.30.146.115:443 172.30.146.118:58510 "
+"[2019-01-02T17:22:04.713Z] “- - -” 0 - 1534 2590 85 - “-” “-” “-” “-” "
+"“127.0.0.1:28543” outbound|28543||sni-proxy.local 127.0.0.1:49988 "
+"172.30.146.115:443 172.30.146.118:58522"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1010
+msgid ""
+"Check the logs of the SNI proxy. If Istio is deployed in the ``istio-"
+"system`` namespace, the command to print the log is:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1016
+msgid ""
+"istio=egressgateway-with-sni-proxy -n istio-system -c sni-proxy 127.0.0.1"
+" [23/Aug/2018:03:28:18 +0000] TCP []200 1863 482 0.089 127.0.0.1 "
+"[23/Aug/2018:03:28:18 +0000] TCP []200 2590 1248 0.095"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1021
+msgid "Understanding what happened"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1023
+msgid ""
+"In this section you configured egress traffic to your MongoDB host using "
+"a wildcarded domain. While for a single MongoDB host there is no gain in "
+"using wildcarded domains (an exact hostname can be specified), it could "
+"be beneficial for cases when the applications in the cluster access "
+"multiple MongoDB hosts that match some wildcarded domain. For example, if"
+" the applications access ``mongodb1.composedb.com``, "
+"``mongodb2.composedb.com`` and ``mongodb3.composedb.com``, the egress "
+"traffic can be configured by a single configuration for the wildcarded "
+"domain ``*.composedb.com``."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1033
+msgid ""
+"I will leave it as an exercise for the reader to verify that no "
+"additional Istio configuration is required when you configure an app to "
+"use another instance of MongoDB with a hostname that matches the "
+"wildcarded domain used in this section."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1039
+msgid ""
+"Cleanup of configuration for MongoDB TLS egress traffic to arbitrary "
+"wildcarded domains"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1041
+msgid "Delete the configuration items for \\_*.com_:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1046
+msgid ""
+"delete gateway istio-egressgateway-with-sni-proxy $ kubectl delete "
+"virtualservice direct-mongo-through-egress-gateway $ kubectl delete "
+"destinationrule mtls-for-egress-gateway $ kubectl delete envoyfilter "
+"forward-downstream-sni egress-gateway-sni-verifier"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1051
+msgid ""
+"Delete the configuration items for the ``egressgateway-with-sni-proxy`` "
+"deployment:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1057
+msgid ""
+"delete destinationrule disable-mtls-for-sni-proxy $ kubectl delete -f "
+"./istio-egressgateway-with-sni-proxy.yaml $ kubectl delete configmap "
+"egress-sni-proxy-configmap -n istio-system"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1061
+msgid "Remove the configuration files you created:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1066
+msgid "./nginx-sni-proxy.conf"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1069
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1071
+msgid "Drop the ``bookinfo`` user:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1076
+msgid ""
+"–sslAllowInvalidCertificates :math:`MONGODB_HOST:`\\ MONGODB_PORT -u "
+"admin -p $MONGO_ADMIN_PASSWORD –authenticationDatabase admin use test "
+"db.dropUser(“bookinfo”); EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1080
+msgid "Drop the *ratings* collection:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1085
+msgid ""
+"–sslAllowInvalidCertificates :math:`MONGODB_HOST:`\\ MONGODB_PORT -u "
+"admin -p $MONGO_ADMIN_PASSWORD –authenticationDatabase admin use test "
+"db.ratings.drop(); EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1089
+msgid "Unset the environment variables you used:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1094
+msgid "MONGODB_HOST MONGODB_PORT MONGODB_IP"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1096
+msgid "Remove the virtual services:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1101
+msgid ""
+"@samples/bookinfo/networking/virtual-service-ratings-db.yaml@ Deleted "
+"config: virtual-service/default/reviews Deleted config: virtual-"
+"service/default/ratings"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1105
+msgid "Undeploy *ratings v2-mongodb*:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1110
+msgid ""
+"@samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml@ deployment "
+"“ratings-v2” deleted"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1114
+msgid "Conclusion"
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1116
+msgid ""
+"In this blog post I demonstrated various options for MongoDB egress "
+"traffic control. You can control the MongoDB egress traffic on a TCP or "
+"TLS level where applicable. In both TCP and TLS cases, you can direct the"
+" traffic from the sidecar proxies directly to the external MongoDB host, "
+"or direct the traffic through an egress gateway, according to your "
+"organization’s security requirements. In the latter case, you can also "
+"decide to apply or disable mutual TLS authentication between the sidecar "
+"proxies and the egress gateway. If you want to control MongoDB egress "
+"traffic on the TLS level by specifying wildcarded domains like ``*.com`` "
+"and you need to direct the traffic through the egress gateway, you must "
+"deploy a custom egress gateway with an SNI proxy."
+msgstr ""
+
+#: ../../source/blog/2018/egress-mongo/index.rst:1128
+msgid ""
+"Note that the configuration and considerations described in this blog "
+"post for MongoDB are rather the same for other non-HTTP protocols on top "
+"of TCP/TLS."
+msgstr ""
+

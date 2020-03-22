@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/security/cert-lifetime-config.rst:2
+msgid "cert-lifetime-config"
+msgstr ""
+
+#: ../../source/faq/security/cert-lifetime-config.rst:4
+msgid ""
+"For the workloads running in Kubernetes, the lifetime of their Istio "
+"certificates is controlled by the ``workload-cert-ttl`` flag on Citadel. "
+"The default value is 90 days. This value should be no greater than ``max-"
+"workload-cert-ttl`` of Citadel."
+msgstr ""
+
+#: ../../source/faq/security/cert-lifetime-config.rst:9
+msgid ""
+"Citadel uses a flag ``max-workload-cert-ttl`` to control the maximum "
+"lifetime for Istio certificates issued to workloads. The default value is"
+" 90 days. If ``workload-cert-ttl`` on Citadel or the Istio Agent is "
+"greater than ``max-workload-cert-ttl``, Citadel will fail issuing the "
+"certificate."
+msgstr ""
+
+#: ../../source/faq/security/cert-lifetime-config.rst:15
+msgid ""
+"You can modify a `generated manifest "
+"</docs/setup/install/istioctl/#generate-a-manifest-before-installation>`_"
+" file to customize the Citadel configuration. The following modification "
+"specifies that the Istio certificates for workloads running in Kubernetes"
+" has 1 hours lifetime. Besides that, the maximum allowed Istio "
+"certificate lifetime is 48 hours."
+msgstr ""
+
+#: ../../source/faq/security/cert-lifetime-config.rst:22
+msgid ""
+"{{< text plain >}} … kind: Deployment … metadata: name: istio-citadel "
+"namespace: istio-system spec: … template: … spec: … containers: - name: "
+"citadel … args: - –workload-cert-ttl=1h # Lifetime of certificates issued"
+" to workloads in Kubernetes. - –max-workload-cert-ttl=48h # Maximum "
+"lifetime of certificates issued to workloads by Citadel."
+msgstr ""
+
+#: ../../source/faq/security/cert-lifetime-config.rst:28
+msgid ""
+"For the workloads running on VMs and bare metal hosts, the lifetime of "
+"their Istio certificates is specified by the ``workload-cert-ttl`` flag "
+"on each Istio Agent. The default value is also 90 days. This value should"
+" be no greater than ``max-workload-cert-ttl`` of Citadel."
+msgstr ""
+
+#: ../../source/faq/security/cert-lifetime-config.rst:33
+msgid ""
+"To customize this configuration, the argument for the Istio Agent service"
+" should be modified. After `setting up the machines </docs/examples"
+"/virtual-machines/single-network/#setting-up-the-vm>`_ for Istio mesh "
+"expansion, modify the file ``/lib/systemd/system/istio-auth-node-"
+"agent.service`` on the VMs or bare metal hosts:"
+msgstr ""
+
+#: ../../source/faq/security/cert-lifetime-config.rst:40
+msgid ""
+"{{< text plain >}} … [Service] ExecStart=/usr/local/bin/node_agent "
+"–workload-cert-ttl=24h # Specify certificate lifetime for workloads on "
+"this machine. Restart=always StartLimitInterval=0 RestartSec=10 …"
+msgstr ""
+
+#: ../../source/faq/security/cert-lifetime-config.rst:44
+msgid ""
+"The above configuration specifies that the Istio certificates for "
+"workloads running on this VM or bare metal host will have 24 hours "
+"lifetime."
+msgstr ""
+
+#: ../../source/faq/security/cert-lifetime-config.rst:48
+msgid ""
+"After configuring the service, restart the Istio Agent by running "
+"``systemctl daemon-reload``."
+msgstr ""
+

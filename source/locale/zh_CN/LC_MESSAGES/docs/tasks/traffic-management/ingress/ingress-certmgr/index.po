@@ -1,0 +1,313 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:2
+msgid "Kubernetes Ingress with Cert-Manager"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:4
+msgid ""
+"This example demonstrates the use of Istio as a secure Kubernetes Ingress"
+" controller with TLS certificates issued by `Let’s Encrypt "
+"<https://letsencrypt.org/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:8
+msgid ""
+"You will start with a clean Istio installation, create an example "
+"service, expose it using the Kubernetes ``Ingress`` resource and get it "
+"secured by instructing cert-manager (bundled with Istio) to manage "
+"issuance and renewal of TLS certificates that will be further delivered "
+"to the Istio ingress `gateway "
+"</docs/reference/config/networking/gateway>`_ and hot-swapped as "
+"necessary via the means of `Secrets Discovery Service (SDS) "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:18
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:20
+msgid ""
+"`Install Istio </docs/setup/>`_ making sure to enable ingress `gateway "
+"</docs/reference/config/networking/gateway>`_ with Kubernetes Ingress "
+"support, `SDS "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret>`_."
+" Here’s an example of how to do it:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:86
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:28
+msgid "$ istioctl manifest apply"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst
+msgid "–set values.gateways.istio-ingressgateway.sds.enabled=true"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst
+msgid "–set values.global.k8sIngress.enabled=true"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst
+msgid "–set values.global.k8sIngress.enableHttps=true"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst
+msgid "–set values.global.k8sIngress.gatewayName=ingressgateway {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:37
+msgid ""
+"By default ``istio-ingressgateway`` will be exposed as a ``LoadBalancer``"
+" service type. You may want to change that by setting the ``gateways"
+".istio-ingressgateway.type`` installation option to ``NodePort`` if this "
+"is more applicable to your Kubernetes environment."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:43
+msgid ""
+"`Install cert-manager <https://docs.cert-manager.io/en/latest/getting-"
+"started/install/kubernetes.html>`_ to manage certificates automatically."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:48
+msgid "Configuring DNS name and gateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:50
+msgid ""
+"Take a note of the external IP address of the ``istio-ingressgateway`` "
+"service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:56
+msgid "istio-ingressgateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:58
+msgid ""
+"Configure your DNS zone so that the domain you’d like to use for this "
+"example is resolving to the external IP address of ``istio-"
+"ingressgateway`` service that you’ve captured in the previous step. You "
+"will need a real domain name for this example in order to get a TLS "
+"certificate issued. Let’s store the configured domain name into an "
+"environment variable for further use:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:68
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:70
+msgid ""
+"Your Istio installation contains an automatically generated `gateway "
+"</docs/reference/config/networking/gateway>`_ resource configured to "
+"serve the routes defined by the Kubernetes ``Ingress`` resources. By "
+"default it does not use `SDS "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret>`_,"
+" so you need to modify it in order to enable the delivery of the TLS "
+"certificates to the ``istio-ingressgateway`` via `SDS "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret>`_:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:83
+msgid ""
+"…and modify the ``tls`` section corresponding to the ``https-default`` "
+"port as follows:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:88
+msgid "$ kubectl -n istio-system"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:89
+msgid "patch gateway istio-autogenerated-k8s-ingress –type=json"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:92
+msgid ""
+"-p=‘[{“op”: “replace”, “path”: “/spec/servers/1/tls”, “value”: "
+"{“credentialName”: “ingress-cert”, “mode”: “SIMPLE”, “privateKey”: “sds”,"
+" “serverCertificate”: “sds”}}]’"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:94
+msgid "Now it’s time to setup a demo application."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:97
+msgid "Setting up a demo application"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:99
+msgid ""
+"You will be using a simple ``helloworld`` application for this example. "
+"The following command will spin up the ``Deployment`` and ``Service`` for"
+" the demo application and expose the service using an ``Ingress`` "
+"resource that will be handled by ``istio-ingressgateway``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:107
+msgid ""
+"Service metadata: name: helloworld labels: app: helloworld spec: ports: -"
+" port: 5000 name: http selector: app: helloworld — apiVersion: apps/v1 "
+"kind: Deployment metadata: name: helloworld spec: selector: matchLabels: "
+"app: helloworld template: metadata: labels: app: helloworld spec: "
+"containers: - name: helloworld image: istio/examples-helloworld-v1 "
+"resources: requests: cpu: “100m” imagePullPolicy: IfNotPresent ports: - "
+"containerPort: 5000 — apiVersion: extensions/v1beta1 kind: Ingress "
+"metadata: annotations: kubernetes.io/ingress.class: istio name: "
+"helloworld-ingress spec: rules: - host: “$INGRESS_DOMAIN” http: paths: - "
+"path: /hello backend: serviceName: helloworld servicePort: 5000 — EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:121
+msgid "Notice use of the ``INGRESS_DOMAIN`` variable you defined"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:122
+msgid "earlier"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:124
+msgid "Now you should be able to access your demo application via HTTP:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:129
+msgid "instance: helloworld-5d498979b6-jp2mf"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:131
+msgid ""
+"HTTPS access still won’t work as you don’t have any TLS certificates. "
+"Let’s fix that."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:135
+msgid "Getting a Let’s Encrypt certificate issued using cert-manager"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:137
+msgid ""
+"At this point your Istio installation should have cert-manager up and "
+"running with two ``ClusterIssuer`` resources configured (for production "
+"and staging ACME-endpoints provided by `Let’s Encrypt "
+"<https://letsencrypt.org/>`_). You will be using staging endpoint for "
+"this example (feel free to try swapping ``letsencrypt-staging`` for "
+"``letsencrypt`` to get a browser-trusted certificate issued)."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:145
+msgid ""
+"In order to have a certificate issued and managed by cert-manager you "
+"need to create a ``Certificate`` resource:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:151
+msgid ""
+"cert-manager.io/v1alpha2 kind: Certificate metadata: name: ingress-cert "
+"namespace: istio-system spec: secretName: ingress-cert issuerRef: name: "
+"letsencrypt-staging kind: ClusterIssuer commonName: $INGRESS_DOMAIN "
+"dnsNames: - $INGRESS_DOMAIN acme: config: - http01: ingressClass: istio "
+"domains: - $INGRESS_DOMAIN — EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:157
+msgid ""
+"Notice that the ``secretName`` matches the ``credentialName`` attribute "
+"value that you previously used while configuring the `gateway "
+"</docs/reference/config/networking/gateway>`_ resource. The "
+"``Certificate`` resource will be processed by cert-manager and a new "
+"certificate will eventually be issued. Consult the status of the "
+"``Certificate`` resource to check the progress:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:167
+msgid ""
+"ingress-cert -> status should eventually flip to ‘Certificate issued "
+"successfully’"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:170
+msgid "At this point the service should become available over HTTPS as well:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:175
+msgid "version: v1, instance: helloworld-5d498979b6-jp2mf"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:177
+msgid ""
+"Note that you have to use the ``--insecure`` flag as certificates issued "
+"by the “staging” ACME-endpoints aren’t trusted."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:181
+msgid "Moving to production from staging"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:183
+msgid ""
+"Now to switch to the production ``letsencrypt`` issuer. First we’ll "
+"reapply the certificate."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:189
+msgid ""
+"cert-manager.io/v1alpha2 kind: Certificate metadata: name: ingress-cert "
+"namespace: istio-system spec: secretName: ingress-cert issuerRef: name: "
+"letsencrypt kind: ClusterIssuer commonName: $INGRESS_DOMAIN dnsNames: - "
+"$INGRESS_DOMAIN acme: config: - http01: ingressClass: istio domains: - "
+"$INGRESS_DOMAIN — EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:195
+msgid "{{< text plain>}} certificate.cert-manager.io/ingress-cert configured"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:198
+msgid ""
+"Now delete the secret to force cert-manager to request a new certificate "
+"from the production issuer:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:206
+msgid "And watch that cert for a successful issuance:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:211
+msgid "istio-system"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:213
+msgid "you should see something like:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-certmgr/index.rst:215
+msgid ""
+"{{< text plain>}} Normal CertIssued 13m cert-manager Certificate issued "
+"successfully"
+msgstr ""
+

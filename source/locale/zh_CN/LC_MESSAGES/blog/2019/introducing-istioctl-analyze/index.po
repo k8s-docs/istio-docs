@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:2
+msgid "introducing-istioctl-analyze"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:4
+msgid ""
+"Istio 1.4 introduces an experimental new tool to help you analyze and "
+"debug your clusters running Istio."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:7
+msgid ""
+"```istioctl analyze`` </docs/reference/commands/istioctl/#istioctl-"
+"experimental-analyze>`_ is a diagnostic tool that detects potential "
+"issues with your Istio configuration, as well as gives general insights "
+"to improve your configuration. It can run against a live cluster or a set"
+" of local configuration files. It can also run against a combination of "
+"the two, allowing you to catch problems before you apply changes to a "
+"cluster."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:14
+msgid ""
+"To get started with it in just minutes, head over to the `documentation "
+"</docs/ops/diagnostic-tools/istioctl-analyze/>`_."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:18
+msgid "Designed to be approachable for novice users"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:20
+msgid ""
+"One of the key design goals that we followed for this feature is to make "
+"it extremely approachable. This is achieved by making the command useful "
+"without having to pass any required complex parameters."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:24
+msgid "In practice, here are some of the scenarios that it goes after:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:26
+msgid ""
+"*“There is some problem with my cluster, but I have no idea where to "
+"start”*"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:28
+msgid ""
+"*“Things are generally working, but I’m wondering if there is anything I "
+"could improve”*"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:31
+msgid ""
+"In that sense, it is very different from some of the more advanced "
+"diagnostic tools, which go after scenarios along the lines of (taking "
+"``istioctl proxy-config`` as an example):"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:35
+msgid ""
+"*“Show me the Envoy configuration for this specific pod so I can see if "
+"anything looks wrong”*"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:38
+msgid ""
+"This can be very useful for advanced debugging, but it requires a lot of "
+"expertize before you can figure out that you need to run this specific "
+"command, and which pod to run it on."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:42
+msgid ""
+"So really, the one-line pitch for ``analyze`` is: just run it! It’s "
+"completely safe, it takes no thinking, it might help you, and at worst, "
+"you’ll have wasted a minute!"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:47
+msgid "Improving this tool over time"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:49
+msgid ""
+"In Istio 1.4, ``analyze`` comes with a nice set of analyzers that can "
+"detect a number of common issues. But this is just the beginning, and we "
+"are planning to keep growing and fine tuning the analyzers with each "
+"release."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istioctl-analyze/index.rst:54
+msgid ""
+"In fact, we would welcome suggestions from Istio users. Specifically, if "
+"you encounter a situation where you think an issue could be detected via "
+"configuration analysis, but is not currently flagged by ``analyze``, "
+"please do let us know. The best way to do this is to `open an issue on "
+"GitHub <https://github.com/istio/istio/issues>`_."
+msgstr ""
+

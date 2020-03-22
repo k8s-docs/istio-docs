@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/distributed-tracing/disabling-tracing.rst:2
+msgid "disabling-tracing"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/disabling-tracing.rst:4
+msgid ""
+"If you already have installed Istio with tracing enabled, you can disable"
+" it as follows:"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/disabling-tracing.rst:7
+msgid ""
+"{{< text plain >}} # Fill with the namespace of your istio mesh.Ex: "
+"istio-system TRACING_POD=\\ ``kubectl get po -n <istio namespace> | grep "
+"istio-tracing | awk '{print $1}'`` $ kubectl delete pod $TRACING_POD -n $"
+" kubectl delete services tracing zipkin -n # Remove reference of zipkin "
+"url from mixer deployment $ kubectl -n istio-system edit deployment "
+"istio-telemetry # Now, manually remove instances of trace_zipkin_url from"
+" the file and save it."
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/disabling-tracing.rst:15
+msgid ""
+"Then follow the steps of the `cleanup section of the Distributed Tracing "
+"task </docs/tasks/observability/distributed-tracing/zipkin/#cleanup>`_."
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/disabling-tracing.rst:18
+msgid ""
+"If you don’t want tracing functionality at all, then `disable tracing "
+"</docs/tasks/observability/distributed-tracing/zipkin/#before-you-"
+"begin>`_ when installing Istio."
+msgstr ""
+

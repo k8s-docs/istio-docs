@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:1
+msgid ""
+"This task shows you how to migrate from one trust domain to another "
+"without changing authorization policy."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:4
+msgid ""
+"In Istio 1.4, we introduce an alpha feature to support {{< gloss >}}trust"
+" domain migration{{</ gloss >}} for authorization policy. This means if "
+"an Istio mesh needs to change its {{< gloss >}}trust domain{{</ gloss "
+">}}, the authorization policy doesn’t need to be changed manually. In "
+"Istio, if a {{< gloss >}}workload{{</ gloss >}} is running in namespace "
+"``foo`` with the service account ``bar``, and the trust domain of the "
+"system is ``my-td``, the identity of said workload is ``spiffe://my-"
+"td/ns/foo/sa/bar``. By default, the Istio mesh trust domain is "
+"``cluster.local``, unless you specify it during the installation."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:16
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:18
+msgid ""
+"Read the `authorization concept guide "
+"</docs/concepts/security/#authorization>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:21
+msgid "Install Istio with a custom trust domain and mutual TLS enabled."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:26
+msgid ""
+"install.istio.io/v1alpha1 kind: IstioOperator spec: values: global: "
+"controlPlaneSecurityEnabled: false mtls: enabled: true trustDomain: old-"
+"td EOF $ istioctl manifest apply –set profile=demo -f td-"
+"installation.yaml"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:31
+#, python-format
+msgid ""
+"Deploy the `httpbin "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/httpbin>`_ sample in the "
+"``default`` namespace and the `sleep "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ sample in the "
+"``default`` and ``sleep-allow`` namespaces:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:40
+msgid ""
+"istio-injection=enabled $ kubectl apply -f @samples/httpbin/httpbin.yaml@"
+" $ kubectl apply -f @samples/sleep/sleep.yaml@ $ kubectl create namespace"
+" sleep-allow $ kubectl label namespace sleep-allow istio-"
+"injection=enabled $ kubectl apply -f @samples/sleep/sleep.yaml@ -n sleep-"
+"allow"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:46
+msgid ""
+"Apply the authorization policy below to deny all requests to ``httpbin`` "
+"except from ``sleep`` in the ``sleep-allow`` namespace."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:52
+msgid ""
+"security.istio.io/v1beta1 kind: AuthorizationPolicy metadata: name: "
+"service-httpbin.default.svc.cluster.local namespace: default spec: rules:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:56
+msgid "from:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:58
+msgid "source: principals:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:60
+msgid "old-td/ns/sleep-allow/sa/sleep to:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:62
+msgid "operation: methods:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:64
+msgid "GET selector: matchLabels: app: httpbin — EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:66
+msgid ""
+"Notice that it may take tens of seconds for the authorization policy to "
+"be propagated to the sidecars."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:69
+msgid "Verify that requests to ``httpbin`` from:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:71
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:162
+msgid "``sleep`` in the ``default`` namespace are denied."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:76
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:122
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:167
+msgid ""
+"jsonpath={.items..metadata.name}) -c sleep – curl "
+"http://httpbin.default:8000/ip -s -o /dev/null -w “%{http_code}:raw-"
+"latex:`\\n`” 403"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:80
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:171
+msgid "``sleep`` in the ``sleep-allow`` namespace are allowed."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:85
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:176
+msgid ""
+"app=sleep -o jsonpath={.items..metadata.name}) -c sleep -n sleep-allow – "
+"curl http://httpbin.default:8000/ip -s -o /dev/null -w “%{http_code}:raw-"
+"latex:`\\n`” 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:90
+msgid "Migrate trust domain without trust domain aliases"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:92
+msgid "Install Istio with a new trust domain."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:97
+msgid ""
+"install.istio.io/v1alpha1 kind: IstioOperator spec: values: global: "
+"controlPlaneSecurityEnabled: false mtls: enabled: true trustDomain: new-"
+"td EOF $ istioctl manifest apply –set profile=demo -f td-"
+"installation.yaml"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:102
+msgid "Istio mesh is now running with a new trust domain, ``new-td``."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:104
+msgid ""
+"Redeploy the ``httpbin`` and ``sleep`` applications to pick up changes "
+"from the new Istio control plane."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:114
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:116
+msgid ""
+"Verify that requests to ``httpbin`` from both ``sleep`` in ``default`` "
+"namespace and ``sleep-allow`` namespace are denied."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:129
+msgid ""
+"app=sleep -o jsonpath={.items..metadata.name}) -c sleep -n sleep-allow – "
+"curl http://httpbin.default:8000/ip -s -o /dev/null -w “%{http_code}:raw-"
+"latex:`\\n`” 403"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:133
+msgid ""
+"This is because we specified an authorization policy that deny all "
+"requests to ``httpbin``, except the ones the ``old-td/ns/sleep-"
+"allow/sa/sleep`` identity, which is the old identity of the ``sleep`` "
+"application in ``sleep-allow`` namespace. When we migrated to a new trust"
+" domain above, i.e. \\ ``new-td``, the identity of this ``sleep`` "
+"application is now ``new-td/ns/sleep-allow/sa/sleep``, which is not the "
+"same as ``old-td/ns/sleep-allow/sa/sleep``. Therefore, requests from the "
+"``sleep`` application in ``sleep-allow`` namespace to ``httpbin`` were "
+"allowed before are now being denied. Prior to Istio 1.4, the only way to "
+"make this work is to change the authorization policy manually. In Istio "
+"1.4, we introduce an easy way, as shown below."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:147
+msgid "Migrate trust domain with trust domain aliases"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:149
+msgid "Install Istio with a new trust domain and trust domain aliases."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:154
+msgid ""
+"install.istio.io/v1alpha1 kind: IstioOperator spec: values: global: "
+"controlPlaneSecurityEnabled: false mtls: enabled: true trustDomain: new-"
+"td trustDomainAliases: - old-td EOF $ istioctl manifest apply –set "
+"profile=demo -f td-installation.yaml"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:159
+msgid ""
+"Without changing the authorization policy, verify that requests to "
+"``httpbin`` from:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:181
+msgid "Best practices"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:183
+msgid ""
+"Starting from Istio 1.4, when writing authorization policy, you should "
+"consider using the value ``cluster.local`` as the trust domain part in "
+"the policy. For example, instead of ``old-td/ns/sleep-allow/sa/sleep``, "
+"it should be ``cluster.local/ns/sleep-allow/sa/sleep``. Notice that in "
+"this case, ``cluster.local`` is not the Istio mesh trust domain (the "
+"trust domain is still ``old-td``). However, in authorization policy, "
+"``cluster.local`` is a pointer that points to the current trust domain, "
+"i.e. \\ ``old-td`` (and later ``new-td``), as well as its aliases. By "
+"using ``cluster.local`` in the authorization policy, when you migrate to "
+"a new trust domain, Istio will detect this and treat the new trust domain"
+" as the old trust domain without you having to include the aliases."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:197
+msgid "Clean up"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-td-migration/index.rst:202
+msgid ""
+"service-httpbin.default.svc.cluster.local $ kubectl delete deploy "
+"httpbin; kubectl delete service httpbin; kubectl delete serviceaccount "
+"httpbin $ kubectl delete deploy sleep; kubectl delete service sleep; "
+"kubectl delete serviceaccount sleep $ kubectl delete namespace sleep-"
+"allow $ istioctl manifest generate –set profile=demo -f td-"
+"installation.yaml \\| kubectl delete -f -"
+msgstr ""
+

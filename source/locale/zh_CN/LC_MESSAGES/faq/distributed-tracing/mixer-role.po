@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/distributed-tracing/mixer-role.rst:2
+msgid "mixer-role"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/mixer-role.rst:4
+msgid ""
+"By default, Mixer participates in tracing by generating its own spans for"
+" requests that are already selected for tracing by Envoy proxies. This "
+"enables operators to observe the participation of the mixer-based policy "
+"enforcement mechanisms within the mesh. If the ``istio-policy`` "
+"configuration is disabled mesh-wide, Mixer does not participate in "
+"tracing in this way."
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/mixer-role.rst:11
+msgid ""
+"Mixer, operating as the ``istio-telemetry`` service, can also be used to "
+"generate trace spans for data plane traffic. Mixer’s Stackdriver adapter "
+"is an example of an adapter that supports this capability."
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/mixer-role.rst:15
+msgid ""
+"For Mixer-generated traces, Istio still relies on Envoy to generate trace"
+" context and to forward it to the applications that must propagate the "
+"context. Instead of Envoy itself sending trace information directly to a "
+"tracing backend, Mixer distills client and server spans from the regular "
+"Envoy reporting for each request based on operator-supplied "
+"configuration. In this way, operators can precisely control when and how "
+"trace data is generated and perhaps remove certain services entirely from"
+" a trace or provide more detailed information for certain namespaces."
+msgstr ""
+

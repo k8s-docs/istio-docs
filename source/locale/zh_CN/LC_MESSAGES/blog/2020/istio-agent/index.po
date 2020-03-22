@@ -1,0 +1,43 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2020/istio-agent/index.rst:2
+msgid "istio-agent"
+msgstr ""
+
+#: ../../source/blog/2020/istio-agent/index.rst:4
+msgid ""
+"In Istio versions before 1.5, during secret discovery service (SDS) "
+"execution, the SDS client and the SDS server communicate through a cross-"
+"pod Unix domain socket (UDS), which needs to be protected by Kubernetes "
+"pod security policies."
+msgstr ""
+
+#: ../../source/blog/2020/istio-agent/index.rst:9
+msgid ""
+"With Istio 1.5, Pilot Agent, Envoy, and Citadel Agent will be running in "
+"the same container (the architecture is shown in the following diagram). "
+"To defend against attackers eavesdropping on the cross-pod UDS between "
+"Envoy (SDS client) and Citadel Agent (SDS server), Istio 1.5 merges Pilot"
+" Agent and Citadel Agent into a single Istio Agent and makes the UDS "
+"between Envoy and Citadel Agent private to the Istio Agent container. The"
+" Istio Agent container is deployed as the sidecar of the application "
+"service container."
+msgstr ""
+

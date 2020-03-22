@@ -1,0 +1,153 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:2
+msgid "OPA"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: OPA description: "
+"Adapter that implements an Open Policy Agent engine. location: "
+"https://istio.io/docs/reference/config/policy-and-"
+"telemetry/adapters/opa.html layout: protoc-gen-docs generator: protoc-"
+"gen-docs supported_templates: authorization aliases:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:14
+msgid "/docs/reference/config/adapters/opa.html"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:15
+msgid ""
+"number_of_entries: 1 --- <p>The <code>opa</code> adapter exposes an <a "
+"href=\"http://www.openpolicyagent.org\">Open Policy Agent</a> engine that"
+" provides sophisticated access control mechanisms.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:20
+msgid ""
+"<p>This adapter supports the <a href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/authorization/\">authorization template</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:22
+msgid ""
+"<h2 id=\"Params\">Params</h2> <section> <p>Configuration format for the "
+"<code>opa</code> adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:26
+msgid "<p>Example configuration:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:49
+msgid "<pre><code class=\"language-yaml\">policy:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:29
+msgid "|+ package mixerauthz policy = ["
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:39
+msgid "{"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:38
+msgid "&quot;rule&quot;: {"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:34
+msgid "&quot;verbs&quot;: ["
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:35
+msgid "&quot;storage.buckets.get&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:36
+msgid "], &quot;users&quot;: ["
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:38
+msgid "&quot;bucket-admins&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:39
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:42
+msgid "]"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:40
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:41
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:50
+msgid "}"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:44
+msgid "default allow = false"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:48
+msgid "allow = true {"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:47
+msgid ""
+"rule = policy[_].rule input.subject.user = rule.users[_] "
+"input.action.method = rule.verbs[_]"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:51
+msgid ""
+"checkMethod: &quot;data.mixerauthz.allow&quot; failClose: true "
+"</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:55
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-policy\"> <td><code>policy</code></td> "
+"<td><code>string[]</code></td> <td> <p>List of OPA policies</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:71
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-check_method\"> "
+"<td><code>checkMethod</code></td> <td><code>string</code></td> <td> "
+"<p>Query method to check. Format: <code>data.&lt;package "
+"name&gt;.&lt;method name&gt;</code></p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:83
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-fail_close\"> "
+"<td><code>failClose</code></td> <td><code>bool</code></td> <td> <p>Close "
+"the client request when adapter has a issue. If failClose is set to true "
+"and there is a runtime error, instead of disabling the adapter, close the"
+" client request</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/opa/index.rst:96
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

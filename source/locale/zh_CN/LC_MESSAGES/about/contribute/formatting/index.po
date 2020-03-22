@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/contribute/formatting/index.rst:2
+msgid "formatting"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:4
+msgid ""
+"This page shows the formatting standards for the Istio documentation. "
+"Istio uses Markdown to markup the content and Hugo to build the website. "
+"To ensure consistency across our documentation, we have agreed on these "
+"formatting standards."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:10
+msgid "Don’t use capitalization for emphasis"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:12
+msgid ""
+"Only use the original capitalization found in the code or configuration "
+"files when referencing those values directly. Use back-ticks \\`\\` "
+"around the referenced value to make the connection explicit. For example,"
+" use ``IstioRoleBinding``, not ``Istio Role Binding`` or ``istio role "
+"binding``."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:18
+msgid ""
+"If you are not referencing values or code directly, use normal sentence "
+"capitalization, for example, “The Istio role binding configuration takes "
+"place in a YAML file.”"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:23
+msgid "Use angle brackets for placeholders"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:25
+msgid ""
+"Use angle brackets for placeholders in commands or code samples. Tell the"
+" reader what the placeholder represents. For example:"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:28
+msgid "{{< text markdown >}}"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:30
+msgid "Display information about a pod:"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:32
+msgid "{{</\\* text bash */>}} $ kubectl describe pod {{</* /text \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:34
+msgid "Where ``<pod-name>`` is the name of one of your pods."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:39
+msgid "Use **bold** to emphasize user interface elements"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:42
+#: ../../source/about/contribute/formatting/index.rst:52
+#: ../../source/about/contribute/formatting/index.rst:130
+#: ../../source/about/contribute/formatting/index.rst:159
+#: ../../source/about/contribute/formatting/index.rst:185
+msgid "Do"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:42
+#: ../../source/about/contribute/formatting/index.rst:130
+#: ../../source/about/contribute/formatting/index.rst:159
+msgid "Don’t"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:44
+msgid "Click **Fork**."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:44
+msgid "Click “Fork”."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:45
+msgid "Select **Other**."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:45
+msgid "Select ‘Other’."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:49
+msgid "Use *italics* to emphasize new terms"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:52
+msgid "D o n ’ t"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:58
+msgid "A *cluster* is a set of nodes …"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:58
+msgid "A “ c l u s t e r ” i s a s e t o f n o d e s …"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:83
+msgid "These components form the *control plane*."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:83
+msgid ""
+"T h e s e c o m p o n e n t s f o r m t h e * * c o n t r o l p l a n e *"
+" * ."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:124
+msgid "Use the ``gloss`` shortcode and add glossary entries for new terms."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:127
+msgid "Use ``back-ticks`` around file names, directories, and paths"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:132
+msgid "Open the ``foo.yaml`` file."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:132
+msgid "Open the foo.yam l file."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:138
+msgid "Go to the ``/content/en/docs/tasks`` directory."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:138
+msgid "Go to the /conten t/en/do cs/task s directo ry."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:147
+msgid "Open the ``/data/args.yaml`` file."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:147
+msgid "Open the /data/a rgs.yam l file."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:156
+msgid "Use ``back-ticks`` around inline code and commands"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:161
+msgid "The ``foo run`` command creates a ``Deployment``."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:161
+msgid "The “foo run” command creates a ``Deploym ent``."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:168
+msgid "For declarative management, use ``foo apply``."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:168
+msgid "For declarati ve managemen t, use “foo apply”."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:177
+msgid ""
+"Use code-blocks for commands you intend readers to execute. Only use "
+"inline code and commands to mention specific labels, flags, values, "
+"functions, objects, variables, modules, or commands."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:182
+msgid "Use ``back-ticks`` around object field names"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:185
+msgid "Don ’t"
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:188
+msgid "Set the value of the ``ports`` field in the configuration file."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:188
+msgid "Set the val ue of the “po rts ” fie ld in the con fig ura tio n fil e."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:209
+msgid "The value of the ``rule`` field is a ``Rule`` object."
+msgstr ""
+
+#: ../../source/about/contribute/formatting/index.rst:209
+msgid "The val ue of the “ru le” fie ld is a ``R ule `` obj ect ."
+msgstr ""
+

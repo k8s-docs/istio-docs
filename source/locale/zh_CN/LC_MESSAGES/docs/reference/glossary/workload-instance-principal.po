@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/glossary/workload-instance-principal.rst:2
+msgid "workload instance principal"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload-instance-principal.rst:4
+msgid ""
+"The verifiable authority under which a `workload instance "
+"</docs/reference/glossary/#workload-instance>`_ runs. Istio’s service-to-"
+"service authentication is used to produce the workload principal. By "
+"default workload principals are compliant with the SPIFFE ID format."
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload-instance-principal.rst:10
+msgid ""
+"Workload instance principals are available in policy and telemetry "
+"configuration using the ``source.principal`` and "
+"``destination.principal`` `attributes "
+"</docs/reference/glossary/#attribute>`_."
+msgstr ""
+

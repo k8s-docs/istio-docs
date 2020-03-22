@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:2
+msgid "sail-the-blog"
+msgstr ""
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:4
+msgid "Welcome to the Istio blog!"
+msgstr ""
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:6
+msgid ""
+"To make it easier to publish your content on our website, we `updated the"
+" content types guide </about/contribute/add-content/#content-types>`_."
+msgstr ""
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:10
+msgid ""
+"The goal of the updated guide is to make sharing and finding content "
+"easier."
+msgstr ""
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:13
+msgid ""
+"We want to make sharing timely information on Istio easy and the `Istio "
+"blog </blog>`_ is a good place to start."
+msgstr ""
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:16
+msgid ""
+"We welcome your posts to the blog if you think your content falls in one "
+"of the following four categories:"
+msgstr ""
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:19
+msgid ""
+"Your post details your experience using and configuring Istio. Ideally, "
+"your post shares a novel experience or perspective."
+msgstr ""
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:21
+msgid "Your post highlights Istio features."
+msgstr ""
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:22
+msgid ""
+"Your post details how to accomplish a task or fulfill a specific use case"
+" using Istio."
+msgstr ""
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:25
+msgid ""
+"Posting your blog is only `one PR away </about/contribute/github/>`_ and,"
+" if you wish, you can `request a review </about/contribute/review>`_."
+msgstr ""
+
+#: ../../source/blog/2019/sail-the-blog/index.rst:29
+msgid "We look forward to reading about your Istio experience on the blog soon!"
+msgstr ""
+

@@ -1,0 +1,214 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:53+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:2
+msgid "fluentd"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:4
+msgid ""
+"This task shows how to configure Istio to create custom log entries and "
+"send them to a `Fluentd <https://www.fluentd.org/>`_ daemon. Fluentd is "
+"an open source log collector that supports many `data outputs "
+"<https://www.fluentd.org/dataoutputs>`_ and has a pluggable architecture."
+" One popular logging backend is `Elasticsearch "
+"<https://www.elastic.co/products/elasticsearch>`_, and `Kibana "
+"<https://www.elastic.co/products/kibana>`_ as a viewer. At the end of "
+"this task, a new log stream will be enabled sending logs to an example "
+"Fluentd / Elasticsearch / Kibana stack."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:14
+msgid ""
+"The `Bookinfo </docs/examples/bookinfo/>`_ sample application is used as "
+"the example application throughout this task."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:18
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:20
+msgid ""
+"`Install Istio </docs/setup/>`_ in your cluster and deploy an "
+"application. This task assumes that Mixer is setup in a default "
+"configuration (``--configDefaultNamespace=istio-system``). If you use a "
+"different value, update the configuration and commands in this task to "
+"match the value."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:27
+msgid "Setup Fluentd"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:29
+msgid ""
+"In your cluster, you may already have a Fluentd daemon set running, such "
+"the add-on described `here <https://kubernetes.io/docs/tasks/debug-"
+"application-cluster/logging-elasticsearch-kibana/>`_ and `here "
+"<https://github.com/kubernetes/kubernetes/tree/master/cluster/addons"
+"/fluentd-elasticsearch>`_, or something specific to your cluster "
+"provider. This is likely configured to send logs to an Elasticsearch "
+"system or logging provider."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:37
+msgid ""
+"You may use these Fluentd daemons, or any other Fluentd daemon you have "
+"set up, as long as they are listening for forwarded logs, and Istio’s "
+"Mixer is able to connect to them. In order for Mixer to connect to a "
+"running Fluentd daemon, you may need to add a `service "
+"<https://kubernetes.io/docs/concepts/services-networking/service/>`_ for "
+"Fluentd. The Fluentd configuration to listen for forwarded logs is:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:44
+msgid "{{< text xml >}} type forward"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:46
+msgid ""
+"The full details of connecting Mixer to all possible Fluentd "
+"configurations is beyond the scope of this task."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:50
+msgid "Example Fluentd, Elasticsearch, Kibana Stack"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:52
+msgid ""
+"For the purposes of this task, you may deploy the example stack provided."
+" This stack includes Fluentd, Elasticsearch, and Kibana in a non "
+"production-ready set of `Services <https://kubernetes.io/docs/concepts"
+"/services-networking/service/>`_ and `Deployments "
+"<https://kubernetes.io/docs/concepts/workloads/controllers/deployment/>`_"
+" all in a new `Namespace <https://kubernetes.io/docs/concepts/overview"
+"/working-with-objects/namespaces/>`_ called ``logging``."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:62
+msgid "Save the following as ``logging-stack.yaml``."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:155
+msgid "Create the resources:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:170
+msgid "Configure Istio"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:172
+msgid ""
+"Now that there is a running Fluentd daemon, configure Istio with a new "
+"log type, and send those logs to the listening daemon. Apply a YAML file "
+"with configuration for the log stream that Istio will generate and "
+"collect automatically:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:183
+msgid ""
+"If you use Istio 1.1.2 or prior, please use the following configuration "
+"instead:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:191
+msgid ""
+"Notice that the ``address: \"fluentd-es.logging:24224\"`` line in the "
+"handler configuration is pointing to the Fluentd daemon we setup in the "
+"example stack."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:196
+msgid "View the new logs"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:198
+msgid "Send traffic to the sample application."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:200
+msgid ""
+"For the `Bookinfo </docs/examples/bookinfo/#determine-the-ingress-ip-and-"
+"port>`_ sample, visit ``http://$GATEWAY_URL/productpage`` in your web "
+"browser or issue the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:209
+msgid ""
+"In a Kubernetes environment, setup port-forwarding for Kibana by "
+"executing the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:216
+msgid ""
+"Leave the command running. Press Ctrl-C to exit when done accessing the "
+"Kibana UI."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:218
+msgid ""
+"Navigate to the `Kibana UI <http://localhost:5601/>`_ and click the “Set "
+"up index patterns” in the top right."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:220
+msgid "Use ``*`` as the index pattern, and click “Next step.”."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:222
+msgid ""
+"Select ``@timestamp`` as the Time Filter field name, and click “Create "
+"index pattern.”"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:224
+msgid ""
+"Now click “Discover” on the left menu, and start exploring the logs "
+"generated"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:227
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:229
+msgid "Remove the new telemetry configuration:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:235
+msgid "If you are using Istio 1.1.2 or prior:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:241
+msgid "Remove the example Fluentd, Elasticsearch, Kibana stack:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:247
+msgid "Remove any ``kubectl port-forward`` processes that may still be running:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/fluentd/index.rst:253
+msgid ""
+"If you are not planning to explore any follow-on tasks, refer to the "
+"`Bookinfo cleanup </docs/examples/bookinfo/#cleanup>`_ instructions to "
+"shutdown the application."
+msgstr ""
+

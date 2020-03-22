@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:2
+msgid "Metric"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: Metric description: A "
+"template that represents a single runtime metric. location: "
+"https://istio.io/docs/reference/config/policy-and-"
+"telemetry/templates/metric.html layout: protoc-gen-docs generator: "
+"protoc-gen-docs aliases:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:13
+msgid "/docs/reference/config/template/metric.html"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:14
+msgid ""
+"number_of_entries: 1 --- <p>The <code>metric</code> template is designed "
+"to let you describe runtime metric to dispatch to monitoring "
+"backends.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:19
+msgid "<p>Example config:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:21
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"&quot;config.istio.io/v1alpha2&quot; kind: instance metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:24
+msgid "name: requestsize namespace: istio-system"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:34
+msgid "spec:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:27
+msgid "compiledTemplate: metric params:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:29
+msgid "value: request.size | 0 dimensions:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:31
+msgid ""
+"source_version: source.labels[&quot;version&quot;] | &quot;unknown&quot; "
+"destination_service: destination.service.host | &quot;unknown&quot; "
+"destination_version: destination.labels[&quot;version&quot;] | "
+"&quot;unknown&quot; response_code: response.code | 200"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:35
+msgid "monitored_resource_type: '&quot;UNSPECIFIED&quot;'"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:36
+msgid "</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:38
+msgid ""
+"<h2 id=\"Template\">Template</h2> <section> <p>The <code>metric</code> "
+"template represents a single piece of data to report.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:42
+msgid ""
+"<p>When writing the configuration, the value for the fields associated "
+"with this template can either be a literal or an <a "
+"href=\"/docs/reference//config/policy-and-telemetry/expression-"
+"language/\">expression</a>. Please note that if the datatype of a field "
+"is not istio.policy.v1beta1.Value, then the expression&rsquo;s <a "
+"href=\"/docs/reference//config/policy-and-telemetry/expression-language"
+"/#type-checking\">inferred type</a> must match the datatype of the "
+"field.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:46
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Template-value\"> <td><code>value</code></td> "
+"<td><code><a href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#Value\">Value</a></code></td> <td> "
+"<p>The value being reported.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:62
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-dimensions\"> "
+"<td><code>dimensions</code></td> <td><code>map&lt;string,&nbsp;<a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#Value\">Value</a>&gt;</code></td> "
+"<td> <p>The unique identity of the particular metric to report.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:73
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-monitored_resource_type\"> "
+"<td><code>monitoredResourceType</code></td> <td><code>string</code></td> "
+"<td> <p>Optional. An expression to compute the type of the monitored "
+"resource this metric is being reported on. If the metric backend supports"
+" monitored resources, these fields are used to populate that resource. "
+"Otherwise these fields will be ignored by the adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:86
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-"
+"monitored_resource_dimensions\"> "
+"<td><code>monitoredResourceDimensions</code></td> "
+"<td><code>map&lt;string,&nbsp;<a href=\"/docs/reference/config/policy-"
+"and-telemetry/istio.policy.v1beta1.html#Value\">Value</a>&gt;</code></td>"
+" <td> <p>Optional. A set of expressions that will form the dimensions of "
+"the monitored resource this metric is being reported on. If the metric "
+"backend supports monitored resources, these fields are used to populate "
+"that resource. Otherwise these fields will be ignored by the adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/metric/index.rst:99
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

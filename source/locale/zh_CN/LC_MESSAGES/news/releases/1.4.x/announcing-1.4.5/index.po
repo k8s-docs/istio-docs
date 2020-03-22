@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.5/index.rst:2
+msgid "announcing-1.4.5"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.5/index.rst:4
+msgid ""
+"This release includes bug fixes to improve robustness. This release note "
+"describes what’s different between Istio 1.4.4 and Istio 1.4.5."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.5/index.rst:7
+msgid ""
+"The fixes below focus on various bugs occurring during node restarts. If "
+"you use Istio CNI, or have nodes that restart, you are highly encouraged "
+"to upgrade."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.5/index.rst:11
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.5/index.rst:14
+msgid "Improvements"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.5/index.rst:16
+msgid ""
+"**Fixed** a bug triggered by node restart causing Pods to receive "
+"incorrect configuration (`Issue 20676 "
+"<https://github.com/istio/istio/issues/20676>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.5/index.rst:19
+msgid ""
+"**Improved** `Istio CNI </docs/setup/additional-setup/cni/>`_ robustness."
+" Previously, when a node restarted, new pods may be created before the "
+"CNI was setup, causing pods to be created without ``iptables`` rules "
+"configured (`Issue 14327 "
+"<https://github.com/istio/istio/issues/14327>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.5/index.rst:24
+msgid ""
+"**Fixed** MCP metrics to include the size of the MCP responses, rather "
+"than just requests (`Issue 21049 "
+"<https://github.com/istio/istio/issues/21049>`_)."
+msgstr ""
+

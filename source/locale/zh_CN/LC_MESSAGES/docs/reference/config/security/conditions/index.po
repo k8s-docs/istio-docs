@@ -1,0 +1,252 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:2
+msgid "Conditions"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:4
+msgid ""
+"This page describes the supported keys and value formats you can use as "
+"conditions in the ``when`` field of an `authorization policy rule "
+"</docs/reference/config/security/authorization-policy/#Rule>`_."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:10
+msgid "Unsupported keys and values are silently ignored. {{<"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:11
+msgid "/warning >}}"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:13
+msgid ""
+"For more information, refer to the `authorization concept page "
+"</docs/concepts/security/#authorization>`_."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:17
+msgid "Supported Conditions"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:20
+msgid "Name"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:20
+msgid "Description"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:20
+msgid "Supported Protocols"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:20
+msgid "Example"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:22
+msgid "``requ est.he aders` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:22
+msgid "HTTP request headers. The actual header name is surrounded by brackets"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:22
+#: ../../source/docs/reference/config/security/conditions/index.rst:53
+#: ../../source/docs/reference/config/security/conditions/index.rst:63
+#: ../../source/docs/reference/config/security/conditions/index.rst:71
+#: ../../source/docs/reference/config/security/conditions/index.rst:80
+msgid "HTTP only"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:22
+msgid "``key: req uest.heade rs[User-Ag ent]``\\ \\ ``values: [\"Mozilla/ *\"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:30
+msgid "``sour ce.ip` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:30
+msgid "Source workload instance IP address, supports single IP or CIDR"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:30
+#: ../../source/docs/reference/config/security/conditions/index.rst:36
+#: ../../source/docs/reference/config/security/conditions/index.rst:43
+#: ../../source/docs/reference/config/security/conditions/index.rst:88
+#: ../../source/docs/reference/config/security/conditions/index.rst:96
+#: ../../source/docs/reference/config/security/conditions/index.rst:103
+#: ../../source/docs/reference/config/security/conditions/index.rst:110
+msgid "HTTP and TCP"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:30
+msgid "``key: sou rce.ip``\\ \\ ``values : [\"10.1.2 .3\"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:36
+msgid "``sour ce.nam espace ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:36
+msgid "Source workload instance namespace, requires mutual TLS enabled"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:36
+msgid "``key: sou rce.namesp ace``\\ \\ ` `values: [ \"default\"] ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:43
+msgid "``sour ce.pri ncipal ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:43
+msgid "The identity of the source workload, requires mutual TLS enabled"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:43
+msgid ""
+"``key: sou rce.princi pal``\\ \\ ` `values: [ \"cluster.l ocal/ns/de "
+"fault/sa/p roductpage \"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:53
+msgid "``requ est.au th.pri ncipal ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:53
+msgid "The authenticated principal of the request."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:53
+msgid ""
+"``key: req uest.auth. principal` `\\ \\ ``val ues: [\"acc ounts.my-s "
+"vc.com/104 958560606\" ]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:63
+msgid "``requ est.au th.aud iences ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:63
+msgid "The intended audience(s) for this authentication information"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:63
+msgid "``key: req uest.auth. audiences` `\\ \\ ``val ues: [\"my- svc.com\"]` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:71
+msgid "``requ est.au th.pre senter ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:71
+msgid "The authorized presenter of the credential"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:71
+msgid ""
+"``key: req uest.auth. presenter` `\\ \\ ``val ues: [\"123 456789012. my-"
+"svc.com \"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:80
+msgid "``requ est.au th.cla ims``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:80
+msgid ""
+"Claims from the origin JWT. The actual claim name is surrounded by "
+"brackets"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:80
+msgid "``key: req uest.auth. claims[iss ]``\\ \\ ``v alues: [\"* @foo.com\"] ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:88
+msgid "``dest inatio n.ip``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:88
+msgid "Destination workload instance IP address, supports single IP or CIDR"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:88
+msgid ""
+"``key: des tination.i p``\\ \\ ``v alues: [\"1 0.1.2.3\", \"10.2.0.0/ "
+"16\"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:96
+msgid "``dest inatio n.port ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:96
+msgid ""
+"The recipient port on the server IP address, must be in the range [0, "
+"65535]"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:96
+msgid "``key: des tination.p ort``\\ \\ ` `values: [ \"80\", \"443 \"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:103
+msgid "``conn ection .sni``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:103
+msgid "The server name indication, requires mutual TLS enabled"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:103
+msgid "``key: con nection.sn i``\\ \\ ``v alues: [\"w ww.example .com\"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:110
+msgid "``expe riment al.env oy.fil ters.* ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:110
+msgid ""
+"Experimental metadata matching for filters, values wrapped in ``[]`` are "
+"matched as a list"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:110
+msgid ""
+"``key: exp erimental. envoy.filt ers.networ k.mysql_pr oxy[db.tab le]``\\"
+" \\ ` `values: [ \"[update]\" ]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:124
+msgid "No backward compatibility is guaranteed for the"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/conditions/index.rst:125
+msgid ""
+"``experimental.*`` keys. They may be removed at any time, and customers "
+"are advised to use them at their own risk."
+msgstr ""
+

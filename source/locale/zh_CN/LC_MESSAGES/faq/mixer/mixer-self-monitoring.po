@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/mixer/mixer-self-monitoring.rst:2
+msgid "mixer-self-monitoring"
+msgstr ""
+
+#: ../../source/faq/mixer/mixer-self-monitoring.rst:4
+msgid ""
+"Mixer exposes a monitoring endpoint (default port: ``15014``). There are "
+"a few useful paths to investigate Mixer performance and audit function:"
+msgstr ""
+
+#: ../../source/faq/mixer/mixer-self-monitoring.rst:7
+msgid ""
+"``/metrics`` provides Prometheus metrics on the Mixer process as well as "
+"gRPC metrics related to API calls and metrics on adapter dispatch."
+msgstr ""
+
+#: ../../source/faq/mixer/mixer-self-monitoring.rst:9
+msgid ""
+"``/debug/pprof`` provides an endpoint for profiling data in `pprof format"
+" <https://golang.org/pkg/net/http/pprof/>`_."
+msgstr ""
+
+#: ../../source/faq/mixer/mixer-self-monitoring.rst:11
+msgid ""
+"``/debug/vars`` provides an endpoint exposing server metrics in JSON "
+"format."
+msgstr ""
+
+#: ../../source/faq/mixer/mixer-self-monitoring.rst:14
+msgid "Mixer logs can be accessed via a ``kubectl logs`` command, as follows:"
+msgstr ""
+
+#: ../../source/faq/mixer/mixer-self-monitoring.rst:16
+msgid "For the ``istio-policy`` service:"
+msgstr ""
+
+#: ../../source/faq/mixer/mixer-self-monitoring.rst:23
+msgid "For the ``istio-telemetry`` service:"
+msgstr ""
+
+#: ../../source/faq/mixer/mixer-self-monitoring.rst:28
+msgid "mixer"
+msgstr ""
+
+#: ../../source/faq/mixer/mixer-self-monitoring.rst:30
+msgid ""
+"Mixer trace generation is controlled by command-line flags: "
+"``trace_zipkin_url``, ``trace_jaeger_url``, and ``trace_log_spans``. If "
+"any of those flag values are set, trace data will be written directly to "
+"those locations. If no tracing options are provided, Mixer will not "
+"generate any application-level trace information."
+msgstr ""
+

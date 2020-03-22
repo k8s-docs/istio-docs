@@ -1,0 +1,260 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:2
+msgid "SolarWinds"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: SolarWinds "
+"description: Adapter to deliver logs and metrics to Papertrail and "
+"AppOptics backends. location: https://istio.io/docs/reference/config"
+"/policy-and-telemetry/adapters/solarwinds.html layout: protoc-gen-docs "
+"generator: protoc-gen-docs supported_templates: metric,logentry aliases:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:14
+msgid "/docs/reference/config/adapters/solarwinds.html"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:15
+msgid ""
+"number_of_entries: 3 --- <p>The <code>solarwinds</code> adapter enables "
+"Istio to deliver log and metric data to the <a "
+"href=\"https://www.papertrailapp.com\">Papertrail</a> logging backend and"
+" the <a href=\"https://www.appoptics.com\">AppOptics</a> monitoring "
+"backend.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:21
+msgid ""
+"<p>This adapter supports the <a href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/metric/\">metric template</a> and the <a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/metric/\">logentry template</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:24
+msgid ""
+"<h2 id=\"Params\">Params</h2> <section> <p>Configuration format for the "
+"<code>solarwinds</code> adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:28
+msgid "<p>Example config usage:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:30
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"&quot;config.istio.io/v1alpha2&quot; kind: handler metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:33
+msgid "name: solarwinds namespace: istio-system"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:83
+msgid "spec:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:36
+msgid "compiledAdapter: solarwinds params:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:38
+msgid ""
+"appoptics_access_token: &lt;APPOPTICS SAMPLE TOKEN&gt; papertrail_url: "
+"&lt;PAPERTRAIL URL&gt; papertrail_local_retention_duration: &lt;RETENTION"
+" PERIOD FOR LOGS LOCALLY, Optional&gt; metrics:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:47
+msgid "requestcount.metric.istio-system:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:43
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:50
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:57
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:64
+msgid ""
+"label_names: - source_service - source_version - destination_service - "
+"destination_version - response_code"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:54
+msgid "requestduration.metric.istio-system:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:61
+msgid "requestsize.metric.istio-system:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:68
+msgid "responsesize.metric.istio-system:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:74
+msgid "tcpbytesent.metric.istio-system:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:71
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:77
+msgid ""
+"label_names: - source_service - source_version - destination_service - "
+"destination_version"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:80
+msgid "tcpbytereceived.metric.istio-system:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:83
+msgid "logs:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:83
+msgid "solarwindslogentry.logentry.istio-system:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:84
+msgid ""
+"payloadTemplate: '{{or (.originIp) &quot;-&quot;}} - {{or (.sourceUser) "
+"&quot;-&quot;}} [{{or (.timestamp.Format "
+"&quot;2006-01-02T15:04:05Z07:00&quot;) &quot;-&quot;}}] &quot;{{or "
+"(.method) &quot;-&quot;}} {{or (.url) &quot;-&quot;}} {{or (.protocol) "
+"&quot;-&quot;}}&quot; {{or (.responseCode) &quot;-&quot;}} {{or "
+"(.responseSize) &quot;-&quot;}}'"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:85
+msgid "</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:87
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-appoptics_access_token\"> "
+"<td><code>appopticsAccessToken</code></td> <td><code>string</code></td> "
+"<td> <p>AppOptics Access Token needed to send metrics to AppOptics. If no"
+" access token is given then metrics will NOT be shipped to AppOptics</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:104
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-appoptics_batch_size\"> "
+"<td><code>appopticsBatchSize</code></td> <td><code>int32</code></td> <td>"
+" <p>Optional. Max batch size of metrics to be sent to AppOptics. "
+"AppOptics does not allow batch size greater than 1000. If this is "
+"unspecified or given a value 0 explicitly, a default batch size of 1000 "
+"will be used.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:117
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-papertrail_url\"> "
+"<td><code>papertrailUrl</code></td> <td><code>string</code></td> <td> "
+"<p>Papertrail url to ship logs to. If no papertrail url is given then the"
+" logs will NOT be shipped but rather dropped.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:129
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-"
+"papertrail_local_retention_duration\"> "
+"<td><code>papertrailLocalRetentionDuration</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> <p>This is the duration for which logs will be persisted locally "
+"until it is shipped to papertrail in the event of a network failure. "
+"Default value is 1 hour.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:141
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-metrics\"> "
+"<td><code>metrics</code></td> <td><code>map&lt;string,&nbsp;<a href"
+"=\"#Params-MetricInfo\">MetricInfo</a>&gt;</code></td> <td> <p>A map of "
+"Istio metric name to solarwinds metric info.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:152
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-logs\"> "
+"<td><code>logs</code></td> <td><code>map&lt;string,&nbsp;<a href"
+"=\"#Params-LogInfo\">LogInfo</a>&gt;</code></td> <td> <p>A map of Istio "
+"logentry name to solarwinds log info.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:163
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"LogInfo\">Params.LogInfo</h2> <section> <p>Describes how to represent an "
+"Istio log entry in Solarwinds AppOptics</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:175
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-LogInfo-payload_template\"> "
+"<td><code>payloadTemplate</code></td> <td><code>string</code></td> <td> "
+"<p>Optional. A golang text/template template (more details about golang "
+"text/template&rsquo;s templating can be found here: "
+"https://golang.org/pkg/text/template/) that will be executed to construct"
+" the payload for this log entry. An example template that could be used: "
+"{{or (.originIp) &ldquo;-&rdquo;}} - {{or (.sourceUser) &ldquo;-&rdquo;}}"
+" [{{or (.timestamp.Format &ldquo;2006-01-02T15:04:05Z07:00&rdquo;) "
+"&ldquo;-&rdquo;}}] &ldquo;{{or (.method) &ldquo;-&rdquo;}} {{or (.url) "
+"&ldquo;-&rdquo;}} {{or (.protocol) &ldquo;-&rdquo;}}&rdquo; {{or "
+"(.responseCode) &ldquo;-&rdquo;}} {{or (.responseSize) &ldquo;-&rdquo;}} "
+"A sample log that will be created after parsing the template with "
+"appropriate variables will look like this: Jan 23 21:53:02 istio-mixer-"
+"57d88dc4b4-rbgmc istio: 10.32.0.15 - kubernetes://istio-ingress-"
+"78545c5bc9-wbr6g.istio-system [2018-01-24T02:53:02Z] &ldquo;GET "
+"/productpage http&rdquo; 200 5599 It will be given the full set of "
+"variables for the log to use to construct its result. If it is not "
+"provided, a default template in place will be used.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:199
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"MetricInfo\">Params.MetricInfo</h2> <section> <p>Describes how to "
+"represent an Istio metric in Solarwinds AppOptics</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:211
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-MetricInfo-label_names\"> "
+"<td><code>labelNames</code></td> <td><code>string[]</code></td> <td> "
+"<p>The names of labels to use: these need to match the dimensions of the "
+"Istio metric.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/solarwinds/index.rst:227
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

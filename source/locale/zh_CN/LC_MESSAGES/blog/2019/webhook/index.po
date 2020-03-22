@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/webhook/index.rst:2
+msgid "webhook"
+msgstr ""
+
+#: ../../source/blog/2019/webhook/index.rst:4
+msgid ""
+"Istio has two webhooks: Galley and the sidecar injector. Galley validates"
+" Kubernetes resources and the sidecar injector injects sidecar containers"
+" into Istio."
+msgstr ""
+
+#: ../../source/blog/2019/webhook/index.rst:8
+msgid ""
+"By default, Galley and the sidecar injector manage their own webhook "
+"configurations. This can pose a security risk if they are compromised, "
+"for example, through buffer overflow attacks. Configuring a webhook is a "
+"highly privileged operation as a webhook may monitor and mutate all "
+"Kubernetes resources."
+msgstr ""
+
+#: ../../source/blog/2019/webhook/index.rst:14
+msgid ""
+"In the following example, the attacker compromises Galley and modifies "
+"the webhook configuration of Galley to eavesdrop on all Kubernetes "
+"secrets (the ``clientConfig`` is modified by the attacker to direct the "
+"``secrets`` resources to a service owned by the attacker)."
+msgstr ""
+
+#: ../../source/blog/2019/webhook/index.rst:24
+msgid ""
+"To protect against this kind of attack, Istio 1.4 introduces a new "
+"feature to securely manage webhooks using ``istioctl``:"
+msgstr ""
+
+#: ../../source/blog/2019/webhook/index.rst:27
+msgid ""
+"``istioctl``, instead of Galley and the sidecar injector, manage the "
+"webhook configurations. Galley and the sidecar injector are de-privileged"
+" so even if they are compromised, they will not be able to alter the "
+"webhook configurations."
+msgstr ""
+
+#: ../../source/blog/2019/webhook/index.rst:32
+msgid ""
+"Before configuring a webhook, ``istioctl`` will verify the webhook server"
+" is up and that the certificate chain used by the webhook server is "
+"valid. This reduces the errors that can occur before a server is ready or"
+" if a server has invalid certificates."
+msgstr ""
+
+#: ../../source/blog/2019/webhook/index.rst:37
+msgid ""
+"To try this new feature, refer to the `Istio webhook management task "
+"<https://archive.istio.io/1.4/docs/tasks/security/webhook>`_."
+msgstr ""
+

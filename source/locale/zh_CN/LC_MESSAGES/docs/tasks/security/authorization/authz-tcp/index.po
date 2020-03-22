@@ -1,0 +1,328 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:1
+msgid ""
+"This task shows you how to set up Istio authorization for TCP traffic in "
+"an Istio mesh. You can learn more about the Istio authorization in the "
+"`authorization concept page </docs/concepts/security/#authorization>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:6
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:8
+msgid "The activities in this task assume that you:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:10
+msgid ""
+"Read the `authorization concept "
+"</docs/concepts/security/#authorization>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:13
+msgid ""
+"Follow the `Istio installation guide </docs/setup/install/istioctl/>`_ to"
+" install Istio with mutual TLS enabled."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:17
+msgid ""
+"Deploy the `Bookinfo </docs/examples/bookinfo/#deploying-the-"
+"application>`_ sample application."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:21
+msgid ""
+"After deploying the Bookinfo application, go to the Bookinfo product page"
+" at ``http://$GATEWAY_URL/productpage``. On the product page, you can see"
+" the following sections:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:25
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:193
+msgid ""
+"**Book Details** on the lower left side, which includes: book type, "
+"number of pages, publisher, etc."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:27
+msgid "**Book Reviews** on the lower right of the page."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:29
+msgid ""
+"When you refresh the page, the app shows different versions of reviews in"
+" the product page. The app presents the reviews in a round robin style: "
+"red stars, black stars, or no stars."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:35
+msgid "If you don’t see the expected output in the browser as you"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:36
+msgid ""
+"follow the task, retry in a few seconds because some delay is possible "
+"due to caching and other propagation overhead."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:41
+msgid "This task requires mutual TLS enabled because the"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:42
+msgid ""
+"following examples use principal and namespace in the policies. {{< "
+"/warning >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:46
+msgid "Configure access control for a TCP workload"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:48
+msgid ""
+"By default, the `Bookinfo </docs/examples/bookinfo/>`_ example "
+"application only uses the HTTP protocol. To showcase the authorization of"
+" TCP traffic, you must update the application to use TCP. The following "
+"steps deploy the Bookinfo application and update its ``ratings`` workload"
+" to the ``v2`` version, which talks to a MongoDB backend using TCP, and "
+"then apply the authorization policy to the MongoDB workload."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:56
+msgid ""
+"Install ``v2`` of the ``ratings`` workload with the ``bookinfo-"
+"ratings-v2`` service account:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:59
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:115
+msgid "{{< tabset category-name=“sidecar” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:61
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:117
+msgid "{{< tab name=“With automatic sidecar injection” category-value=“auto” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:67
+msgid "@samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml@ {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:70
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:81
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:125
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:135
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:72
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:127
+msgid "{{< tab name=“With manual sidecar injection” category-value=“manual” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:78
+msgid "@samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml@) {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:83
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:137
+msgid "{{< /tabset >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:85
+msgid "Create the appropriate destination rules:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:90
+msgid "@samples/bookinfo/networking/destination-rule-all-mtls.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:92
+msgid ""
+"Since the subset referenced in the virtual service rules relies on the "
+"destination rules, wait a few seconds for the destination rules to "
+"propagate before adding the virtual service rules."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:96
+msgid ""
+"After the destination rules propagate, update the ``reviews`` workload to"
+" only use the ``v2`` of the ``ratings`` workload:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:102
+msgid "@samples/bookinfo/networking/virtual-service-ratings-db.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:104
+msgid "Go to the Bookinfo product page at (``http://$GATEWAY_URL/productpage``)."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:107
+msgid ""
+"On the product page, you can see an error message on the **Book Reviews**"
+" section. The message reads: **“Ratings service is currently "
+"unavailable.”**. The message appears because we now use the ``v2`` subset"
+" of the ``ratings`` workload but we haven’t deployed the MongoDB "
+"workload."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:113
+msgid "Deploy the MongoDB workload:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:123
+msgid "@samples/bookinfo/platform/kube/bookinfo-db.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:133
+msgid "@samples/bookinfo/platform/kube/bookinfo-db.yaml@)"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:139
+msgid "Go to the Bookinfo product page at ``http://$GATEWAY_URL/productpage``."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:142
+msgid "Verify that the **Book Reviews** section shows the reviews."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:144
+msgid ""
+"With the MongoDB workload deployed and before we configure authorization "
+"to only allow authorized requests, we need to apply a default ``deny-"
+"all`` policy for the workload to ensure that all requests to the MongoDB "
+"workload are denied by default."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:149
+msgid "Apply a default ``deny-all`` policy for the MongoDB workload:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:154
+msgid ""
+"security.istio.io/v1beta1 kind: AuthorizationPolicy metadata: name: deny-"
+"all spec: selector: matchLabels: app: mongodb EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:157
+msgid ""
+"Point your browser at the Bookinfo ``productpage`` "
+"(``http://$GATEWAY_URL/productpage``). You should see:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:160
+msgid ""
+"The **Book Details** section on the lower left of the page includes book "
+"type, number of pages, publisher, etc."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:162
+msgid ""
+"The **Book Reviews** section on the lower right of the page includes an "
+"error message **“Ratings service is currently unavailable”**."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:166
+msgid ""
+"After configuring that all requests be denied by default, we need to "
+"create a ``bookinfo-ratings-v2`` policy that lets requests coming from "
+"the ``cluster.local/ns/default/sa/bookinfo-ratings-v2`` service account "
+"through to the MongoDB workload at port ``27017``. We grant access to the"
+" service account, because requests coming from the ``ratings-v2`` "
+"workload are issued using the ``cluster.local/ns/default/sa/bookinfo-"
+"ratings-v2`` service account."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:174
+msgid ""
+"Enforce workload-level access control for TCP traffic coming from the "
+"``cluster.local/ns/default/sa/bookinfo-ratings-v2`` service account:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:180
+msgid ""
+"security.istio.io/v1beta1 kind: AuthorizationPolicy metadata: name: "
+"bookinfo-ratings-v2 spec: selector: matchLabels: app: mongodb rules:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:183
+msgid "from:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:185
+msgid ""
+"source: principals: [“cluster.local/ns/default/sa/bookinfo-ratings-v2”] "
+"to:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:187
+msgid "operation: ports: [“27017”] EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:189
+msgid ""
+"Point your browser at the Bookinfo ``productpage`` "
+"(``http://$GATEWAY_URL/productpage``), you should see now the following "
+"sections working as intended:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:195
+msgid "**Book Reviews** on the lower right side, which includes: red stars."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:198
+msgid ""
+"**Congratulations!** You successfully deployed a workload communicating "
+"over TCP traffic and applied both a mesh-level and a workload-level "
+"authorization policy to enforce access control for the requests."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:204
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:206
+msgid "Remove Istio authorization policy configuration:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:211
+msgid ""
+"authorizationpolicy.security.istio.io/deny-all $ kubectl delete "
+"authorizationpolicy.security.istio.io/bookinfo-ratings-v2 {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:215
+msgid "Remove ``v2`` of the ratings workload and the MongoDB deployment:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-tcp/index.rst:220
+msgid ""
+"@samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml@ $ kubectl "
+"delete -f @samples/bookinfo/networking/destination-rule-all-mtls.yaml@ $ "
+"kubectl delete -f @samples/bookinfo/networking/virtual-service-ratings-"
+"db.yaml@ $ kubectl delete -f @samples/bookinfo/platform/kube/bookinfo-"
+"db.yaml@"
+msgstr ""
+

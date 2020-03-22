@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:2
+msgid "Kind"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:4
+msgid ""
+"`kind <https://kind.sigs.k8s.io/>`_ is a tool for running local "
+"Kubernetes clusters using Docker container ``nodes``. kind was primarily "
+"designed for testing Kubernetes itself, but may be used for local "
+"development or CI. Follow these instructions to prepare a kind cluster "
+"for Istio installation."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:11
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:13
+msgid "Please use the latest Go version, ideally Go 1.13 or greater."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:14
+msgid ""
+"To use kind, you will also need to `install docker "
+"<https://docs.docker.com/install/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:16
+msgid ""
+"Install the latest version of `kind <https://kind.sigs.k8s.io/docs/user"
+"/quick-start/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:20
+msgid "Installation steps"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:22
+msgid "Create a cluster with the following command:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:27
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:29
+msgid ""
+"``--name`` is used to assign a specific name to the cluster. By default, "
+"the cluster will be given the name ``kind``."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:32
+msgid "To see the list of kind clusters, use the following command:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:38
+msgid "To list the local Kubernetes contexts, use the following command."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:43
+msgid "AUTHINFO NAMESPACE"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:54
+msgid ""
+"``kind`` is prefixed to the context and cluster names, for example: "
+"``kind-istio-testing``"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:57
+msgid ""
+"If you run multiple clusters, you need to choose which cluster "
+"``kubectl`` talks to. You can set a default cluster for ``kubectl`` by "
+"setting the current context in the `Kubernetes kubeconfig "
+"<https://kubernetes.io/docs/concepts/configuration/organize-cluster-"
+"access-kubeconfig/>`_ file. Additionally you can run following command to"
+" set the current context for ``kubectl``."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:67
+msgid "Switched to context “kind-istio-testing”."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:69
+msgid ""
+"Once you are done setting up a kind cluster, you can proceed to `install "
+"Istio </docs/setup/getting-started/#download>`_ on it."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:72
+msgid ""
+"When you are done experimenting and you want to delete the existing "
+"cluster, use the following command:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:78
+msgid "cluster “istio-testing” …"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:81
+msgid "Setup Dashboard UI for kind"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:83
+msgid ""
+"kind does not have a built in Dashboard UI like minikube. But you can "
+"still setup Dashboard, a web based Kubernetes UI, to view your cluster. "
+"Follow these instructions to setup Dashboard for kind."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:87
+msgid "To deploy Dashboard, run the following command:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:92
+msgid "https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:95
+msgid "Verify that Dashboard is deployed and running."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:100
+msgid ""
+"READY STATUS RESTARTS AGE dashboard-metrics-scraper-76585494d8-zdb66 1/1 "
+"Running 0 39s kubernetes-dashboard-b7ffbc8cb-zl8zg 1/1 Running 0 39s"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:104
+msgid ""
+"Create a ``ClusterRoleBinding`` to provide admin access to the newly "
+"created cluster."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:110
+msgid "–clusterrole cluster-admin –serviceaccount=default:default {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:113
+msgid ""
+"To login to Dashboard, you need a Bearer Token. Use the following command"
+" to store the token in a variable."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:119
+msgid ""
+"jsonpath=“{.items[?(@.metadata.annotations[‘kubernetes.io/service-"
+"account.name’]==‘default’)].data.token}”\\|base64 -d)"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:122
+msgid ""
+"Display the token using the ``echo`` command and copy it to use for "
+"logging into Dashboard."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:129
+msgid ""
+"You can Access Dashboard using the kubectl command-line tool by running "
+"the following command:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:137
+msgid ""
+"Click `Kubernetes Dashboard <http://localhost:8001/api/v1/namespaces"
+"/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/>`_ to "
+"view your deployments and services."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/kind/index.rst:143
+msgid ""
+"You have to save your token somewhere, otherwise you have to run step "
+"number 4 everytime you need a token to login to your Dashboard."
+msgstr ""
+

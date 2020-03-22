@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/release-cadence/index.rst:2
+msgid "release cadence"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:4
+msgid ""
+"We produce new builds of Istio for each commit. Around once a quarter or "
+"so, we build a Long Term Support (LTS) release, and run through a bunch "
+"more tests and release qualification. Finally, if we find something wrong"
+" with an LTS release, we issue patches."
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:9
+msgid ""
+"The different types represent different product quality levels and "
+"different levels of support from the Istio team. In this context, "
+"*support* means that we will produce patch releases for critical issues "
+"and offer technical assistance. Separately, 3rd parties and partners may "
+"offer longer-term support solutions."
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:16
+msgid "Type"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:16
+msgid "Support Level"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:16
+msgid "Quality and Recommended Use"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:19
+msgid "Developme nt Build"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:19
+msgid "No support"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:19
+msgid "Dangerous, may not be fully reliable. Useful to experiment with."
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:25
+msgid "LTS Release"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:25
+msgid "Support is provided until 3 months after the next LTS"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:25
+msgid ""
+"Safe to deploy in production. Users are encouraged to upgrade to these "
+"releases as soon as possible."
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:33
+msgid "Patches"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:33
+msgid "Same as the corresponding Snapshot/LTS release"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:33
+msgid ""
+"Users are encouraged to adopt patch releases as soon as they are "
+"available for a given release."
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:42
+msgid ""
+"You can find available releases on the `releases page "
+"<https://github.com/istio/istio/releases>`_, and if you’re the "
+"adventurous type, you can learn about our development builds on the "
+"`development builds wiki "
+"<https://github.com/istio/istio/wiki/Dev%20Builds>`_. You can find high-"
+"level releases notes for each LTS release `here </news>`_."
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:50
+msgid "Naming scheme"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:52
+msgid "Our naming scheme for LTS releases is:"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:54
+msgid "{{< text plain >}} .."
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:56
+msgid ""
+"where ``<minor>`` is increased for every LTS release, and ``<LTS patch "
+"level>`` counts the number of patches for the current LTS release. A "
+"patch is usually a small change relative to the LTS."
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:60
+msgid "For snapshot releases, our naming scheme is:"
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:62
+msgid "{{< text plain >}} .-alpha."
+msgstr ""
+
+#: ../../source/about/release-cadence/index.rst:64
+msgid ""
+"where ``<major>.<minor>`` represent the next LTS, and ``<sha>`` "
+"represents the git commit the release is built from."
+msgstr ""
+

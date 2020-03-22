@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:2
+msgid "istio1.1_perf"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:4
+msgid ""
+"Hyper-scale, microservice-based cloud environments have been exciting to "
+"build but challenging to manage. Along came Kubernetes (container "
+"orchestration) in 2014, followed by Istio (container service management) "
+"in 2017. Both open-source projects enable developers to scale container-"
+"based applications without spending too much time on administration "
+"tasks."
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:11
+msgid ""
+"Now, new enhancements in Istio 1.1 deliver scale-up with improved "
+"application performance and service management efficiency. Simulations "
+"using our sample commercial airline reservation application show the "
+"following improvements, compared to Istio 1.0."
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:16
+msgid "We’ve seen substantial application performance gains:"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:18
+#, python-format
+msgid "up to 30% reduction in application average latency"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:19
+#, python-format
+msgid "up to 40% faster service startup times in a large mesh"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:21
+msgid "As well as impressive improvements in service management efficiency:"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:23
+#, python-format
+msgid "up to 90% reduction in Pilot CPU usage in a large mesh"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:24
+#, python-format
+msgid "up to 50% reduction in Pilot memory usage in a large mesh"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:26
+msgid ""
+"With Istio 1.1, organizations can be more confident in their ability to "
+"scale applications with consistency and control – even in hyper-scale "
+"cloud environments."
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:30
+msgid ""
+"Congratulations to the Istio experts around the world who contributed to "
+"this release. We could not be more pleased with these results."
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:34
+msgid "Istio 1.1 performance enhancements"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:36
+msgid ""
+"As members of the Istio Performance and Scalability workgroup, we have "
+"done extensive performance evaluations. We introduced many performance "
+"design features for Istio 1.1, in collaboration with other Istio "
+"contributors. Some of the most visible performance enhancements in 1.1 "
+"include:"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:42
+msgid "Significant reduction in default collection of Envoy-generated statistics"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:44
+msgid "Added load-shedding functionality to Mixer workloads"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:45
+msgid "Improved the protocol between Envoy and Mixer"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:46
+msgid "Namespace isolation, to reduce operational overhead"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:47
+msgid ""
+"Configurable concurrent worker threads, which can improve overall "
+"throughput"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:49
+msgid "Configurable filters that limit telemetry data"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:50
+msgid "Removal of synchronization bottlenecks"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:53
+msgid "Continuous code quality and performance verification"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:55
+msgid ""
+"Regression Patrol drives continuous improvement in Istio performance and "
+"quality. Behind the scenes, the Regression Patrol helps Istio developers "
+"to identify and fix code issues. Daily builds are checked using a "
+"customer-centric benchmark, `BluePerf <https://github.com/blueperf/>`_. "
+"The results are published to the `Istio community web portal <https"
+"://ibmcloud-perf.istio.io/regpatrol/>`_. Various application "
+"configurations are evaluated to help provide insights on Istio component "
+"performance."
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:64
+msgid ""
+"Another tool that is used to evaluate the performance of Istio’s builds "
+"is `Fortio <https://fortio.org/>`_, which provides a synthetic end to end"
+" load testing benchmark."
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:69
+msgid "Summary"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:71
+msgid ""
+"Istio 1.1 was designed for performance and scalability. The Istio "
+"Performance and Scalability workgroup measured significant performance "
+"improvements over 1.0. Istio 1.1 introduces new features and "
+"optimizations to help harden the service mesh for enterprise microservice"
+" workloads. The Istio 1.1 Performance and Tuning Guide documents "
+"performance simulations, provides sizing and capacity planning guidance, "
+"and includes best practices for tuning custom use cases."
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:80
+msgid "Useful links"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:82
+msgid ""
+"`Istio Service Mesh Performance (34:30) "
+"<https://www.youtube.com/watch?time_continue=349&v=G4F5aRFEXnU>`_, by "
+"Surya Duggirala, Laurent Demailly and Fawad Khaliq at KubeCon Europe 2018"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:86
+msgid ""
+"`Istio Performance and Scalability discussion forum "
+"<https://discuss.istio.io/c/performance-and-scalability>`_"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:90
+msgid "Disclaimer"
+msgstr ""
+
+#: ../../source/blog/2019/istio1.1_perf/index.rst:92
+msgid ""
+"The performance data contained herein was obtained in a controlled, "
+"isolated environment. Actual results that may be obtained in other "
+"operating environments may vary significantly. There is no guarantee that"
+" the same or similar results will be obtained elsewhere."
+msgstr ""
+

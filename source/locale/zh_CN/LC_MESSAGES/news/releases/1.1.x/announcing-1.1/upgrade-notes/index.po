@@ -1,0 +1,177 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:2
+msgid "upgrade-notes"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:4
+msgid ""
+"This page describes changes you need to be aware of when upgrading from "
+"Istio 1.0.x to 1.1.x. Here we detail cases where we intentionally broke "
+"backwards compatibility. We also mention cases where backwards "
+"compatibility was preserved but new behavior was introduced that would be"
+" surprising to someone familiar with the use and operation of Istio 1.0."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:11
+msgid ""
+"For an overview of new features introduced with Istio 1.1, please refer "
+"to the `1.1 change notes </news/releases/1.1.x/announcing-1.1/change-"
+"notes/>`_."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:16
+msgid "Installation"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:18
+msgid ""
+"We have increased the control plane and envoy sidecar’s required CPU and "
+"memory. It is critical to ensure your cluster have enough resource before"
+" proceeding the update."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:22
+msgid ""
+"Istio’s CRDs have been placed into their own Helm chart ``istio-init``. "
+"This prevents loss of custom resource data, facilitates the upgrade "
+"process, and enables Istio to evolve beyond a Helm-based installation. "
+"The `upgrade documentation </docs/setup/upgrade/>`_ provides the proper "
+"procedures for upgrading from Istio 1.0.6 to Istio 1.1. Please follow "
+"these instructions carefully when upgrading. If ``certmanager`` is "
+"desired, use the ``--set certmanager=true`` flag when installing both "
+"``istio-init`` and Istio charts with either ``template`` or ``tiller`` "
+"installation modes."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:33
+msgid ""
+"Many installation options have been added, removed, or changed. Refer to "
+"`Installation Options Changes </news/releases/1.1.x/announcing-1.1/helm-"
+"changes/>`_ for a detailed summary of the changes."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:38
+msgid ""
+"The 1.0 ``istio-remote`` chart used for `multicluster VPN "
+"</docs/setup/install/multicluster/shared-vpn/>`_ and `multicluster shared"
+" gateways </docs/setup/install/multicluster/shared-gateways/>`_ remote "
+"cluster installation has been consolidated into the Istio chart. To "
+"generate an equivalent ``istio-remote`` chart, use the ``--set "
+"global.istioRemote=true`` flag."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:46
+msgid ""
+"Addons are no longer exposed via separate load balancers. Instead addons "
+"can now be optionally exposed via the Ingress Gateway. To expose an addon"
+" via the Ingress Gateway, please follow the `Remotely Accessing Telemetry"
+" Addons </docs/tasks/observability/gateways/>`_ guide."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:52
+msgid ""
+"The built-in Istio Statsd collector has been removed. Istio retains the "
+"capability of integrating with your own Statsd collector, using the "
+"``--set global.envoyStatsd.enabled=true`` flag."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:56
+msgid ""
+"The ``ingress`` series of options for configuring a Kubernetes Ingress "
+"have been removed. Kubernetes Ingress is still functional and can be "
+"enabled using the ``--set global.k8sIngress.enabled=true`` flag. Check "
+"out `Securing Kubernetes Ingress with Cert-Manager </docs/tasks/traffic-"
+"management/ingress/ingress-certmgr/>`_ to learn how to secure your "
+"Kubernetes ingress resources."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:64
+msgid "Traffic management"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:66
+msgid ""
+"Outbound traffic policy now defaults to ``ALLOW_ANY``. Traffic to unknown"
+" ports will be forwarded as-is. Traffic to known ports (e.g., port 80) "
+"will be matched with one of the services in the system and forwarded "
+"accordingly."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:71
+msgid ""
+"During sidecar routing to a service, destination rules for the target "
+"service in the same namespace as the sidecar will take precedence, "
+"followed by destination rules in the service’s namespace, and finally "
+"followed by destination rules in other namespaces if applicable."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:76
+msgid ""
+"We recommend storing gateway resources in the same namespace as the "
+"gateway workload (e.g., ``istio-system`` in case of ``istio-"
+"ingressgateway``). When referring to gateway resources in virtual "
+"services, use the namespace/name format instead of using "
+"``name.namespace.svc.cluster.local``."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:82
+msgid ""
+"The optional egress gateway is now disabled by default. It is enabled in "
+"the demo profile for users to explore but disabled in all other profiles "
+"by default. If you need to control and secure your outbound traffic "
+"through the egress gateway, you will need to enable ``gateways.istio-"
+"egressgateway.enabled=true`` manually in any of the non-demo profiles."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:90
+msgid "Policy & telemetry"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:92
+msgid ""
+"``istio-policy`` check is now disabled by default. It is enabled in the "
+"demo profile for users to explore but disabled in all other profiles. "
+"This change is only for ``istio-policy`` and not for ``istio-telemetry``."
+" In order to re-enable policy checking, run ``helm template`` with "
+"``--set global.disablePolicyChecks=false`` and re-apply the "
+"configuration."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:99
+msgid ""
+"The Service Graph component has now been deprecated in favor of `Kiali "
+"<https://www.kiali.io/>`_."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:103
+msgid "Security"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1/upgrade-notes/index.rst:105
+msgid ""
+"RBAC configuration has been modified to implement cluster scoping. The "
+"``RbacConfig`` resource has been replaced with the ``ClusterRbacConfig`` "
+"resource. Refer to `Migrating ``RbacConfig`` to ``ClusterRbacConfig`` "
+"<https://archive.istio.io/v1.1/docs/setup/kubernetes/upgrade/steps"
+"/#migrating-from-rbacconfig-to-clusterrbacconfig>`_ for migration "
+"instructions."
+msgstr ""
+

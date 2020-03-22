@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/zipkin/index.rst:2
+msgid "Zipkin"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/zipkin/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: Zipkin description: "
+"Adapter to deliver tracing data to Zipkin. location: "
+"https://istio.io/docs/reference/config/policy-and-"
+"telemetry/adapters/zipkin.html layout: protoc-gen-docs generator: protoc-"
+"gen-docs supported_templates: tracespan number_of_entries: 1 --- <p>The "
+"<code>zipkin</code> adapter enables Istio to deliver tracing data to the "
+"<a href=\"https://zipkin.io/\">Zipkin</a> tracing backend.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/zipkin/index.rst:18
+msgid ""
+"<p>This adapter supports the <a href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/tracespan/\">tracespan template</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/zipkin/index.rst:20
+msgid ""
+"<h2 id=\"Params\">Params</h2> <section> <p>Configuration format for the "
+"<code>zipkin</code> adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/zipkin/index.rst:24
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-url\"> <td><code>url</code></td> "
+"<td><code>string</code></td> <td> <p>URL of Zipkin HTTP endpoint.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/zipkin/index.rst:40
+msgid "<p>Required.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/zipkin/index.rst:42
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-sample_probability\"> "
+"<td><code>sampleProbability</code></td> <td><code>double</code></td> <td>"
+" <p>Uniform probability that a trace will be sampled. Defaults to 0 "
+"(sampling disabled) if unset.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/zipkin/index.rst:54
+msgid "<p>Optional.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/zipkin/index.rst:56
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

@@ -1,0 +1,8 @@
+service versions
+==============================================
+
+Distinct variants of a `service </docs/reference/glossary/#service>`_,
+typically backed by different versions of a
+`workload </docs/reference/glossary/#workload>`_ binary. Common
+scenarios where multiple service versions may be used include A/B
+testing and canary rollouts.

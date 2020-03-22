@@ -1,0 +1,632 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:2
+msgid "kiali"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:4
+msgid "This task shows you how to visualize different aspects of your Istio mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:7
+msgid ""
+"As part of this task, you install the `Kiali <https://www.kiali.io>`_ "
+"add-on and use the web-based graphical user interface to view service "
+"graphs of the mesh and your Istio configuration objects. Lastly, you use "
+"the Kiali Public API to generate graph data in the form of consumable "
+"JSON."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:15
+msgid "This task does not cover all of the features provided by"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:16
+msgid ""
+"Kiali. To learn about the full set of features it supports, see the "
+"`Kiali website <http://kiali.io/documentation/features/>`_. {{< /idea >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:20
+msgid ""
+"This task uses the `Bookinfo </docs/examples/bookinfo/>`_ sample "
+"application as the example throughout."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:24
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:28
+msgid "The following instructions assume you have installed"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:29
+msgid ""
+"``istioctl`` and will use it to install Kiali. To install Kiali without "
+"``istioctl``, follow the `Kiali installation instructions "
+"<https://www.kiali.io/documentation/getting-started/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:35
+msgid "Create a secret"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:39
+msgid "If you plan on installing Kiali using the Istio demo profile"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:40
+msgid ""
+"as described in the `Istio Quick Start Installation Steps </docs/setup"
+"/getting-started/>`_ then a default secret will be created for you with a"
+" username of ``admin`` and passphrase of ``admin``. You can therefore "
+"skip this section."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:45
+msgid ""
+"Create a secret in your Istio namespace with the credentials that you use"
+" to authenticate to Kiali."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:48
+msgid ""
+"First, define the credentials you want to use as the Kiali username and "
+"passphrase."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:51
+msgid "Enter a Kiali username when prompted:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:56
+msgid "echo -n $uval \\| base64)"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:58
+msgid "Enter a Kiali passphrase when prompted:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:63
+msgid "&& echo -n $pval \\| base64)"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:65
+msgid ""
+"If you are using the Z Shell, ``zsh``, use the following to define the "
+"credentials:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:71
+msgid ""
+"echo -n $uval \\| base64) $ KIALI_PASSPHRASE=$(read -s “?Kiali "
+"Passphrase:” pval && echo -n $pval \\| base64)"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:74
+msgid "To create a secret, run the following commands:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:79
+msgid "$NAMESPACE"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:84
+msgid ""
+"Secret metadata: name: kiali namespace: $NAMESPACE labels: app: kiali "
+"type: Opaque data: username: $KIALI_USERNAME passphrase: "
+"$KIALI_PASSPHRASE EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:89
+msgid "Install via ``istioctl``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:91
+msgid ""
+"Once you create the Kiali secret, follow `the install instructions "
+"</docs/setup/install/istioctl/>`_ to install Kiali via ``istioctl``. For "
+"example:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:98
+msgid "values.kiali.enabled=true"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:102
+msgid "This task does not discuss Jaeger and Grafana. If you"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:103
+msgid ""
+"already installed them in your cluster and you want to see how Kiali "
+"integrates with them, you must pass additional arguments to the "
+"``istioctl`` command, for example:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:107
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:109
+msgid "$ istioctl manifest apply"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:110
+msgid "–set values.kiali.enabled=true"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:111
+msgid "–set “values.kiali.dashboard.jaegerURL=http://jaeger-query:16686”"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:113
+msgid "–set “values.kiali.dashboard.grafanaURL=http://grafana:3000” {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:117
+msgid ""
+"Once you install Istio and Kiali, deploy the `Bookinfo "
+"</docs/examples/bookinfo/>`_ sample application."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:121
+msgid "Running on OpenShift"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:123
+msgid ""
+"When Kiali runs on OpenShift it needs access to some OpenShift specific "
+"resources in order to function properly, which can be done using the "
+"following commands after Kiali has been installed:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:130
+msgid ""
+"“path”:“/rules/-”, “value”:{“apiGroups”:[“apps.openshift.io”], "
+"“resources”:[“deploymentconfigs”],“verbs”: [“get”, “list”, “watch”]}}]’ "
+"–type json $ oc patch clusterrole kiali -p ‘[{“op”:“add”, "
+"“path”:“/rules/-”, “value”:{“apiGroups”:[“project.openshift.io”], "
+"“resources”:[“projects”],“verbs”: [“get”]}}]’ –type json $ oc patch "
+"clusterrole kiali -p ‘[{“op”:“add”, “path”:“/rules/-”, "
+"“value”:{“apiGroups”:[“route.openshift.io”], "
+"“resources”:[“routes”],“verbs”: [“get”]}}]’ –type json"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:140
+msgid "Generating a service graph"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:142
+msgid ""
+"To verify the service is running in your cluster, run the following "
+"command:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:148
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:150
+msgid ""
+"To determine the Bookinfo URL, follow the instructions to determine the "
+"`Bookinfo ingress ``GATEWAY_URL`` </docs/examples/bookinfo/#determine-"
+"the-ingress-ip-and-port>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:154
+msgid "To send traffic to the mesh, you have three options"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:156
+msgid "Visit ``http://$GATEWAY_URL/productpage`` in your web browser"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:158
+msgid "Use the following command multiple times:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:162
+msgid "$ curl http://$GATEWAY_URL/productpage {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:165
+msgid ""
+"If you installed the ``watch`` command in your system, send requests "
+"continually with:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:170
+msgid "$ watch -n 1 curl -o /dev/null -s -w %{http_code} $GATEWAY_URL/productpage"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:173
+msgid ""
+"To open the Kiali UI, execute the following command in your Kubernetes "
+"environment:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:180
+msgid ""
+"To log into the Kiali UI, go to the Kiali login screen and enter the "
+"username and passphrase stored in the Kiali secret."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:183
+msgid ""
+"View the overview of your mesh in the **Overview** page that appears "
+"immediately after you log in. The **Overview** page displays all the "
+"namespaces that have services in your mesh. The following screenshot "
+"shows a similar page:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:193
+msgid ""
+"To view a namespace graph, click on the ``bookinfo`` graph icon in the "
+"Bookinfo namespace card. The graph icon is in the lower left of the "
+"namespace card and looks like a connected group of circles. The page "
+"looks similar to:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:203
+msgid ""
+"To view a summary of metrics, select any node or edge in the graph to "
+"display its metric details in the summary details panel on the right."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:206
+msgid ""
+"To view your service mesh using different graph types, select a graph "
+"type from the **Graph Type** drop down menu. There are several graph "
+"types to choose from: **App**, **Versioned App**, **Workload**, "
+"**Service**."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:211
+msgid ""
+"The **App** graph type aggregates all versions of an app into a single "
+"graph node. The following example shows a single **reviews** node "
+"representing the three versions of the reviews app."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:221
+msgid ""
+"The **Versioned App** graph type shows a node for each version of an app,"
+" but all versions of a particular app are grouped together. The following"
+" example shows the **reviews** group box that contains the three nodes "
+"that represents the three versions of the reviews app."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:251
+msgid "Examining Istio configuration"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:253
+msgid ""
+"To view detailed information about Istio configuration, click on the "
+"**Applications**, **Workloads**, and **Services** menu icons on the left "
+"menu bar. The following screenshot shows information for the Bookinfo "
+"application:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:264
+msgid "Creating weighted routes"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:266
+msgid ""
+"You can use the Kiali weighted routing wizard to define the specific "
+"percentage of request traffic to route to two or more workloads."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:269
+msgid "View the **Versioned app graph** of the ``bookinfo`` graph."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:271
+msgid ""
+"Make sure you have selected **Requests percentage** in the **Edge "
+"Labels** drop down menu to see the percentage of traffic routed to each "
+"workload."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:275
+msgid ""
+"Make sure you have selected the **Service Nodes** check box in the "
+"**Display** drop down menu to view the service nodes in the graph."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:284
+#, python-format
+msgid ""
+"Focus on the ``ratings`` service within the ``bookinfo`` graph by "
+"clicking on the ``ratings`` service (triangle) node. Notice the "
+"``ratings`` service traffic is evenly distributed to the two ``ratings`` "
+"workloads ``v1`` and ``v2`` (50% of requests are routed to each "
+"workload)."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:295
+msgid ""
+"Click the **ratings** link found in the side panel to go to the service "
+"view for the ``ratings`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:298
+msgid ""
+"From the **Action** drop down menu, select **Create Weighted Routing** to"
+" access the weighted routing wizard."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:306
+msgid ""
+"Drag the sliders to specify the percentage of traffic to route to each "
+"workload. For ``ratings-v1``, set it to 10%; for ``ratings-v2`` set it to"
+" 90%."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:315
+msgid "Click the **Create** button to create the new routing."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:317
+msgid ""
+"Click **Graph** in the left hand navigation bar to return to the "
+"``bookinfo`` graph."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:320
+msgid ""
+"Send requests to the ``bookinfo`` application. For example, to send one "
+"request per second, you can execute this command if you have ``watch`` "
+"installed on your system:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:327
+msgid "$GATEWAY_URL/productpage"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:329
+#, python-format
+msgid ""
+"After a few minutes you will notice that the traffic percentage will "
+"reflect the new traffic route, thus confirming the fact that your new "
+"traffic route is successfully routing 90% of all traffic requests to "
+"``ratings-v2``."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:340
+msgid "Validating Istio configuration"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:342
+msgid ""
+"Kiali can validate your Istio resources to ensure they follow proper "
+"conventions and semantics. Any problems detected in the configuration of "
+"your Istio resources can be flagged as errors or warnings depending on "
+"the severity of the incorrect configuration. See the `Kiali validations "
+"page <http://kiali.io/documentation/validations/>`_ for the list of all "
+"validation checks Kiali performs."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:351
+msgid "Istio 1.4 introduces ``istioctl analyze`` which lets you"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:352
+msgid ""
+"perform similar analysis in a way that can be used in a CI pipeline. {{< "
+"/idea >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:355
+msgid ""
+"Force an invalid configuration of a service port name to see how Kiali "
+"reports a validation error."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:358
+msgid "Change the port name of the ``details`` service from ``http`` to ``foo``:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:364
+msgid "json -p ‘[{“op”:“replace”,“path”:“/spec/ports/0/name”, “value”:“foo”}]’"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:367
+msgid ""
+"Navigate to the **Services** list by clicking **Services** on the left "
+"hand navigation bar."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:370
+#: ../../source/docs/tasks/observability/kiali/index.rst:424
+msgid ""
+"Select ``bookinfo`` from the **Namespace** drop down menu if it is not "
+"already selected."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:373
+msgid ""
+"Notice the error icon displayed in the **Configuration** column of the "
+"``details`` row."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:381
+msgid ""
+"Click the **details** link in the **Name** column to navigate to the "
+"service details view."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:384
+msgid "Hover over the error icon to display a tool tip describing the error."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:391
+msgid ""
+"Change the port name back to ``http`` to correct the configuration and "
+"return ``bookinfo`` back to its normal state."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:397
+msgid "json -p ‘[{“op”:“replace”,“path”:“/spec/ports/0/name”, “value”:“http”}]’"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:407
+msgid "Viewing and editing Istio configuration YAML"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:409
+msgid ""
+"Kiali provides a YAML editor for viewing and editing Istio configuration "
+"resources. The YAML editor will also provide validation messages when it "
+"detects incorrect configurations."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:413
+msgid "Create Bookinfo destination rules:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:418
+msgid "@samples/bookinfo/networking/destination-rule-all.yaml@ {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:421
+msgid ""
+"Click ``Istio Config`` on the left hand navigation bar to navigate to the"
+" Istio configuration list."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:427
+msgid ""
+"Notice the error messages and the error and warning icons that alert you "
+"to several configuration problems."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:436
+msgid ""
+"Hover over the error icon in the **Configuration** column of the "
+"``details`` row to see additional messages."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:444
+msgid ""
+"Click the **details** link in the **Name** column to navigate to the "
+"``details`` destination rule view."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:447
+msgid ""
+"Notice the messages and icons that alert you to several validation rules "
+"that failed."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:455
+msgid ""
+"Click the **YAML** tab to view the YAML for this Istio destination rule "
+"resource."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:458
+msgid ""
+"Notice the color highlights and icons on the rows that have failed "
+"validation checks."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:466
+msgid ""
+"Hover over the yellow icon to view the tool tip message that informs you "
+"of the validation check that triggered the warning. For more details on "
+"the cause of the warning and how to resolve it, look up the validation "
+"warning message on the `Kiali Validations page "
+"<http://kiali.io/documentation/validations/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:477
+msgid ""
+"Hover over the red icon to view the tool tip message that informs you of "
+"the validation check that triggered the error. For more details on the "
+"cause of the error and how to resolve it, look up the validation error "
+"message on the `Kiali Validations page "
+"<http://kiali.io/documentation/validations/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:489
+msgid ""
+"Delete the destination rules to return ``bookinfo`` back to its original "
+"state."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:495
+msgid "samples/bookinfo/networking/destination-rule-all.yaml"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:498
+msgid "About the Kiali Public API"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:500
+msgid ""
+"To generate JSON files representing the graphs and other metrics, health,"
+" and configuration information, you can access the `Kiali Public API "
+"<https://www.kiali.io/api>`_. For example, point your browser to "
+"``$KIALI_URL/api/namespaces/graph?namespaces=bookinfo&graphType=app`` to "
+"get the JSON representation of your graph using the ``app`` graph type."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:506
+msgid ""
+"The Kiali Public API is built on top of Prometheus queries and depends on"
+" the standard Istio metric configuration. It also makes Kubernetes API "
+"calls to obtain additional details about your services. For the best "
+"experience using Kiali, use the metadata labels ``app`` and ``version`` "
+"on your application components. As a template, the Bookinfo sample "
+"application follows this convention."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:514
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:516
+msgid ""
+"If you are not planning any follow-up tasks, remove the Bookinfo sample "
+"application and Kiali from your cluster."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:519
+msgid ""
+"To remove the Bookinfo application, refer to the `Bookinfo cleanup "
+"</docs/examples/bookinfo/#cleanup>`_ instructions."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:522
+msgid ""
+"To remove Kiali from a Kubernetes environment, remove all components with"
+" the ``app=kiali`` label:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/kiali/index.rst:528
+msgid ""
+"all,secrets,sa,configmaps,deployments,ingresses,clusterroles,clusterrolebindings,customresourcedefinitions"
+" –selector=app=kiali -n istio-system"
+msgstr ""
+

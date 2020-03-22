@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:2
+msgid "istio-security-2019-004"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:4
+msgid "{{< security_bulletin >}}"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:6
+msgid ""
+"Envoy, and subsequently Istio are vulnerable to a series of trivial "
+"HTTP/2-based DoS attacks:"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:9
+msgid ""
+"HTTP/2 flood using PING frames and queuing of response PING ACK frames "
+"that results in unbounded memory growth (which can lead to out of memory "
+"conditions)."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:12
+msgid ""
+"HTTP/2 flood using PRIORITY frames that results in excessive CPU usage "
+"and starvation of other clients."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:14
+msgid ""
+"HTTP/2 flood using HEADERS frames with invalid HTTP headers and queuing "
+"of response ``RST_STREAM`` frames that results in unbounded memory growth"
+" (which can lead to out of memory conditions)."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:17
+msgid ""
+"HTTP/2 flood using SETTINGS frames and queuing of SETTINGS ACK frames "
+"that results in unbounded memory growth (which can lead to out of memory "
+"conditions)."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:20
+msgid ""
+"HTTP/2 flood using frames with an empty payload that results in excessive"
+" CPU usage and starvation of other clients."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:23
+msgid ""
+"Those vulnerabilities were reported externally and affect multiple proxy "
+"implementations. See `this security bulletin <https://github.com/Netflix"
+"/security-bulletins/blob/master/advisories/third-party/2019-002.md>`_ for"
+" more information."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:29
+msgid "Impact and detection"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:31
+msgid ""
+"If Istio terminates externally originated HTTP then it is vulnerable. If "
+"Istio is instead fronted by an intermediary that terminates HTTP (e.g., a"
+" HTTP load balancer), then that intermediary would protect Istio, "
+"assuming the intermediary is not itself vulnerable to the same HTTP/2 "
+"exploits."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:38
+msgid "Mitigation"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:40
+msgid ""
+"For Istio 1.1.x deployments: update to a `Istio 1.1.13 "
+"</news/releases/1.1.x/announcing-1.1.13>`_ or later."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:42
+msgid ""
+"For Istio 1.2.x deployments: update to a `Istio 1.2.4 "
+"</news/releases/1.2.x/announcing-1.2.4>`_ or later."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-004/index.rst:45
+msgid "{{< boilerplate “security-vulnerability” >}}"
+msgstr ""
+

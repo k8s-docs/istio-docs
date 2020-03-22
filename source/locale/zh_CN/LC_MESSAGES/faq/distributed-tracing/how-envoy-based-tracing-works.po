@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/distributed-tracing/how-envoy-based-tracing-works.rst:2
+msgid "how-envoy-based-tracing-works"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-envoy-based-tracing-works.rst:4
+msgid ""
+"For Envoy-based tracing integrations, Envoy (the sidecar proxy) sends "
+"tracing information directly to tracing backends on behalf of the "
+"applications being proxied."
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-envoy-based-tracing-works.rst:8
+msgid "Envoy:"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-envoy-based-tracing-works.rst:10
+msgid ""
+"generates request IDs and trace headers (i.e. ``X-B3-TraceId``) for "
+"requests as they flow through the proxy"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-envoy-based-tracing-works.rst:12
+msgid ""
+"generates trace spans for each request based on request and response "
+"metadata (i.e. response time)"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-envoy-based-tracing-works.rst:14
+msgid "sends the generated trace spans to the tracing backends"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-envoy-based-tracing-works.rst:15
+msgid "forwards the trace headers to the proxied application"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-envoy-based-tracing-works.rst:17
+msgid ""
+"Istio supports the Envoy-based integrations of `LightStep "
+"</docs/tasks/observability/distributed-tracing/lightstep/>`_ and `Zipkin "
+"</docs/tasks/observability/distributed-tracing/zipkin/>`_, as well as all"
+" Zipkin API-compatible backends, including `Jaeger "
+"</docs/tasks/observability/distributed-tracing/jaeger/>`_."
+msgstr ""
+

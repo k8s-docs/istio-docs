@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:2
+msgid "List"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: List description: "
+"Adapter that performs whitelist or blacklist checks. location: "
+"https://istio.io/docs/reference/config/policy-and-"
+"telemetry/adapters/list.html layout: protoc-gen-docs generator: protoc-"
+"gen-docs supported_templates: listentry aliases:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:14
+msgid "/docs/reference/config/adapters/list.html"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:15
+msgid ""
+"number_of_entries: 2 --- <p>The <code>list</code> adapter makes it "
+"possible to perform simple whitelist or blacklist checks. You can "
+"configure the adapter with the list to check, or you can point it to a "
+"URL from where the list should be fetched. Lists can be simple strings, "
+"IP addresses, or regex patterns.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:22
+msgid ""
+"<p>This adapter supports the <a href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/listentry/\">listentry template</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:24
+msgid ""
+"<h2 id=\"Params\">Params</h2> <section> <p>Configuration format for the "
+"<code>list</code> adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:28
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-provider_url\"> <td><code>providerUrl</code></td>"
+" <td><code>string</code></td> <td> <p>Where to find the list to check "
+"against. This may be omitted for a completely local list.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:44
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-refresh_interval\"> "
+"<td><code>refreshInterval</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> <p>Determines how often the provider is polled for an updated "
+"list</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:56
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-ttl\"> "
+"<td><code>ttl</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> <p>Indicates how long to keep a list before discarding it. "
+"Typically, the TTL value should be set to noticeably longer (&gt; 2x) "
+"than the refresh interval to ensure continued operation in the face of "
+"transient server outages.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:70
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-caching_interval\"> "
+"<td><code>cachingInterval</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> <p>Indicates the amount of time a caller of this adapter can cache "
+"an answer before it should ask the adapter again.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:82
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-caching_use_count\"> "
+"<td><code>cachingUseCount</code></td> <td><code>int32</code></td> <td> "
+"<p>Indicates the number of times a caller of this adapter can use a "
+"cached answer before it should ask the adapter again.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:94
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-overrides\"> "
+"<td><code>overrides</code></td> <td><code>string[]</code></td> <td> "
+"<p>List entries that are consulted first, before the list from the "
+"server</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:105
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-entry_type\"> "
+"<td><code>entryType</code></td> <td><code><a href=\"#Params-"
+"ListEntryType\">ListEntryType</a></code></td> <td> <p>Determines the kind"
+" of list entry and overrides.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:116
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-blacklist\"> "
+"<td><code>blacklist</code></td> <td><code>bool</code></td> <td> "
+"<p>Whether the list operates as a blacklist or a whitelist.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:127
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"ListEntryType\">Params.ListEntryType</h2> <section> <p>Determines the "
+"type of list that the adapter is consulting.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:139
+msgid ""
+"<table class=\"enum-values\"> <thead> <tr> <th>Name</th> "
+"<th>Description</th> </tr> </thead> <tbody> <tr id=\"Params-"
+"ListEntryType-STRINGS\"> <td><code>STRINGS</code></td> <td> <p>List "
+"entries are treated as plain strings.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:152
+msgid ""
+"</td> </tr> <tr id=\"Params-ListEntryType-CASE_INSENSITIVE_STRINGS\"> "
+"<td><code>CASE_INSENSITIVE_STRINGS</code></td> <td> <p>List entries are "
+"treated as case-insensitive strings.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:159
+msgid ""
+"</td> </tr> <tr id=\"Params-ListEntryType-IP_ADDRESSES\"> "
+"<td><code>IP_ADDRESSES</code></td> <td> <p>List entries are treated as IP"
+" addresses and ranges.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:166
+msgid ""
+"</td> </tr> <tr id=\"Params-ListEntryType-REGEX\"> "
+"<td><code>REGEX</code></td> <td> <p>List entries are treated as re2 "
+"regexp. See <a "
+"href=\"https://github.com/google/re2/wiki/Syntax\">here</a> for the "
+"supported syntax.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/list/index.rst:173
+msgid "</td> </tr> </tbody> </table> </section>"
+msgstr ""
+

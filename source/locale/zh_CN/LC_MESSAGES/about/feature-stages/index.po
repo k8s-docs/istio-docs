@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/feature-stages/index.rst:2
+msgid "feature stages"
+msgstr ""
+
+#: ../../source/about/feature-stages/index.rst:11
+msgid ""
+"This page lists the relative maturity and support level of every Istio "
+"feature. Please note that the phases (Alpha, Beta, and Stable) are "
+"applied to individual features within the project, not to the project as "
+"a whole. Here is a high level description of what these labels mean."
+msgstr ""
+
+#: ../../source/about/feature-stages/index.rst:17
+msgid "Feature phase definitions"
+msgstr ""
+
+#: ../../source/about/feature-stages/index.rst:77
+msgid "Istio features"
+msgstr ""
+
+#: ../../source/about/feature-stages/index.rst:79
+msgid ""
+"Below is our list of existing features and their current phases. This "
+"information will be updated after every monthly release."
+msgstr ""
+
+#: ../../source/about/feature-stages/index.rst:83
+msgid "Traffic management"
+msgstr ""
+
+#: ../../source/about/feature-stages/index.rst:123
+msgid "Observability"
+msgstr ""
+
+#: ../../source/about/feature-stages/index.rst:142
+msgid "Security and policy enforcement"
+msgstr ""
+
+#: ../../source/about/feature-stages/index.rst:162
+msgid "Core"
+msgstr ""
+
+#: ../../source/about/feature-stages/index.rst:188
+msgid "Please get in touch by joining our"
+msgstr ""
+
+#: ../../source/about/feature-stages/index.rst:189
+msgid ""
+"`community </about/community/>`_ if there are features you’d like to see "
+"in our future releases!"
+msgstr ""
+

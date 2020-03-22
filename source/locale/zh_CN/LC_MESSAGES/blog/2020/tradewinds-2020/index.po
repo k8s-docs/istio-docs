@@ -1,0 +1,323 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:2
+msgid "tradewinds-2020"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:4
+msgid ""
+"Istio solves real problems that people encounter running microservices. "
+"Even `very early pre-release versions "
+"<https://kubernetespodcast.com/episode/016-descartes-labs/>`_ helped "
+"users debug the latency in their architecture, increase the reliability "
+"of services, and transparently secure traffic behind the firewall."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:11
+msgid ""
+"Last year, the Istio project experienced major growth. After a 9-month "
+"gestation before the 1.1 release in Q1, we set a goal of having a "
+"quarterly release cadence. We knew it was important to deliver value "
+"consistently and predictably. With three releases landing in the "
+"successive quarters as planned, we are proud to have reached that goal."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:17
+msgid ""
+"During that time, we improved our build and test infrastructure, "
+"resulting in higher quality and easier release cycles. We doubled down on"
+" user experience, adding many commands to make operating and debugging "
+"the mesh easier. We also saw tremendous growth in the number of "
+"developers and companies contributing to the product - culminating in us "
+"being `#4 on GitHub’s top ten list of fastest growing projects "
+"<https://octoverse.github.com/#fastest-growing-oss-projects-by-"
+"contributors>`_!"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:25
+msgid ""
+"We have ambitious goals for Istio in 2020 and there are many major "
+"efforts underway, but at the same time we strongly believe that good "
+"infrastructure should be “boring.” Using Istio in production should be a "
+"seamless experience; performance should not be a concern, upgrades should"
+" be a non-event and complex tasks should be automated away. With our "
+"investment in a more powerful extensibility story we think the pace of "
+"innovation in the service mesh space can increase while Istio focuses on "
+"being gloriously dull. More details on our major efforts in 2020 below."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:36
+msgid "Sleeker, smoother and faster"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:38
+msgid ""
+"Istio provided for extensibility from day one, implemented by a component"
+" called Mixer. Mixer is a platform that allows custom `adapters "
+"</docs/reference/config/policy-and-telemetry/mixer-overview/#adapters>`_ "
+"to act as an intermediary between the data plane and the backends you use"
+" for policy or telemetry. Mixer necessarily added overhead to requests "
+"because it required extensions to be out-of-process. So, we’re moving to "
+"a model that enables extension directly in the proxies instead."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:47
+msgid ""
+"Most of Mixer’s use cases for policy enforcement are already addressed "
+"with Istio’s `authentication </docs/concepts/security/#authentication-"
+"policies>`_ and `authorization </docs/concepts/security/#authorization>`_"
+" policies, which allow you to control workload-to-workload and end-user-"
+"to-workload authorization directly in the proxy. Common monitoring use "
+"cases have already moved into the proxy too - we have [introduced in-"
+"proxy support]/docs/ops/configuration/telemetry/in-proxy-service-"
+"telemetry/) for sending telemetry to Prometheus and Stackdriver."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:57
+#, python-format
+msgid ""
+"Our benchmarking shows that the new telemetry model reduces our latency "
+"dramatically and gives us industry-leading performance, with 50% "
+"reductions in both latency and CPU consumption."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:62
+msgid "A new model for Istio extensibility"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:64
+msgid ""
+"The model that replaces Mixer uses extensions in Envoy to provide even "
+"more capability. The Istio community is leading the implementation of a "
+"`WebAssembly <https://webassembly.org/>`_ (Wasm) runtime in Envoy, which "
+"lets us implement extensions that are modular, sandboxed, and developed "
+"in one of `over 20 languages <https://github.com/appcypher/awesome-wasm-"
+"langs>`_. Extensions can be dynamically loaded and reloaded while the "
+"proxy continues serving traffic. Wasm extensions will also be able to "
+"extend the platform in ways that Mixer simply couldn’t. They can act as "
+"custom protocol handlers and transform payloads as they pass through "
+"Envoy — in short they can do the same things as modules built into Envoy."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:76
+msgid ""
+"We’re working with the Envoy community on ways to discover and distribute"
+" these extensions. We want to make WebAssembly extensions as easy to "
+"install and run as containers. Many of our partners have written Mixer "
+"adapters, and together we are getting them ported to Wasm. We are also "
+"developing guides and codelabs on how to write your own extensions for "
+"custom integrations."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:83
+msgid ""
+"By changing the extension model, we were also able to remove dozens of "
+"CRDs. You no longer need a unique CRD for every piece of software you "
+"integrate with Istio."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:87
+msgid ""
+"Installing Istio 1.5 with the ‘preview’ configuration profile won’t "
+"install Mixer. If you upgrade from a previous release, or install the "
+"‘default’ profile, we still keep Mixer around, to be safe. When using "
+"Prometheus or Stackdriver for metrics, we recommend you try out the new "
+"mode and see how much your performance improves."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:93
+msgid ""
+"You can keep Mixer installed and enabled if you need it. Eventually Mixer"
+" will become a separately released add-on to Istio that is part of the "
+"`istio-ecosystem <https://github.com/istio-ecosystem/>`_."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:98
+msgid "Fewer moving parts"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:100
+msgid ""
+"We are also simplifying the deployment of the rest of the control plane. "
+"To that end, we combined several of the control plane components into a "
+"single component: Istiod. This binary includes the features of Pilot, "
+"Citadel, Galley, and the sidecar injector. This approach improves many "
+"aspects of installing and managing Istio – reducing installation and "
+"configuration complexity, maintenance effort, and issue diagnosis time "
+"while increasing responsiveness. Read more about Istiod in `this post "
+"from Christian Posta <https://blog.christianposta.com/microservices"
+"/istio-as-an-example-of-when-not-to-do-microservices/>`_."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:110
+msgid "We are shipping istiod as the default for all profiles in 1.5."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:112
+msgid ""
+"To reduce the per-node footprint, we are getting rid of the node-agent, "
+"used to distribute certificates, and moving its functionality to the "
+"istio-agent, which already runs in each Pod. For those of you who like "
+"pictures we are moving from this …"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:122
+msgid "to this…"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:129
+msgid ""
+"In 2020, we will continue to invest in onboarding to achieve our goal of "
+"a “zero config” default that doesn’t require you to change any of your "
+"application’s configuration to take advantage of most Istio features."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:134
+msgid "Improved lifecycle management"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:136
+msgid ""
+"To improve Istio’s life-cycle management, we moved to an `operator "
+"<https://kubernetes.io/docs/concepts/extend-kubernetes/operator/>`_-based"
+" installation. We introduced the `IstioOperator CRD and two installation "
+"modes </docs/setup/install/istioctl/>`_:"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:141
+msgid "Human-triggered: use istioctl to apply the settings to the cluster."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:142
+msgid ""
+"Machine-triggered: use a controller that is continually watching for "
+"changes in that CRD and affecting those in real time."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:145
+msgid ""
+"In 2020 upgrades will getting easier too. We will add support for "
+"“canarying” new versions of the Istio control plane, which allows you to "
+"run a new version alongside the existing version and gradually switch "
+"your data plane over to use the new one."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:151
+msgid "Secure By Default"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:153
+msgid ""
+"Istio already provides the fundamentals for strong service security: "
+"reliable workload identity, robust access policies and comprehensive "
+"audit logging. We’re stabilizing APIs for these features; many Alpha APIs"
+" are moving to Beta in 1.5, and we expect them to all be v1 by the end of"
+" 2020. To learn more about the status of our APIs, see our `features page"
+" </about/feature-stages/#istio-features>`_."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:160
+msgid ""
+"Network traffic is also becoming more secure by default. After many users"
+" enabled it in preview, `automated rollout of mutual TLS "
+"</docs/tasks/security/authentication/auto-mtls/>`_ is becoming the "
+"recommended practice in Istio 1.5."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:165
+msgid ""
+"In addition we will make Istio require fewer privileges and simplify its "
+"dependencies which in turn make it a more robust system. Historically, "
+"you had to mount certificates into Envoy using Kubernetes Secrets, which "
+"were mounted as files into each proxy. By leveraging the `Secret "
+"Discovery Service "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret>`_"
+" we can distribute these certificates securely without concern of them "
+"being intercepted by other workloads on the machine. This mode will "
+"become the default in 1.5."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:175
+msgid ""
+"Getting rid of the node-agent not only simplifies the deployment, but "
+"also removes the requirement for a cluster-wide ``PodSecurityPolicy``, "
+"further improving the security posture of your cluster."
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:180
+msgid "Other features"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:182
+msgid ""
+"Here’s a snapshot of some more exciting things you can expect from Istio "
+"in 2020:"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:185
+msgid ""
+"Integration with more hosted Kubernetes environments - service meshes "
+"powered by Istio are currently available from 15 vendors, including "
+"Google, IBM, Red Hat, VMware, Alibaba and Huawei"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:188
+msgid "More investment in ``istioctl`` and its ability to help diagnose problems"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:190
+msgid "Better integration of VM-based workloads into meshes"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:191
+msgid ""
+"Continued work towards making multi-cluster and multi-network meshes "
+"easier to configure, maintain, and run"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:193
+msgid ""
+"Integration with more service discovery systems, including Functions-"
+"as-a-Service"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:195
+msgid ""
+"Implementation of the new `Kubernetes service APIs <https://kubernetes-"
+"sigs.github.io/service-apis/>`_, which are currently in development"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:198
+msgid ""
+"An `enhancement repository <https://github.com/istio/enhancements/>`_, to"
+" track feature development"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:201
+msgid "Making it easier to run Istio without needing Kubernetes!"
+msgstr ""
+
+#: ../../source/blog/2020/tradewinds-2020/index.rst:203
+msgid ""
+"From the seas to `the skies "
+"<https://www.youtube.com/watch?v=YjZ4AZ7hRM0>`_, we’re excited to see "
+"where you take Istio next."
+msgstr ""
+

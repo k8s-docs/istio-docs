@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:2
+msgid "zipkin"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:4
+msgid ""
+"After completing this task, you understand how to have your application "
+"participate in tracing with `Zipkin <https://zipkin.io/>`_, regardless of"
+" the language, framework, or platform you use to build your application."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:9
+msgid ""
+"This task uses the `Bookinfo </docs/examples/bookinfo/>`_ sample as the "
+"example application."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:12
+msgid ""
+"To learn how Istio handles tracing, visit this task’s `overview "
+"<../overview/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:16
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:18
+msgid ""
+"To set up Istio, follow the instructions in the `Installation guide "
+"</docs/setup/install/istioctl>`_ and then configure:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:21
+msgid ""
+"a demo/test environment by setting the ``--set "
+"values.tracing.enabled=true`` and ``--set "
+"values.tracing.provider=zipkin`` install options to enable tracing “out "
+"of the box”"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:26
+msgid ""
+"a production environment by referencing an existing Zipkin instance and "
+"then setting the ``--set values.global.tracer.zipkin.address=<zipkin-"
+"collector-service>.<zipkin-collector-namespace>:9411`` install option."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:33
+msgid ""
+"When you enable tracing, you can set the sampling rate that Istio uses "
+"for tracing. Use the ``pilot.traceSampling`` option to set the sampling "
+"rate. The default sampling rate is 1%. {{< /warning >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:38
+msgid ""
+"Deploy the `Bookinfo </docs/examples/bookinfo/#deploying-the-"
+"application>`_ sample application."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:43
+msgid "Accessing the dashboard"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:45
+msgid ""
+"`Remotely Accessing Telemetry Addons "
+"</docs/tasks/observability/gateways>`_ details how to configure access to"
+" the Istio addons through a gateway. Alternatively, to use a Kubernetes "
+"ingress, specify the option ``--set values.tracing.ingress.enabled=true``"
+" during install."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:51
+msgid ""
+"For testing (and temporary access), you may also use port-forwarding. Use"
+" the following, assuming you’ve deployed Zipkin to the ``istio-system`` "
+"namespace:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:60
+msgid "Generating traces using the Bookinfo sample"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:62
+msgid ""
+"When the Bookinfo application is up and running, access "
+"``http://$GATEWAY_URL/productpage`` one or more times to generate trace "
+"information."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:66
+msgid "{{< boilerplate trace-generation >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:68
+msgid ""
+"From the top panel, select a service of interest (or ‘all’) from the "
+"**Service Name** drop-down list and click **Find Traces**:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:76
+msgid ""
+"Click on the most recent trace at the top to see the details "
+"corresponding to the latest request to the ``/productpage``:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:84
+msgid ""
+"The trace is comprised of a set of spans, where each span corresponds to "
+"a Bookinfo service, invoked during the execution of a ``/productpage`` "
+"request, or internal Istio component, for example: ``istio-"
+"ingressgateway``."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:90
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:92
+msgid ""
+"Remove any ``istioctl`` processes that may still be running using "
+"control-C or:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/zipkin/index.rst:99
+msgid ""
+"If you are not planning to explore any follow-on tasks, refer to the "
+"`Bookinfo cleanup </docs/examples/bookinfo/#cleanup>`_ instructions to "
+"shutdown the application."
+msgstr ""
+

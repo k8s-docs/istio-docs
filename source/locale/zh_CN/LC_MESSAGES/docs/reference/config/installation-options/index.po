@@ -1,0 +1,3692 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/installation-options/index.rst:2
+msgid "installation-options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:6
+msgid "Installing Istio with Helm is in the process of"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:7
+msgid ""
+"deprecation, however, you can use these Helm configuration options when "
+"`installing Istio with {{< istioctl >}} </docs/setup/install/istioctl/>`_"
+" by prepending the string “``values.``” to the option name. For example, "
+"instead of this ``helm`` command:"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:16
+msgid "global.controlPlaneSecurityEnabled=true"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:18
+msgid "You can use this ``istioctl`` command:"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:23
+msgid "values.global.controlPlaneSecurityEnabled=true"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:25
+msgid ""
+"Refer to `customizing the configuration </docs/setup/install/istioctl"
+"/#customizing-the-configuration>`_ for details."
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:31
+msgid "This document is unfortunately out of date with the"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:32
+#, python-format
+msgid ""
+"latest changes in the set of supported options. To get the exact set of "
+"supported options, please see the `Helm charts "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/install/kubernetes/helm/istio>`_."
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:46
+msgid "``certmanager`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:49
+#: ../../source/docs/reference/config/installation-options/index.rst:67
+#: ../../source/docs/reference/config/installation-options/index.rst:84
+#: ../../source/docs/reference/config/installation-options/index.rst:561
+#: ../../source/docs/reference/config/installation-options/index.rst:1114
+#: ../../source/docs/reference/config/installation-options/index.rst:1252
+#: ../../source/docs/reference/config/installation-options/index.rst:1261
+#: ../../source/docs/reference/config/installation-options/index.rst:1279
+#: ../../source/docs/reference/config/installation-options/index.rst:1365
+#: ../../source/docs/reference/config/installation-options/index.rst:1524
+#: ../../source/docs/reference/config/installation-options/index.rst:1541
+#: ../../source/docs/reference/config/installation-options/index.rst:1610
+#: ../../source/docs/reference/config/installation-options/index.rst:1671
+#: ../../source/docs/reference/config/installation-options/index.rst:1756
+#: ../../source/docs/reference/config/installation-options/index.rst:1828
+msgid "Key"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:49
+#: ../../source/docs/reference/config/installation-options/index.rst:67
+#: ../../source/docs/reference/config/installation-options/index.rst:84
+#: ../../source/docs/reference/config/installation-options/index.rst:561
+#: ../../source/docs/reference/config/installation-options/index.rst:1114
+#: ../../source/docs/reference/config/installation-options/index.rst:1252
+#: ../../source/docs/reference/config/installation-options/index.rst:1261
+#: ../../source/docs/reference/config/installation-options/index.rst:1279
+#: ../../source/docs/reference/config/installation-options/index.rst:1365
+#: ../../source/docs/reference/config/installation-options/index.rst:1524
+#: ../../source/docs/reference/config/installation-options/index.rst:1541
+#: ../../source/docs/reference/config/installation-options/index.rst:1610
+#: ../../source/docs/reference/config/installation-options/index.rst:1671
+#: ../../source/docs/reference/config/installation-options/index.rst:1756
+#: ../../source/docs/reference/config/installation-options/index.rst:1828
+msgid "Default Value"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:49
+#: ../../source/docs/reference/config/installation-options/index.rst:67
+#: ../../source/docs/reference/config/installation-options/index.rst:84
+#: ../../source/docs/reference/config/installation-options/index.rst:561
+#: ../../source/docs/reference/config/installation-options/index.rst:1114
+#: ../../source/docs/reference/config/installation-options/index.rst:1252
+#: ../../source/docs/reference/config/installation-options/index.rst:1261
+#: ../../source/docs/reference/config/installation-options/index.rst:1279
+#: ../../source/docs/reference/config/installation-options/index.rst:1365
+#: ../../source/docs/reference/config/installation-options/index.rst:1524
+#: ../../source/docs/reference/config/installation-options/index.rst:1541
+#: ../../source/docs/reference/config/installation-options/index.rst:1610
+#: ../../source/docs/reference/config/installation-options/index.rst:1671
+#: ../../source/docs/reference/config/installation-options/index.rst:1756
+#: ../../source/docs/reference/config/installation-options/index.rst:1828
+msgid "Description"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:51
+msgid "``certmanager.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:51
+#: ../../source/docs/reference/config/installation-options/index.rst:91
+#: ../../source/docs/reference/config/installation-options/index.rst:347
+#: ../../source/docs/reference/config/installation-options/index.rst:463
+#: ../../source/docs/reference/config/installation-options/index.rst:580
+#: ../../source/docs/reference/config/installation-options/index.rst:594
+#: ../../source/docs/reference/config/installation-options/index.rst:662
+#: ../../source/docs/reference/config/installation-options/index.rst:763
+#: ../../source/docs/reference/config/installation-options/index.rst:768
+#: ../../source/docs/reference/config/installation-options/index.rst:819
+#: ../../source/docs/reference/config/installation-options/index.rst:832
+#: ../../source/docs/reference/config/installation-options/index.rst:860
+#: ../../source/docs/reference/config/installation-options/index.rst:880
+#: ../../source/docs/reference/config/installation-options/index.rst:916
+#: ../../source/docs/reference/config/installation-options/index.rst:935
+#: ../../source/docs/reference/config/installation-options/index.rst:982
+#: ../../source/docs/reference/config/installation-options/index.rst:985
+#: ../../source/docs/reference/config/installation-options/index.rst:992
+#: ../../source/docs/reference/config/installation-options/index.rst:1080
+#: ../../source/docs/reference/config/installation-options/index.rst:1099
+#: ../../source/docs/reference/config/installation-options/index.rst:1116
+#: ../../source/docs/reference/config/installation-options/index.rst:1126
+#: ../../source/docs/reference/config/installation-options/index.rst:1132
+#: ../../source/docs/reference/config/installation-options/index.rst:1140
+#: ../../source/docs/reference/config/installation-options/index.rst:1237
+#: ../../source/docs/reference/config/installation-options/index.rst:1254
+#: ../../source/docs/reference/config/installation-options/index.rst:1263
+#: ../../source/docs/reference/config/installation-options/index.rst:1281
+#: ../../source/docs/reference/config/installation-options/index.rst:1311
+#: ../../source/docs/reference/config/installation-options/index.rst:1325
+#: ../../source/docs/reference/config/installation-options/index.rst:1345
+#: ../../source/docs/reference/config/installation-options/index.rst:1375
+#: ../../source/docs/reference/config/installation-options/index.rst:1427
+#: ../../source/docs/reference/config/installation-options/index.rst:1501
+#: ../../source/docs/reference/config/installation-options/index.rst:1514
+#: ../../source/docs/reference/config/installation-options/index.rst:1526
+#: ../../source/docs/reference/config/installation-options/index.rst:1567
+#: ../../source/docs/reference/config/installation-options/index.rst:1648
+#: ../../source/docs/reference/config/installation-options/index.rst:1657
+#: ../../source/docs/reference/config/installation-options/index.rst:1707
+#: ../../source/docs/reference/config/installation-options/index.rst:1774
+#: ../../source/docs/reference/config/installation-options/index.rst:1792
+#: ../../source/docs/reference/config/installation-options/index.rst:1830
+#: ../../source/docs/reference/config/installation-options/index.rst:1864
+#: ../../source/docs/reference/config/installation-options/index.rst:1922
+msgid "``false``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:52
+msgid "``certmanager.replicaCount``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:52
+#: ../../source/docs/reference/config/installation-options/index.rst:70
+#: ../../source/docs/reference/config/installation-options/index.rst:133
+#: ../../source/docs/reference/config/installation-options/index.rst:362
+#: ../../source/docs/reference/config/installation-options/index.rst:476
+#: ../../source/docs/reference/config/installation-options/index.rst:785
+#: ../../source/docs/reference/config/installation-options/index.rst:1118
+#: ../../source/docs/reference/config/installation-options/index.rst:1185
+#: ../../source/docs/reference/config/installation-options/index.rst:1193
+#: ../../source/docs/reference/config/installation-options/index.rst:1218
+#: ../../source/docs/reference/config/installation-options/index.rst:1222
+#: ../../source/docs/reference/config/installation-options/index.rst:1264
+#: ../../source/docs/reference/config/installation-options/index.rst:1287
+#: ../../source/docs/reference/config/installation-options/index.rst:1380
+#: ../../source/docs/reference/config/installation-options/index.rst:1386
+#: ../../source/docs/reference/config/installation-options/index.rst:1405
+#: ../../source/docs/reference/config/installation-options/index.rst:1411
+#: ../../source/docs/reference/config/installation-options/index.rst:1548
+#: ../../source/docs/reference/config/installation-options/index.rst:1615
+#: ../../source/docs/reference/config/installation-options/index.rst:1675
+#: ../../source/docs/reference/config/installation-options/index.rst:1761
+msgid "``1``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:53
+msgid "``certmanager.hub``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:53
+msgid "``quay.io/jetstack``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:54
+msgid "``certmanager.image``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:54
+msgid "``cert-manager-controller``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:55
+msgid "``certmanager.tag``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:55
+msgid "``v0.6.2``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:56
+msgid "``certmanager.resources``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:56
+#: ../../source/docs/reference/config/installation-options/index.rst:57
+#: ../../source/docs/reference/config/installation-options/index.rst:74
+#: ../../source/docs/reference/config/installation-options/index.rst:181
+#: ../../source/docs/reference/config/installation-options/index.rst:185
+#: ../../source/docs/reference/config/installation-options/index.rst:330
+#: ../../source/docs/reference/config/installation-options/index.rst:398
+#: ../../source/docs/reference/config/installation-options/index.rst:402
+#: ../../source/docs/reference/config/installation-options/index.rst:446
+#: ../../source/docs/reference/config/installation-options/index.rst:511
+#: ../../source/docs/reference/config/installation-options/index.rst:550
+#: ../../source/docs/reference/config/installation-options/index.rst:942
+#: ../../source/docs/reference/config/installation-options/index.rst:1093
+#: ../../source/docs/reference/config/installation-options/index.rst:1152
+#: ../../source/docs/reference/config/installation-options/index.rst:1158
+#: ../../source/docs/reference/config/installation-options/index.rst:1160
+#: ../../source/docs/reference/config/installation-options/index.rst:1173
+#: ../../source/docs/reference/config/installation-options/index.rst:1269
+#: ../../source/docs/reference/config/installation-options/index.rst:1300
+#: ../../source/docs/reference/config/installation-options/index.rst:1484
+#: ../../source/docs/reference/config/installation-options/index.rst:1487
+#: ../../source/docs/reference/config/installation-options/index.rst:1531
+#: ../../source/docs/reference/config/installation-options/index.rst:1585
+#: ../../source/docs/reference/config/installation-options/index.rst:1627
+#: ../../source/docs/reference/config/installation-options/index.rst:1654
+#: ../../source/docs/reference/config/installation-options/index.rst:1701
+#: ../../source/docs/reference/config/installation-options/index.rst:1778
+#: ../../source/docs/reference/config/installation-options/index.rst:1834
+#: ../../source/docs/reference/config/installation-options/index.rst:1910
+msgid "``{}``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:57
+msgid "``certmanager.nodeSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:58
+msgid "``certmanager.tolerations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:58
+#: ../../source/docs/reference/config/installation-options/index.rst:59
+#: ../../source/docs/reference/config/installation-options/index.rst:60
+#: ../../source/docs/reference/config/installation-options/index.rst:75
+#: ../../source/docs/reference/config/installation-options/index.rst:76
+#: ../../source/docs/reference/config/installation-options/index.rst:77
+#: ../../source/docs/reference/config/installation-options/index.rst:173
+#: ../../source/docs/reference/config/installation-options/index.rst:177
+#: ../../source/docs/reference/config/installation-options/index.rst:334
+#: ../../source/docs/reference/config/installation-options/index.rst:338
+#: ../../source/docs/reference/config/installation-options/index.rst:342
+#: ../../source/docs/reference/config/installation-options/index.rst:450
+#: ../../source/docs/reference/config/installation-options/index.rst:454
+#: ../../source/docs/reference/config/installation-options/index.rst:458
+#: ../../source/docs/reference/config/installation-options/index.rst:553
+#: ../../source/docs/reference/config/installation-options/index.rst:690
+#: ../../source/docs/reference/config/installation-options/index.rst:923
+#: ../../source/docs/reference/config/installation-options/index.rst:956
+#: ../../source/docs/reference/config/installation-options/index.rst:1155
+#: ../../source/docs/reference/config/installation-options/index.rst:1163
+#: ../../source/docs/reference/config/installation-options/index.rst:1166
+#: ../../source/docs/reference/config/installation-options/index.rst:1270
+#: ../../source/docs/reference/config/installation-options/index.rst:1271
+#: ../../source/docs/reference/config/installation-options/index.rst:1272
+#: ../../source/docs/reference/config/installation-options/index.rst:1303
+#: ../../source/docs/reference/config/installation-options/index.rst:1305
+#: ../../source/docs/reference/config/installation-options/index.rst:1308
+#: ../../source/docs/reference/config/installation-options/index.rst:1490
+#: ../../source/docs/reference/config/installation-options/index.rst:1492
+#: ../../source/docs/reference/config/installation-options/index.rst:1495
+#: ../../source/docs/reference/config/installation-options/index.rst:1532
+#: ../../source/docs/reference/config/installation-options/index.rst:1533
+#: ../../source/docs/reference/config/installation-options/index.rst:1534
+#: ../../source/docs/reference/config/installation-options/index.rst:1588
+#: ../../source/docs/reference/config/installation-options/index.rst:1590
+#: ../../source/docs/reference/config/installation-options/index.rst:1593
+#: ../../source/docs/reference/config/installation-options/index.rst:1630
+#: ../../source/docs/reference/config/installation-options/index.rst:1633
+#: ../../source/docs/reference/config/installation-options/index.rst:1637
+#: ../../source/docs/reference/config/installation-options/index.rst:1704
+#: ../../source/docs/reference/config/installation-options/index.rst:1744
+#: ../../source/docs/reference/config/installation-options/index.rst:1747
+#: ../../source/docs/reference/config/installation-options/index.rst:1781
+#: ../../source/docs/reference/config/installation-options/index.rst:1784
+#: ../../source/docs/reference/config/installation-options/index.rst:1788
+#: ../../source/docs/reference/config/installation-options/index.rst:1802
+#: ../../source/docs/reference/config/installation-options/index.rst:1819
+#: ../../source/docs/reference/config/installation-options/index.rst:1837
+#: ../../source/docs/reference/config/installation-options/index.rst:1840
+#: ../../source/docs/reference/config/installation-options/index.rst:1843
+msgid "``[]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:59
+msgid "``certmanager.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:60
+msgid "``certmanager.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:64
+msgid "``galley`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:69
+msgid "``galley.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:69
+#: ../../source/docs/reference/config/installation-options/index.rst:86
+#: ../../source/docs/reference/config/installation-options/index.rst:88
+#: ../../source/docs/reference/config/installation-options/index.rst:129
+#: ../../source/docs/reference/config/installation-options/index.rst:358
+#: ../../source/docs/reference/config/installation-options/index.rst:472
+#: ../../source/docs/reference/config/installation-options/index.rst:868
+#: ../../source/docs/reference/config/installation-options/index.rst:891
+#: ../../source/docs/reference/config/installation-options/index.rst:904
+#: ../../source/docs/reference/config/installation-options/index.rst:978
+#: ../../source/docs/reference/config/installation-options/index.rst:1009
+#: ../../source/docs/reference/config/installation-options/index.rst:1016
+#: ../../source/docs/reference/config/installation-options/index.rst:1096
+#: ../../source/docs/reference/config/installation-options/index.rst:1205
+#: ../../source/docs/reference/config/installation-options/index.rst:1214
+#: ../../source/docs/reference/config/installation-options/index.rst:1351
+#: ../../source/docs/reference/config/installation-options/index.rst:1383
+#: ../../source/docs/reference/config/installation-options/index.rst:1402
+#: ../../source/docs/reference/config/installation-options/index.rst:1408
+#: ../../source/docs/reference/config/installation-options/index.rst:1498
+#: ../../source/docs/reference/config/installation-options/index.rst:1504
+#: ../../source/docs/reference/config/installation-options/index.rst:1507
+#: ../../source/docs/reference/config/installation-options/index.rst:1543
+#: ../../source/docs/reference/config/installation-options/index.rst:1545
+#: ../../source/docs/reference/config/installation-options/index.rst:1562
+#: ../../source/docs/reference/config/installation-options/index.rst:1612
+#: ../../source/docs/reference/config/installation-options/index.rst:1663
+#: ../../source/docs/reference/config/installation-options/index.rst:1673
+#: ../../source/docs/reference/config/installation-options/index.rst:1684
+#: ../../source/docs/reference/config/installation-options/index.rst:1695
+#: ../../source/docs/reference/config/installation-options/index.rst:1698
+#: ../../source/docs/reference/config/installation-options/index.rst:1713
+#: ../../source/docs/reference/config/installation-options/index.rst:1758
+msgid "``true``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:70
+msgid "``galley.replicaCount``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:71
+msgid "``galley.rollingMaxSurge``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:71
+#: ../../source/docs/reference/config/installation-options/index.rst:141
+#: ../../source/docs/reference/config/installation-options/index.rst:370
+#: ../../source/docs/reference/config/installation-options/index.rst:482
+#: ../../source/docs/reference/config/installation-options/index.rst:1265
+#: ../../source/docs/reference/config/installation-options/index.rst:1396
+#: ../../source/docs/reference/config/installation-options/index.rst:1421
+#: ../../source/docs/reference/config/installation-options/index.rst:1554
+#: ../../source/docs/reference/config/installation-options/index.rst:1678
+#: ../../source/docs/reference/config/installation-options/index.rst:1764
+msgid "``100%``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:72
+msgid "``galley.rollingMaxUnavailable``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:72
+#: ../../source/docs/reference/config/installation-options/index.rst:145
+#: ../../source/docs/reference/config/installation-options/index.rst:374
+#: ../../source/docs/reference/config/installation-options/index.rst:486
+#: ../../source/docs/reference/config/installation-options/index.rst:1266
+#: ../../source/docs/reference/config/installation-options/index.rst:1399
+#: ../../source/docs/reference/config/installation-options/index.rst:1424
+#: ../../source/docs/reference/config/installation-options/index.rst:1557
+#: ../../source/docs/reference/config/installation-options/index.rst:1681
+#: ../../source/docs/reference/config/installation-options/index.rst:1767
+msgid "``25%``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:73
+msgid "``galley.image``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:73
+msgid "``galley``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:74
+msgid "``galley.nodeSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:75
+msgid "``galley.tolerations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:76
+msgid "``galley.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:77
+msgid "``galley.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:81
+msgid "``gateways`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:86
+msgid "``gateways.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:88
+msgid "``gateways.istio-ingr essgateway.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:91
+msgid "``gateways.istio-ingr essgateway.sds.enable d``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:91
+msgid ""
+"``If true, ingress ga teway fetches credent ials from SDS server to "
+"handle TLS connect ions.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:97
+msgid "``gateways.istio-ingr essgateway.sds.image` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:97
+#: ../../source/docs/reference/config/installation-options/index.rst:1527
+msgid "``node-agent-k8s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:97
+msgid ""
+"``SDS server that wat ches kubernetes secre ts and provisions cre "
+"dentials to ingress g ateway. This server r uns in the same pod a s "
+"ingress gateway.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:105
+msgid "``gateways.istio-ingr essgateway.sds.resour ces.requests.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:105
+#: ../../source/docs/reference/config/installation-options/index.rst:149
+#: ../../source/docs/reference/config/installation-options/index.rst:378
+#: ../../source/docs/reference/config/installation-options/index.rst:606
+#: ../../source/docs/reference/config/installation-options/index.rst:628
+msgid "``100m``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:109
+msgid "``gateways.istio-ingr essgateway.sds.resour ces.requests.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:109
+#: ../../source/docs/reference/config/installation-options/index.rst:153
+#: ../../source/docs/reference/config/installation-options/index.rst:382
+#: ../../source/docs/reference/config/installation-options/index.rst:631
+msgid "``128Mi``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:113
+msgid "``gateways.istio-ingr essgateway.sds.resour ces.limits.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:113
+#: ../../source/docs/reference/config/installation-options/index.rst:157
+#: ../../source/docs/reference/config/installation-options/index.rst:386
+#: ../../source/docs/reference/config/installation-options/index.rst:634
+msgid "``2000m``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:117
+msgid "``gateways.istio-ingr essgateway.sds.resour ces.limits.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:117
+#: ../../source/docs/reference/config/installation-options/index.rst:161
+#: ../../source/docs/reference/config/installation-options/index.rst:390
+#: ../../source/docs/reference/config/installation-options/index.rst:637
+msgid "``1024Mi``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:121
+msgid "``gateways.istio-ingr essgateway.labels.app ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:121
+msgid "``istio-ingressgatewa y``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:125
+msgid "``gateways.istio-ingr essgateway.labels.ist io``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:125
+#: ../../source/docs/reference/config/installation-options/index.rst:583
+msgid "``ingressgateway``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:129
+msgid "``gateways.istio-ingr essgateway.autoscaleE nabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:133
+msgid "``gateways.istio-ingr essgateway.autoscaleM in``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:137
+msgid "``gateways.istio-ingr essgateway.autoscaleM ax``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:137
+#: ../../source/docs/reference/config/installation-options/index.rst:366
+#: ../../source/docs/reference/config/installation-options/index.rst:479
+#: ../../source/docs/reference/config/installation-options/index.rst:1389
+#: ../../source/docs/reference/config/installation-options/index.rst:1414
+#: ../../source/docs/reference/config/installation-options/index.rst:1551
+msgid "``5``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:141
+msgid "``gateways.istio-ingr essgateway.rollingMax Surge``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:145
+msgid "``gateways.istio-ingr essgateway.rollingMax Unavailable``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:149
+msgid "``gateways.istio-ingr essgateway.resources. requests.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:153
+msgid "``gateways.istio-ingr essgateway.resources. requests.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:157
+msgid "``gateways.istio-ingr essgateway.resources. limits.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:161
+msgid "``gateways.istio-ingr essgateway.resources. limits.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:165
+msgid "``gateways.istio-ingr essgateway.cpu.target AverageUtilization``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:165
+#: ../../source/docs/reference/config/installation-options/index.rst:201
+#: ../../source/docs/reference/config/installation-options/index.rst:394
+#: ../../source/docs/reference/config/installation-options/index.rst:490
+#: ../../source/docs/reference/config/installation-options/index.rst:1392
+#: ../../source/docs/reference/config/installation-options/index.rst:1417
+#: ../../source/docs/reference/config/installation-options/index.rst:1582
+msgid "``80``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:169
+msgid "``gateways.istio-ingr essgateway.loadBalanc erIP``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:169
+#: ../../source/docs/reference/config/installation-options/index.rst:317
+#: ../../source/docs/reference/config/installation-options/index.rst:502
+#: ../../source/docs/reference/config/installation-options/index.rst:647
+#: ../../source/docs/reference/config/installation-options/index.rst:650
+#: ../../source/docs/reference/config/installation-options/index.rst:707
+#: ../../source/docs/reference/config/installation-options/index.rst:716
+#: ../../source/docs/reference/config/installation-options/index.rst:800
+#: ../../source/docs/reference/config/installation-options/index.rst:803
+#: ../../source/docs/reference/config/installation-options/index.rst:806
+#: ../../source/docs/reference/config/installation-options/index.rst:812
+#: ../../source/docs/reference/config/installation-options/index.rst:898
+#: ../../source/docs/reference/config/installation-options/index.rst:901
+#: ../../source/docs/reference/config/installation-options/index.rst:907
+#: ../../source/docs/reference/config/installation-options/index.rst:910
+#: ../../source/docs/reference/config/installation-options/index.rst:1013
+#: ../../source/docs/reference/config/installation-options/index.rst:1023
+#: ../../source/docs/reference/config/installation-options/index.rst:1026
+#: ../../source/docs/reference/config/installation-options/index.rst:1090
+#: ../../source/docs/reference/config/installation-options/index.rst:1134
+#: ../../source/docs/reference/config/installation-options/index.rst:1528
+#: ../../source/docs/reference/config/installation-options/index.rst:1529
+#: ../../source/docs/reference/config/installation-options/index.rst:1530
+#: ../../source/docs/reference/config/installation-options/index.rst:1867
+msgid "``\"\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:173
+msgid "``gateways.istio-ingr essgateway.loadBalanc erSourceRanges``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:177
+msgid "``gateways.istio-ingr essgateway.externalIP s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:181
+msgid "``gateways.istio-ingr essgateway.serviceAnn otations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:185
+msgid "``gateways.istio-ingr essgateway.podAnnotat ions``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:189
+msgid "``gateways.istio-ingr essgateway.type``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:189
+#: ../../source/docs/reference/config/installation-options/index.rst:515
+msgid "``LoadBalancer``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:189
+msgid "``change to NodePort,"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:190
+msgid "ClusterIP or LoadBal"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:191
+msgid "ancer if need be``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:193
+#: ../../source/docs/reference/config/installation-options/index.rst:201
+#: ../../source/docs/reference/config/installation-options/index.rst:229
+#: ../../source/docs/reference/config/installation-options/index.rst:237
+#: ../../source/docs/reference/config/installation-options/index.rst:245
+#: ../../source/docs/reference/config/installation-options/index.rst:253
+#: ../../source/docs/reference/config/installation-options/index.rst:261
+msgid "``gateways.istio-ingr essgateway.ports.targ etPort``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:193
+#: ../../source/docs/reference/config/installation-options/index.rst:779
+msgid "``15020``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:197
+#: ../../source/docs/reference/config/installation-options/index.rst:205
+#: ../../source/docs/reference/config/installation-options/index.rst:213
+#: ../../source/docs/reference/config/installation-options/index.rst:221
+#: ../../source/docs/reference/config/installation-options/index.rst:233
+#: ../../source/docs/reference/config/installation-options/index.rst:241
+#: ../../source/docs/reference/config/installation-options/index.rst:249
+#: ../../source/docs/reference/config/installation-options/index.rst:257
+#: ../../source/docs/reference/config/installation-options/index.rst:265
+msgid "``gateways.istio-ingr essgateway.ports.name ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:197
+msgid "``status-port``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:205
+#: ../../source/docs/reference/config/installation-options/index.rst:410
+msgid "``http2``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:209
+#: ../../source/docs/reference/config/installation-options/index.rst:217
+#: ../../source/docs/reference/config/installation-options/index.rst:225
+msgid "``gateways.istio-ingr essgateway.ports.node Port``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:209
+msgid "``31380``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:213
+#: ../../source/docs/reference/config/installation-options/index.rst:414
+msgid "``https``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:217
+msgid "``31390``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:221
+msgid "``tcp``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:225
+msgid "``31400``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:229
+msgid "``15029``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:233
+msgid "``https-kiali``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:237
+msgid "``15030``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:241
+msgid "``https-prometheus``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:245
+msgid "``15031``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:249
+msgid "``https-grafana``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:253
+msgid "``15032``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:257
+msgid "``https-tracing``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:261
+#: ../../source/docs/reference/config/installation-options/index.rst:418
+msgid "``15443``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:265
+#: ../../source/docs/reference/config/installation-options/index.rst:422
+msgid "``tls``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:269
+#: ../../source/docs/reference/config/installation-options/index.rst:277
+#: ../../source/docs/reference/config/installation-options/index.rst:285
+#: ../../source/docs/reference/config/installation-options/index.rst:293
+msgid "``gateways.istio-ingr essgateway.meshExpans ionPorts.targetPort``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:269
+msgid "``15011``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:273
+#: ../../source/docs/reference/config/installation-options/index.rst:281
+#: ../../source/docs/reference/config/installation-options/index.rst:289
+#: ../../source/docs/reference/config/installation-options/index.rst:297
+msgid "``gateways.istio-ingr essgateway.meshExpans ionPorts.name``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:273
+msgid "``tcp-pilot-grpc-tls` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:277
+msgid "``15004``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:281
+msgid "``tcp-mixer-grpc-tls` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:285
+#: ../../source/docs/reference/config/installation-options/index.rst:524
+msgid "``8060``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:289
+#: ../../source/docs/reference/config/installation-options/index.rst:528
+msgid "``tcp-citadel-grpc-tl s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:293
+msgid "``853``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:297
+msgid "``tcp-dns-tls``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:301
+#: ../../source/docs/reference/config/installation-options/index.rst:309
+msgid "``gateways.istio-ingr essgateway.secretVolu mes.secretName``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:301
+msgid "``istio-ingressgatewa y-certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:305
+#: ../../source/docs/reference/config/installation-options/index.rst:313
+msgid "``gateways.istio-ingr essgateway.secretVolu mes.mountPath``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:305
+msgid "``/etc/istio/ingressg ateway-certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:309
+msgid "``istio-ingressgatewa y-ca-certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:313
+msgid "``/etc/istio/ingressg ateway-ca-certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:317
+msgid "``gateways.istio-ingr essgateway.applicatio nPorts``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:321
+msgid "``gateways.istio-ingr essgateway.env.ISTIO_ META_ROUTER_MODE``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:321
+#: ../../source/docs/reference/config/installation-options/index.rst:442
+msgid "``\"sni-dnat\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:321
+msgid "``A gateway with this"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:322
+msgid "mode ensures that pi"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:323
+msgid ""
+"lot generates an addi tional set of cluster s for internal servic es but "
+"without Istio mTLS, to enable cross"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:328
+msgid "cluster routing.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:330
+msgid "``gateways.istio-ingr essgateway.nodeSelect or``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:334
+msgid "``gateways.istio-ingr essgateway.toleration s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:338
+msgid "``gateways.istio-ingr essgateway.podAntiAff inityLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:342
+msgid "``gateways.istio-ingr essgateway.podAntiAff inityTermLabelSelecto r``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:347
+msgid "``gateways.istio-egre ssgateway.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:350
+msgid "``gateways.istio-egre ssgateway.labels.app` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:350
+msgid "``istio-egressgateway ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:354
+msgid "``gateways.istio-egre ssgateway.labels.isti o``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:354
+msgid "``egressgateway``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:358
+msgid "``gateways.istio-egre ssgateway.autoscaleEn abled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:362
+msgid "``gateways.istio-egre ssgateway.autoscaleMi n``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:366
+msgid "``gateways.istio-egre ssgateway.autoscaleMa x``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:370
+msgid "``gateways.istio-egre ssgateway.rollingMaxS urge``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:374
+msgid "``gateways.istio-egre ssgateway.rollingMaxU navailable``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:378
+msgid "``gateways.istio-egre ssgateway.resources.r equests.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:382
+msgid "``gateways.istio-egre ssgateway.resources.r equests.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:386
+msgid "``gateways.istio-egre ssgateway.resources.l imits.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:390
+msgid "``gateways.istio-egre ssgateway.resources.l imits.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:394
+msgid "``gateways.istio-egre ssgateway.cpu.targetA verageUtilization``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:398
+msgid "``gateways.istio-egre ssgateway.serviceAnno tations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:402
+msgid "``gateways.istio-egre ssgateway.podAnnotati ons``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:406
+msgid "``gateways.istio-egre ssgateway.type``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:406
+#: ../../source/docs/reference/config/installation-options/index.rst:1179
+#: ../../source/docs/reference/config/installation-options/index.rst:1916
+msgid "``ClusterIP``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:406
+msgid "``change to NodePort or LoadBalancer if ne ed be``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:410
+#: ../../source/docs/reference/config/installation-options/index.rst:414
+#: ../../source/docs/reference/config/installation-options/index.rst:422
+msgid "``gateways.istio-egre ssgateway.ports.name` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:418
+msgid "``gateways.istio-egre ssgateway.ports.targe tPort``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:426
+#: ../../source/docs/reference/config/installation-options/index.rst:434
+msgid "``gateways.istio-egre ssgateway.secretVolum es.secretName``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:426
+msgid "``istio-egressgateway -certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:430
+#: ../../source/docs/reference/config/installation-options/index.rst:438
+msgid "``gateways.istio-egre ssgateway.secretVolum es.mountPath``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:430
+msgid "``/etc/istio/egressga teway-certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:434
+msgid "``istio-egressgateway -ca-certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:438
+msgid "``/etc/istio/egressga teway-ca-certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:442
+msgid "``gateways.istio-egre ssgateway.env.ISTIO_M ETA_ROUTER_MODE``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:446
+msgid "``gateways.istio-egre ssgateway.nodeSelecto r``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:450
+msgid "``gateways.istio-egre ssgateway.tolerations ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:454
+msgid "``gateways.istio-egre ssgateway.podAntiAffi nityLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:458
+msgid "``gateways.istio-egre ssgateway.podAntiAffi nityTermLabelSelector ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:463
+msgid "``gateways.istio-ilbg ateway.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:466
+msgid "``gateways.istio-ilbg ateway.labels.app``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:466
+msgid "``istio-ilbgateway``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:469
+msgid "``gateways.istio-ilbg ateway.labels.istio``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:469
+msgid "``ilbgateway``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:472
+msgid "``gateways.istio-ilbg ateway.autoscaleEnabl ed``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:476
+msgid "``gateways.istio-ilbg ateway.autoscaleMin``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:479
+msgid "``gateways.istio-ilbg ateway.autoscaleMax``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:482
+msgid "``gateways.istio-ilbg ateway.rollingMaxSurg e``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:486
+msgid "``gateways.istio-ilbg ateway.rollingMaxUnav ailable``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:490
+msgid "``gateways.istio-ilbg ateway.cpu.targetAver ageUtilization``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:494
+msgid "``gateways.istio-ilbg ateway.resources.requ ests.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:494
+msgid "``800m``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:498
+msgid "``gateways.istio-ilbg ateway.resources.requ ests.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:498
+msgid "``512Mi``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:502
+msgid "``gateways.istio-ilbg ateway.loadBalancerIP ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:506
+msgid ""
+"``gateways.istio-ilbg ateway.serviceAnnotat ions.cloud.google.com /load-"
+"balancer-type``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:506
+msgid "``\"internal\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:511
+msgid "``gateways.istio-ilbg ateway.podAnnotations ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:515
+msgid "``gateways.istio-ilbg ateway.type``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:518
+#: ../../source/docs/reference/config/installation-options/index.rst:521
+#: ../../source/docs/reference/config/installation-options/index.rst:528
+#: ../../source/docs/reference/config/installation-options/index.rst:531
+msgid "``gateways.istio-ilbg ateway.ports.name``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:518
+msgid "``grpc-pilot-mtls``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:521
+msgid "``grpc-pilot``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:524
+msgid "``gateways.istio-ilbg ateway.ports.targetPo rt``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:531
+msgid "``tcp-dns``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:534
+#: ../../source/docs/reference/config/installation-options/index.rst:542
+msgid "``gateways.istio-ilbg ateway.secretVolumes. secretName``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:534
+msgid "``istio-ilbgateway-ce rts``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:538
+#: ../../source/docs/reference/config/installation-options/index.rst:546
+msgid "``gateways.istio-ilbg ateway.secretVolumes. mountPath``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:538
+msgid "``/etc/istio/ilbgatew ay-certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:542
+msgid "``istio-ilbgateway-ca -certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:546
+msgid "``/etc/istio/ilbgatew ay-ca-certs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:550
+msgid "``gateways.istio-ilbg ateway.nodeSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:553
+msgid "``gateways.istio-ilbg ateway.tolerations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:558
+msgid "``global`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:563
+msgid "``global.hub``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:563
+msgid ":literal:`\\| `Default"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:564
+msgid "hub for Istio images"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:565
+msgid ""
+". Releases are publis hed to docker hub und er 'istio' project. D aily "
+"builds from prow"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:569
+msgid "are on gcr.io` | | `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:570
+msgid "global.tag` \\|`"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:563
+msgid "``Default tag for Ist io images.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:572
+msgid "``global.logging.leve l``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:572
+msgid "``\"default:info\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:575
+msgid "``global.monitoringPo rt``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:575
+msgid "``15014``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:575
+msgid "``monitoring port use d by mixer, pilot, ga lley and sidecar inje ctor``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:580
+msgid "``global.k8sIngress.e nabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:583
+msgid "``global.k8sIngress.g atewayName``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:583
+msgid ""
+"``Gateway used for k8 s Ingress resources. By default it is usin g "
+"'istio:ingressgatew ay' that will be inst alled by setting 'gat "
+"eways.enabled' and 'g ateways.istio-ingress gateway.enabled' flag s to "
+"true.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:594
+msgid "``global.k8sIngress.e nableHttps``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:594
+msgid ""
+"``enableHttps will ad d port 443 on the ing ress. It REQUIRES tha t the "
+"certificates ar e installed  in the e xpected secrets - ena bling this "
+"option wit hout certificates wil l result in LDS rejec tion and the "
+"ingress will not work.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:606
+msgid "``global.proxy.init.r esources.limits.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:609
+msgid "``global.proxy.init.r esources.limits.memor y``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:609
+msgid "``50Mi``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:613
+msgid "``global.proxy.init.r esources.requests.cpu ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:613
+#: ../../source/docs/reference/config/installation-options/index.rst:1006
+#: ../../source/docs/reference/config/installation-options/index.rst:1510
+msgid "``10m``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:617
+msgid "``global.proxy.init.r esources.requests.mem ory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:617
+msgid "``10Mi``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:621
+msgid "``global.proxy.image` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:621
+msgid "``proxyv2``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:624
+msgid "``global.proxy.cluste rDomain``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:624
+msgid "``\"cluster.local\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:624
+msgid "``cluster domain. Def ault value is \"cluste r.local\".``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:628
+msgid "``global.proxy.resour ces.requests.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:631
+msgid "``global.proxy.resour ces.requests.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:634
+msgid "``global.proxy.resour ces.limits.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:637
+msgid "``global.proxy.resour ces.limits.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:640
+msgid "``global.proxy.concur rency``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:640
+#: ../../source/docs/reference/config/installation-options/index.rst:789
+#: ../../source/docs/reference/config/installation-options/index.rst:928
+#: ../../source/docs/reference/config/installation-options/index.rst:930
+#: ../../source/docs/reference/config/installation-options/index.rst:932
+#: ../../source/docs/reference/config/installation-options/index.rst:1907
+msgid "``2``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:640
+msgid "``Controls number of Proxy worker threads."
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:642
+msgid "If set to 0, then st"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:643
+msgid "art worker thread for"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:644
+msgid "each CPU thread/core"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:645
+msgid ".``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:647
+msgid "``global.proxy.access LogFile``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:650
+msgid "``global.proxy.access LogFormat``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:650
+msgid "``Configure how and w hat fields are displa yed in sidecar access"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:653
+msgid "log. Setting to empt"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:654
+msgid "y string will result in default log format ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:658
+msgid "``global.proxy.access LogEncoding``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:658
+msgid "``TEXT``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:658
+msgid "``Configure the acces s log for sidecar to JSON or TEXT.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:662
+msgid "``global.proxy.envoyA ccessLogService.enabl ed``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:666
+msgid "``global.proxy.envoyA ccessLogService.host` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:666
+msgid ""
+":literal:`\\| `example : accesslog-service.i stio-system` | | `glo "
+"bal.proxy.envoyAccess LogService.port` \\|`"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:666
+#: ../../source/docs/reference/config/installation-options/index.rst:836
+msgid "``example: 15000``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:672
+msgid "``global.proxy.envoyA ccessLogService.tlsSe ttings.mode``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:672
+msgid "``DISABLE``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:672
+msgid "``DISABLE, SIMPLE, MU TUAL, ISTIO_MUTUAL``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:676
+msgid "``global.proxy.envoyA ccessLogService.tlsSe ttings.clientCertific ate``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:676
+msgid ""
+":literal:`\\| `example : /etc/istio/als/cert -chain.pem` | | `glob "
+"al.proxy.envoyAccessL ogService.tlsSettings .privateKey` \\|`"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:676
+msgid "``example: /etc/istio /als/key.pem``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:683
+msgid "``global.proxy.envoyA ccessLogService.tlsSe ttings.caCertificates ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:683
+msgid ""
+":literal:`\\| `example : /etc/istio/als/root -cert.pem` | | `globa "
+"l.proxy.envoyAccessLo gService.tlsSettings. sni` \\|`"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:683
+msgid "``example: als.somedo main``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:690
+msgid "``global.proxy.envoyA ccessLogService.tlsSe ttings.subjectAltName s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:695
+msgid "``global.proxy.envoyA ccessLogService.tcpKe epalive.probes``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:695
+msgid "``3``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:699
+msgid "``global.proxy.envoyA ccessLogService.tcpKe epalive.time``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:699
+#: ../../source/docs/reference/config/installation-options/index.rst:703
+msgid "``10s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:703
+msgid "``global.proxy.envoyA ccessLogService.tcpKe epalive.interval``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:707
+msgid "``global.proxy.logLev el``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:707
+msgid "``Log level for proxy , applies to gateways"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:709
+msgid "and sidecars.  If le"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:710
+msgid ""
+"ft empty, \"warning\" i s used. Expected valu es are: trace\\|debug\\ "
+"|info\\|warning\\|error \\|critical\\|off``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:716
+msgid "``global.proxy.compon entLogLevel``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:716
+msgid ""
+"``Per Component log l evel for proxy, appli es to gateways and si decars."
+" If a componen t level is not set, t hen the global \"logLe vel\" will be"
+" used. If"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:723
+msgid "left empty, \"misc:er"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:724
+msgid "ror\" is used.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:726
+msgid "``global.proxy.dnsRef reshRate``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:726
+msgid "``300s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:726
+msgid "``Configure the DNS r efresh rate for Envoy"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:728
+msgid "cluster of type STRI"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:729
+msgid ""
+"CT_DNS This must be g iven it terms of seco nds. For example, 300 s is "
+"valid but 5m is invalid.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:735
+msgid "``global.proxy.protoc olDetectionTimeout``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:735
+msgid "``10ms``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:735
+msgid ""
+"``Automatic protocol detection uses a set of heuristics to dete rmine "
+"whether the con nection is using TLS or not (on the server"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:741
+msgid "side), as well as th"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:742
+msgid ""
+"e application protoco l being used (e.g., h ttp vs tcp). These he "
+"uristics rely on the client sending the fi rst bits of data. For"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:748
+msgid "server first protoco"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:749
+msgid ""
+"ls like MySQL, MongoD B, etc., Envoy will t imeout on the protoco l "
+"detection after the"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:753
+msgid "specified period, de"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:754
+msgid "faulting to non mTLS plain TCP traffic. Se t this field to tweak"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:757
+msgid "the period that Envo"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:758
+msgid ""
+"y will wait for the c lient to send the fir st bits of data. (MUS T BE "
+">=1ms)``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:763
+msgid "``global.proxy.privil eged``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:763
+msgid ""
+"``If set to true, ist io-proxy container wi ll have privileged se "
+"curityContext``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:768
+msgid "``global.proxy.enable CoreDump``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:768
+msgid "``If set, newly injec ted sidecars will hav e core dumps enabled. ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:773
+msgid "``global.proxy.enable CoreDumpImage``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:773
+msgid "``ubuntu:xenial``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:773
+msgid "``Image used to enabl e core dumps. This is"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:775
+msgid "only used, when \"ena"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:776
+msgid "bleCoreDump\" is set t o true.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:779
+msgid "``global.proxy.status Port``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:779
+msgid "``Default port for Pi lot agent health chec ks. A value of 0 will"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:782
+msgid "disable health check"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:783
+msgid "ing.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:785
+msgid "``global.proxy.readin essInitialDelaySecond s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:785
+msgid "``The initial delay f or readiness probes i n seconds.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:789
+msgid "``global.proxy.readin essPeriodSeconds``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:789
+msgid "``The period between readiness probes.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:792
+msgid "``global.proxy.readin essFailureThreshold``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:792
+msgid "``30``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:792
+msgid ""
+"``The number of succe ssive failed probes b efore indicating read iness "
+"failure.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:797
+msgid "``global.proxy.includ eIPRanges``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:797
+#: ../../source/docs/reference/config/installation-options/index.rst:809
+msgid "``\"*\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:800
+msgid "``global.proxy.exclud eIPRanges``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:803
+msgid "``global.proxy.exclud eOutboundPorts``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:806
+msgid "``global.proxy.kubevi rtInterfaces``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:806
+msgid "``pod internal interf aces``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:809
+msgid "``global.proxy.includ eInboundPorts``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:812
+msgid "``global.proxy.exclud eInboundPorts``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:815
+msgid "``global.proxy.autoIn ject``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:815
+msgid "``enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:815
+msgid "``This controls the ' policy' in the sideca r injector.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:819
+msgid "``global.proxy.envoyS tatsd.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:819
+msgid "``If enabled is set t o true, host and port"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:821
+msgid "must also be provide"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:822
+msgid "d. Istio no longer pr ovides a statsd colle ctor.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:826
+msgid "``global.proxy.envoyS tatsd.host``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:826
+msgid ""
+":literal:`\\| `example : statsd-svc.istio-sy stem` | | `global.pro "
+"xy.envoyStatsd.port` \\|`"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:826
+msgid "``example: 9125``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:832
+msgid "``global.proxy.envoyM etricsService.enabled ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:836
+msgid "``global.proxy.envoyM etricsService.host``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:836
+msgid ""
+":literal:`\\| `example : metrics-service.ist io-system` | | `globa "
+"l.proxy.envoyMetricsS ervice.port` \\|`"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:842
+msgid "``global.proxy.tracer ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:842
+msgid "``\"zipkin\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:842
+msgid ""
+"``Specify which trace r to use. One of: zip kin, lightstep, datad og, "
+"stackdriver. If u sing stackdriver trac er outside GCP, set e nv "
+"GOOGLE_APPLICATION _CREDENTIALS to the G CP credential file.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:852
+msgid "``global.proxy_init.i mage``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:852
+msgid "``proxy_init``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:852
+msgid "``Base name for the p roxy_init container, used to configure ipt ables.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:857
+msgid "``global.imagePullPol icy``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:857
+msgid "``IfNotPresent``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:860
+msgid "``global.controlPlane SecurityEnabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:860
+msgid ""
+"``controlPlaneSecurit yEnabled enabled. Wil l result in delays st arting "
+"the pods while"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:864
+msgid "secrets are propagat"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:865
+msgid "ed, not recommended f or tests.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:868
+msgid "``global.disablePolic yChecks``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:868
+msgid "``disablePolicyChecks"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:869
+msgid "disables mixer polic"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:870
+msgid ""
+"y checks. if mixer.po licy.enabled==true th en disablePolicyCheck s has "
+"affect. Will se t the value with same"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:875
+msgid "name in istio config map - pilot needs to be restarted to take effect.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:880
+msgid "``global.policyCheckF ailOpen``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:880
+msgid "``policyCheckFailOpen"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:881
+msgid "allows traffic in ca"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:882
+msgid "ses when the mixer po licy service cannot b e reached. Default is"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:885
+msgid "false which means th"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:886
+msgid "e traffic is denied w hen the client is una ble to connect to Mix er.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:891
+msgid "``global.enableTracin g``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:891
+msgid ""
+"``EnableTracing sets the value with same n ame in istio config m ap, "
+"requires pilot re start to take effect. ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:898
+msgid "``global.tracer.light step.address``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:898
+msgid "``example: lightstep- satellite:443``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:901
+msgid "``global.tracer.light step.accessToken``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:901
+msgid "``example: abcdefg123 4567``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:904
+msgid "``global.tracer.light step.secure``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:904
+msgid "``example: true\\|fals e``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:907
+msgid "``global.tracer.light step.cacertPath``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:907
+msgid "``example: /etc/light step/cacert.pem``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:910
+msgid "``global.tracer.zipki n.address``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:913
+msgid "``global.tracer.datad og.address``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:913
+msgid "``\"$(HOST_IP):8126\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:916
+msgid "``global.mtls.enabled ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:916
+msgid "``Default setting for"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:917
+msgid "service-to-service m"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:918
+msgid ""
+"tls. Can be set expli citly using destinati on rules or service a "
+"nnotations.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:923
+msgid "``global.imagePullSec rets``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:923
+msgid "``Lists the secrets y ou need to use to pul l Istio images from a"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:926
+msgid "private registry.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:928
+msgid "``global.arch.amd64``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:930
+msgid "``global.arch.s390x``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:932
+msgid "``global.arch.ppc64le ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:935
+msgid "``global.oneNamespace ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:935
+msgid "``Whether to restrict"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:936
+msgid "the applications nam"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:938
+msgid "espace the controller"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:938
+msgid "manages; If not set, controller watches a"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:940
+msgid "ll namespaces``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:942
+msgid "``global.defaultNodeS elector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:942
+msgid ""
+"``Default node select or to be applied to a ll deployments so tha t all "
+"pods can be con strained to run a par ticular nodes. Each c omponent can "
+"overwrit e these default value s by adding its node selector block in the"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:952
+msgid "relevant section bel"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:953
+msgid "ow and setting the de sired values.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:956
+msgid "``global.defaultToler ations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:956
+msgid ""
+"``Default node tolera tions to be applied t o all deployments so that all"
+" pods can be scheduled to a partic ular nodes with match ing taints. Each"
+" comp onent can overwrite t hese default values b y adding its tolerati "
+"ons block in the rele vant section below an d setting the desired"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:969
+msgid "values. Configure th"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:970
+msgid "is field in case that"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:971
+msgid "all pods of Istio co"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:972
+msgid ""
+"ntrol plane are expec ted to be scheduled t o particular nodes wi th "
+"specified taints.` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:978
+msgid "``global.configValida tion``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:978
+msgid "``Whether to perform server-side validatio n of configuration.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:982
+msgid "``global.meshExpansio n.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:985
+msgid "``global.meshExpansio n.useILB``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:985
+msgid "``If set to true, the"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:986
+msgid "pilot and citadel mt"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:987
+msgid "ls and the plaintext pilot ports will be e xposed on an internal"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:990
+msgid "gateway``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:992
+msgid "``global.multiCluster .enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:992
+msgid ""
+"``Set to true to conn ect two kubernetes cl usters via their resp ective "
+"ingressgateway"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:996
+msgid "services when pods i"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:998
+msgid "n each cluster cannot"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:998
+msgid "directly talk to one another. All cluster"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1000
+msgid "s should be using Ist io mTLS and must have"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1002
+msgid "a shared root CA for this model to work.`"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1004
+#: ../../source/docs/reference/config/installation-options/index.rst:1373
+msgid "`"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1006
+msgid "``global.defaultResou rces.requests.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1009
+msgid "``global.defaultPodDi sruptionBudget.enable d``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1013
+msgid "``global.priorityClas sName``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1016
+msgid "``global.useMCP``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1016
+msgid "``Use the Mesh Contro l Protocol (MCP) for configuring Mixer and"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1019
+msgid "Pilot. Requires gall"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1020
+msgid "ey (--set galley.enab led=true).``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1023
+msgid "``global.trustDomain` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1026
+msgid "``global.meshID``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1026
+msgid "``Mesh ID means Mesh Identifier. It should"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1028
+msgid "be unique within the scope where meshes w"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1030
+msgid ""
+"ill interact with eac h other, but it is no t required to be glob "
+"ally/universally uniq ue. For example, if a ny of the following a re "
+"true, then two mes hes must have differe nt Mesh IDs: - Meshes"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1039
+msgid "will have their tele"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1040
+msgid ""
+"metry aggregated in o ne place - Meshes wil l be federated togeth er - "
+"Policy will be w ritten referencing on e mesh from the other"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1046
+msgid "If an administrator"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1047
+msgid ""
+"expects that any of t hese conditions may b ecome true in the fut ure, "
+"they should ensu re their meshes have different Mesh IDs as signed. "
+"Within a mult icluster mesh, each c luster must be (manua lly or auto) "
+"configur ed to have the same M esh ID value. If an e xisting cluster "
+"'join s' a multicluster mes h, it will need to be"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1062
+msgid "migrated to the new"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1063
+msgid ""
+"mesh ID. Details of m igration TBD, and it may be a disruptive o peration"
+" to change th e Mesh ID post-instal l. If the mesh admin does not specify"
+" a va lue, Istio will use t he value of the mesh' s Trust Domain. The b "
+"est practice is to se lect a proper Trust D omain value.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1077
+msgid "``global.outboundTraf ficPolicy.mode``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1077
+msgid "``ALLOW_ANY``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1080
+msgid "``global.sds.enabled` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1080
+msgid "``SDS enabled. IF set"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1081
+msgid "to true, mTLS certif"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1082
+msgid ""
+"icates for the sideca rs will be distribute d through the SecretD "
+"iscoveryService inste ad of using K8S secre ts to mount the certi "
+"ficates.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1090
+msgid "``global.sds.udsPath` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1093
+msgid "``global.meshNetworks ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1096
+msgid "``global.localityLbSe tting.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1099
+msgid "``global.enableHelmTe st``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1099
+msgid ""
+"``Specifies whether h elm test is enabled o r not. This field is set to "
+"false by defau lt, so 'helm template"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1104
+msgid "...' will ignore the helm test yaml files when generating the"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1107
+msgid "template``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1111
+msgid "``grafana`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1116
+msgid "``grafana.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1118
+msgid "``grafana.replicaCoun t``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1121
+msgid "``grafana.image.repos itory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1121
+msgid "``grafana/grafana``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1124
+msgid "``grafana.image.tag``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1124
+msgid "``6.1.6``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1126
+msgid "``grafana.ingress.ena bled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1129
+msgid "``grafana.ingress.hos ts``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1129
+msgid "``grafana.local``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1129
+#: ../../source/docs/reference/config/installation-options/index.rst:1314
+#: ../../source/docs/reference/config/installation-options/index.rst:1651
+msgid "``Used to create an I ngress record.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1132
+msgid "``grafana.persist``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1134
+msgid "``grafana.storageClas sName``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1137
+msgid "``grafana.accessMode` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1137
+#: ../../source/docs/reference/config/installation-options/index.rst:1870
+msgid "``ReadWriteMany``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1140
+msgid "``grafana.security.en abled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1143
+msgid "``grafana.security.se cretName``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1143
+msgid "``grafana``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1146
+msgid "``grafana.security.us ernameKey``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1146
+msgid "``username``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1149
+msgid "``grafana.security.pa ssphraseKey``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1149
+msgid "``passphrase``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1152
+msgid "``grafana.nodeSelecto r``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1155
+msgid "``grafana.tolerations ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1158
+msgid "``grafana.env``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1160
+msgid "``grafana.envSecrets` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1163
+msgid "``grafana.podAntiAffi nityLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1166
+msgid "``grafana.podAntiAffi nityTermLabelSelector ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1170
+msgid "``grafana.contextPath ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1170
+msgid "``/grafana``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1173
+msgid "``grafana.service.ann otations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1176
+msgid "``grafana.service.nam e``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1176
+#: ../../source/docs/reference/config/installation-options/index.rst:1913
+msgid "``http``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1179
+msgid "``grafana.service.typ e``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1182
+msgid "``grafana.service.ext ernalPort``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1182
+msgid "``3000``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1185
+msgid "``grafana.datasources .datasources.apiVersi on``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1189
+msgid "``grafana.datasources .datasources.datasour ces.type``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1189
+#: ../../source/docs/reference/config/installation-options/index.rst:1620
+msgid "``prometheus``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1193
+msgid "``grafana.datasources .datasources.datasour ces.type.orgId``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1197
+msgid "``grafana.datasources .datasources.datasour ces.type.url``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1197
+#: ../../source/docs/reference/config/installation-options/index.rst:1342
+msgid "``http://prometheus:9 090``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1201
+msgid "``grafana.datasources .datasources.datasour ces.type.access``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1201
+msgid "``proxy``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1205
+msgid "``grafana.datasources .datasources.datasour ces.type.isDefault``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1209
+msgid ""
+"``grafana.datasources .datasources.datasour ces.type.jsonData.tim "
+"eInterval``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1209
+msgid "``5s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1214
+msgid "``grafana.datasources .datasources.datasour ces.type.editable``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1218
+msgid "``grafana.dashboardPr oviders.dashboardprov iders.apiVersion``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1222
+msgid "``grafana.dashboardPr oviders.dashboardprov iders.providers.orgId ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1227
+msgid ""
+"``grafana.dashboardPr oviders.dashboardprov iders.providers.orgId "
+".folder``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1227
+msgid "``'istio'``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1232
+msgid "``grafana.dashboardPr oviders.dashboardprov iders.providers.orgId .type``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1232
+msgid "``file``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1237
+msgid ""
+"``grafana.dashboardPr oviders.dashboardprov iders.providers.orgId "
+".disableDeletion``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1242
+msgid ""
+"``grafana.dashboardPr oviders.dashboardprov iders.providers.orgId "
+".options.path``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1242
+msgid "``/var/lib/grafana/da shboards/istio``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1249
+msgid "``cni`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1254
+msgid "``cni.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1258
+msgid "``istiocoredns`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1263
+msgid "``istiocoredns.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1264
+msgid "``istiocoredns.replicaCount``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1265
+msgid "``istiocoredns.rollingMaxSurge``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1266
+msgid "``istiocoredns.rollingMaxUnavailable``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1267
+msgid "``istiocoredns.coreDNSImage``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1267
+msgid "``coredns/coredns:1.1.2``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1268
+msgid "``istiocoredns.coreDNSPluginImage``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1268
+msgid "``istio/coredns-plugin:0.2-istio-1.1``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1269
+msgid "``istiocoredns.nodeSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1270
+msgid "``istiocoredns.tolerations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1271
+msgid "``istiocoredns.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1272
+msgid "``istiocoredns.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1276
+msgid "``kiali`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1281
+msgid "``kiali.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1281
+msgid ""
+"``Note that if using the demo yaml when in stalling via Helm, th is "
+"default will be tr ue.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1287
+msgid "``kiali.replicaCount` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1290
+msgid "``kiali.hub``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1290
+msgid "``quay.io/kiali``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1292
+msgid "``kiali.image``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1292
+#: ../../source/docs/reference/config/installation-options/index.rst:1320
+msgid "``kiali``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1294
+msgid "``kiali.tag``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1294
+msgid "``v1.1.0``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1296
+msgid "``kiali.contextPath``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1296
+msgid "``/kiali``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1296
+msgid "``The root context pa th to access the Kial i UI.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1300
+msgid "``kiali.nodeSelector` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1303
+msgid "``kiali.tolerations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1305
+msgid "``kiali.podAntiAffini tyLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1308
+msgid "``kiali.podAntiAffini tyTermLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1311
+msgid "``kiali.ingress.enabl ed``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1314
+msgid "``kiali.ingress.hosts ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1314
+msgid "``kiali.local``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1317
+msgid "``kiali.dashboard.aut h.strategy``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1317
+msgid "``login``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1317
+msgid "``Can be anonymous, l ogin, or openshift``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1320
+msgid "``kiali.dashboard.sec retName``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1320
+msgid "``You must create a s ecret with this name - one is not provided"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1323
+msgid "out-of-box.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1325
+msgid "``kiali.dashboard.vie wOnlyMode``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1325
+msgid "``Bind the service ac count to a role with only read access``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1329
+msgid "``kiali.dashboard.gra fanaURL``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1329
+msgid ""
+":literal:`\\| `If you have Grafana installe d and it is accessibl e to "
+"client browsers,"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1333
+msgid "then set this to its external URL. Kiali"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1335
+msgid ""
+"will redirect users t o this URL when Grafa na metrics are to be shown.` "
+"| | `kiali.da shboard.jaegerURL` \\| `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1329
+msgid ""
+"``If you have Jaeger installed and it is a ccessible to client b rowsers,"
+" then set thi s property to its ext ernal URL. Kiali will"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1335
+msgid "redirect users to th"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1336
+msgid "is URL when Jaeger tr acing is to be shown. ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1342
+msgid "``kiali.prometheusAdd r``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1345
+msgid "``kiali.createDemoSec ret``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1346
+msgid "``When true, a secret"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1346
+msgid "will be created with a default username a"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1348
+msgid "nd password. Useful f or demos.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1351
+msgid "``kiali.security.enab led``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1354
+msgid "``kiali.security.cert _file``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1354
+msgid "``/kiali-cert/cert-ch ain.pem``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1357
+msgid "``kiali.security.priv ate_key_file``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1357
+msgid "``/kiali-cert/key.pem ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1362
+msgid "``mixer`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1367
+msgid "``mixer.image``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1367
+msgid "``mixer``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1369
+msgid "``mixer.env.GODEBUG``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1369
+#: ../../source/docs/reference/config/installation-options/index.rst:1580
+msgid "``gctrace=1``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1371
+msgid "``mixer.env.GOMAXPROC S``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1371
+msgid "``\"6\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1371
+msgid "``max procs should be"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1372
+msgid "ceil(cpu limit + 1)`"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1375
+msgid "``mixer.policy.enable d``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1375
+msgid "``if policy is enable d, global.disablePoli cyChecks has affect.` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1380
+msgid "``mixer.policy.replic aCount``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1383
+msgid "``mixer.policy.autosc aleEnabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1386
+msgid "``mixer.policy.autosc aleMin``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1389
+msgid "``mixer.policy.autosc aleMax``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1392
+msgid "``mixer.policy.cpu.ta rgetAverageUtilizatio n``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1396
+msgid "``mixer.policy.rollin gMaxSurge``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1399
+msgid "``mixer.policy.rollin gMaxUnavailable``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1402
+msgid "``mixer.telemetry.ena bled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1405
+msgid "``mixer.telemetry.rep licaCount``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1408
+msgid "``mixer.telemetry.aut oscaleEnabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1411
+msgid "``mixer.telemetry.aut oscaleMin``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1414
+msgid "``mixer.telemetry.aut oscaleMax``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1417
+msgid "``mixer.telemetry.cpu .targetAverageUtiliza tion``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1421
+msgid "``mixer.telemetry.rol lingMaxSurge``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1424
+msgid "``mixer.telemetry.rol lingMaxUnavailable``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1427
+msgid "``mixer.telemetry.ses sionAffinityEnabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1430
+msgid "``mixer.telemetry.loa dshedding.mode``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1430
+msgid "``enforce``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1430
+msgid "``disabled, logonly o r enforce``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1433
+msgid "``mixer.telemetry.loa dshedding.latencyThre shold``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1433
+msgid "``100ms``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1433
+msgid ""
+"``based on measuremen ts 100ms p50 translat es to p99 of under 1s . This "
+"is ok for tele metry which is inhere ntly async.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1440
+msgid "``mixer.telemetry.res ources.requests.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1440
+msgid "``1000m``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1443
+msgid "``mixer.telemetry.res ources.requests.memor y``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1443
+msgid "``1G``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1447
+msgid "``mixer.telemetry.res ources.limits.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1447
+msgid "``4800m``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1447
+msgid ""
+"``It is best to do ho rizontal scaling of m ixer using moderate c pu "
+"allocation. We hav e experimentally foun d that these values w ork "
+"well.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1455
+msgid "``mixer.telemetry.res ources.limits.memory` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1455
+msgid "``4G``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1459
+msgid "``mixer.telemetry.rep ortBatchMaxEntries``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1459
+#: ../../source/docs/reference/config/installation-options/index.rst:1577
+msgid "``100``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1459
+msgid ""
+"``Set reportBatchMaxE ntries to 0 to use th e default batching be havior "
+"(i.e., every 1 00 requests). A posit ive value indicates t he number of "
+"requests"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1466
+msgid "that are batched bef"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1467
+msgid "ore telemetry data is"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1468
+msgid "sent to the mixer se"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1469
+msgid "rver``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1471
+msgid "``mixer.telemetry.rep ortBatchMaxTime``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1471
+msgid "``1s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1471
+msgid ""
+"``Set reportBatchMaxT ime to 0 to use the d efault batching behav ior "
+"(i.e., every 1 se cond). A positive tim e value indicates the"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1477
+msgid "maximum wait time si"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1478
+msgid ""
+"nce the last request will telemetry data b e batched before bein g sent "
+"to the mixer s erver``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1484
+msgid "``mixer.podAnnotation s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1487
+msgid "``mixer.nodeSelector` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1490
+msgid "``mixer.tolerations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1492
+msgid "``mixer.podAntiAffini tyLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1495
+msgid "``mixer.podAntiAffini tyTermLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1498
+msgid "``mixer.adapters.kube rnetesenv.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1501
+msgid "``mixer.adapters.stdi o.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1504
+msgid "``mixer.adapters.stdi o.outputAsJson``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1507
+msgid "``mixer.adapters.prom etheus.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1510
+msgid "``mixer.adapters.prom etheus.metricsExpiryD uration``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1514
+msgid "``mixer.adapters.useA dapterCRDs``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1514
+msgid ""
+"``Setting this to fal se sets the useAdapte rCRDs mixer startup a rgument"
+" to false``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1521
+msgid "``nodeagent`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1526
+msgid "``nodeagent.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1527
+msgid "``nodeagent.image``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1528
+msgid "``nodeagent.env.CA_PROVIDER``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1528
+msgid "``name of authentication provider.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1529
+msgid "``nodeagent.env.CA_ADDR``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1529
+msgid "``CA endpoint.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1530
+msgid "``nodeagent.env.Plugins``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1530
+msgid "``names of authentication provider's plugins.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1531
+msgid "``nodeagent.nodeSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1532
+msgid "``nodeagent.tolerations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1533
+msgid "``nodeagent.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1534
+msgid "``nodeagent.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1538
+msgid "``pilot`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1543
+msgid "``pilot.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1545
+msgid "``pilot.autoscaleEnab led``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1548
+msgid "``pilot.autoscaleMin` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1551
+msgid "``pilot.autoscaleMax` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1554
+msgid "``pilot.rollingMaxSur ge``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1557
+msgid "``pilot.rollingMaxUna vailable``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1560
+msgid "``pilot.image``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1560
+msgid "``pilot``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1562
+msgid "``pilot.sidecar``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1564
+msgid "``pilot.traceSampling ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1564
+msgid "``1.0``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1567
+msgid "``pilot.enableProtoco lSniffing``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1567
+msgid "``if protocol sniffin g is enabled. Default"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1569
+msgid "to false.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1571
+msgid "``pilot.resources.req uests.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1571
+msgid "``500m``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1574
+msgid "``pilot.resources.req uests.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1574
+msgid "``2048Mi``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1577
+msgid "``pilot.env.PILOT_PUS H_THROTTLE``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1580
+msgid "``pilot.env.GODEBUG``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1582
+msgid "``pilot.cpu.targetAve rageUtilization``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1585
+msgid "``pilot.nodeSelector` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1588
+msgid "``pilot.tolerations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1590
+msgid "``pilot.podAntiAffini tyLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1593
+msgid "``pilot.podAntiAffini tyTermLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1596
+msgid "``pilot.keepaliveMaxS erverConnectionAge``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1596
+msgid "``30m``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1596
+msgid ""
+"``The following is us ed to limit how long a sidecar can be conn ected to"
+" a pilot. It balances out load acr oss pilot instances a t the cost of "
+"increas ing system churn.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1607
+msgid "``prometheus`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1612
+msgid "``prometheus.enabled` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1615
+msgid "``prometheus.replicaC ount``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1618
+msgid "``prometheus.hub``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1618
+msgid "``docker.io/prom``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1620
+msgid "``prometheus.image``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1622
+msgid "``prometheus.tag``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1622
+msgid "``v2.8.0``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1624
+msgid "``prometheus.retentio n``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1624
+msgid "``6h``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1627
+msgid "``prometheus.nodeSele ctor``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1630
+msgid "``prometheus.tolerati ons``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1633
+msgid "``prometheus.podAntiA ffinityLabelSelector` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1637
+msgid "``prometheus.podAntiA ffinityTermLabelSelec tor``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1641
+msgid "``prometheus.scrapeIn terval``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1641
+msgid "``15s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1641
+msgid "``Controls the freque ncy of prometheus scr aping``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1645
+msgid "``prometheus.contextP ath``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1645
+msgid "``/prometheus``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1648
+msgid "``prometheus.ingress. enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1651
+msgid "``prometheus.ingress. hosts``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1651
+msgid "``prometheus.local``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1654
+msgid "``prometheus.service. annotations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1657
+msgid "``prometheus.service. nodePort.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1660
+msgid "``prometheus.service. nodePort.port``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1660
+msgid "``32090``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1663
+msgid "``prometheus.security .enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1668
+msgid "``security`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1673
+msgid "``security.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1675
+msgid "``security.replicaCou nt``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1678
+msgid "``security.rollingMax Surge``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1681
+msgid "``security.rollingMax Unavailable``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1684
+#: ../../source/docs/reference/config/installation-options/index.rst:1713
+msgid "``security.enableName spacesByDefault``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1684
+msgid "``determines whether namespaces without th e ca.istio.io/env and"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1687
+msgid "ca.istio.io/override labels should be tar"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1689
+msgid "geted by the Citadel instance for secret c reation``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1693
+msgid "``security.image``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1693
+msgid "``citadel``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1695
+msgid "``security.selfSigned ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1695
+msgid "``indicate if self-si gned CA is used.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1698
+msgid "``security.createMesh Policy``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1701
+msgid "``security.nodeSelect or``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1704
+msgid "``security.toleration s``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1707
+msgid "``security.citadelHea lthCheck``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1710
+msgid "``security.workloadCe rtTtl``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1710
+msgid "``2160h``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1710
+msgid "``90*24hour = 2160h``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1713
+msgid "``Determines Citadel default behavior if t he ca.istio.io/env or"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1716
+msgid "ca.istio.io/override labels are not found on a given namespace"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1719
+msgid ". For example: consid er a namespace called"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1721
+msgid "\"target\", which has"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1722
+msgid ""
+"neither the \"ca.istio .io/env\" nor the \"ca. istio.io/override\" na "
+"mespace labels. To de cide whether or not t o generate secrets fo r "
+"service accounts cr eated in this \"target \" namespace, Citadel will "
+"defer to this op tion. If the value of"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1733
+msgid "this option is \"true"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1734
+msgid ""
+"\" in this case, secre ts will be generated for the \"target\" name "
+"space. If the value o f this option is \"fal se\" Citadel will not "
+"generate secrets upon"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1741
+msgid "service account crea"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1742
+msgid "tion.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1744
+msgid "``security.podAntiAff inityLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1747
+msgid "``security.podAntiAff inityTermLabelSelecto r``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1753
+msgid "``sidecarInjectorWebhook`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1758
+msgid "``sidecarInjectorWebh ook.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1761
+msgid "``sidecarInjectorWebh ook.replicaCount``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1764
+msgid "``sidecarInjectorWebh ook.rollingMaxSurge``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1767
+msgid "``sidecarInjectorWebh ook.rollingMaxUnavail able``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1771
+msgid "``sidecarInjectorWebh ook.image``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1771
+msgid "``sidecar_injector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1774
+msgid "``sidecarInjectorWebh ook.enableNamespacesB yDefault``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1778
+msgid "``sidecarInjectorWebh ook.nodeSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1781
+msgid "``sidecarInjectorWebh ook.tolerations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1784
+msgid "``sidecarInjectorWebh ook.podAntiAffinityLa belSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1788
+msgid "``sidecarInjectorWebh ook.podAntiAffinityTe rmLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1792
+msgid "``sidecarInjectorWebh ook.rewriteAppHTTPPro be``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1792
+msgid "``If true, webhook or"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1793
+msgid "istioctl injector wi"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1794
+msgid ""
+"ll rewrite PodSpec fo r liveness health che ck to redirect reques t to "
+"sidecar. This ma kes liveness check wo rk even when mTLS is enabled.``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1802
+msgid "``sidecarInjectorWebh ook.neverInjectSelect or``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1802
+msgid ""
+"``You can use the fie ld called alwaysInjec tSelector and neverIn "
+"jectSelector which wi ll always inject the sidecar or always ski p the "
+"injection on po ds that match that la bel selector, regardl ess of the "
+"global pol icy. See https://isti o.io/docs/setup/kuber netes/additional-"
+"setu p/sidecar-injection/m ore-control-adding-ex ceptions``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1819
+msgid "``sidecarInjectorWebh ook.alwaysInjectSelec tor``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1825
+msgid "``tracing`` options"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1830
+msgid "``tracing.enabled``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1832
+msgid "``tracing.provider``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1832
+msgid "``jaeger``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1834
+msgid "``tracing.nodeSelecto r``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1837
+msgid "``tracing.tolerations ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1840
+msgid "``tracing.podAntiAffi nityLabelSelector``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1843
+msgid "``tracing.podAntiAffi nityTermLabelSelector ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1847
+msgid "``tracing.jaeger.hub` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1847
+msgid "``docker.io/jaegertra cing``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1850
+msgid "``tracing.jaeger.imag e``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1850
+msgid "``all-in-one``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1853
+msgid "``tracing.jaeger.tag` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1853
+msgid "``1.12``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1856
+msgid "``tracing.jaeger.memo ry.max_traces``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1856
+msgid "``50000``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1859
+msgid "``tracing.jaeger.span StorageType``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1859
+msgid "``badger``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1859
+msgid ""
+"``spanStorageType val ue can be \"memory\" an d \"badger\" for all-in "
+"-one image``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1864
+msgid "``tracing.jaeger.pers ist``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1867
+msgid "``tracing.jaeger.stor ageClassName``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1870
+msgid "``tracing.jaeger.acce ssMode``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1873
+msgid "``tracing.zipkin.hub` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1873
+msgid "``docker.io/openzipki n``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1876
+msgid "``tracing.zipkin.imag e``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1876
+msgid "``zipkin``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1879
+msgid "``tracing.zipkin.tag` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1879
+msgid "``2.14.2``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1882
+msgid "``tracing.zipkin.prob eStartupDelay``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1882
+msgid "``200``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1885
+msgid "``tracing.zipkin.quer yPort``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1885
+#: ../../source/docs/reference/config/installation-options/index.rst:1919
+msgid "``9411``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1888
+msgid "``tracing.zipkin.reso urces.limits.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1888
+msgid "``300m``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1891
+msgid "``tracing.zipkin.reso urces.limits.memory``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1891
+#: ../../source/docs/reference/config/installation-options/index.rst:1897
+msgid "``900Mi``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1894
+msgid "``tracing.zipkin.reso urces.requests.cpu``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1894
+msgid "``150m``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1897
+msgid "``tracing.zipkin.reso urces.requests.memory ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1901
+msgid "``tracing.zipkin.java OptsHeap``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1901
+msgid "``700``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1904
+msgid "``tracing.zipkin.maxS pans``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1904
+msgid "``500000``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1907
+msgid "``tracing.zipkin.node .cpus``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1910
+msgid "``tracing.service.ann otations``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1913
+msgid "``tracing.service.nam e``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1916
+msgid "``tracing.service.typ e``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1919
+msgid "``tracing.service.ext ernalPort``"
+msgstr ""
+
+#: ../../source/docs/reference/config/installation-options/index.rst:1922
+msgid "``tracing.ingress.ena bled``"
+msgstr ""
+

@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:2
+msgid "istio-security-2019-002"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:4
+msgid "{{< security_bulletin >}}"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:6
+msgid ""
+"A bug in Istio’s JWT validation filter causes Envoy to crash in certain "
+"cases when the request contains a malformed JWT token. The bug was "
+"discovered and reported by a user `on GitHub "
+"<https://github.com/istio/istio/issues/15084>`_ on June 23, 2019."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:12
+msgid ""
+"This bug affects all versions of Istio that are using the JWT "
+"authentication policy."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:15
+msgid "The symptoms of the bug are an HTTP 503 error seen by the client, and"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:17
+msgid ""
+"{{< text plain >}} Epoch 0 terminated with an error: signal: segmentation"
+" fault (core dumped)"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:20
+msgid "in the Envoy logs."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:22
+msgid ""
+"The Envoy crash can be triggered using a malformed JWT without a valid "
+"signature, and on any URI being accessed regardless of the "
+"``trigger_rules`` in the JWT specification. Thus, this bug makes Envoy "
+"vulnerable to a potential DoS attack."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:28
+msgid "Impact and detection"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:30
+msgid "Envoy is vulnerable if the following two conditions are satisfied:"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:32
+msgid "A JWT authentication policy is applied to it."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:33
+msgid ""
+"The JWT issuer (specified by ``jwksUri``) uses the RSA algorithm for "
+"signature verification"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:38
+msgid "The RSA algorithm used for signature verification does not"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:39
+msgid ""
+"contain any known security vulnerability. This CVE is triggered only when"
+" using this algorithm but is unrelated to the security of the system."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:43
+msgid ""
+"If JWT policy is applied to the Istio ingress gateway, please be aware "
+"that any external user who has access to the ingress gateway could crash "
+"it with a single HTTP request."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:47
+msgid ""
+"If JWT policy is applied to the sidecar only, please keep in mind it "
+"might still be vulnerable. For example, the Istio ingress gateway might "
+"forward the JWT token to the sidecar which could be a malformed JWT token"
+" that crashes the sidecar."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:52
+msgid ""
+"A vulnerable Envoy will crash on an HTTP request with a malformed JWT "
+"token. When Envoy crashes, all existing connections will be disconnected "
+"immediately. The ``pilot-agent`` will restart the crashed Envoy "
+"automatically and it may take a few seconds to a few minutes for the "
+"restart. pilot-agent will stop restarting Envoy after it crashed more "
+"than ten times. In this case, Kubernetes will redeploy the pod, including"
+" the workload behind Envoy."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:60
+msgid ""
+"To detect if there is any JWT authentication policy applied in your "
+"cluster, run the following command which print either of the following "
+"output:"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:64
+msgid "Found JWT in authentication policy, **YOU ARE AFFECTED**"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:65
+msgid "Did NOT find JWT in authentication policy, *YOU ARE NOT AFFECTED*"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:71
+msgid "red=\\ ``tput setaf 1`` green=\\ ``tput setaf 2`` reset=\\ ``tput sgr0``"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:73
+msgid "echo “Checking authentication policy…”"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:75
+msgid ""
+"JWKS_URI=() JWKS_URI+=(\\ :math:`(kubectl get policy --all-namespaces -o "
+"jsonpath='{range .items[*]}{.spec.origins[*].jwt.jwksUri}{\" \"}{end}')) "
+"JWKS_URI+=(`\\ (kubectl get meshpolicy –all-namespaces -o "
+"jsonpath=’{range .items[*]}{.spec.origins[*].jwt.jwksUri}{\" “}{end}’)) "
+"if [ \"${#JWKS_URI[@]}\" != 0 ]; then echo”\\ :math:`{red}Found JWT in "
+"authentication policy, YOU ARE AFFECTED`\\ {reset}\" exit 1 fi"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:83
+msgid ""
+"echo “:math:`{green}Did NOT find JWT in authentication policy, YOU ARE "
+"NOT AFFECTED`\\ {reset}” EOF"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:88
+msgid "Mitigation"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:90
+msgid "This bug is fixed in the following Istio releases:"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:92
+msgid ""
+"For Istio 1.0.x deployments: update to `Istio 1.0.9 "
+"</news/releases/1.0.x/announcing-1.0.9>`_ or later."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:94
+msgid ""
+"For Istio 1.1.x deployments: update to `Istio 1.1.10 "
+"</news/releases/1.1.x/announcing-1.1.10>`_ or later."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:96
+msgid ""
+"For Istio 1.2.x deployments: update to `Istio 1.2.2 "
+"</news/releases/1.2.x/announcing-1.2.2>`_ or later."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:99
+msgid ""
+"If you cannot immediately upgrade to one of these releases, you have the "
+"additional option of injecting a `Lua filter "
+"<https://github.com/istio/tools/tree/master/examples/luacheck>`_ into "
+"older releases of Istio. This filter has been verified to work with Istio"
+" 1.1.9, 1.0.8, 1.0.6, and 1.1.3."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:105
+msgid ""
+"The Lua filter is injected *before* the Istio ``jwt-auth`` filter. If a "
+"JWT token is presented on an http request, the ``Lua`` filter will check "
+"if the JWT token header contains alg:ES256. If the filter finds such a "
+"JWT token, the request is rejected."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:110
+msgid "To install the Lua filter, please invoke the following commands:"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:115
+msgid "tools/examples/luacheck/ $ ./setup.sh"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:117
+msgid ""
+"The setup script uses helm template to produce an ``envoyFilter`` "
+"resource that deploys to gateways. You may change the listener type to "
+"``ANY`` to also apply it to sidecars. You should only do this if you "
+"enforce JWT policies on sidecars *and* sidecars receive direct traffic "
+"from the outside."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:124
+msgid "Credit"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:126
+msgid "The Istio team would like to thank Divya Raj for the original bug report."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-002/index.rst:129
+msgid "{{< boilerplate “security-vulnerability” >}}"
+msgstr ""
+

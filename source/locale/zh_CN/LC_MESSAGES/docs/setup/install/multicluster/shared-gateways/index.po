@@ -1,0 +1,728 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:2
+msgid "shared-gateways"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:4
+msgid ""
+"Follow this guide to configure a multicluster mesh using a shared "
+"`control plane </docs/ops/deployment/deployment-models/#control-plane-"
+"models>`_ with gateways to connect network-isolated clusters. Istio’s "
+"location-aware service routing feature is used to route requests to "
+"different endpoints, depending on the location of the request source."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:11
+msgid ""
+"By following the instructions in this guide, you will setup a two-cluster"
+" mesh as shown in the following diagram:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:19
+msgid ""
+"The primary cluster, ``cluster1``, runs the full set of Istio control "
+"plane components while ``cluster2`` only runs Istio Citadel, Sidecar "
+"Injector, and Ingress gateway. No VPN connectivity nor direct network "
+"access between workloads in different clusters is required."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:25
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:27
+msgid ""
+"Two or more Kubernetes clusters with versions: {{< "
+"supported_kubernetes_versions >}}."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:30
+msgid ""
+"Authority to `deploy the Istio control plane "
+"</docs/setup/install/istioctl/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:33
+msgid "Two Kubernetes clusters (referred to as ``cluster1`` and ``cluster2``)."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:38
+msgid ""
+"The Kubernetes API server of ``cluster2`` MUST be accessible from "
+"``cluster1`` in order to run this configuration. {{< /warning >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:42
+msgid "{{< boilerplate kubectl-multicluster-contexts >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:45
+msgid "Setup the multicluster mesh"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:47
+msgid ""
+"In this configuration you install Istio with mutual TLS enabled for both "
+"the control plane and application pods. For the shared root CA, you "
+"create a ``cacerts`` secret on both ``cluster1`` and ``cluster2`` "
+"clusters using the same Istio certificate from the Istio samples "
+"directory."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:53
+msgid ""
+"The instructions, below, also set up ``cluster2`` with a selector-less "
+"service and an endpoint for ``istio-pilot.istio-system`` that has the "
+"address of ``cluster1`` Istio ingress gateway. This will be used to "
+"access pilot on ``cluster1`` securely using the ingress gateway without "
+"mutual TLS termination."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:60
+msgid "Setup cluster 1 (primary)"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:62
+msgid "Deploy Istio to ``cluster1``:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:66
+msgid ""
+"When you enable the additional components necessary for multicluster "
+"operation, the resource footprint of the Istio control plane may increase"
+" beyond the capacity of the default Kubernetes cluster you created when "
+"completing the `Platform setup </docs/setup/platform-setup/>`_ steps. If "
+"the Istio services aren’t getting scheduled due to insufficient CPU or "
+"memory, consider adding more nodes to your cluster or upgrading to larger"
+" memory instances as necessary."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:530
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:77
+msgid "$ kubectl create –context=$CTX_CLUSTER1 ns"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:78
+msgid ""
+"istio-system $ kubectl create –context=$CTX_CLUSTER1 secret generic "
+"cacerts -n istio-system –from-file=samples/certs/ca-cert.pem –from-"
+"file=samples/certs/ca-key.pem –from-file=samples/certs/root-cert.pem "
+"–from-file=samples/certs/cert-chain.pem $ istioctl manifest apply "
+"–context=$CTX_CLUSTER1"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst
+msgid ""
+"-f install/kubernetes/operator/examples/multicluster/values-istio-"
+"multicluster-primary.yaml"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:90
+msgid ""
+"Note that the gateway addresses are set to ``0.0.0.0``. These are "
+"temporary placeholder values that will later be updated with the public "
+"IPs of the ``cluster1`` and ``cluster2`` gateways after they are deployed"
+" in the following section. {{< /warning >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:96
+msgid "Wait for the Istio pods on ``cluster1`` to become ready:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:101
+msgid ""
+"istio-system NAME READY STATUS RESTARTS AGE istio-citadel-"
+"55d8b59798-6hnx4 1/1 Running 0 83s istio-galley-c74b77787-lrtr5 2/2 "
+"Running 0 82s istio-ingressgateway-684f5df677-shzhm 1/1 Running 0 83s "
+"istio-pilot-5495bc8885-2rgmf 2/2 Running 0 82s istio-policy-69cdf5db4c-"
+"x4sct 2/2 Running 2 83s istio-sidecar-injector-5749cf7cfc-pgd95 1/1 "
+"Running 0 82s istio-telemetry-646db5ddbd-gvp6l 2/2 Running 1 83s "
+"prometheus-685585888b-4tvf7 1/1 Running 0 83s"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:111
+msgid "Create an ingress gateway to access service(s) in ``cluster2``:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:116
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: Gateway metadata: name: "
+"cluster-aware-gateway namespace: istio-system spec: selector: istio: "
+"ingressgateway servers:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:120
+msgid ""
+"port: number: 443 name: tls protocol: TLS tls: mode: AUTO_PASSTHROUGH "
+"hosts:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:123
+msgid "\"*.local\" EOF"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:125
+msgid ""
+"This ``Gateway`` configures 443 port to pass incoming traffic through to "
+"the target service specified in a request’s SNI header, for SNI values of"
+" the *local* top-level domain (i.e., the `Kubernetes DNS domain "
+"<https://kubernetes.io/docs/concepts/services-networking/dns-pod-"
+"service/>`_). Mutual TLS connections will be used all the way from the "
+"source to the destination sidecar."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:132
+msgid ""
+"Although applied to ``cluster1``, this Gateway instance will also affect "
+"``cluster2`` because both clusters communicate with the same Pilot."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:136
+msgid "Determine the ingress IP and port for ``cluster1``."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:138
+msgid "Set the current context of ``kubectl`` to ``CTX_CLUSTER1``"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:149
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:264
+msgid ""
+"Follow the instructions in `Determining the ingress IP and ports "
+"</docs/tasks/traffic-management/ingress/ingress-control/#determining-the-"
+"ingress-ip-and-ports>`_, to set the ``INGRESS_HOST`` and "
+"``SECURE_INGRESS_PORT`` environment variables."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:154
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:269
+msgid "Restore the previous ``kubectl`` context:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:158
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:273
+msgid "$ kubectl config use-context $ORIGINAL_CONTEXT $ unset ORIGINAL_CONTEXT"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:161
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:276
+msgid "Print the values of ``INGRESS_HOST`` and ``SECURE_INGRESS_PORT``:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:165
+msgid ""
+"$ echo The ingress gateway of cluster1: address=\\ :math:`INGRESS_HOST, "
+"port=`\\ SECURE_INGRESS_PORT"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:168
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:283
+msgid ""
+"Update the gateway address in the mesh network configuration. Edit the "
+"``istio ConfigMap``:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:174
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:289
+msgid "–context=$CTX_CLUSTER1 istio"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:176
+msgid ""
+"Update the gateway’s address and port of ``network1`` to reflect the "
+"``cluster1`` ingress host and port, respectively, then save and quit. "
+"Note that the address appears in two places, the second under "
+"``values.yaml:``."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:181
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:296
+msgid ""
+"Once saved, Pilot will automatically read the updated network "
+"configuration."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:185
+msgid "Setup cluster 2"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:187
+msgid "Export the ``cluster1`` gateway address:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:191
+msgid "$ export"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:192
+msgid ""
+"LOCAL_GW_ADDR=\\ :math:`(kubectl get --context=`\\ CTX_CLUSTER1 svc "
+"–selector=app=istio-ingressgateway"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst
+msgid ""
+"-n istio-system -o "
+"jsonpath=‘{.items[0].status.loadBalancer.ingress[0].ip}’) && echo "
+"${LOCAL_GW_ADDR}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:198
+msgid "This command sets the value to the gateway’s public IP and displays it."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:203
+msgid ""
+"The command fails if the load balancer configuration doesn’t include an "
+"IP address. The implementation of DNS name support is pending."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:207
+msgid "Deploy Istio to ``cluster2``:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:211
+msgid "$ kubectl create –context=$CTX_CLUSTER2 ns"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:212
+msgid ""
+"istio-system $ kubectl create –context=$CTX_CLUSTER2 secret generic "
+"cacerts -n istio-system –from-file=samples/certs/ca-cert.pem –from-"
+"file=samples/certs/ca-key.pem –from-file=samples/certs/root-cert.pem "
+"–from-file=samples/certs/cert-chain.pem $ CLUSTER_NAME=\\ :math:`(kubectl"
+" --context=`\\ CTX_CLUSTER2 config view –minify=true -o "
+"jsonpath=‘{.clusters[].name}’) $ istioctl manifest apply "
+"–context=:math:`CTX_CLUSTER2 \\"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:220
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:534
+msgid ""
+"--set profile=remote \\ --set values.gateways.enabled=true \\ --set "
+"values.security.selfSigned=false \\ --set "
+"values.global.createRemoteSvcEndpoints=true \\ --set "
+"values.global.remotePilotCreateSvcEndpoint=true \\ --set "
+"values.global.remotePilotAddress=`\\ {LOCAL_GW_ADDR}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:541
+msgid ""
+"–set values.global.remotePolicyAddress=\\ :math:`{LOCAL_GW_ADDR} \\ --set"
+" values.global.remoteTelemetryAddress=`\\ {LOCAL_GW_ADDR}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:543
+msgid ""
+"–set values.gateways.istio-"
+"ingressgateway.env.ISTIO_META_NETWORK=“network2”"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst
+msgid "–set values.global.network=“network2”"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst
+msgid "–set values.global.multiCluster.clusterName=${CLUSTER_NAME}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:234
+msgid ""
+"Wait for the Istio pods on ``cluster2``, except for ``istio-"
+"ingressgateway``, to become ready:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:240
+msgid ""
+"istio-system -l istio!=ingressgateway NAME READY STATUS RESTARTS AGE "
+"istio-citadel-55d8b59798-nlk2z 1/1 Running 0 26s istio-sidecar-injector-"
+"5749cf7cfc-s6r7p 1/1 Running 0 25s {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:247
+msgid ""
+"``istio-ingressgateway`` will not be ready until you configure the Istio "
+"control plane in ``cluster1`` to watch ``cluster2``. You do it in the "
+"next section."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:251
+msgid "Determine the ingress IP and port for ``cluster2``."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:253
+msgid "Set the current context of ``kubectl`` to ``CTX_CLUSTER2``"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:280
+msgid ""
+"$ echo The ingress gateway of cluster2: address=\\ :math:`INGRESS_HOST, "
+"port=`\\ SECURE_INGRESS_PORT"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:291
+msgid ""
+"Update the gateway’s address and port of ``network2`` to reflect the "
+"``cluster2`` ingress host and port, respectively, then save and quit. "
+"Note that the address appears in two places, the second under "
+"``values.yaml:``."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:299
+msgid ""
+"Prepare environment variables for building the ``n2-k8s-config`` file for"
+" the service account ``istio-reader-service-account``:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:305
+msgid ""
+"CLUSTER_NAME=\\ :math:`(kubectl --context=`\\ CTX_CLUSTER2 config view "
+"–minify=true -o jsonpath=‘{.clusters[].name}’) $ SERVER=\\ "
+":math:`(kubectl --context=`\\ CTX_CLUSTER2 config view –minify=true -o "
+"jsonpath=‘{.clusters[].cluster.server}’) $ SECRET_NAME=\\ :math:`(kubectl"
+" --context=`\\ CTX_CLUSTER2 get sa istio-reader-service-account -n istio-"
+"system -o jsonpath=‘{.secrets[].name}’) $ CA_DATA=\\ :math:`(kubectl get "
+"--context=`\\ CTX_CLUSTER2 secret ${SECRET_NAME} -n istio-system -o "
+"jsonpath=“{.data[‘ca.crt’]}”) $ TOKEN=\\ :math:`(kubectl get "
+"--context=`\\ CTX_CLUSTER2 secret ${SECRET_NAME} -n istio-system -o "
+"jsonpath=“{.data[‘token’]}” \\| base64 –decode)"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:320
+msgid ""
+"An alternative to ``base64 --decode`` is ``openssl enc -d -base64 -A`` on"
+" many systems."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:323
+msgid "Create the ``n2-k8s-config`` file in the working directory:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:328
+msgid "clusters:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:330
+msgid ""
+"cluster: certificate-authority-data: ${CA_DATA} server: ${SERVER} name: "
+"${CLUSTER_NAME} contexts:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:332
+msgid ""
+"context: cluster: ${CLUSTER_NAME} user: ${CLUSTER_NAME} name: "
+"${CLUSTER_NAME} current-context: ${CLUSTER_NAME} users:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:334
+msgid "name: ${CLUSTER_NAME} user: token: ${TOKEN} EOF"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:337
+msgid "Start watching cluster 2"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:339
+msgid ""
+"Execute the following commands to add and label the secret of the "
+"``cluster2`` Kubernetes. After executing these commands Istio Pilot on "
+"``cluster1`` will begin watching ``cluster2`` for services and instances,"
+" just as it does for ``cluster1``."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:347
+msgid ""
+"generic n2-k8s-secret –from-file n2-k8s-config -n istio-system $ kubectl "
+"label –context=$CTX_CLUSTER1 secret n2-k8s-secret istio/multiCluster=true"
+" -n istio-system"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:351
+msgid "Wait for ``istio-ingressgateway`` to become ready:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:356
+msgid ""
+"istio-system -l istio=ingressgateway NAME READY STATUS RESTARTS AGE "
+"istio-ingressgateway-5c667f4f84-bscff 1/1 Running 0 16m"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:359
+msgid ""
+"Now that you have your ``cluster1`` and ``cluster2`` clusters set up, you"
+" can deploy an example service."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:363
+msgid "Deploy example service"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:365
+msgid ""
+"As shown in the diagram, above, deploy two instances of the "
+"``helloworld`` service, one on ``cluster1`` and one on ``cluster2``. The "
+"difference between the two instances is the version of their "
+"``helloworld`` image."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:371
+msgid "Deploy helloworld v2 in cluster 2"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:373
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:401
+msgid "Create a ``sample`` namespace with a sidecar auto-injection label:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:378
+msgid ""
+"kubectl label –context=$CTX_CLUSTER2 namespace sample istio-"
+"injection=enabled"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:381
+msgid "Deploy ``helloworld v2``:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:386
+msgid ""
+"@samples/helloworld/helloworld.yaml@ -l app=helloworld -n sample $ "
+"kubectl create –context=$CTX_CLUSTER2 -f "
+"@samples/helloworld/helloworld.yaml@ -l version=v2 -n sample"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:390
+msgid "Confirm ``helloworld v2`` is running:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:395
+msgid ""
+"NAME READY STATUS RESTARTS AGE helloworld-v2-7dd57c44c4-f56gq 2/2 Running"
+" 0 35s"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:399
+msgid "Deploy helloworld v1 in cluster 1"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:406
+msgid ""
+"kubectl label –context=$CTX_CLUSTER1 namespace sample istio-"
+"injection=enabled"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:409
+msgid "Deploy ``helloworld v1``:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:414
+msgid ""
+"@samples/helloworld/helloworld.yaml@ -l app=helloworld -n sample $ "
+"kubectl create –context=$CTX_CLUSTER1 -f "
+"@samples/helloworld/helloworld.yaml@ -l version=v1 -n sample"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:418
+msgid "Confirm ``helloworld v1`` is running:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:423
+msgid ""
+"NAME READY STATUS RESTARTS AGE helloworld-v1-d4557d97b-pv2hr 2/2 Running "
+"0 40s"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:427
+msgid "Cross-cluster routing in action"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:429
+msgid ""
+"To demonstrate how traffic to the ``helloworld`` service is distributed "
+"across the two clusters, call the ``helloworld`` service from another in-"
+"mesh ``sleep`` service."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:433
+msgid "Deploy the ``sleep`` service in both clusters:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:438
+msgid ""
+"@samples/sleep/sleep.yaml@ -n sample $ kubectl apply "
+"–context=$CTX_CLUSTER2 -f @samples/sleep/sleep.yaml@ -n sample"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:441
+msgid "Wait for the ``sleep`` service to start in each cluster:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:446
+msgid "-l app=sleep sleep-754684654f-n6bzf 2/2 Running 0 5s"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:451
+msgid "-l app=sleep sleep-754684654f-dzl9j 2/2 Running 0 5s"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:453
+msgid "Call the ``helloworld.sample`` service several times from ``cluster1`` :"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:459
+msgid ""
+"-c sleep :math:`(kubectl get pod --context=`\\ CTX_CLUSTER1 -n sample -l "
+"app=sleep -o jsonpath=‘{.items[0].metadata.name}’) – curl "
+"helloworld.sample:5000/hello"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:463
+msgid "Call the ``helloworld.sample`` service several times from ``cluster2`` :"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:469
+msgid ""
+"-c sleep :math:`(kubectl get pod --context=`\\ CTX_CLUSTER2 -n sample -l "
+"app=sleep -o jsonpath=‘{.items[0].metadata.name}’) – curl "
+"helloworld.sample:5000/hello"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:473
+msgid ""
+"If set up correctly, the traffic to the ``helloworld.sample`` service "
+"will be distributed between instances on ``cluster1`` and ``cluster2`` "
+"resulting in responses with either ``v1`` or ``v2`` in the body:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:477
+msgid ""
+"{{< text plain >}} Hello version: v2, instance: "
+"helloworld-v2-758dd55874-6x4t8 Hello version: v1, instance: helloworld-v1"
+"-86f77cd7bd-cpxhv"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:481
+msgid ""
+"You can also verify the IP addresses used to access the endpoints by "
+"printing the log of the sleep’s ``istio-proxy`` container."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:487
+msgid ""
+":math:`(kubectl get pod --context=`\\ CTX_CLUSTER1 -n sample -l app=sleep"
+" -o jsonpath=‘{.items[0].metadata.name}’) istio-proxy "
+"[2018-11-25T12:37:52.077Z] “GET /hello HTTP/1.1” 200 - 0 60 190 189 “-” "
+"“curl/7.60.0” “6e096efe-f550-4dfa-8c8c-ba164baf4679” "
+"“helloworld.sample:5000” “192.23.120.32:15443” "
+"outbound|5000||helloworld.sample.svc.cluster.local - 10.20.194.146:5000 "
+"10.10.0.89:59496 - [2018-11-25T12:38:06.745Z] “GET /hello HTTP/1.1” 200 -"
+" 0 60 171 170 “-” “curl/7.60.0” “6f93c9cc-d32a-4878-b56a-086a740045d2” "
+"“helloworld.sample:5000” “10.10.0.90:5000” "
+"outbound|5000||helloworld.sample.svc.cluster.local - 10.20.194.146:5000 "
+"10.10.0.89:59646 -"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:499
+msgid ""
+"In ``cluster1``, the gateway IP of ``cluster2`` (``192.23.120.32:15443``)"
+" is logged when v2 was called and the instance IP in ``cluster1`` "
+"(``10.10.0.90:5000``) is logged when v1 was called."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:506
+msgid ""
+":math:`(kubectl get pod --context=`\\ CTX_CLUSTER2 -n sample -l app=sleep"
+" -o jsonpath=‘{.items[0].metadata.name}’) istio-proxy "
+"[2019-05-25T08:06:11.468Z] “GET /hello HTTP/1.1” 200 - “-” 0 60 177 176 "
+"“-” “curl/7.60.0” “58cfb92b-b217-4602-af67-7de8f63543d8” "
+"“helloworld.sample:5000” “192.168.1.246:15443” "
+"outbound|5000||helloworld.sample.svc.cluster.local - 10.107.117.235:5000 "
+"10.32.0.10:36840 - [2019-05-25T08:06:12.834Z] “GET /hello HTTP/1.1” 200 -"
+" “-” 0 60 181 180 “-” “curl/7.60.0” “ce480b56-fafd-"
+"468b-9996-9fea5257cb1e” “helloworld.sample:5000” “10.32.0.9:5000” "
+"outbound|5000||helloworld.sample.svc.cluster.local - 10.107.117.235:5000 "
+"10.32.0.10:36886 -"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:518
+msgid ""
+"In ``cluster2``, the gateway IP of ``cluster1`` (``192.168.1.246:15443``)"
+" is logged when v1 was called and the gateway IP in ``cluster2`` "
+"(``10.32.0.9:5000``) is logged when v2 was called."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:523
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:525
+msgid ""
+"Execute the following commands to clean up the example services **and** "
+"the Istio components."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:528
+msgid "Cleanup the ``cluster2`` cluster:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:532
+msgid "$ istioctl manifest generate"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:538
+msgid "–context=:math:`CTX_CLUSTER2 \\"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:549
+msgid ""
+"–set values.global.network=“network2” \\| kubectl –context=$CTX_CLUSTER2 "
+"delete -f - $ kubectl delete –context=$CTX_CLUSTER2 ns sample $ rm n2"
+"-k8s-config $ unset CTX_CLUSTER2 CLUSTER_NAME SERVER SECRET_NAME CA_DATA "
+"TOKEN INGRESS_HOST SECURE_INGRESS_PORT INGRESS_PORT LOCAL_GW_ADDR {{< "
+"/text >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:551
+msgid "Cleanup the ``cluster1`` cluster:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:556
+msgid "–context=:math:`CTX_CLUSTER1 \\"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:557
+msgid ""
+"-f install/kubernetes/operator/examples/multicluster/values-istio-"
+"multicluster-primary.yaml | kubectl --context=`\\ CTX_CLUSTER1"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-gateways/index.rst:558
+msgid ""
+"delete -f - $ kubectl delete –context=$CTX_CLUSTER1 ns sample $ unset "
+"CTX_CLUSTER1"
+msgstr ""
+

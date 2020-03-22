@@ -1,0 +1,252 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/contribute/github/index.rst:2
+msgid "github"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:4
+msgid ""
+"The Istio documentation follows the standard `GitHub collaboration flow "
+"<https://guides.github.com/introduction/flow/>`_ for Pull Requests (PRs)."
+" This well-established collaboration model helps open source projects "
+"manage the following types of contributions:"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:9
+msgid "`Add </about/contribute/add-content>`_ new files to the repository."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:10
+msgid "`Edit <#quick-edit>`_ existing files."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:11
+msgid "`Review </about/contribute/review>`_ the added or modified files."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:12
+msgid "Manage multiple release or development `branches <#branching-strategy>`_."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:15
+msgid "The contribution guides assume you can complete the following tasks:"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:17
+msgid ""
+"Fork the `Istio documentation repository "
+"<https://github.com/istio/istio.io>`_."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:19
+msgid "Create a branch for your changes."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:20
+msgid "Add commits to that branch."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:21
+msgid "Open a PR to share your contribution."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:24
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:26
+msgid "To contribute to the Istio documentation, you need to:"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:28
+msgid "Create a `GitHub account <https://github.com>`_."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:30
+msgid ""
+"Sign the `Contributor License Agreement "
+"<https://github.com/istio/community/blob/master/CONTRIBUTING.md"
+"#contributor-license-agreements>`_."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:33
+msgid ""
+"Install `Docker <https://www.docker.com/get-started>`_ on your authoring "
+"system to preview and test your changes."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:36
+msgid ""
+"The Istio documentation is published under the `Apache 2.0 "
+"<https://github.com/istio/community/blob/master/LICENSE>`_ license."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:42
+msgid "Perform quick edits"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:44
+msgid ""
+"Anyone with a GitHub account who signs the CLA can contribute a quick "
+"edit to any page on the Istio website. The process is very simple:"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:47
+msgid "Visit the page you wish to edit."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:48
+msgid ""
+"Add ``preliminary`` to the beginning of the URL. For example, to edit "
+"``https://istio.io/about``, the new URL should be "
+"``https://preliminary.istio.io/about``"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:51
+msgid "Click the pencil icon in the lower right corner."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:52
+msgid "Perform your edits on the GitHub UI."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:53
+msgid "Submit a Pull Request with your changes."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:55
+msgid ""
+"Please see our guides on how to `contribute new content "
+"</about/contribute/add-content>`_ or `review content "
+"</about/contribute/review>`_ to learn more about submitting more "
+"substantial changes."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:61
+msgid "Branching strategy"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:63
+msgid ""
+"Active content development takes place using the master branch of the "
+"``istio/istio.io`` repository. On the day of an Istio release, we create "
+"a release branch of master for that release. The following button takes "
+"you to the repository on GitHub:"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:68
+msgid "Browse this site’s source code"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:70
+msgid ""
+"The Istio documentation repository uses multiple branches to publish "
+"documentation for all Istio releases. Each Istio release has a "
+"corresponding documentation branch. For example, there are branches "
+"called ``release-1.0``, ``release-1.1``, ``release-1.2`` and so forth. "
+"These branches were created on the day of the corresponding release. To "
+"view the documentation for a specific release, see the `archive page "
+"<https://archive.istio.io/>`_."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:78
+msgid ""
+"This branching strategy allows us to provide the following Istio online "
+"resources:"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:81
+msgid ""
+"The `public site </docs/>`_ shows the content from the current release "
+"branch."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:84
+msgid ""
+"The preliminary site at ``https://preliminary.istio.io`` shows the "
+"content from the master branch."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:87
+msgid ""
+"The `archive site <https://archive.istio.io>`_ shows the content from all"
+" prior release branches."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:90
+msgid ""
+"Given how branching works, if you submit a change into the master branch,"
+" that change won’t appear on ``istio.io`` until the next major Istio "
+"release happens. If your documentation change is relevant to the current "
+"Istio release, then it’s probably worth also applying your change to the "
+"current release branch. You can do this easily and automatically by using"
+" the special cherry-pick labels on your documentation PR. For example, if"
+" you introduce a correction in a PR to the master branch, you can apply "
+"the ``cherrypick/release-1.4`` label in order to merge this change to the"
+" ``release-1.4`` branch."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:100
+msgid ""
+"When your initial PR is merged, automation creates a new PR in the "
+"release branch which includes your changes. You may need to add a comment"
+" to the PR that reads ``@googlebot I consent`` in order to satisfy the "
+"``CLA`` bot that we use."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:105
+msgid ""
+"On rare occasions, automatic cherry picks don’t work. When that happens, "
+"the automation leaves a note in the original PR indicating it failed. "
+"When that happens, you must manually create the cherry pick and deal with"
+" the merge issues that prevented the process from working automatically."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:111
+msgid ""
+"Note that we only ever cherry pick changes into the current release "
+"branch, and never to older branches. Older branches are considered to be "
+"archived and generally no longer receive any changes."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:116
+msgid "Istio community roles"
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:118
+msgid ""
+"Depending on your contributions and responsibilities, there are several "
+"roles you can assume."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:121
+msgid ""
+"Visit our `role summary page "
+"<https://github.com/istio/community/blob/master/ROLES.md#role-summary>`_ "
+"to learn about the roles, the related requirements and responsibilities, "
+"and the privileges associated with the roles."
+msgstr ""
+
+#: ../../source/about/contribute/github/index.rst:126
+msgid ""
+"Visit our `community page <https://github.com/istio/community>`_ to learn"
+" more about the Istio community in general."
+msgstr ""
+

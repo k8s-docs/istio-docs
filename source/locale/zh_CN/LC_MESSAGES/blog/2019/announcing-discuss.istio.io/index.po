@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/announcing-discuss.istio.io/index.rst:2
+msgid "announcing-discuss.istio.io"
+msgstr ""
+
+#: ../../source/blog/2019/announcing-discuss.istio.io/index.rst:4
+msgid ""
+"We in the Istio community have been working to find the right medium for "
+"users to engage with other members of the community – to ask questions, "
+"to get help from other users, and to engage with developers working on "
+"the project."
+msgstr ""
+
+#: ../../source/blog/2019/announcing-discuss.istio.io/index.rst:9
+msgid ""
+"We’ve tried several different avenues, but each has had some downsides. "
+"RocketChat was our most recent endeavor, but the lack of certain features"
+" (for example, threading) meant it wasn’t ideal for any longer "
+"discussions around a single issue. It also led to a dilemma for some "
+"users – when should I email istio-users@googlegroups.com and when should "
+"I use RocketChat?"
+msgstr ""
+
+#: ../../source/blog/2019/announcing-discuss.istio.io/index.rst:16
+msgid ""
+"We think we’ve found the right balance of features in a single platform, "
+"and we’re happy to announce `discuss.istio.io "
+"<https://discuss.istio.io>`_. It’s a full-featured forum where we will "
+"have discussions about Istio from here on out. It will allow you to ask a"
+" question and get threaded replies! As a real bonus, you can use your "
+"GitHub identity."
+msgstr ""
+
+#: ../../source/blog/2019/announcing-discuss.istio.io/index.rst:23
+msgid ""
+"If you prefer emails, you can configure it to send emails just like "
+"Google groups did."
+msgstr ""
+
+#: ../../source/blog/2019/announcing-discuss.istio.io/index.rst:26
+msgid ""
+"We will be marking our Google groups “read only” so that the content "
+"remains, but we ask you to send further questions over to "
+"`discuss.istio.io <https://discuss.istio.io>`_. If you have any "
+"outstanding questions or discussions in the groups, please move the "
+"conversation over."
+msgstr ""
+
+#: ../../source/blog/2019/announcing-discuss.istio.io/index.rst:32
+msgid "Happy meshing!"
+msgstr ""
+

@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:2
+msgid "Circonus"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: Circonus description: "
+"Adapter for circonus.com's monitoring solution. location: "
+"https://istio.io/docs/reference/config/policy-and-"
+"telemetry/adapters/circonus.html layout: protoc-gen-docs generator: "
+"protoc-gen-docs supported_templates: metric aliases:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:14
+msgid "/docs/reference/config/adapters/circonus.html"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:15
+msgid ""
+"number_of_entries: 3 --- <p>The <code>circonus</code> adapter enables "
+"Istio to deliver metric data to the <a "
+"href=\"https://www.circonus.com\">Circonus</a> monitoring backend.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:20
+msgid ""
+"<p>This adapter supports the <a href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/metric/\">metric template</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:22
+msgid ""
+"<h2 id=\"Params\">Params</h2> <section> <p>Configuration format for the "
+"Circonus adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:26
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-submission_url\"> "
+"<td><code>submissionUrl</code></td> <td><code>string</code></td> <td> "
+"<p>Circonus SubmissionURL to HTTPTrap check</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:42
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-submission_interval\"> "
+"<td><code>submissionInterval</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> </td> <td> No </td> </tr> <tr id=\"Params-metrics\"> "
+"<td><code>metrics</code></td> <td><code><a href=\"#Params-"
+"MetricInfo\">MetricInfo[]</a></code></td> <td> </td> <td> No </td> </tr> "
+"</tbody> </table> </section> <h2 id=\"Params-"
+"MetricInfo\">Params.MetricInfo</h2> <section> <p>Describes how to "
+"represent a metric</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:72
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-MetricInfo-name\"> <td><code>name</code></td> "
+"<td><code>string</code></td> <td> <p>name</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:88
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-MetricInfo-type\"> "
+"<td><code>type</code></td> <td><code><a href=\"#Params-MetricInfo-"
+"Type\">Type</a></code></td> <td> </td> <td> No </td> </tr> </tbody> "
+"</table> </section> <h2 id=\"Params-MetricInfo-"
+"Type\">Params.MetricInfo.Type</h2> <section> <p>The type of metric.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/circonus/index.rst:109
+msgid ""
+"<table class=\"enum-values\"> <thead> <tr> <th>Name</th> "
+"<th>Description</th> </tr> </thead> <tbody> <tr id=\"Params-MetricInfo-"
+"Type-UNKNOWN\"> <td><code>UNKNOWN</code></td> <td> </td> </tr> <tr id"
+"=\"Params-MetricInfo-Type-COUNTER\"> <td><code>COUNTER</code></td> <td> "
+"</td> </tr> <tr id=\"Params-MetricInfo-Type-GAUGE\"> "
+"<td><code>GAUGE</code></td> <td> </td> </tr> <tr id=\"Params-MetricInfo-"
+"Type-DISTRIBUTION\"> <td><code>DISTRIBUTION</code></td> <td> </td> </tr> "
+"</tbody> </table> </section>"
+msgstr ""
+

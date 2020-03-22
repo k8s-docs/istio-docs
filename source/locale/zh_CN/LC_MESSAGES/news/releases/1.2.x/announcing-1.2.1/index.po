@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:2
+msgid "announcing-1.2.1"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:4
+msgid ""
+"We’re pleased to announce the availability of Istio 1.2.1. Please see "
+"below for what’s changed."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:10
+msgid "Bug fixes"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:12
+msgid ""
+"Fix duplicate CRD being generated in the install (`Issue 14976 "
+"<https://github.com/istio/istio/issues/14976>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:14
+msgid ""
+"Fix Mixer unable to start when Galley is disabled (`Issue 14841 "
+"<https://github.com/istio/istio/issues/14841>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:16
+msgid ""
+"Fix environment variable shadowing (NAMESPACE is used for listened "
+"namespaces and overwrites Citadel storage namespace (istio-system))"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:18
+msgid ""
+"Fix cause of ‘TLS error: Secret is not supplied by SDS’ errors during "
+"upgrade (`Issue 15020 <https://github.com/istio/istio/issues/15020>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:23
+msgid "Minor enhancements"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:25
+msgid ""
+"Allow users to disable Istio default retries by setting retries to 0 "
+"(`Issue 14900 <https://github.com/istio/istio/issues/14900>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:27
+msgid ""
+"Introduction of a Redis filter (this feature is guarded with the "
+"environment feature flag ``PILOT_ENABLE_REDIS_FILTER``, disabled by "
+"default)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:30
+msgid ""
+"Add HTTP/1.0 support to gateway configuration generation (`Issue 13085 "
+"<https://github.com/istio/istio/issues/13085>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.1/index.rst:32
+msgid ""
+"Add `toleration <https://kubernetes.io/docs/concepts/configuration/taint-"
+"and-toleration/>`_ for Istio components (`Pull Request 15081 "
+"<https://github.com/istio/istio/pull/15081>`_)"
+msgstr ""
+

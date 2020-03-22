@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:2
+msgid "Report Nothing"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: Report Nothing "
+"description: A template that carries no data, useful for testing. "
+"location: https://istio.io/docs/reference/config/policy-and-"
+"telemetry/templates/reportnothing.html layout: protoc-gen-docs generator:"
+" protoc-gen-docs aliases:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:13
+msgid "/docs/reference/config/template/reportnothing.html"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:14
+msgid ""
+"number_of_entries: 1 --- <p>The <code>reportnothing</code> template "
+"represents an empty block of data, which can be useful in different "
+"testing scenarios.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:19
+msgid "<p>Example config:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:21
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"&quot;config.istio.io/v1alpha2&quot; kind: instance metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:24
+msgid "name: reportrequest namespace: istio-system"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:26
+msgid "spec:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:27
+msgid "compiledTemplate: reportnothing"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:28
+msgid "</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:30
+msgid ""
+"<h2 id=\"Template\">Template</h2> <section> <p>ReportNothing represents "
+"an empty block of data that is used for Report-capable adapters which "
+"don&rsquo;t require any parameters. This is primarily intended for "
+"testing scenarios.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/reportnothing/index.rst:36
+msgid "</section>"
+msgstr ""
+

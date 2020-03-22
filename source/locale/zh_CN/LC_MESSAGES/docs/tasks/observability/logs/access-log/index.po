@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:2
+msgid "access-log"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:4
+msgid ""
+"The simplest kind of Istio logging is `Envoy’s access logging "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log>`_."
+" Envoy proxies print access information to their standard output. The "
+"standard output of Envoy’s containers can then be printed by the "
+"``kubectl logs`` command."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:10
+msgid "{{< boilerplate before-you-begin-egress >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:12
+msgid "{{< boilerplate start-httpbin-service >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:15
+msgid "Enable Envoy’s access logging"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:17
+msgid "Edit the ``istio`` configuration map:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:21
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:139
+msgid "In the example below, replace ``demo`` with the name of the"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:22
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:140
+msgid "profile you used when you installed Istio."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:27
+msgid ""
+"values.global.proxy.accessLogFile=“/dev/stdout” - Applying manifest for "
+"component Base… ✔ Finished applying manifest for component Base. - "
+"Applying manifest for component Pilot… ✔ Finished applying manifest for "
+"component Pilot. - Applying manifest for component EgressGateways… - "
+"Applying manifest for component IngressGateways… - Applying manifest for "
+"component AddonComponents… ✔ Finished applying manifest for component "
+"EgressGateways. ✔ Finished applying manifest for component "
+"IngressGateways. ✔ Finished applying manifest for component "
+"AddonComponents."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:37
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:154
+msgid "✔ Installation complete"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:39
+msgid ""
+"You can also choose between JSON and text by setting "
+"``accessLogEncoding`` to ``JSON`` or ``TEXT``."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:42
+msgid ""
+"You may also want to customize the `format "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log"
+"#format-rules>`_ of the access log by editing ``accessLogFormat``."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:48
+msgid "All three of these parameters may also be configured via"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:49
+msgid ""
+"`install options </docs/reference/config/installation-options/>`_: {{< "
+"/tip >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:52
+msgid "``values.global.proxy.accessLogFile``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:53
+msgid "``values.global.proxy.accessLogEncoding``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:54
+msgid "``values.global.proxy.accessLogFormat``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:57
+msgid "Test the access log"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:59
+msgid "Send a request from ``sleep`` to ``httpbin``:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:64
+msgid ""
+"-o jsonpath=‘{.items[0].metadata.name}’) -c sleep – curl -v "
+"httpbin:8000/status/418"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:67
+msgid "Trying 172.21.13.94…"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:68
+msgid "TCP_NODELAY set"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:69
+msgid ""
+"Connected to httpbin (172.21.13.94) port 8000 (#0) > GET /status/418 "
+"HTTP/1.1"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:72
+msgid "… < HTTP/1.1 418 Unknown < server: envoy …"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:86
+msgid "Connection #0 to host httpbin left intact"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:88
+msgid "Check ``sleep``\\ ’s log:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:93
+msgid ""
+"[2019-03-06T09:31:27.354Z] “GET /status/418 HTTP/1.1” 418 - “-” 0 135 11 "
+"10 “-” “curl/7.60.0” “d209e46f-9ed5-9b61-bbdd-43e22662702a” "
+"“httpbin:8000” “172.30.146.73:80” "
+"outbound|8000||httpbin.default.svc.cluster.local - 172.21.13.94:8000 "
+"172.30.146.82:60290 -"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:99
+msgid "Check ``httpbin``\\ ’s log:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:104
+msgid ""
+"[2019-03-06T09:31:27.360Z] “GET /status/418 HTTP/1.1” 418 - “-” 0 135 5 2"
+" “-” “curl/7.60.0” “d209e46f-9ed5-9b61-bbdd-43e22662702a” “httpbin:8000” "
+"“127.0.0.1:80” inbound|8000|http|httpbin.default.svc.cluster.local - "
+"172.30.146.73:80 172.30.146.82:38618 "
+"outbound_.8000_._.httpbin.default.svc.cluster.local"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:111
+msgid ""
+"Note that the messages corresponding to the request appear in logs of the"
+" Istio proxies of both the source and the destination, ``sleep`` and "
+"``httpbin``, respectively. You can see in the log the HTTP verb "
+"(``GET``), the HTTP path (``/status/418``), the response code (``418``) "
+"and other `request-related information "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log"
+"#format-rules>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:119
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:121
+#, python-format
+msgid ""
+"Shutdown the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_"
+" and `httpbin <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/httpbin>`_ "
+"services:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:129
+msgid "kubectl delete -f @samples/httpbin/httpbin.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:132
+msgid "Disable Envoy’s access logging"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:134
+msgid ""
+"Edit the ``istio`` configuration map and set ``accessLogFile`` to "
+"``\"\"``."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/logs/access-log/index.rst:145
+msgid ""
+"manifest for component Base… ✔ Finished applying manifest for component "
+"Base. - Applying manifest for component Pilot… ✔ Finished applying "
+"manifest for component Pilot. - Applying manifest for component "
+"EgressGateways… - Applying manifest for component IngressGateways… - "
+"Applying manifest for component AddonComponents… ✔ Finished applying "
+"manifest for component EgressGateways. ✔ Finished applying manifest for "
+"component IngressGateways. ✔ Finished applying manifest for component "
+"AddonComponents."
+msgstr ""
+

@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:2
+msgid "announcing-1.0.4"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:4
+msgid ""
+"We’re pleased to announce the availability of Istio 1.0.4. Please see "
+"below for what’s changed."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:10
+msgid "Known issues"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:12
+msgid ""
+"Pilot may deadlock when using `istioctl proxy-status "
+"</docs/reference/commands/istioctl/#istioctl-proxy-status>`_ to get proxy"
+" synchronization status. The work around is to *not use* ``istioctl "
+"proxy-status``. Once Pilot enters a deadlock, it exhibits continuous "
+"memory growth eventually running out of memory."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:19
+msgid "Networking"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:21
+msgid "Fixed the lack of removal of stale endpoints causing ``503`` errors."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:23
+msgid "Fixed sidecar injection when a pod label contains a ``/``."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:26
+msgid "Policy and telemetry"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:28
+msgid ""
+"Fixed occasional data corruption problem with out-of-process Mixer "
+"adapters leading to incorrect behavior."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.4/index.rst:31
+msgid "Fixed excessive CPU usage by Mixer when waiting for missing CRDs."
+msgstr ""
+

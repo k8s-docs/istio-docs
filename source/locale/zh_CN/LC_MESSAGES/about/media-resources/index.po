@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/media-resources/index.rst:2
+msgid "media resources"
+msgstr ""
+
+#: ../../source/about/media-resources/index.rst:4
+msgid ""
+"Here are a few assets in case you want to show off your support for "
+"Istio, integration to Istio, or want to link back to us. Please feel free"
+" to borrow these:"
+msgstr ""
+
+#: ../../source/about/media-resources/index.rst:44
+msgid "White logo in minimal container, with and without Istio Blue background"
+msgstr ""
+
+#: ../../source/about/media-resources/index.rst:78
+msgid "White logo in square container, with and without Istio Blue background"
+msgstr ""
+
+#: ../../source/about/media-resources/index.rst:112
+msgid "Istio Blue logo in minimal container, with and without white background"
+msgstr ""
+
+#: ../../source/about/media-resources/index.rst:146
+msgid "Istio Blue logo in square container, with and without white background"
+msgstr ""
+
+#: ../../source/about/media-resources/index.rst:172
+msgid ""
+"If you’re interested in sticking an Istio logo on some physical goods, "
+"check out this zip file with embroidering instructions."
+msgstr ""
+
+#: ../../source/about/media-resources/index.rst:191
+msgid "Here’s some advice about using these images:"
+msgstr ""
+

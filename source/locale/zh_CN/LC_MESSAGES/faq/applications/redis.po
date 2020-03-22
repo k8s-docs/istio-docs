@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/applications/redis.rst:2
+msgid "redis"
+msgstr ""
+
+#: ../../source/faq/applications/redis.rst:4
+msgid ""
+"Similar to other services deployed in an Istio service mesh, Redis "
+"instances need to listen on ``localhost`` (``127.0.0.1``). However, each "
+"Redis slave instance should announce an address that can be used by "
+"master to reach it, which cannot also be ``localhost`` (``127.0.0.1``)."
+msgstr ""
+
+#: ../../source/faq/applications/redis.rst:9
+msgid ""
+"Use the Redis configuration parameter ``replica-announce-ip`` to announce"
+" the correct address. For example, set ``replica-announce-ip`` to the IP "
+"address of each Redis slave instance using these steps:"
+msgstr ""
+
+#: ../../source/faq/applications/redis.rst:13
+msgid ""
+"Pass the pod IP address through an environment variable in the ``env`` "
+"subsection of the slave ``StatefulSet`` definition:"
+msgstr ""
+
+#: ../../source/faq/applications/redis.rst:19
+msgid "status.podIP"
+msgstr ""
+
+#: ../../source/faq/applications/redis.rst:21
+msgid "Also, add the following under the ``command`` subsection:"
+msgstr ""
+
+#: ../../source/faq/applications/redis.rst:26
+msgid "“replica-announce-ip $POD_IP” >> /opt/bitna"
+msgstr ""
+

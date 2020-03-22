@@ -1,0 +1,377 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:2
+msgid "incremental-traffic-management"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:4
+msgid ""
+"Traffic management is one of the critical benefits provided by Istio. At "
+"the heart of Istio’s traffic management is the ability to decouple "
+"traffic flow and infrastructure scaling. This lets you control your "
+"traffic in ways that aren’t possible without a service mesh like Istio."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:9
+#, python-format
+msgid ""
+"For example, let’s say you want to execute a `canary deployment "
+"<https://martinfowler.com/bliki/CanaryRelease.html>`_. With Istio, you "
+"can specify that **v1** of a service receives 90% of incoming traffic, "
+"while **v2** of that service only receives 10%. With standard Kubernetes "
+"deployments, the only way to achieve this is to manually control the "
+"number of available Pods for each version, for example 9 Pods running v1 "
+"and 1 Pod running v2. This type of manual control is hard to implement, "
+"and over time may have trouble scaling. For more information, check out "
+"`Canary Deployments using Istio </blog/2017/0.1-canary/>`_."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:20
+msgid ""
+"The same issue exists when deploying updates to existing services. While "
+"you can update deployments with Kubernetes, it requires replacing v1 Pods"
+" with v2 Pods. Using Istio, you can deploy v2 of your service and use "
+"built-in traffic management mechanisms to shift traffic to your updated "
+"services at a network level, then remove the v1 Pods."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:26
+msgid ""
+"In addition to canary deployments and general traffic shifting, Istio "
+"also gives you the ability to implement dynamic request routing (based on"
+" HTTP headers), failure recovery, retries, circuit breakers, and fault "
+"injection. For more information, check out the `Traffic Management "
+"documentation </docs/concepts/traffic-management/>`_."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:32
+msgid ""
+"This post walks through a technique that highlights a particularly useful"
+" way that you can implement Istio incrementally – in this case, only the "
+"traffic management features – without having to individually update each "
+"of your Pods."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:38
+msgid "Setup: why implement Istio traffic management features?"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:40
+msgid "Of course, the first question is: Why would you want to do this?"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:42
+msgid ""
+"If you’re part of one of the many organizations out there that have a "
+"large cluster with lots of teams deploying, the answer is pretty clear. "
+"Let’s say Team A is getting started with Istio and wants to start some "
+"canary deployments on Service A, but Team B hasn’t started using Istio, "
+"so they don’t have sidecars deployed."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:48
+msgid ""
+"With Istio, Team A can still implement their canaries by having Service B"
+" call Service A through Istio’s ingress gateway."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:52
+msgid "Background: traffic routing in an Istio mesh"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:54
+msgid ""
+"But how can you use Istio’s traffic management capabilities without "
+"updating each of your applications’ Pods to include the Istio sidecar? "
+"Before answering that question, let’s take a quick high-level look at how"
+" traffic enters an Istio mesh and how it’s routed."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:59
+msgid ""
+"Pods that are part of the Istio mesh contain a sidecar proxy that is "
+"responsible for mediating all inbound and outbound traffic to the Pod. "
+"Within an Istio mesh, Pilot is responsible for converting high-level "
+"routing rules into configurations and propagating them to the sidecar "
+"proxies. That means when services communicate with one another, their "
+"routing decisions are determined from the client side."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:66
+msgid ""
+"Let’s say you have two services that are part of the Istio mesh, Service "
+"A and Service B. When A wants to communicate with B, the sidecar proxy of"
+" Pod A is responsible for directing traffic to Service B. For example, if"
+" you wanted to split traffic 50/50 across Service B v1 and v2, the "
+"traffic would flow as follows:"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:76
+msgid ""
+"If Services A and B are not part of the Istio mesh, there is no sidecar "
+"proxy that knows how to route traffic to different versions of Service B."
+" In that case you need to use another approach to get traffic from "
+"Service A to Service B, following the 50/50 rules you’ve setup."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:81
+msgid ""
+"Fortunately, a standard Istio deployment already includes a `Gateway "
+"</docs/concepts/traffic-management/#gateways>`_ that specifically deals "
+"with ingress traffic outside of the Istio mesh. This Gateway is used to "
+"allow ingress traffic from outside the cluster via an external load "
+"balancer, or to allow ingress traffic from within the Kubernetes cluster "
+"but outside the service mesh. It can be configured to proxy incoming "
+"ingress traffic to the appropriate Pods, even if they don’t have a "
+"sidecar proxy. While this approach allows you to leverage Istio’s traffic"
+" management features, it does mean that traffic going through the ingress"
+" gateway will incur an extra hop."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:97
+msgid "In action: traffic routing with Istio"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:99
+msgid ""
+"A simple way to see this type of approach in action is to first setup "
+"your Kubernetes environment using the `Platform Setup </docs/setup"
+"/platform-setup/>`_ instructions, and then install the **minimal** Istio "
+"profile using `Helm </docs/setup/install/helm/>`_, including only the "
+"traffic management components (ingress gateway, egress gateway, Pilot). "
+"The following example uses `Google Kubernetes Engine "
+"<https://cloud.google.com/gke>`_."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:108
+msgid "First, setup and configure `GKE </docs/setup/platform-setup/gke/>`_:"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:110
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:122
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:187
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:207
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:112
+msgid "$ gcloud container clusters create istio-inc –zone"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:113
+msgid ""
+"us-central1-f $ gcloud container clusters get-credentials istio-inc $ "
+"kubectl create clusterrolebinding cluster-admin-binding"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:115
+msgid "–clusterrole=cluster-admin"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:116
+msgid "–user=$(gcloud config get-value core/account)"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:118
+msgid ""
+"Next, `install Helm <https://helm.sh/docs/intro/install/>`_ and `generate"
+" a minimal Istio install </docs/setup/install/helm/>`_ – only traffic "
+"management components:"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:124
+msgid "$ helm template install/kubernetes/helm/istio"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:125
+msgid "–name istio"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:126
+msgid "–namespace istio-system"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:127
+msgid "–set security.enabled=false"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:128
+msgid "–set galley.enabled=false"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:129
+msgid "–set sidecarInjectorWebhook.enabled=false"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:130
+msgid "–set mixer.enabled=false"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:131
+msgid "–set prometheus.enabled=false"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:132
+msgid "–set pilot.sidecar=false > istio-minimal.yaml"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:134
+msgid "Then create the ``istio-system`` namespace and deploy Istio:"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:139
+msgid "apply -f istio-minimal.yaml"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:141
+msgid "Next, deploy the Bookinfo sample without the Istio sidecar containers:"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:146
+msgid "@samples/bookinfo/platform/kube/bookinfo.yaml@"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:148
+msgid ""
+"Now, configure a new Gateway that allows access to the reviews service "
+"from outside the Istio mesh, a new ``VirtualService`` that splits traffic"
+" evenly between v1 and v2 of the reviews service, and a set of new "
+"``DestinationRule`` resources that match destination subsets to service "
+"versions:"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:157
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: reviews-"
+"gateway spec: selector: istio: ingressgateway # use istio default "
+"controller servers: - port: number: 80 name: http protocol: HTTP hosts: -"
+" “*\" — apiVersion: networking.istio.io/v1alpha3 kind: VirtualService "
+"metadata: name: reviews spec: hosts: - \"*” gateways: - reviews-gateway "
+"http: - match: - uri: prefix: /reviews route: - destination: host: "
+"reviews subset: v1 weight: 50 - destination: host: reviews subset: v2 "
+"weight: 50 — apiVersion: networking.istio.io/v1alpha3 kind: "
+"DestinationRule metadata: name: reviews spec: host: reviews subsets: - "
+"name: v1 labels: version: v1 - name: v2 labels: version: v2 - name: v3 "
+"labels: version: v3 EOF"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:169
+msgid ""
+"Finally, deploy a pod that you can use for testing with ``curl`` (and "
+"without the Istio sidecar container):"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:177
+msgid "Testing your deployment"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:179
+msgid ""
+"Now, you can test different behaviors using the ``curl`` commands via the"
+" sleep Pod."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:182
+msgid ""
+"The first example is to issue requests to the reviews service using "
+"standard Kubernetes service DNS behavior (**note**: `jq "
+"<https://stedolan.github.io/jq/>`_ is used in the examples below to "
+"filter the output from ``curl``):"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:189
+msgid "$ export SLEEP_POD=$(kubectl get pod -l app=sleep"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:190
+msgid "-o jsonpath={.items..metadata.name}) $ for i in ``seq 3``; do"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:191
+msgid "kubectl exec -it $SLEEP_POD curl http://reviews:9080/reviews/0 \\|"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:192
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:212
+msgid "jq ‘.reviews|.[]|.rating?’;"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:193
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:213
+msgid "done"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:195
+msgid ""
+"{{< text json >}} { “stars”: 5, “color”: “black” } { “stars”: 4, “color”:"
+" “black” } null null { “stars”: 5, “color”: “red” } { “stars”: 4, "
+"“color”: “red” }"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:199
+msgid ""
+"Notice how we’re getting responses from all three versions of the reviews"
+" service (``null`` is from reviews v1 which doesn’t have ratings) and not"
+" getting the even split across v1 and v2. This is expected behavior "
+"because the ``curl`` command is using Kubernetes service load balancing "
+"across all three versions of the reviews service. In order to access the "
+"reviews 50/50 split we need to access the service via the ingress "
+"Gateway:"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:209
+msgid "$ for i in ``seq 4``; do"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:211
+msgid ""
+"kubectl exec -it $SLEEP_POD curl http://istio-ingressgateway.istio-"
+"system/reviews/0 \\|"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:215
+msgid ""
+"{{< text json >}} { “stars”: 5, “color”: “black” } { “stars”: 4, “color”:"
+" “black” } null null { “stars”: 5, “color”: “black” } { “stars”: 4, "
+"“color”: “black” } null null"
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:219
+msgid ""
+"Mission accomplished! This post showed how to deploy a minimal "
+"installation of Istio that only contains the traffic management "
+"components (Pilot, ingress Gateway), and then use those components to "
+"direct traffic to specific versions of the reviews service. And it wasn’t"
+" necessary to deploy the Istio sidecar proxy to gain these capabilities, "
+"so there was little to no interruption of existing workloads or "
+"applications."
+msgstr ""
+
+#: ../../source/blog/2018/incremental-traffic-management/index.rst:227
+msgid ""
+"Using the built-in ingress gateway (along with some ``VirtualService`` "
+"and ``DestinationRule`` resources) this post showed how you can easily "
+"leverage Istio’s traffic management for cluster-external ingress traffic "
+"and cluster-internal service-to-service traffic. This technique is a "
+"great example of an incremental approach to adopting Istio, and can be "
+"especially useful in real-world cases where Pods are owned by different "
+"teams or deployed to different namespaces."
+msgstr ""
+

@@ -1,0 +1,233 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:2
+msgid "single"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:4
+msgid "{{< boilerplate work-in-progress >}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:6
+msgid ""
+"Before the advent of microservice architecture, development teams built, "
+"deployed and ran the whole application as one large chunk of software. To"
+" test a small change in their module not merely by unit testing, the "
+"developers had to build the whole application. Therefore the builds took "
+"large amount of time. After the build, the developers deployed their "
+"version of the application into a test server. The developers ran the "
+"server either on a remote machine, or on their local computer. In the "
+"latter case, the developers had to install and operate a rather complex "
+"environment on their local computer."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:16
+msgid ""
+"In the era of microservice architecture, the developers write, build, "
+"test and run small software services. Builds are fast. With modern "
+"frameworks like `Node.js <https://nodejs.org/en/>`_ there is no need to "
+"install and operate complex server environments to test a single service,"
+" since the service runs as a regular process. You do not have to deploy "
+"your service to some environment to merely test it, so you just build "
+"your service and run it immediately on your local computer."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:24
+msgid ""
+"This module covers the different aspects involved in developing a single "
+"service on a local machine. You don’t need to write code though. Instead,"
+" you build, run, and test an existing service: ``ratings``."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:28
+msgid ""
+"The ``ratings`` service is a small web app written in `Node.js "
+"<https://nodejs.org/en/>`_ that can run on its own. It performs similar "
+"actions to those of other web apps:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:32
+msgid "Listen to the port it receives as a parameter."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:33
+msgid ""
+"Expect ``HTTP GET`` requests on the ``/ratings/{productID}`` path and "
+"return the ratings of the product matching the value the client specifies"
+" for ``productID``."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:36
+msgid ""
+"Expect ``HTTP POST`` requests on the ``/ratings/{productID}`` path and "
+"update the ratings of the product matching the value you specify for "
+"``productID``."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:40
+msgid ""
+"Follow these steps to download the code of the app, install its "
+"dependencies, and run it locally:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:43
+#, python-format
+msgid ""
+"Download `the service’s code "
+"<%7B%7B%3C%20github_blob%20%3E%7D%7D/samples/bookinfo/src/ratings/ratings.js>`_"
+" and `the package file "
+"<%7B%7B%3C%20github_blob%20%3E%7D%7D/samples/bookinfo/src/ratings/package.json>`_"
+" into a separate directory:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:52
+msgid ""
+"github_file >}}/samples/bookinfo/src/ratings/ratings.js -o ratings.js $ "
+"curl -s {{< github_file >}}/samples/bookinfo/src/ratings/package.json -o "
+"package.json"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:56
+msgid "Skim the service’s code and note the following elements:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:58
+msgid "The web server’s features:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:60
+msgid "listening to a port"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:61
+msgid "handling requests and responses"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:63
+msgid "The aspects related to HTTP:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:65
+msgid "headers"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:66
+msgid "path"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:67
+msgid "status code"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:71
+msgid ""
+"In Node.js, the web server’s functionality is embedded in the code of the"
+" application. A Node.js web application runs as a standalone process."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:75
+msgid ""
+"Node.js applications are written in JavaScript, which means that there is"
+" no explicit compilation step. Instead, they use `just-in-time "
+"compilation <https://en.wikipedia.org/wiki/Just-in-time_compilation>`_. "
+"To build a Node.js application, then means to install its dependencies. "
+"Install the dependencies of the ``ratings`` service in the same folder "
+"where you stored the service code and the package file:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:87
+msgid ""
+"package-lock.json. You should commit this file. npm WARN ratings No "
+"description npm WARN ratings No repository field. npm WARN ratings No "
+"license field."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:91
+msgid "added 24 packages in 2.094s"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:93
+msgid ""
+"Run the service, passing ``9080`` as a parameter. The application then "
+"listens on port 9080."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:99
+msgid "ratings.js “9080” Server listening on: http://0.0.0.0:9080 {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:104
+msgid "The ``ratings`` service is a web app and you can communicate"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:105
+msgid ""
+"with it as you would with any other web app. You can use a browser or a "
+"command line web client like `curl <https://curl.haxx.se>`_ or `Wget "
+"<https://www.gnu.org/software/wget/>`_. Since you run the ``ratings`` "
+"service locally, you can also access it via the ``localhost`` hostname."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:111
+msgid ""
+"Open http://localhost:9080/ratings/7 in your browser or access "
+"``ratings`` using the ``curl`` command from a different terminal window:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:118
+msgid "{“id”:7,“ratings”:{“Reviewer1”:5,“Reviewer2”:4}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:120
+msgid ""
+"Use the ``POST`` method of the ``curl`` command to set the ratings for "
+"the product to ``1``:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:126
+msgid ""
+"‘{“Reviewer1”:1,“Reviewer2”:1}’ "
+"{“id”:7,“ratings”:{“Reviewer1”:1,“Reviewer2”:1}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:129
+msgid "Check the updated ratings:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:134
+msgid "{“id”:7,“ratings”:{“Reviewer1”:1,“Reviewer2”:1}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:136
+msgid "Use ``Ctrl-C`` in the terminal running the service to stop it."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:138
+msgid ""
+"Congratulations, you can now build, test, and run a service on your local"
+" computer!"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/single/index.rst:141
+msgid ""
+"You are ready to `package the service </docs/examples/microservices-istio"
+"/package-service>`_ into a container."
+msgstr ""
+

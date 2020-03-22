@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/support/announcing-1.1-eol-final/index.rst:2
+msgid "announcing-1.1-eol-final"
+msgstr ""
+
+#: ../../source/news/support/announcing-1.1-eol-final/index.rst:4
+msgid ""
+"As `previously announced </news/support/announcing-1.1-eol/>`_, support "
+"for Istio 1.1 has now officially ended."
+msgstr ""
+
+#: ../../source/news/support/announcing-1.1-eol-final/index.rst:7
+msgid ""
+"Since we learned of the security vulnerability `behind our October 8th "
+"security release </news/security/istio-security-2019-005>`_ while still "
+"barely within the 1.1 support period, we decided to extend the 1.1 "
+"support period beyond the original announcement and release `1.1.16 "
+"</news/releases/1.1.x/announcing-1.1.16>`_. Then we discovered a `bug in "
+"HTTP header size calculation "
+"<https://github.com/istio/istio/issues/17735>`_ was introduced by the "
+"security release, so we decided to release a fix in one last `1.1.17 "
+"</news/releases/1.1.x/announcing-1.1.17>`_ release before closing out the"
+" 1.1 series for good."
+msgstr ""
+
+#: ../../source/news/support/announcing-1.1-eol-final/index.rst:18
+msgid ""
+"At this point we will no longer back-port fixes for security issues and "
+"critical bugs to 1.1, so we heartily encourage you to upgrade to the "
+"latest version of Istio ({{}}) if you haven’t already."
+msgstr ""
+

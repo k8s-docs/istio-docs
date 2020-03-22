@@ -1,0 +1,366 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:2
+msgid "Kubernetes"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: Kubernetes "
+"description: A template that is used to control the production of "
+"Kubernetes-specific attributes. location: "
+"https://istio.io/docs/reference/config/policy-and-"
+"telemetry/templates/kubernetes.html layout: protoc-gen-docs generator: "
+"protoc-gen-docs number_of_entries: 2 --- <p>The <code>kubernetes</code> "
+"template holds data that controls the production of Kubernetes-specific "
+"attributes.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:17
+msgid "<p>Example config:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:19
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"&quot;config.istio.io/v1alpha2&quot; kind: kubernetes metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:22
+msgid "name: attributes namespace: istio-system"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:41
+msgid "spec:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:25
+msgid ""
+"# Pass the required attribute data to the adapter source_uid: source.uid "
+"| &quot;&quot; source_ip: source.ip | ip(&quot;0.0.0.0&quot;) # default "
+"to unspecified ip addr destination_uid: destination.uid | &quot;&quot; "
+"destination_ip: destination.ip | ip(&quot;0.0.0.0&quot;) # default to "
+"unspecified ip addr attribute_bindings:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:31
+msgid ""
+"# Fill the new attributes from the adapter produced output. # $out refers"
+" to an instance of OutputTemplate message source.ip: $out.source_pod_ip "
+"source.labels: $out.source_labels source.namespace: $out.source_namespace"
+" source.service: $out.source_service source.serviceAccount: "
+"$out.source_service_account_name destination.ip: $out.destination_pod_ip "
+"destination.labels: $out.destination_labels destination.namespace: "
+"$out.destination_mamespace destination.service: $out.destination_service "
+"destination.serviceAccount: $out.destination_service_account_name"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:43
+msgid "</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:45
+msgid ""
+"<h2 id=\"OutputTemplate\">OutputTemplate</h2> <section> <p>OutputTemplate"
+" refers to the output from the adapter. It is used inside the "
+"attribute_binding section of the config to assign values to the generated"
+" attributes using the <code>$out.&lt;field name of the "
+"OutputTemplate&gt;</code> syntax. Next ID: 33</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:51
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"OutputTemplate-source_pod_uid\"> "
+"<td><code>sourcePodUid</code></td> <td><code>string</code></td> <td> "
+"<p>Refers to the source.uid for a pod. This is for TCP use cases where "
+"the attribute is not present. attribute<em>bindings can refer to this "
+"field using $out.source</em>pod_uid</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:68
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-source_pod_ip\"> "
+"<td><code>sourcePodIp</code></td> <td><code><a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#IPAddress\">IPAddress</a></code></td>"
+" <td> <p>Refers to source pod ip address. attribute<em>bindings can refer"
+" to this field using $out.source</em>pod_ip</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:79
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-source_pod_name\"> "
+"<td><code>sourcePodName</code></td> <td><code>string</code></td> <td> "
+"<p>Refers to source pod name. attribute<em>bindings can refer to this "
+"field using $out.source</em>pod_name</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:90
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-source_labels\"> "
+"<td><code>sourceLabels</code></td> "
+"<td><code>map&lt;string,&nbsp;string&gt;</code></td> <td> <p>Refers to "
+"source pod labels. attribute<em>bindings can refer to this field using "
+"$out.source</em>labels</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:101
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-source_namespace\"> "
+"<td><code>sourceNamespace</code></td> <td><code>string</code></td> <td> "
+"<p>Refers to source pod namespace. attribute<em>bindings can refer to "
+"this field using $out.source</em>namespace</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:112
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-"
+"source_service_account_name\"> "
+"<td><code>sourceServiceAccountName</code></td> "
+"<td><code>string</code></td> <td> <p>Refers to source pod service account"
+" name. attribute<em>bindings can refer to this field using "
+"$out.source</em>service<em>account</em>name</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:123
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-source_host_ip\"> "
+"<td><code>sourceHostIp</code></td> <td><code><a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#IPAddress\">IPAddress</a></code></td>"
+" <td> <p>Refers to source pod host ip address. attribute<em>bindings can "
+"refer to this field using $out.source</em>host_ip</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:134
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-source_workload_uid\"> "
+"<td><code>sourceWorkloadUid</code></td> <td><code>string</code></td> <td>"
+" <p>Refers to the Istio workload identifier for the source pod. "
+"Attribute<em>bindings can refer to this field using "
+"$out.source</em>workload_uid</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:145
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-source_workload_name\">"
+" <td><code>sourceWorkloadName</code></td> <td><code>string</code></td> "
+"<td> <p>Refers to the Istio workload name for the source pod. "
+"Attribute<em>bindings can refer to this field using "
+"$out.source</em>workload_name</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:156
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-"
+"source_workload_namespace\"> "
+"<td><code>sourceWorkloadNamespace</code></td> "
+"<td><code>string</code></td> <td> <p>Refers to the Istio workload "
+"namespace for the source pod. Attribute<em>bindings can refer to this "
+"field using $out.source</em>workload_namespace</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:167
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-source_owner\"> "
+"<td><code>sourceOwner</code></td> <td><code>string</code></td> <td> "
+"<p>Refers to the (controlling) owner of the source pod. "
+"Attribute<em>bindings can refer to this field using "
+"$out.source</em>owner</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:178
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-destination_pod_uid\"> "
+"<td><code>destinationPodUid</code></td> <td><code>string</code></td> <td>"
+" <p>Refers to the destination.uid for a pod. This is for TCP use cases "
+"where the attribute is not present. attribute<em>bindings can refer to "
+"this field using $out.destination</em>pod_uid</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:190
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-destination_pod_ip\"> "
+"<td><code>destinationPodIp</code></td> <td><code><a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#IPAddress\">IPAddress</a></code></td>"
+" <td> <p>Refers to destination pod ip address. attribute<em>bindings can "
+"refer to this field using $out.destination</em>pod_ip</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:201
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-destination_pod_name\">"
+" <td><code>destinationPodName</code></td> <td><code>string</code></td> "
+"<td> <p>Refers to destination pod name. attribute<em>bindings can refer "
+"to this field using $out.destination</em>pod_name</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:212
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-"
+"destination_container_name\"> "
+"<td><code>destinationContainerName</code></td> "
+"<td><code>string</code></td> <td> <p>Refers to destination container "
+"name. attribute<em>bindings can refer to this field using "
+"$out.destination</em>container_name</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:223
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-destination_labels\"> "
+"<td><code>destinationLabels</code></td> "
+"<td><code>map&lt;string,&nbsp;string&gt;</code></td> <td> <p>Refers to "
+"destination pod labels. attribute<em>bindings can refer to this field "
+"using $out.destination</em>labels</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:234
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-"
+"destination_namespace\"> <td><code>destinationNamespace</code></td> "
+"<td><code>string</code></td> <td> <p>Refers to destination pod namespace."
+" attribute<em>bindings can refer to this field using "
+"$out.destination</em>namespace</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:245
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-"
+"destination_service_account_name\"> "
+"<td><code>destinationServiceAccountName</code></td> "
+"<td><code>string</code></td> <td> <p>Refers to destination pod service "
+"account name. attribute<em>bindings can refer to this field using "
+"$out.destination</em>service<em>account</em>name</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:256
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-destination_host_ip\"> "
+"<td><code>destinationHostIp</code></td> <td><code><a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#IPAddress\">IPAddress</a></code></td>"
+" <td> <p>Refers to destination pod host ip address. attribute<em>bindings"
+" can refer to this field using $out.destination</em>host_ip</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:267
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-destination_owner\"> "
+"<td><code>destinationOwner</code></td> <td><code>string</code></td> <td> "
+"<p>Refers to the (controlling) owner of the destination pod. "
+"Attribute<em>bindings can refer to this field using "
+"$out.destination</em>owner</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:278
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-"
+"destination_workload_uid\"> <td><code>destinationWorkloadUid</code></td> "
+"<td><code>string</code></td> <td> <p>Refers to the Istio workload "
+"identifier for the destination pod. Attribute<em>bindings can refer to "
+"this field using $out.destination</em>workload_uid</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:289
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-"
+"destination_workload_name\"> "
+"<td><code>destinationWorkloadName</code></td> "
+"<td><code>string</code></td> <td> <p>Refers to the Istio workload name "
+"for the destination pod. Attribute<em>bindings can refer to this field "
+"using $out.destination</em>workload_name</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:300
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"OutputTemplate-"
+"destination_workload_namespace\"> "
+"<td><code>destinationWorkloadNamespace</code></td> "
+"<td><code>string</code></td> <td> <p>Refers to the Istio workload name "
+"for the destination pod. Attribute<em>bindings can refer to this field "
+"using $out.destination</em>workload_namespace</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:311
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 "
+"id=\"Template\">Template</h2> <section> <p>The <code>kubernetes</code> "
+"template represents data used to generate kubernetes-derived "
+"attributes.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:323
+msgid ""
+"<p>The values provided controls the manner in which the kubernetesenv "
+"adapter discovers and generates values related to pod information. Next "
+"ID: 8</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:327
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Template-source_uid\"> <td><code>sourceUid</code></td> "
+"<td><code>string</code></td> <td> <p>Source pod&rsquo;s uid. Must be of "
+"the form: &ldquo;kubernetes://pod.namespace&rdquo;</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:343
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-source_ip\"> "
+"<td><code>sourceIp</code></td> <td><code><a href=\"/docs/reference/config"
+"/policy-and-"
+"telemetry/istio.policy.v1beta1.html#IPAddress\">IPAddress</a></code></td>"
+" <td> <p>Source pod&rsquo;s ip.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:354
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-destination_uid\"> "
+"<td><code>destinationUid</code></td> <td><code>string</code></td> <td> "
+"<p>Destination pod&rsquo;s uid. Must be of the form: "
+"&ldquo;kubernetes://pod.namespace&rdquo;</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:365
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-destination_ip\"> "
+"<td><code>destinationIp</code></td> <td><code><a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#IPAddress\">IPAddress</a></code></td>"
+" <td> <p>Destination pod&rsquo;s ip.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:376
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-destination_port\"> "
+"<td><code>destinationPort</code></td> <td><code>int64</code></td> <td> "
+"<p>Destination container&rsquo;s port number.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/kubernetes/index.rst:387
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

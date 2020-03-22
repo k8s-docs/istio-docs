@@ -1,0 +1,286 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:2
+msgid "istio-twitch-stream"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:4
+msgid ""
+"To celebrate the 1.0 release and to promote the software to a wider "
+"audience, the Istio community is hosting an all day live stream on Twitch"
+" on August 17th."
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:9
+msgid "What is Twitch?"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:11
+msgid ""
+"`Twitch <https://twitch.tv/>`_ is a popular video gaming live streaming "
+"platform and recently has seen a lot of coding content showing up. The "
+"IBM Advocates have been doing live coding and presentations there and "
+"it’s been fun. While mostly used for gaming content, there is a `growing "
+"community <https://www.twitch.tv/communities/programming>`_ sharing and "
+"watching programming content on the site."
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:19
+msgid "What does this have to do with Istio?"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:21
+msgid ""
+"The stream is going to be a full day of Istio content. Hopefully we’ll "
+"have a good mix of deep technical content, beginner content and line-of-"
+"business content for our audience. We’ll have developers, users, and "
+"evangelists on throughout the day to share their demos and stories. "
+"Expect live coding, q and a, and some surprises. We have stellar guests "
+"lined up from IBM, Google, Datadog, Pivotal, and more!"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:29
+msgid "Recordings"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:31
+msgid ""
+"Recordings are available `here <https://www.youtube.com/playlist?list"
+"=PLzpeuWUENMK0V3dwpx5gPJun-SLG0USqU>`_."
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:35
+msgid "Schedule"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:37
+msgid "All times are ``PDT``."
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:40
+msgid "Time"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:40
+msgid "Speaker"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:40
+msgid "Affiliation"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:42
+msgid "10:00 - 10:30"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:42
+msgid "``Spencer Krum + Lisa-Marie Namphy``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:42
+msgid "``IBM / Portworx``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:43
+msgid "10:30 - 11:00"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:43
+msgid "``Lin Sun / Spencer Krum / Sven Mawson``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:43
+msgid "``IBM / Google``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:44
+msgid "11:00 - 11:10"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:44
+msgid "``Lin Sun / Spencer Krum``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:44
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:52
+msgid "``IBM``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:45
+msgid "11:10 - 11:30"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:45
+msgid "``Jason Yee / Ilan Rabinovich``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:45
+msgid "``Datadog``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:46
+msgid "11:30 - 11:50"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:46
+msgid "``April Nassl``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:46
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:51
+msgid "``Google``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:47
+msgid "11:50 - 12:10"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:47
+msgid "``Spike Curtis``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:47
+msgid "``Tigera``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:48
+msgid "12:10 - 12:30"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:48
+msgid "``Shannon Coen``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:48
+msgid "``Pivotal``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:49
+msgid "12:30 - 1:00"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:49
+msgid "``Matt Klein``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:49
+msgid "``Lyft``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:50
+msgid "1:00 - 1:20"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:50
+msgid "``Zach Jory``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:50
+msgid "``F5/Aspen Mesh``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:51
+msgid "1:20 - 1:40"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:51
+msgid "``Dan Ciruli``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:52
+msgid "1:40 - 2:00"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:52
+msgid "``Isaiah Snell-Feikema`` / ``Greg Hanson``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:53
+msgid "2:00 - 2:20"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:53
+msgid "``Zach Butcher``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:53
+msgid "``Tetrate``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:54
+msgid "2:20 - 2:40"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:54
+msgid "``Ray Hudaihed``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:54
+msgid "``American Airlines``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:55
+msgid "2:40 - 3:00"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:55
+msgid "``Christian Posta``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:55
+msgid "``Red Hat``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:56
+msgid "3:00 - 3:20"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:56
+msgid "``Google/IBM China``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:56
+msgid "``Google / IBM``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:57
+msgid "3:20 - 3:40"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:57
+msgid "``Colby Dyess``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:57
+msgid "``Tuffin``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:58
+msgid "3:40 - 4:00"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:58
+msgid "``Rohit Agarwalla``"
+msgstr ""
+
+#: ../../source/blog/2018/istio-twitch-stream/index.rst:58
+msgid "``Cisco``"
+msgstr ""
+

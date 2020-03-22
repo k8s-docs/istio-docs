@@ -1,0 +1,318 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:42+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:2
+msgid "Fault Injection"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:4
+msgid ""
+"This task shows you how to inject faults to test the resiliency of your "
+"application."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:8
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:10
+msgid ""
+"Set up Istio by following the instructions in the `Installation guide "
+"</docs/setup/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:12
+msgid ""
+"Deploy the `Bookinfo </docs/examples/bookinfo/>`_ sample application "
+"including the `default destination rules </docs/examples/bookinfo/#apply-"
+"default-destination-rules>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:15
+msgid ""
+"Review the fault injection discussion in the `Traffic Management "
+"</docs/concepts/traffic-management>`_ concepts doc."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:17
+msgid ""
+"Apply application version routing by either performing the `request "
+"routing </docs/tasks/traffic-management/request-routing/>`_ task or by "
+"running the following commands:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:26
+msgid "With the above configuration, this is how requests flow:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:28
+msgid "``productpage`` → ``reviews:v2`` → ``ratings`` (only for user ``jason``)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:29
+msgid "``productpage`` → ``reviews:v1`` (for everyone else)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:32
+msgid "Injecting an HTTP delay fault"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:34
+msgid ""
+"To test the Bookinfo application microservices for resiliency, inject a "
+"7s delay between the ``reviews:v2`` and ``ratings`` microservices for "
+"user ``jason``. This test will uncover a bug that was intentionally "
+"introduced into the Bookinfo app."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:39
+msgid ""
+"Note that the ``reviews:v2`` service has a 10s hard-coded connection "
+"timeout for calls to the ``ratings`` service. Even with the 7s delay that"
+" you introduced, you still expect the end-to-end flow to continue without"
+" any errors."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:44
+msgid ""
+"Create a fault injection rule to delay traffic coming from the test user "
+"``jason``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:52
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:150
+msgid "Confirm the rule was created:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:60
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:157
+msgid "ratings http:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:61
+msgid "fault: delay: fixedDelay: 7s percentage: value: 100 match:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:63
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:160
+msgid "headers: end-user: exact: jason route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:64
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:68
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:161
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:165
+msgid "destination: host: ratings subset: v1"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:66
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:163
+msgid "route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:70
+msgid "Allow several seconds for the new rule to propagate to all pods."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:73
+msgid "Testing the delay configuration"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:75
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:170
+msgid ""
+"Open the `Bookinfo </docs/examples/bookinfo>`_ web application in your "
+"browser."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:77
+msgid "On the ``/productpage`` web page, log in as user ``jason``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:79
+msgid ""
+"You expect the Bookinfo home page to load without errors in approximately"
+" 7 seconds. However, there is a problem: the Reviews section displays an "
+"error message:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:83
+msgid ""
+"{{< text plain >}} Error fetching product reviews! Sorry, product reviews"
+" are currently unavailable for this book."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:86
+msgid "View the web page response times:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:88
+msgid "Open the *Developer Tools* menu in you web browser."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:89
+msgid "Open the Network tab"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:90
+msgid ""
+"Reload the ``/productpage`` web page. You will see that the page actually"
+" loads in about 6 seconds."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:93
+msgid "Understanding what happened"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:95
+msgid ""
+"You’ve found a bug. There are hard-coded timeouts in the microservices "
+"that have caused the ``reviews`` service to fail."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:98
+msgid ""
+"As expected, the 7s delay you introduced doesn’t affect the ``reviews`` "
+"service because the timeout between the ``reviews`` and ``ratings`` "
+"service is hard-coded at 10s. However, there is also a hard-coded timeout"
+" between the ``productpage`` and the ``reviews`` service, coded as 3s + 1"
+" retry for 6s total. As a result, the ``productpage`` call to ``reviews``"
+" times out prematurely and throws an error after 6s."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:105
+msgid ""
+"Bugs like this can occur in typical enterprise applications where "
+"different teams develop different microservices independently. Istio’s "
+"fault injection rules help you identify such anomalies without impacting "
+"end users."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:112
+msgid ""
+"Notice that the fault injection test is restricted to when the logged in "
+"user is ``jason``. If you login as any other user, you will not "
+"experience any delays."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:116
+msgid "Fixing the bug"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:118
+msgid "You would normally fix the problem by:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:120
+msgid ""
+"Either increasing the ``productpage`` to ``reviews`` service timeout or "
+"decreasing the ``reviews`` to ``ratings`` timeout"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:121
+msgid "Stopping and restarting the fixed microservice"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:122
+msgid ""
+"Confirming that the ``/productpage`` web page returns its response "
+"without any errors."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:124
+msgid ""
+"However, you already have a fix running in v3 of the ``reviews`` service."
+" The ``reviews:v3`` service reduces the ``reviews`` to ``ratings`` "
+"timeout from 10s to 2.5s so that it is compatible with (less than) the "
+"timeout of the downstream ``productpage`` requests."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:127
+msgid ""
+"If you migrate all traffic to ``reviews:v3`` as described in the `traffic"
+" shifting </docs/tasks/traffic-management/traffic-shifting/>`_ task, you "
+"can then try to change the delay rule to any amount less than 2.5s, for "
+"example 2s, and confirm that the end-to-end flow continues without any "
+"errors."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:134
+msgid "Injecting an HTTP abort fault"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:136
+msgid ""
+"Another way to test microservice resiliency is to introduce an HTTP abort"
+" fault. In this task, you will introduce an HTTP abort to the ``ratings``"
+" microservices for the test user ``jason``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:140
+msgid ""
+"In this case, you expect the page to load immediately and display the "
+"``Ratings service is currently unavailable`` message."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:143
+msgid "Create a fault injection rule to send an HTTP abort for user ``jason``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:158
+msgid "fault: abort: httpStatus: 500 percentage: value: 100 match:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:168
+msgid "Testing the abort configuration"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:172
+msgid "On the ``/productpage``, log in as user ``jason``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:174
+msgid ""
+"If the rule propagated successfully to all pods, the page loads "
+"immediately and the ``Ratings service is currently unavailable`` message "
+"appears."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:178
+msgid ""
+"If you log out from user ``jason`` or open the Bookinfo application in an"
+" anonymous window (or in another browser), you will see that "
+"``/productpage`` still calls ``reviews:v1`` (which does not call "
+"``ratings`` at all) for everybody but ``jason``. Therefore you will not "
+"see any error message."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:185
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:187
+msgid "Remove the application routing rules:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/fault-injection/index.rst:193
+msgid ""
+"If you are not planning to explore any follow-on tasks, refer to the "
+"`Bookinfo cleanup </docs/examples/bookinfo/#cleanup>`_ instructions to "
+"shutdown the application."
+msgstr ""
+

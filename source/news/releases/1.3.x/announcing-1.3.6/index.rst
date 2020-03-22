@@ -1,0 +1,50 @@
+announcing-1.3.6
+==========================
+
+This release contains fixes for the security vulnerability described in
+`our December 10th, 2019 news
+post </news/security/istio-security-2019-007>`_ as well as bug fixes to
+improve robustness. This release note describes what’s different between
+Istio 1.3.5 and Istio 1.3.6.
+
+{{< relnote >}}
+
+Security update
+---------------
+
+-  **ISTIO-SECURITY-2019-007** A heap overflow and improper input
+   validation have been discovered in Envoy.
+
+`CVE-2019-18801 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18801>`_:
+Fix a vulnerability affecting Envoy’s processing of large HTTP/2 request
+headers. A successful exploitation of this vulnerability could lead to a
+denial of service, escalation of privileges, or information disclosure.
+`CVE-2019-18802 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18802>`_:
+Fix a vulnerability resulting from whitespace after HTTP/1 header values
+which could allow an attacker to bypass Istio’s policy checks,
+potentially resulting in information disclosure or escalation of
+privileges.
+`CVE-2019-18838 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18838>`_:
+Fix a vulnerability resulting from malformed HTTP request missing the
+“Host” header. An encoder filter that invokes Envoy’s route manager APIs
+that access request’s “Host” header will cause a NULL pointer to be
+dereferenced and result in abnormal termination of the Envoy process.
+
+Bug fixes
+---------
+
+-  **Fixed** an issue where a duplicate listener was generated for a
+   proxy’s IP address when using a headless ``TCP`` service. (`Issue
+   17748 <https://github.com/istio/istio/issues/17748>`_)
+-  **Fixed** an issue with the ``destination_service`` label in HTTP
+   related metrics incorrectly falling back to ``request.host`` which
+   can cause a metric cardinality explosion for ingress traffic. (`Issue
+   18818 <https://github.com/istio/istio/issues/18818>`_)
+
+Minor enhancements
+------------------
+
+-  **Improved** load-shedding options for Mixer. Added support for a
+   ``requests-per-second`` threshold for load-shedding enforcement. This
+   allows operators to turn off load-shedding for Mixer in low traffic
+   scenarios.

@@ -1,0 +1,246 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:2
+msgid "Standalone Operatro Install"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:4
+msgid ""
+"This guide installs Istio using the standalone Istio `operator "
+"<https://kubernetes.io/docs/concepts/extend-kubernetes/operator/>`_. The "
+"only dependencies required are a supported Kubernetes cluster, the "
+"``kubectl`` and the ``istioctl`` command at the release version."
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:9
+msgid ""
+"To install Istio for production use, we recommend `installing with {{< "
+"istioctl >}} </docs/setup/install/istioctl/>`_ instead."
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:13
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:15
+msgid ""
+"Perform any necessary `platform-specific setup </docs/setup/platform-"
+"setup/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:18
+msgid ""
+"Check the `Requirements for Pods and Services "
+"</docs/ops/deployment/requirements/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:21
+msgid "Deploy the Istio operator:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:27
+msgid ""
+"This command runs the operator by creating the following resources in the"
+" ``istio-operator`` namespace:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:30
+msgid "The operator custom resource definition"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:31
+msgid "The operator controller deployment"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:32
+msgid "A service to access operator metrics"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:33
+msgid "Necessary Istio operator RBAC rules"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:35
+msgid ""
+"Alternatively, you can deploy using ``kubectl`` from a pre-rendered "
+"manifest, which will install the latest released version of the operator:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:45
+msgid "Install"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:47
+msgid ""
+"To install the Istio ``demo`` `configuration profile </docs/setup"
+"/additional-setup/config-profiles/>`_ using the operator, run the "
+"following command:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:54
+msgid ""
+"<<EOF apiVersion: install.istio.io/v1alpha1 kind: IstioOperator metadata:"
+" namespace: istio-system name: example-istiocontrolplane spec: profile: "
+"demo EOF"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:58
+msgid ""
+"The controller will detect the ``IstioOperator`` resource and then "
+"install the Istio components corresponding to the specified (``demo``) "
+"configuration."
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:64
+msgid "The Istio operator controller begins the process of"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:65
+msgid ""
+"installing Istio within 90 seconds of the creation of the "
+"``IstioOperator`` resource. The Istio installation completes within 120 "
+"seconds."
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:69
+msgid ""
+"You can confirm the Istio control plane services have been deployed with "
+"the following commands:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:75
+msgid ""
+"RESTARTS AGE NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE grafana "
+"ClusterIP 10.47.246.242 3000/TCP 64m istio-egressgateway ClusterIP "
+"10.47.244.203 80/TCP,443/TCP,15443/TCP 64m istio-ingressgateway "
+"LoadBalancer 10.47.247.221 34.69.50.226 "
+"15020:31649/TCP,80:30012/TCP,443:31723/TCP,15029:31857/TCP,15030:31621/TCP,15031:31290/TCP,15032:30334/TCP,15443:31754/TCP"
+" 64m istio-pilot ClusterIP 10.47.247.195 "
+"15010/TCP,15011/TCP,15012/TCP,8080/TCP,15014/TCP,443/TCP 64m istiod "
+"ClusterIP 10.47.247.6 15012/TCP,443/TCP 64m jaeger-agent ClusterIP None "
+"5775/UDP,6831/UDP,6832/UDP 64m jaeger-collector ClusterIP 10.47.244.102 "
+"14267/TCP,14268/TCP,14250/TCP 64m jaeger-collector-headless ClusterIP "
+"None 14250/TCP 64m jaeger-query ClusterIP 10.47.253.168 16686/TCP 64m "
+"kiali ClusterIP 10.47.246.119 20001/TCP 64m prometheus ClusterIP "
+"10.47.240.52 9090/TCP 64m tracing ClusterIP 10.47.251.85 80/TCP 64m "
+"zipkin ClusterIP 10.47.244.132 9411/TCP 64m 2m"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:93
+msgid ""
+"RESTARTS AGE grafana-78bc994d79-gwkfd 1/1 Running 0 63m istio-"
+"egressgateway-5fc6f84745-8f98z 1/1 Running 0 63m istio-ingressgateway-"
+"5b89fc6c98-vkwb5 1/1 Running 0 63m istio-tracing-c7b59f68f-dgqb8 1/1 "
+"Running 0 63m istiod-5448f74684-gmd5w 1/1 Running 0 52m kiali-fb5f485fb-"
+"2l4r6 1/1 Running 0 63m prometheus-7b8875c479-7zsnf 1/1 Running 0 63m"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:101
+msgid "Update"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:103
+msgid ""
+"Now, with the controller running, you can change the Istio configuration "
+"by editing or replacing the ``IstioOperator`` resource. The controller "
+"will detect the change and respond by updating the Istio installation "
+"correspondingly."
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:108
+msgid ""
+"For example, you can switch the installation to the ``default`` profile "
+"with the following command:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:114
+msgid ""
+"install.istio.io/v1alpha1 kind: IstioOperator metadata: namespace: istio-"
+"system name: example-istiocontrolplane spec: profile: default EOF"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:118
+msgid ""
+"You can also enable or disable components and modify resource settings. "
+"For example, to enable the ``Grafana`` component and increase pilot "
+"memory requests:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:125
+msgid ""
+"install.istio.io/v1alpha1 kind: IstioOperator metadata: namespace: istio-"
+"system name: example-istiocontrolplane spec: profile: default components:"
+" pilot: k8s: resources: requests: memory: 3072Mi addonComponents: "
+"grafana: enabled: true EOF"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:130
+msgid ""
+"You can observe the changes that the controller makes in the cluster in "
+"response to ``IstioOperator`` CR updates by checking the operator "
+"controller logs:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:137
+msgid ""
+"-n istio-operator -lname=istio-operator -o "
+"jsonpath=‘{.items[0].metadata.name}’)"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:140
+msgid ""
+"Refer to the `IstioOperator API "
+"<https://github.com/istio/api/blob/release-1.5/operator/v1alpha1/operator.proto/>`_"
+" for the complete set of configuration settings."
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:144
+msgid "Uninstall"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:146
+msgid "Delete the Istio deployment:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:151
+msgid "istio-system example-istiocontrolplane"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:153
+msgid ""
+"Wait until Istio is uninstalled - this may take some time. Delete the "
+"Istio operator:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:159
+msgid "–force"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:161
+msgid ""
+"Note that deleting the operator before Istio is fully removed may result "
+"in leftover Istio resources. To clean up anything not removed by the "
+"operator:"
+msgstr ""
+
+#: ../../source/docs/setup/install/standalone-operator/index.rst:168
+msgid "kubectl delete ns istio-system –grace-period=0 –force"
+msgstr ""
+

@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/apache-skywalking/index.rst:2
+msgid "Apache SkyWalking"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/apache-skywalking/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/apache/skywalking-data-"
+"collect-protocol' REPO source_repo: https://github.com/apache/skywalking-"
+"data-collect-protocol title: Apache SkyWalking description: Adapter to "
+"deliver metrics to Apache SkyWalking. location: "
+"https://istio.io/docs/reference/config/policy-and-telemetry/adapters"
+"/apache-skywalking.html layout: partner-component generator: protoc-gen-"
+"docs provider: Apache SkyWalking contact_email: dev@skywalking.apache.org"
+" support_link: source_link: https://github.com/apache/skywalking "
+"latest_release_link: https://skywalking.apache.org/downloads/ "
+"helm_chart_link: istio_versions: \"1.0.3, 1.0.4, 1.1.0, 1.1.1\" "
+"supported_templates: metric logo_link: https://github.com/apache"
+"/skywalking-website/raw/master/docs/.vuepress/public/assets/logo.svg "
+"number_of_entries: 1 ---"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/apache-skywalking/index.rst:24
+msgid ""
+"<!-- Licensed to the Apache Software Foundation (ASF) under one or more "
+"contributor license agreements.  See the NOTICE file distributed with "
+"this work for additional information regarding copyright ownership. The "
+"ASF licenses this file to You under the Apache License, Version 2.0 (the "
+"\"License\"); you may not use this file except in compliance with the "
+"License.  You may obtain a copy of the License at"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/apache-skywalking/index.rst:30
+msgid "http://www.apache.org/licenses/LICENSE-2.0"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/apache-skywalking/index.rst:31
+msgid ""
+"Unless required by applicable law or agreed to in writing, software "
+"distributed under the License is distributed on an \"AS IS\" BASIS, "
+"WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. "
+"See the License for the specific language governing permissions and "
+"limitations under the License. -->"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/apache-skywalking/index.rst:37
+msgid ""
+"<p>The SkyWalking adapter uses the <code>Istio bypass</code> adapter to "
+"collect metrics and make them available to <a "
+"href=\"https://skywalking.apache.org/\">Apache SkyWalking</a>. SkyWalking"
+" provides a topology map and metrics graph to visualize the whole "
+"mesh.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/apache-skywalking/index.rst:41
+msgid ""
+"<p>This adapter supports the <a href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/metric/\">metric template</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/apache-skywalking/index.rst:43
+msgid ""
+"<p>Follow the <a "
+"href=\"https://github.com/apache/skywalking/blob/master/docs/README.md\">official"
+" Apache SkyWalking documentation</a> and <a "
+"href=\"https://github.com/apache/skywalking-kubernetes\">SkyWalking k8s "
+"documentation</a> for details on configuring SkyWalking and the Istio "
+"bypass adapter.</p>"
+msgstr ""
+

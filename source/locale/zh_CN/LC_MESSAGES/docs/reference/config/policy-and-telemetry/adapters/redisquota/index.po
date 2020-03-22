@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:2
+msgid "Redis Quota"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: Redis Quota "
+"description: Adapter for a Redis-based quota management system. location:"
+" https://istio.io/docs/reference/config/policy-and-"
+"telemetry/adapters/redisquota.html layout: protoc-gen-docs generator: "
+"protoc-gen-docs supported_templates: quota aliases:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:14
+msgid "/docs/reference/config/adapters/redisquota.html"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:15
+msgid ""
+"number_of_entries: 4 --- <p>The <code>redisquota</code> adapter can be "
+"used to support Istio&rsquo;s quota management system. It depends on a "
+"Redis server to store quota values.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:20
+msgid ""
+"<p>This adapter supports the <a href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/quota/\">quota template</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:22
+msgid ""
+"<h2 id=\"Params\">Params</h2> <section> <p>redisquota adapter supports "
+"the rate limit quota using either fixed or rolling window algorithm. And "
+"it is using Redis as a shared data storage.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:27
+msgid "<p>Example configuration:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:29
+msgid ""
+"<pre><code class=\"language-yaml\">redisServerUrl: localhost:6379 "
+"connectionPoolSize: 10 quotas: - name: requestcount.quota.istio-system"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:33
+msgid ""
+"maxAmount: 50 validDuration: 60s bucketDuration: 1s rateLimitAlgorithm: "
+"ROLLING_WINDOW overrides: - dimensions:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:39
+msgid "destination: ratings source: reviews"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:41
+msgid "maxAmount: 12"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:42
+msgid "dimensions:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:43
+msgid "destination: reviews"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:44
+msgid "maxAmount: 5"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:45
+msgid "</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:47
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-quotas\"> <td><code>quotas</code></td> "
+"<td><code><a href=\"#Params-Quota\">Quota[]</a></code></td> <td> <p>The "
+"set of known quotas. At least one quota configuration is required</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:63
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-redis_server_url\"> "
+"<td><code>redisServerUrl</code></td> <td><code>string</code></td> <td> "
+"<p>Redis connection string <code>&lt;hostname&gt;:&lt;port "
+"number&gt;</code> ex) localhost:6379</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:75
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-connection_pool_size\"> "
+"<td><code>connectionPoolSize</code></td> <td><code>int64</code></td> <td>"
+" <p>Maximum number of idle connections to redis Default is 10 connections"
+" per every CPU as reported by runtime.NumCPU.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:87
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"Override\">Params.Override</h2> <section> <table class=\"message-"
+"fields\"> <thead> <tr> <th>Field</th> <th>Type</th> <th>Description</th> "
+"<th>Required</th> </tr> </thead> <tbody> <tr id=\"Params-Override-"
+"dimensions\"> <td><code>dimensions</code></td> "
+"<td><code>map&lt;string,&nbsp;string&gt;</code></td> <td> <p>The specific"
+" dimensions for which this override applies. String representation of "
+"instance dimensions is used to check against configured dimensions. "
+"<code>dimensions</code> should not be empty</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:115
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Override-max_amount\"> "
+"<td><code>maxAmount</code></td> <td><code>int64</code></td> <td> <p>The "
+"upper limit for this quota override. This value should be bigger than "
+"0</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:127
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"Quota\">Params.Quota</h2> <section> <table class=\"message-fields\"> "
+"<thead> <tr> <th>Field</th> <th>Type</th> <th>Description</th> "
+"<th>Required</th> </tr> </thead> <tbody> <tr id=\"Params-Quota-name\"> "
+"<td><code>name</code></td> <td><code>string</code></td> <td> <p>The name "
+"of the quota</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:153
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Quota-max_amount\"> "
+"<td><code>maxAmount</code></td> <td><code>int64</code></td> <td> <p>The "
+"upper limit for this quota. max_amount should be bigger than 0</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:164
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Quota-valid_duration\"> "
+"<td><code>validDuration</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> <p>The amount of time allocated quota remains valid before it is "
+"automatically released. This is only meaningful for rate limit quotas. "
+"value should be <code>0 &lt; validDuration</code></p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:177
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Quota-bucket_duration\"> "
+"<td><code>bucketDuration</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> <p>The <code>bucketDuration</code> will be ignored if "
+"<code>rateLimitAlgorithm</code> is <code>FIXED_WINDOW</code> value should"
+" be <code>0 &lt; bucketDuration &lt; validDuration</code></p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:189
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Quota-rate_limit_algorithm\"> "
+"<td><code>rateLimitAlgorithm</code></td> <td><code><a href=\"#Params-"
+"QuotaAlgorithm\">QuotaAlgorithm</a></code></td> <td> <p>Quota management "
+"algorithm. The default value is <code>FIXED_WINDOW</code></p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:200
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Quota-overrides\"> "
+"<td><code>overrides</code></td> <td><code><a href=\"#Params-"
+"Override\">Override[]</a></code></td> <td> <p>Overrides associated with "
+"this quota. The first matching override is applied.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:212
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"QuotaAlgorithm\">Params.QuotaAlgorithm</h2> <section> <p>Algorithms for "
+"rate-limiting:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:224
+msgid ""
+"<table class=\"enum-values\"> <thead> <tr> <th>Name</th> "
+"<th>Description</th> </tr> </thead> <tbody> <tr id=\"Params-"
+"QuotaAlgorithm-FIXED_WINDOW\"> <td><code>FIXED_WINDOW</code></td> <td> "
+"<p><code>FIXED_WINDOW</code> The fixed window approach can allow 2x peak "
+"specified rate, whereas the rolling-window doesn&rsquo;t.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:237
+msgid ""
+"</td> </tr> <tr id=\"Params-QuotaAlgorithm-ROLLING_WINDOW\"> "
+"<td><code>ROLLING_WINDOW</code></td> <td> <p><code>ROLLING_WINDOW</code> "
+"The rolling window algorithm&rsquo;s additional precision comes at the "
+"cost of increased redis resource usage.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/redisquota/index.rst:244
+msgid "</td> </tr> </tbody> </table> </section>"
+msgstr ""
+

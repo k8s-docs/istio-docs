@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/analysis/ist0106/index.rst:2
+msgid "ist0106"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0106/index.rst:4
+msgid ""
+"This message occurs when your Istio configuration does not successfully "
+"pass schema validation."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0106/index.rst:7
+msgid "For example, you receive this error:"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0106/index.rst:9
+msgid ""
+"{{< text plain >}} Error [IST0106] (VirtualService ratings-bogus-weight-"
+"default.default) Schema validation error: percentage 888 is not in range "
+"0..100"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0106/index.rst:13
+msgid "and your Istio configuration contains these values:"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0106/index.rst:18
+msgid ""
+"VirtualService metadata: name: ratings-bogus-weight-default namespace: "
+"default spec: hosts: - ratings http: - route: - destination: host: "
+"ratings subset: v1 weight: 999 - destination: host: ratings subset: v2 "
+"weight: 888"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0106/index.rst:23
+msgid ""
+"In this example, the error message indicates that the ``weight`` element "
+"has an invalid value when checked against the schema."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0106/index.rst:26
+msgid ""
+"To resolve this problem, refer to the `message details "
+"</docs/reference/config/analysis/message-format/>`_ field to determine "
+"which element or value does not adhere to the schema, correct the error "
+"and try again."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0106/index.rst:31
+msgid ""
+"For details about the expected schema for Istio resources, see the "
+"`configuration reference </docs/reference/config/>`_."
+msgstr ""
+

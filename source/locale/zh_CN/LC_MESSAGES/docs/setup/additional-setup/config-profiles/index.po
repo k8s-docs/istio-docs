@@ -1,0 +1,195 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:2
+msgid "Installation Configuration Profiles"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:4
+msgid ""
+"This page describes the built-in configuration profiles that can be used "
+"when `installing Istio </docs/setup/install/istioctl/>`_. The profiles "
+"provide customization of the Istio control plane and of the sidecars for "
+"the Istio data plane. You can start with one of Istio’s built-in "
+"configuration profiles and then further customize the configuration for "
+"your specific needs. The following built-in configuration profiles are "
+"currently available:"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:12
+msgid ""
+"**default**: enables components according to the default settings of the "
+"`IstioOperator API </docs/reference/config/istio.operator.v1alpha1/>`_ "
+"(recommend for production deployments). You can display the default "
+"setting by running the command ``istioctl profile dump``."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:17
+msgid ""
+"**demo**: configuration designed to showcase Istio functionality with "
+"modest resource requirements. It is suitable to run the `Bookinfo "
+"</docs/examples/bookinfo/>`_ application and associated tasks. This is "
+"the configuration that is installed with the `quick start </docs/setup"
+"/getting-started/>`_ instructions, but you can later `customize the "
+"configuration </docs/setup/install/istioctl/#customizing-the-"
+"configuration>`_ to enable additional features if you wish to explore "
+"more advanced tasks."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:29
+msgid ""
+"This profile enables high levels of tracing and access logging so it is "
+"not suitable for performance tests. {{< /warning >}}"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:33
+msgid ""
+"**minimal**: the minimal set of components necessary to use Istio’s "
+"`traffic management </docs/tasks/traffic-management/>`_ features."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:36
+msgid ""
+"**sds**: similar to the **default** profile, but also enables Istio’s "
+"`SDS (secret discovery service) </docs/tasks/security/citadel-config"
+"/auth-sds>`_. This profile comes with additional authentication features "
+"enabled by default (Strict Mutual TLS)."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:42
+msgid ""
+"**remote**: used for configuring remote clusters of a `multicluster mesh "
+"</docs/ops/deployment/deployment-models/#multiple-clusters>`_ with a "
+"`shared control plane </docs/setup/install/multicluster/shared-vpn/>`_ "
+"configuration."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:48
+msgid "The components marked as **X** are installed within each profile:"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:51
+msgid "\\"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:51
+msgid "default"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:51
+msgid "demo"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:51
+msgid "minimal"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:51
+msgid "sds"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:51
+msgid "remote"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:53
+msgid "Core components"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:54
+msgid "``istio-citadel``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:54
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:55
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:56
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:57
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:58
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:59
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:60
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:61
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:62
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:64
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:65
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:66
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:67
+msgid "X"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:55
+msgid "``istio-egressgateway``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:56
+msgid "``istio-galley``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:57
+msgid "``istio-ingressgateway``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:58
+msgid "``istio-nodeagent``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:59
+msgid "``istio-pilot``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:60
+msgid "``istio-policy``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:61
+msgid "``istio-sidecar-injector``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:62
+msgid "``istio-telemetry``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:63
+msgid "Addons"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:64
+msgid "``grafana``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:65
+msgid "``istio-tracing``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:66
+msgid "``kiali``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:67
+msgid "``prometheus``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/config-profiles/index.rst:70
+msgid ""
+"To further customize Istio and install addons, you can add one or more "
+"``--set <key>=<value>`` options in the ``istioctl manifest`` command that"
+" you use when installing Istio. Refer to `customizing the configuration "
+"</docs/setup/install/istioctl/#customizing-the-configuration>`_ for "
+"details."
+msgstr ""
+

@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/applications/cassandra.rst:2
+msgid "cassandra"
+msgstr ""
+
+#: ../../source/faq/applications/cassandra.rst:4
+msgid ""
+"By default, Cassandra broadcasts the address it uses for binding "
+"(accepting connections) to other Cassandra nodes as its address. This is "
+"usually the pod IP address and works fine without a service mesh. "
+"However, with a service mesh this configuration does not work. Istio and "
+"other service meshes require ``localhost`` (``127.0.0.1``) to be the "
+"address for binding."
+msgstr ""
+
+#: ../../source/faq/applications/cassandra.rst:11
+msgid ""
+"There are two configuration parameters to pay attention to: "
+"```listen_address`` "
+"<http://cassandra.apache.org/doc/latest/configuration/cassandra_config_file.html?highlight=listen_address"
+"#listen-address>`_ and ```broadcast_address`` "
+"<http://cassandra.apache.org/doc/latest/configuration/cassandra_config_file.html?highlight=listen_address"
+"#broadcast-address>`_. For running Cassandra in an Istio mesh, the "
+"``listen_address`` parameter should be set to ``127.0.0.1`` and the "
+"``broadcast_address`` parameter should be set to the pod IP address."
+msgstr ""
+
+#: ../../source/faq/applications/cassandra.rst:19
+msgid ""
+"These configuration parameters are defined in ``cassandra.yaml`` in the "
+"Cassandra configuration directory (e.g. ``/etc/cassandra``). There are "
+"various startup scripts (and yaml files) used for starting Cassandra and "
+"care should be given to how these parameters are set by these scripts. "
+"For example, some scripts used to configure and start Cassandra use the "
+"value of the environment variable ``CASSANDRA_LISTEN_ADDRESS`` for "
+"setting ``listen_address``."
+msgstr ""
+

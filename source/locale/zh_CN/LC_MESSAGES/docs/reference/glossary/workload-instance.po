@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/glossary/workload-instance.rst:2
+msgid "workload instance"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload-instance.rst:4
+msgid ""
+"A single instantiation of a `workload’s "
+"</docs/reference/glossary/#workload>`_ binary. A workload instance can "
+"expose zero or more `service endpoints </docs/reference/glossary"
+"/#service-endpoint>`_, and can consume zero or more `services "
+"</docs/reference/glossary/#service>`_."
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload-instance.rst:10
+msgid "Workload instances have a number of properties:"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload-instance.rst:12
+msgid "Name and namespace"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload-instance.rst:13
+msgid "Unique ID"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload-instance.rst:14
+msgid "IP Address"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload-instance.rst:15
+msgid "Labels"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload-instance.rst:16
+msgid "Principal"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload-instance.rst:18
+msgid ""
+"These properties are available in policy and telemetry configuration "
+"using the many `source.* and destination.* attributes "
+"</docs/reference/config/policy-and-telemetry/attribute-vocabulary/>`_."
+msgstr ""
+

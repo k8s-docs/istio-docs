@@ -1,0 +1,230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:2
+msgid "mtls-migration"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:4
+msgid ""
+"This task shows how to ensure your workloads only communicate using "
+"mutual TLS as they are migrated to Istio."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:7
+msgid ""
+"Istio automatically configures workload sidecars to use `mutual TLS "
+"</docs/tasks/security/authentication/authn-policy/#auto-mutual-tls>`_ "
+"when calling other workloads. By default, Istio configures the "
+"destination workloads using ``PERMISSIVE`` mode. When ``PERMISSIVE`` mode"
+" is enabled, a service can accept both plain text and mutual TLS traffic."
+" In order to only allow mutual TLS traffic, the configuration needs to be"
+" changed to ``STRICT`` mode."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:15
+msgid ""
+"You can use the `Grafana dashboard </docs/tasks/observability/metrics"
+"/using-istio-dashboard/>`_ to check which workloads are still sending "
+"plaintext traffic to the workloads in ``PERMISSIVE`` mode and choose to "
+"lock them down once the migration is done."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:22
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:28
+msgid ""
+"Understand Istio `authentication policy </docs/concepts/security"
+"/#authentication-policies>`_ and related `mutual TLS authentication "
+"</docs/concepts/security/#mutual-tls-authentication>`_ concepts."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:34
+msgid ""
+"Read the `authentication policy task </docs/tasks/security/authentication"
+"/authn-policy>`_ to learn how to configure authentication policy."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:38
+msgid ""
+"Have a Kubernetes cluster with Istio installed, without global mutual TLS"
+" enabled (e.g use the demo configuration profile as described in "
+"`installation steps </docs/setup/getting-started>`_)."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:42
+msgid ""
+"In this task, you can try out the migration process by creating sample "
+"workloads and modifying the policies to enforce STRICT mutual TLS between"
+" the workloads."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:47
+msgid "Set up the cluster"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:49
+#, python-format
+msgid ""
+"Create two namespaces, ``foo`` and ``bar``, and deploy `httpbin "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/httpbin>`_ and `sleep "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ with sidecars on "
+"both of them:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:57
+msgid ""
+"<(istioctl kube-inject -f @samples/httpbin/httpbin.yaml@) -n foo $ "
+"kubectl apply -f <(istioctl kube-inject -f @samples/sleep/sleep.yaml@) -n"
+" foo $ kubectl create ns bar $ kubectl apply -f <(istioctl kube-inject -f"
+" @samples/httpbin/httpbin.yaml@) -n bar $ kubectl apply -f <(istioctl "
+"kube-inject -f @samples/sleep/sleep.yaml@) -n bar"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:64
+#, python-format
+msgid ""
+"Create another namespace, ``legacy``, and deploy `sleep "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ without a sidecar:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:71
+msgid "@samples/sleep/sleep.yaml@ -n legacy"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:73
+msgid ""
+"Verify setup by sending an http request (using curl command) from any "
+"sleep pod (among those in namespace ``foo``, ``bar`` or ``legacy``) to "
+"``httpbin.foo``. All requests should success with HTTP code 200."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:80
+msgid ""
+"“foo” “bar”; do kubectl exec $(kubectl get pod -l app=sleep -n ${from} -o"
+" jsonpath={.items..metadata.name}) -c sleep -n :math:`{from} -- curl "
+"http://httpbin.`\\ {to}:8000/ip -s -o /dev/null -w “sleep.\\ "
+":math:`{from} to httpbin.`\\ {to}: %{http_code}:raw-latex:`\\n`”; done; "
+"done sleep.foo to httpbin.foo: 200 sleep.foo to httpbin.bar: 200 "
+"sleep.bar to httpbin.foo: 200 sleep.bar to httpbin.bar: 200 sleep.legacy "
+"to httpbin.foo: 200 sleep.legacy to httpbin.bar: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:89
+msgid ""
+"Also verify that there are no authentication policies or destination "
+"rules (except control plane ones) in the system:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:95
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:100
+msgid "resources found"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:103
+msgid "Lock down to mutual TLS by namespace"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:105
+msgid ""
+"After migrating all clients to Istio and injecting the Envoy sidecar, you"
+" can lock down workloads in the ``foo`` namespace to only accept mutual "
+"TLS traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:112
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:144
+msgid ""
+"“security.istio.io/v1beta1” kind: “PeerAuthentication” metadata: name: "
+"“default” spec: mtls: mode: STRICT EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:115
+msgid ""
+"Now, you should see the request from ``sleep.legacy`` to ``httpbin.foo`` "
+"failing."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:121
+msgid ""
+"“bar”; do kubectl exec $(kubectl get pod -l app=sleep -n ${from} -o "
+"jsonpath={.items..metadata.name}) -c sleep -n :math:`{from} -- curl "
+"http://httpbin.`\\ {to}:8000/ip -s -o /dev/null -w “sleep.\\ "
+":math:`{from} to httpbin.`\\ {to}: %{http_code}:raw-latex:`\\n`”; done; "
+"done sleep.foo to httpbin.foo: 200 sleep.foo to httpbin.bar: 200 "
+"sleep.bar to httpbin.foo: 200 sleep.bar to httpbin.bar: 200 sleep.legacy "
+"to httpbin.foo: 000 command terminated with exit code 56 sleep.legacy to "
+"httpbin.bar: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:130
+msgid ""
+"If you can’t migrate all your services to Istio (i.e., inject Envoy "
+"sidecar in all of them), you will need to continue to use ``PERMISSIVE`` "
+"mode. However, when configured with ``PERMISSIVE`` mode, no "
+"authentication or authorization checks will be performed for plaintext "
+"traffic by default. We recommend you use `Istio Authorization "
+"</docs/tasks/security/authorization/authz-http/>`_ to configure different"
+" paths with different authorization policies."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:139
+msgid "Lock down mutual TLS for the entire mesh"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:147
+msgid ""
+"Now, both the ``foo`` and ``bar`` namespaces enforce mutual TLS only "
+"traffic, so you should see requests from ``sleep.legacy`` failing for "
+"both."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:154
+msgid ""
+"“bar”; do kubectl exec $(kubectl get pod -l app=sleep -n ${from} -o "
+"jsonpath={.items..metadata.name}) -c sleep -n :math:`{from} -- curl "
+"http://httpbin.`\\ {to}:8000/ip -s -o /dev/null -w “sleep.\\ "
+":math:`{from} to httpbin.`\\ {to}: %{http_code}:raw-latex:`\\n`”; done; "
+"done"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:161
+msgid "Clean up the example"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:163
+msgid "To remove all authentication policies"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:168
+msgid "–all"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:170
+msgid ""
+"If you are not planning to explore any follow-on tasks, you can remove "
+"all test namespaces."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/mtls-migration/index.rst:176
+msgid "legacy deleted."
+msgstr ""
+

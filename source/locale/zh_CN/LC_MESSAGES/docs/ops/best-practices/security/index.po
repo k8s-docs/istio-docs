@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/best-practices/security/index.rst:2
+msgid "security"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:4
+msgid ""
+"This section provides some deployment guidelines to help keep a service "
+"mesh secure."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:8
+msgid "Use namespaces for isolation"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:10
+msgid ""
+"If there are multiple service operators (a.k.a. `SREs "
+"<https://en.wikipedia.org/wiki/Site_reliability_engineering>`_) deploying"
+" different services in a medium- or large-size cluster, we recommend "
+"creating a separate `Kubernetes namespace "
+"<https://kubernetes.io/docs/tasks/administer-cluster/namespaces-"
+"walkthrough/>`_ for each SRE team to isolate their access. For example, "
+"you can create a ``team1-ns`` namespace for ``team1``, and ``team2-ns`` "
+"namespace for ``team2``, such that both teams cannot access each other’s "
+"services."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:21
+msgid "If Citadel is compromised, all its managed keys and"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:22
+msgid ""
+"certificates in the cluster may be exposed. We **strongly** recommend "
+"running Citadel in a dedicated namespace (for example, ``istio-citadel-"
+"ns``), to restrict access to the cluster to only administrators."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:27
+msgid ""
+"Let us consider a three-tier application with three services: ``photo-"
+"frontend``, ``photo-backend``, and ``datastore``. The photo SRE team "
+"manages the ``photo-frontend`` and ``photo-backend`` services while the "
+"datastore SRE team manages the ``datastore`` service. The ``photo-"
+"frontend`` service can access ``photo-backend``, and the ``photo-"
+"backend`` service can access ``datastore``. However, the ``photo-"
+"frontend`` service cannot access ``datastore``."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:35
+msgid ""
+"In this scenario, a cluster administrator creates three namespaces: "
+"``istio-citadel-ns``, ``photo-ns``, and ``datastore-ns``. The "
+"administrator has access to all namespaces and each team only has access "
+"to its own namespace. The photo SRE team creates two service accounts to "
+"run ``photo-frontend`` and ``photo-backend`` respectively in the ``photo-"
+"ns`` namespace. The datastore SRE team creates one service account to run"
+" the ``datastore`` service in the ``datastore-ns`` namespace. Moreover, "
+"we need to enforce the service access control in `Istio Mixer "
+"</docs/reference/config/policy-and-telemetry/>`_ such that ``photo-"
+"frontend`` cannot access datastore."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:46
+msgid ""
+"In this setup, Kubernetes can isolate the operator privileges on managing"
+" the services. Istio manages certificates and keys in all namespaces and "
+"enforces different access control rules to the services."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:51
+msgid "Configure third party service account tokens"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:53
+msgid ""
+"To authenticate with the Istio control plane, the Istio proxy will use a "
+"Service Account token. Kubernetes supports two forms of these tokens:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:56
+msgid "Third party tokens, which have a scoped audience and expiration."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:57
+msgid ""
+"First party tokens, which have no expiration and are mounted into all "
+"pods."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:60
+msgid ""
+"Because the properties of the first party token are less secure, Istio "
+"will default to using third party tokens. However, this feature is not "
+"enabled on all Kubernetes platforms."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:64
+msgid ""
+"If you are using ``istioctl`` to install, support will be automatically "
+"detected. This can be done manually as well, and configured by passing "
+"``--set values.global.jwtPolicy=third-party-jwt`` or ``--set "
+"values.global.jwtPolicy=first-party-jwt``."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:69
+msgid ""
+"To determine if your cluster supports third party tokens, look for the "
+"``TokenRequest`` API:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/security/index.rst:91
+msgid ""
+"While most cloud providers support this feature now, many local "
+"development tools and custom installations may not. To enable this "
+"feature, please refer to the `Kubernetes documentation "
+"<https://kubernetes.io/docs/tasks/configure-pod-container/configure-"
+"service-account/#service-account-token-volume-projection>`_."
+msgstr ""
+

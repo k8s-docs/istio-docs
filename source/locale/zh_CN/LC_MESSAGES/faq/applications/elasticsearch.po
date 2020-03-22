@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/applications/elasticsearch.rst:2
+msgid "elasticsearch"
+msgstr ""
+
+#: ../../source/faq/applications/elasticsearch.rst:4
+msgid ""
+"There are two Elasticsearch configuration parameters that need to be set "
+"appropriately to run Elasticsearch with Istio: ``network.bind_host`` and "
+"``network.publish_host``. By default, these parameters are set to the "
+"``network.host`` parameter. If ``network.host`` is set to ``0.0.0.0``, "
+"Elasticsearch will most likely pick up the pod IP as the publishing "
+"address and no further configuration will be needed."
+msgstr ""
+
+#: ../../source/faq/applications/elasticsearch.rst:11
+msgid ""
+"If the default configuration does not work, you can set the "
+"``network.bind_host`` to ``0.0.0.0`` or ``localhost`` (``127.0.0.1``) and"
+" ``network.publish_host`` to the pod IP. For example:"
+msgstr ""
+
+#: ../../source/faq/applications/elasticsearch.rst:18
+msgid ""
+"docker.elastic.co/elasticsearch/elasticsearch:7.2.0 env: - name: "
+"network.bind_host value: 127.0.0.1 - name: network.publish_host "
+"valueFrom: fieldRef: fieldPath: status.podIP …"
+msgstr ""
+
+#: ../../source/faq/applications/elasticsearch.rst:22
+msgid ""
+"Refer to `Network Settings for Elasticsearch "
+"<https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-"
+"network.html#modules-network>`_ for more information."
+msgstr ""
+

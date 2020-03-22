@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:2
+msgid "life-of-a-request"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:4
+msgid ""
+"You can enable `tracing </docs/tasks/observability/distributed-"
+"tracing/>`_ to determine the flow of a request in Istio."
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:8
+msgid ""
+"Additionally, you can use the following commands to know more about the "
+"state of the mesh:"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:11
+msgid ""
+"`istioctl proxy-config </docs/reference/commands/istioctl/#istioctl-"
+"proxy-config>`_: Retrieve information about proxy configuration when "
+"running in Kubernetes:"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:15
+msgid ""
+"{{< text plain >}} # Retrieve information about bootstrap configuration "
+"for the Envoy instance in the specified pod. $ istioctl proxy-config "
+"bootstrap productpage-v1-bb8d5cbc7-k7qbm"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:19
+msgid ""
+"# Retrieve information about cluster configuration for the Envoy instance"
+" in the specified pod. $ istioctl proxy-config cluster "
+"productpage-v1-bb8d5cbc7-k7qbm"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:23
+msgid ""
+"# Retrieve information about listener configuration for the Envoy "
+"instance in the specified pod. $ istioctl proxy-config listener "
+"productpage-v1-bb8d5cbc7-k7qbm"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:27
+msgid ""
+"# Retrieve information about route configuration for the Envoy instance "
+"in the specified pod. $ istioctl proxy-config route "
+"productpage-v1-bb8d5cbc7-k7qbm"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:31
+msgid ""
+"# Retrieve information about endpoint configuration for the Envoy "
+"instance in the specified pod. $ istioctl proxy-config endpoints "
+"productpage-v1-bb8d5cbc7-k7qbm"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:35
+msgid ""
+"# Try the following to discover more proxy-config commands $ istioctl "
+"proxy-config –help"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:38
+msgid ""
+"``kubectl get``: Gets information about different resources in the mesh "
+"along with routing configuration:"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:41
+msgid ""
+"{{< text plain >}} # List all virtual services $ kubectl get "
+"virtualservices"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:44
+msgid ""
+"Mixer access logs: Mixer writes access logs that contain information "
+"about requests. You can get them with:"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/life-of-a-request.rst:47
+msgid ""
+"{{< text plain >}} # Fill with the namespace of your istio mesh. Ex: "
+"istio-system $ TELEMETRY_POD=\\ ``kubectl get po -n <istio namespace> | "
+"grep istio-telemetry | awk '{print $1;}'`` $ kubectl logs $TELEMETRY_POD "
+"-c mixer -n istio-system \\| grep accesslog"
+msgstr ""
+

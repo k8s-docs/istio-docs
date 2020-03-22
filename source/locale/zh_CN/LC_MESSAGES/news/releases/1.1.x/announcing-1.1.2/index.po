@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:2
+msgid "announcing-1.1.2"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:4
+msgid ""
+"We’re announcing immediate availability of Istio 1.1.2 which contains "
+"some important security updates. Please see below for details."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:10
+msgid "Security update"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:12
+msgid ""
+"Two security vulnerabilities have recently been identified in the Envoy "
+"proxy (`CVE 2019-9900 <https://cve.mitre.org/cgi-"
+"bin/cvename.cgi?name=CVE-2019-9900>`_ and `CVE 2019-9901 "
+"<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9901>`_). The "
+"vulnerabilities have now been patched in Envoy version 1.9.1, and "
+"correspondingly in the Envoy builds embedded in Istio 1.1.2 and Istio "
+"1.0.7. Since Envoy is an integral part of Istio, users are advised to "
+"update Istio immediately to mitigate security risks arising from these "
+"vulnerabilities."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:23
+msgid ""
+"The vulnerabilities are centered on the fact that Envoy did not normalize"
+" HTTP URI paths and did not fully validate HTTP/1.1 header values. These "
+"vulnerabilities impact Istio features that rely on Envoy to enforce any "
+"of authorization, routing, or rate limiting."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:29
+msgid "Affected Istio releases"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:31
+msgid "The following Istio releases are vulnerable:"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:33
+msgid "1.1, 1.1.1"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:35
+msgid "These releases can be patched to Istio 1.1.2."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:36
+msgid ""
+"1.1.2 is built from the same source as 1.1.1 with the addition of Envoy "
+"patches minimally sufficient to address the CVEs."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:39
+msgid "1.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.0.6"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:41
+msgid "These releases can be patched to Istio 1.0.7"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:42
+msgid ""
+"1.0.7 is built from the same source as 1.0.6 with the addition of Envoy "
+"patches minimally sufficient to address the CVEs."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:45
+msgid "0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:47
+msgid ""
+"These releases are no longer supported and will not be patched. Please "
+"upgrade to a supported release with the necessary fixes."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:51
+msgid "Vulnerability impact"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:53
+msgid ""
+"`CVE 2019-9900 <https://cve.mitre.org/cgi-"
+"bin/cvename.cgi?name=CVE-2019-9900>`_ and `CVE 2019-9901 "
+"<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9901>`_ allow "
+"remote attackers access to unauthorized resources by using specially "
+"crafted request URI paths (9901) and NUL bytes in HTTP/1.1 headers "
+"(9900), potentially circumventing DoS prevention systems such as rate "
+"limiting, or routing to a unexposed upstream system. Refer to `issue 6434"
+" <https://github.com/envoyproxy/envoy/issues/6434>`_ and `issue 6435 "
+"<https://github.com/envoyproxy/envoy/issues/6435>`_ for more information."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:65
+msgid ""
+"As Istio is based on Envoy, Istio customers can be affected by these "
+"vulnerabilities based on whether paths and request headers are used "
+"within Istio policies or routing rules and how the backend HTTP "
+"implementation resolves them. If prefix path matching rules are used by "
+"Mixer or by Istio authorization policies or the routing rules, an "
+"attacker could exploit these vulnerabilities to gain access to "
+"unauthorized paths on certain HTTP backends."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:74
+msgid "Mitigation"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:76
+msgid ""
+"Eliminating the vulnerabilities requires updating to a corrected version "
+"of Envoy. We’ve incorporated the necessary updates in the latest Istio "
+"patch releases."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:80
+msgid ""
+"For Istio 1.1.x deployments: update to a minimum of `Istio 1.1.2 "
+"</news/releases/1.1.x/announcing-1.1.2>`_"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:83
+msgid ""
+"For Istio 1.0.x deployments: update to a minimum of `Istio 1.0.7 "
+"</news/releases/1.0.x/announcing-1.0.7>`_"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:86
+msgid ""
+"While Envoy 1.9.1 requires opting in to path normalization to address CVE"
+" 2019-9901, the version of Envoy embedded in Istio 1.1.2 and 1.0.7 "
+"enables path normalization by default."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:91
+msgid "Detection of NUL header exploit"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:93
+msgid ""
+"Based on current information, this only affects HTTP/1.1 traffic. If this"
+" is not structurally possible in your network or configuration, then it "
+"is unlikely that this vulnerability applies."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:97
+msgid ""
+"File-based access logging uses the ``c_str()`` representation for header "
+"values, as does gRPC access logging, so there will be no trivial "
+"detection via Envoy’s access logs by scanning for NUL. Instead, operators"
+" might look for inconsistencies in logs between the routing that Envoy "
+"performs and the logic intended in the ``RouteConfiguration``."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:104
+msgid ""
+"External authorization and rate limit services can check for NULs in "
+"headers. Backend servers might have sufficient logging to detect NULs or "
+"unintended access; it’s likely that many will simply reject NULs in this "
+"scenario via 400 Bad Request, as per RFC 7230."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:110
+msgid "Detection of path traversal exploit"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.2/index.rst:112
+msgid ""
+"Envoy’s access logs (whether file-based or gRPC) will contain the "
+"unnormalized path, so it is possible to examine these logs to detect "
+"suspicious patterns and requests that are incongruous with the intended "
+"operator configuration intent. In addition, unnormalized paths are "
+"available at ``ext_authz``, rate limiting and backend servers for log "
+"inspection."
+msgstr ""
+

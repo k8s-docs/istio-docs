@@ -1,0 +1,232 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:2
+msgid "validation"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:5
+msgid "Seemingly valid configuration is rejected"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:7
+msgid ""
+"Manually verify your configuration is correct, cross-referencing `Istio "
+"API reference </docs/reference/config>`_ when necessary."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:11
+msgid "Invalid configuration is accepted"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:13
+msgid ""
+"Verify the ``istiod-istio-system`` ``validationwebhookconfiguration`` "
+"exists and is correct. The ``apiVersion``, ``apiGroup``, and ``resource``"
+" of the invalid configuration should be listed in one of the two "
+"``webhooks`` entries."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:21
+msgid ""
+"istiod-istio-system -o yaml apiVersion: admissionregistration.k8s.io/v1 "
+"kind: ValidatingWebhookConfiguration metadata: creationTimestamp: "
+"“2020-01-24T19:53:03Z” generation: 1 labels: app: istiod istio: istiod "
+"release: istio name: istiod-istio-system ownerReferences: - apiVersion: "
+"rbac.authorization.k8s.io/v1 blockOwnerDeletion: true controller: true "
+"kind: ClusterRole name: istiod-istio-system uid: c3d24917-c2da-49ad-"
+"add3-c91c14608a45 resourceVersion: “36649” selfLink: "
+"/apis/admissionregistration.k8s.io/v1/validatingwebhookconfigurations"
+"/istiod-istio-system uid: 043e39d9-377a-4a67-a7cf-7ae4cb3c562c webhooks: "
+"- admissionReviewVersions: - v1beta1 clientConfig: # caBundle should be "
+"non-empty. This is periodically (re)patched # every second by the webhook"
+" service using the ca-cert # from the mounted service account secret. "
+"caBundle: LS0t… service: # service corresponds to the Kubernetes service "
+"that implements the # webhook, e.g. istio-galley.istio-system.svc:443 "
+"name: istiod namespace: istio-system path: /validate port: 443 "
+"failurePolicy: Fail matchPolicy: Exact name: validation.istio.io "
+"namespaceSelector: {} objectSelector: {} rules: - apiGroups: - "
+"config.istio.io - rbac.istio.io - security.istio.io - "
+"authentication.istio.io - networking.istio.io apiVersions: - ‘*’ "
+"operations: - CREATE - UPDATE resources: - ’*’ scope: ’*’ sideEffects: "
+"None timeoutSeconds: 30"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:43
+msgid ""
+"If the ``validatingwebhookconfiguration`` doesn’t exist, verify the "
+"``istio-validation`` ``configmap`` exists. Istio uses the data from this "
+"configmap to create and update the ``validatingwebhookconfiguration``."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:50
+msgid ""
+"istio-validation -o jsonpath=‘{.data}’ map[config:apiVersion: "
+"admissionregistration.k8s.io/v1beta1 kind: ValidatingWebhookConfiguration"
+" metadata: name: istiod-istio-system namespace: istio-system labels: app:"
+" istiod release: istio istio: istiod webhooks: - name: "
+"validation.istio.io clientConfig: service: name: istiod namespace: istio-"
+"system path: “/validate” port: 443 caBundle: \"\" rules: - operations: - "
+"CREATE - UPDATE apiGroups: - config.istio.io - rbac.istio.io - "
+"security.istio.io - authentication.istio.io - networking.istio.io "
+"apiVersions: - “*\" resources: - \"*” failurePolicy: Fail sideEffects: "
+"None] (… snip …)"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:61
+msgid ""
+"If the webhook array in ``istio-validation`` is empty, verify the "
+"``global.configValidation`` installation options are set."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:64
+msgid ""
+"The validation configuration is fail-close. If configuration exists and "
+"is scoped properly, the webhook will be invoked. A missing ``caBundle``, "
+"bad certificate, or network connectivity problem will produce an error "
+"message when the resource is created/updated. If you don’t see any error "
+"message and the webhook wasn’t invoked and the webhook configuration is "
+"valid, your cluster is misconfigured."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:72
+msgid "Creating configuration fails with x509 certificate errors"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:74
+msgid ""
+"``x509: certificate signed by unknown authority`` related errors are "
+"typically caused by an empty ``caBundle`` in the webhook configuration. "
+"Verify that it is not empty (see `verify webhook configuration <#invalid-"
+"configuration-is-accepted>`_). Istio consciously reconciles webhook "
+"configuration used the ``istio-validation`` ``configmap`` and root "
+"certificate."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:81
+msgid "Verify the ``istio-pilot`` pod(s) are running:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:86
+#: ../../source/docs/ops/common-problems/validation/index.rst:128
+msgid "READY STATUS RESTARTS AGE istio-pilot-5dbbbdb746-d676g 1/1 Running 0 2d"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:89
+msgid ""
+"Check the pod logs for errors. Failing to patch the ``caBundle`` should "
+"print an error."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst
+#: ../../source/docs/ops/common-problems/validation/index.rst:140
+#: ../../source/docs/ops/common-problems/validation/index.rst:147
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:94
+#: ../../source/docs/ops/common-problems/validation/index.rst:142
+#: ../../source/docs/ops/common-problems/validation/index.rst:149
+msgid "$ for pod in $(kubectl -n istio-system get pod"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:95
+#: ../../source/docs/ops/common-problems/validation/index.rst:143
+msgid "-lapp=pilot -o jsonpath=‘{.items[*].metadata.name}’); do"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst
+#: ../../source/docs/ops/common-problems/validation/index.rst:144
+msgid "kubectl -n istio-system logs ${pod}"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst
+#: ../../source/docs/ops/common-problems/validation/index.rst:145
+#: ../../source/docs/ops/common-problems/validation/index.rst:152
+msgid "done"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:99
+msgid "If the patching failed, verify the RBAC configuration for Pilot:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:104
+msgid ""
+"-o yaml apiVersion: rbac.authorization.k8s.io/v1 kind: ClusterRole name: "
+"istiod-istio-system rules:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:107
+msgid "apiGroups:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:109
+msgid "admissionregistration.k8s.io resources:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:110
+msgid "validatingwebhookconfigurations verbs:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:111
+msgid "’*’"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:113
+msgid ""
+"Istio needs ``validatingwebhookconfigurations`` write access to create "
+"and update the ``validatingwebhookconfiguration``."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:117
+msgid ""
+"Creating configuration fails with ``no such hosts`` or ``no endpoints "
+"available`` errors"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:119
+msgid ""
+"Validation is fail-close. If the ``istio-pilot`` pod is not ready, "
+"configuration cannot be created and updated. In such cases you’ll see an "
+"error about ``no endpoints available``."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:123
+msgid "Verify the ``istio-pilot`` pod(s) are running and endpoints are ready."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:134
+msgid "NAME ENDPOINTS AGE istio-pilot 10.48.6.108:15014,10.48.6.108:443 3d"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:136
+msgid ""
+"If the pods or endpoints aren’t ready, check the pod logs and status for "
+"any indication about why the webhook pod is failing to start and serve "
+"traffic."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:150
+msgid "-lapp=pilot -o name); do"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/validation/index.rst:151
+msgid "kubectl -n istio-system describe ${pod}"
+msgstr ""
+

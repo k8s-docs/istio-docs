@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:2
+msgid "API Key"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: API Key description: A"
+" template that represents a single API key. location: "
+"https://istio.io/docs/reference/config/policy-and-"
+"telemetry/templates/apikey.html layout: protoc-gen-docs generator: "
+"protoc-gen-docs aliases:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:13
+msgid "/docs/reference/config/template/apikey.html"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:14
+msgid ""
+"number_of_entries: 1 --- <p>The <code>apikey</code> template represents a"
+" single API key, which is used for authorization checks.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:18
+msgid "<p>Example config:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:20
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"&quot;config.istio.io/v1alpha2&quot; kind: instance metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:23
+msgid "name: validate-apikey namespace: istio-system"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:31
+msgid "spec:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:26
+msgid "compiledTemplate: apikey params:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:28
+msgid ""
+"api: api.service | &quot;&quot; api_version: api.version | &quot;&quot; "
+"api_operation: api.operation | &quot;&quot; api_key: api.key | "
+"&quot;&quot; timestamp: request.time"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:33
+msgid "</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:35
+msgid ""
+"<h2 id=\"Template\">Template</h2> <section> <p>The <code>apikey</code> "
+"template represents a single API key, used to authorize API calls.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:39
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Template-api\"> <td><code>api</code></td> "
+"<td><code>string</code></td> <td> <p>The API being called "
+"(api.service).</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:55
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-api_version\"> "
+"<td><code>apiVersion</code></td> <td><code>string</code></td> <td> <p>The"
+" version of the API (api.version).</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:66
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-api_operation\"> "
+"<td><code>apiOperation</code></td> <td><code>string</code></td> <td> "
+"<p>The API operation is being called.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:77
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-api_key\"> "
+"<td><code>apiKey</code></td> <td><code>string</code></td> <td> <p>API key"
+" used in API call.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:88
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-timestamp\"> "
+"<td><code>timestamp</code></td> <td><code><a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#TimeStamp\">TimeStamp</a></code></td>"
+" <td> <p>Timestamp of API call.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/apikey/index.rst:99
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

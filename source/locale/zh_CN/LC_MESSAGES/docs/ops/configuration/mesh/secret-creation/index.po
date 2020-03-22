@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:2
+msgid "secret-creation"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:12
+msgid ""
+"When a Citadel instance notices that a ``ServiceAccount`` is created in a"
+" namespace, it must decide whether it should generate an ``istio.io/key-"
+"and-cert`` secret for that ``ServiceAccount``. In order to make that "
+"decision, Citadel considers three inputs (note: there can be multiple "
+"Citadel instances deployed in a single cluster, and the following "
+"targeting rules are applied to each instance):"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:19
+msgid ""
+"``ca.istio.io/env`` namespace label: *string valued* label containing the"
+" namespace of the desired Citadel instance"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:22
+msgid ""
+"``ca.istio.io/override`` namespace label: *boolean valued* label which "
+"overrides all other configurations and forces all Citadel instances "
+"either to target or ignore a namespace"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:26
+msgid ""
+"`enableNamespacesByDefault security configuration </docs/reference/config"
+"/installation-options/#security-options>`_: default behavior if no labels"
+" are found on the ``ServiceAccount``\\ ’s namespace"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:31
+msgid ""
+"From these three values, the decision process mirrors that of the "
+"`Sidecar Injection Webhook </docs/ops/configuration/mesh/injection-"
+"concepts/>`_. The detailed behavior is that:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:35
+msgid ""
+"If ``ca.istio.io/override`` exists and is ``true``, generate key/cert "
+"secrets for workloads."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:38
+msgid ""
+"Otherwise, if ``ca.istio.io/override`` exists and is ``false``, don’t "
+"generate key/cert secrets for workloads."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:41
+msgid ""
+"Otherwise, if a ``ca.istio.io/env: \"ns-foo\"`` label is defined in the "
+"service account’s namespace, the Citadel instance in namespace ``ns-foo``"
+" will be used for generating key/cert secrets for workloads in the "
+"``ServiceAccount``\\ ’s namespace."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:46
+msgid ""
+"Otherwise, set ``enableNamespacesByDefault`` to ``true`` during "
+"installation. If it is ``true``, the default Citadel instance will be "
+"used for generating key/cert secrets for workloads in the "
+"``ServiceAccount``\\ ’s namespace."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:51
+msgid ""
+"Otherwise, no secrets are created for the ``ServiceAccount``\\ ’s "
+"namespace."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:54
+msgid "This logic is captured in the truth table below:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:57
+msgid "``ca.istio.io/ override`` value"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:57
+msgid "``ca.istio. io/env`` match"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:57
+msgid "``enableNamespacesByDe fault`` configuration"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:57
+msgid "Workload secret created"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:61
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:63
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:65
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:67
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:69
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:71
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:73
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:77
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:81
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:85
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:89
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:93
+msgid "``true``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:61
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:63
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:65
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:67
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:69
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:71
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:73
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:75
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:85
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:87
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:93
+msgid "yes"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:63
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:67
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:71
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:73
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:75
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:77
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:79
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:81
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:83
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:87
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:91
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:95
+msgid "``false``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:65
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:67
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:73
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:75
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:77
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:79
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:81
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:83
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:89
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:91
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:95
+msgid "no"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:69
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:71
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:81
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:83
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:85
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:87
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:89
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:91
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:93
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:95
+msgid "unset"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:100
+msgid "When a namespace transitions from *disabled* to *enabled*,"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/secret-creation/index.rst:101
+msgid ""
+"Citadel will retroactively generate secrets for all ``ServiceAccounts`` "
+"in that namespace. When transitioning from *enabled* to *disabled*, "
+"however, Citadel will not delete the namespace’s generated secrets until "
+"the root certificate is renewed."
+msgstr ""
+

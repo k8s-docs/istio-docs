@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/test/callouts_and_lists/index.rst:2
+msgid "callouts and lists"
+msgstr ""
+
+#: ../../source/test/callouts_and_lists/index.rst:4
+msgid "Warning"
+msgstr ""
+
+#: ../../source/test/callouts_and_lists/index.rst:8
+#: ../../source/test/callouts_and_lists/index.rst:12
+#: ../../source/test/callouts_and_lists/index.rst:18
+msgid "This is a warning"
+msgstr ""
+
+#: ../../source/test/callouts_and_lists/index.rst:14
+#: ../../source/test/callouts_and_lists/index.rst:20
+#: ../../source/test/callouts_and_lists/index.rst:36
+#: ../../source/test/callouts_and_lists/index.rst:48
+#: ../../source/test/callouts_and_lists/index.rst:60
+msgid "with two paragraphs"
+msgstr ""
+
+#: ../../source/test/callouts_and_lists/index.rst:22
+msgid "{{< text plain >}} A nested text block"
+msgstr ""
+
+#: ../../source/test/callouts_and_lists/index.rst:26
+msgid "Tip"
+msgstr ""
+
+#: ../../source/test/callouts_and_lists/index.rst:30
+#: ../../source/test/callouts_and_lists/index.rst:34
+msgid "This is a tip"
+msgstr ""
+
+#: ../../source/test/callouts_and_lists/index.rst:38
+msgid "Idea"
+msgstr ""
+
+#: ../../source/test/callouts_and_lists/index.rst:42
+#: ../../source/test/callouts_and_lists/index.rst:46
+msgid "This is an idea"
+msgstr ""
+
+#: ../../source/test/callouts_and_lists/index.rst:50
+msgid "Quote"
+msgstr ""
+
+#: ../../source/test/callouts_and_lists/index.rst:54
+#: ../../source/test/callouts_and_lists/index.rst:58
+msgid "This is a quote"
+msgstr ""
+

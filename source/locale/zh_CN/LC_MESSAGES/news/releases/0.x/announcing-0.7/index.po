@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/0.x/announcing-0.7/index.rst:2
+msgid "announcing-0.7"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.7/index.rst:4
+msgid ""
+"For this release, we focused on improving our build and test "
+"infrastructures and increasing the quality of our tests. As a result, "
+"there are no new features for this month."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.7/index.rst:8
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.7/index.rst:10
+msgid ""
+"Please note that this release includes preliminary support for the new "
+"v1alpha3 traffic management functionality. This functionality is still in"
+" a great deal of flux and there may be some breaking changes in 0.8. So "
+"if you feel like exploring, please go right ahead, but expect that this "
+"may change in 0.8 and beyond."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.7/index.rst:16
+msgid "Known Issues:"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.7/index.rst:18
+msgid ""
+"Our `Helm chart </docs/setup/install/helm>`_ currently requires some "
+"workaround to apply the chart correctly, see `4701 "
+"<https://github.com/istio/istio/issues/4701>`_ for details."
+msgstr ""
+

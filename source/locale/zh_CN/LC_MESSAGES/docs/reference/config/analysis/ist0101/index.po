@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/analysis/ist0101/index.rst:2
+msgid "ist0101"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0101/index.rst:4
+msgid ""
+"This message occurs when an Istio resource references another resource "
+"that does not exist. This will lead to errors when Istio tries to look up"
+" the referenced resource but cannot find it."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0101/index.rst:8
+msgid "For example, you receive this error:"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0101/index.rst:10
+msgid ""
+"{{< text plain >}} Error [IST0101] (VirtualService httpbin.default) "
+"Referenced gateway not found: “httpbin-gateway-bogus”"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0101/index.rst:13
+msgid ""
+"In this example, the ``VirtualService`` refers to a gateway that does not"
+" exist:"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0101/index.rst:19
+msgid ""
+"metadata: name: httpbin-gateway spec: selector: istio: ingressgateway "
+"servers: - port: number: 80 name: http2 protocol: HTTP2 hosts: - “*\" — "
+"apiVersion: networking.istio.io/v1alpha3 kind: VirtualService metadata: "
+"name: httpbin spec: hosts: - \"*” gateways: - httpbin-gateway-bogus # "
+"Should have been “httpbin-gateway” http: - route: - destination: host: "
+"httpbin-gateway"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0101/index.rst:26
+msgid ""
+"To resolve this problem, look for the resource type in the detailed error"
+" message, correct your Istio configuration and try again."
+msgstr ""
+

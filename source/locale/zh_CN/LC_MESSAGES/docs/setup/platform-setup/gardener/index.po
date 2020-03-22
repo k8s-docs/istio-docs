@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:2
+msgid "Kubernetes Gardener"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:5
+msgid "Bootstrapping Gardener"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:7
+msgid ""
+"To set up your own `Gardener <https://gardener.cloud>`_, see the "
+"`documentation "
+"<https://github.com/gardener/gardener/blob/master/docs/README.md>`_ or "
+"have a look at the `landscape-setup-template <https://github.com/gardener"
+"/landscape-setup-template>`_ project. To learn more about this open "
+"source project, read the `blog on ``kubernetes.io`` "
+"<https://kubernetes.io/blog/2018/05/17/gardener/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:15
+msgid "Install and configure ``kubectl``"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:17
+msgid ""
+"If you already have ``kubectl`` CLI, run ``kubectl version --short`` to "
+"check the version. You need ``v1.10`` or newer. If your ``kubectl`` is "
+"older, follow the next step to install a newer version."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:22
+msgid ""
+"`Install the ``kubectl`` CLI <https://kubernetes.io/docs/tasks/tools"
+"/install-kubectl/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:26
+msgid "Access Gardener"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:28
+msgid ""
+"Create a project in the Gardener dashboard. This will essentially create "
+"a Kubernetes namespace with the name ``garden-<my-project>``."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:31
+msgid ""
+"`Configure access to your Gardener project "
+"<https://kubernetes.io/docs/tasks/tools/install-kubectl/#verifying-"
+"kubectl-configuration>`_ using a kubeconfig. If you are not the Gardener "
+"Administrator already, you can create a technical user in the Gardener "
+"dashboard: go to the “Members” section and add a service account. You can"
+" then download the kubeconfig for your project. You can skip this step if"
+" you create your cluster using the user interface; it is only needed for "
+"programmatic access, make sure you set ``export KUBECONFIG=garden-my-"
+"project.yaml`` in your shell. |Download kubeconfig for Gardener|"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:43
+msgid "Creating a Kubernetes cluster"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:45
+msgid ""
+"You can create your cluster using ``kubectl`` cli by providing a cluster "
+"specification yaml file. You can find an example for GCP `here "
+"<https://github.com/gardener/gardener/blob/master/example/90-shoot.yaml>`_."
+" Make sure the namespace matches that of your project. Then just apply "
+"the prepared so-called “shoot” cluster CRD with ``kubectl``:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:54
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:56
+msgid ""
+"The easier alternative is to create the cluster following the cluster "
+"creation wizard in the Gardener dashboard: |shoot creation|"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:60
+msgid "Configure ``kubectl`` for your cluster"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:62
+msgid ""
+"You can now download the kubeconfig for your freshly created cluster in "
+"the Gardener dashboard or via cli as follows:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:68
+msgid ""
+"secret kubecfg –output jsonpath={.data.kubeconfig} \\| base64 –decode > "
+"my-cluster.yaml"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:71
+msgid ""
+"This kubeconfig file has full administrators access to you cluster. For "
+"the rest of this guide be sure you have ``export KUBECONFIG=my-"
+"cluster.yaml`` set."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:76
+msgid "Cleaning up"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:78
+msgid ""
+"Use the Gardener dashboard to delete your cluster, or execute the "
+"following with ``kubectl`` pointing to your ``garden-my-project.yaml`` "
+"kubeconfig:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/gardener/index.rst:85
+msgid ""
+"–namespace garden–my-project annotate shoot my-cluster "
+"confirmation.garden.sapcloud.io/deletion=true $ kubectl –kubeconfig "
+"garden-my-project.yaml –namespace garden–my-project delete shoot my-"
+"cluster"
+msgstr ""
+

@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:2
+msgid "announcing-1.4.3"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:4
+msgid ""
+"This release includes bug fixes to improve robustness and user "
+"experience. This release note describes what’s different between Istio "
+"1.4.2 and Istio 1.4.3."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:8
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:11
+msgid "Bug fixes"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:13
+msgid ""
+"**Fixed** an issue where Mixer creates too many watches, overloading "
+"``kube-apiserver`` (`Issue 19481 "
+"<https://github.com/istio/istio/issues/19481>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:16
+msgid ""
+"**Fixed** an issue with injection when pod has multiple containers "
+"without exposed ports (`Issue 18594 "
+"<https://github.com/istio/istio/issues/18594>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:19
+msgid ""
+"**Fixed** overly restrictive validation of ``regex`` field (`Issue 19212 "
+"<https://github.com/istio/istio/pull/19212>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:21
+msgid ""
+"**Fixed** an upgrade issue with ``regex`` field (`Issue 19665 "
+"<https://github.com/istio/istio/pull/19665>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:23
+msgid ""
+"**Fixed** ``istioctl`` install to properly send logs to ``stderr`` "
+"(`Issue 17743 <https://github.com/istio/istio/issues/17743>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:25
+msgid ""
+"**Fixed** an issue where a file and profile could not be specified for "
+"``istioctl`` installs (`Issue 19503 "
+"<https://github.com/istio/istio/issues/19503>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:28
+msgid ""
+"**Fixed** an issue preventing certain objects from being installed for "
+"``istioctl`` installs (`Issue 19371 "
+"<https://github.com/istio/istio/issues/19371>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:31
+msgid ""
+"**Fixed** an issue preventing using certain JWKS with EC keys in JWT "
+"policy (`Issue 19424 <https://github.com/istio/istio/issues/19424>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:36
+msgid "Improvements"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:38
+msgid ""
+"**Improved** injection template to fully specify ``securityContext``, "
+"allowing ``PodSecurityPolicies`` to properly validate injected "
+"deployments (`Issue 17318 "
+"<https://github.com/istio/istio/issues/17318>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:42
+msgid ""
+"**Improved** telemetry v2 configuration to support Stackdriver and "
+"forward compatibility (`Issue 591 "
+"<https://github.com/istio/installer/pull/591>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:45
+msgid ""
+"**Improved** output of ``istioctl`` installation (`Issue 19451 "
+"<https://github.com/istio/istio/issues/19451>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4.3/index.rst:47
+msgid ""
+"**Improved** ``istioctl`` installation to set exit code upon failure "
+"(`Issue 19747 <https://github.com/istio/istio/issues/19747>`_)."
+msgstr ""
+

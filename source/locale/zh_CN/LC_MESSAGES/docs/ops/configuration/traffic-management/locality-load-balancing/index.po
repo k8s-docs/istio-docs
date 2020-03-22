@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:2
+msgid "locality-load-balancing"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:4
+msgid ""
+"A locality defines a geographic location within your mesh using the "
+"following triplet:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:7
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:73
+msgid "Region"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:8
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:74
+msgid "Zone"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:9
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:75
+msgid "Sub-zone"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:11
+msgid ""
+"The geographic location typically represents a data center. Istio uses "
+"this information to prioritize load balancing pools to control the "
+"geographic location where requests are sent."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:16
+msgid "Configuring locality load balancing"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:18
+msgid ""
+"This feature is enabled by default. To disable locality load balancing, "
+"pass the ``--set global.localityLbSetting.enabled=false`` flag when "
+"installing Istio."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:23
+msgid "Requirements"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:25
+msgid ""
+"Currently, the service discovery platform populates the locality "
+"automatically. In Kubernetes, a pod’s locality is determined via the "
+"`well-known labels for region and zone "
+"<https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-"
+"taints/#failure-domainbetakubernetesioregion>`_ on the node it is "
+"deployed. If you are using a hosted Kubernetes service your cloud "
+"provider should configure this for you. If you are running your own "
+"Kubernetes cluster you will need to add these labels to your nodes. The "
+"sub-zone concept doesn’t exist in Kubernetes. As a result, Istio "
+"introduced the custom node label ``topology.istio.io/subzone`` to define "
+"a sub-zone."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:36
+msgid ""
+"In order for Istio to determine locality, a Service must be associated "
+"with the caller."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:39
+msgid ""
+"To determine when instances are unhealthy, the proxies require an "
+"`outlier detection </docs/reference/config/networking/destination-"
+"rule/#OutlierDetection>`_ configuration in a destination rule for each "
+"service."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:45
+msgid "Locality-prioritized load balancing"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:47
+msgid ""
+"*Locality-prioritized load balancing* is the default behavior for "
+"*locality load balancing*. In this mode, Istio tells Envoy to prioritize "
+"traffic to the workload instances most closely matching the locality of "
+"the Envoy sending the request. When all instances are healthy, the "
+"requests remains within the same locality. When instances become "
+"unhealthy, traffic spills over to instances in the next prioritized "
+"locality. This behavior continues until all localities are receiving "
+"traffic. You can find the exact percentages in the `Envoy documentation "
+"<https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/load_balancing/priority>`_."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:59
+msgid "If no outlier detection configurations are defined in"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:60
+msgid ""
+"destination rules, the proxy can’t determine if an instance is healthy, "
+"and it routes traffic globally even if you enabled **locality-"
+"prioritized** load balancing."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:64
+msgid ""
+"A typical prioritization for an Envoy with a locality of ``us-"
+"west/zone2`` is as follows:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:67
+msgid "Priority 0: ``us-west/zone2``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:68
+msgid "Priority 1: ``us-west/zone1``, ``us-west/zone3``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:69
+msgid "Priority 2: ``us-east/zone1``, ``us-east/zone2``, ``eu-west/zone1``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:71
+msgid "The hierarchy of prioritization matches in the following order:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:77
+msgid ""
+"Proxies in the same zone but different regions are not considered local "
+"to one another."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:81
+msgid "Overriding the locality fail-over"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:83
+msgid ""
+"Sometimes, you need to constrain the traffic fail-over to avoid sending "
+"traffic to endpoints across the globe when there are not enough healthy "
+"endpoints in the same region. This behavior is useful when sending fail-"
+"over traffic across regions would not improve service health or many "
+"other reasons including regulatory controls. To constrain traffic to a "
+"region, configure the ``values.localityLbSetting`` option during install."
+" See the `Locality load balancing reference guide "
+"</docs/reference/config/networking/destination-"
+"rule#LocalityLoadBalancerSetting>`_ for options."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:93
+msgid "An example configuration:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:98
+msgid "from: us-east to: eu-west - from: us-west to: us-east"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:101
+msgid "Locality-weighted load balancing"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:103
+msgid ""
+"Locality-weighted load balancing distributes user-defined percentages of "
+"traffic to certain localities."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:106
+#, python-format
+msgid ""
+"For example, if we want to keep 80% of traffic within our region, and "
+"send 20% of traffic out of region:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/traffic-management/locality-load-balancing/index.rst:112
+msgid "from: “us-central1/\\ *\" to: \"us-central1/*”: 80 \"us-central2/*\": 20"
+msgstr ""
+

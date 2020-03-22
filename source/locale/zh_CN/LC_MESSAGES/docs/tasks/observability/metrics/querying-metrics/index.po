@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:2
+msgid "querying-metrics"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:4
+msgid ""
+"This task shows you how to query for Istio Metrics using Prometheus. As "
+"part of this task, you will use the web-based interface for querying "
+"metric values."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:8
+msgid ""
+"The `Bookinfo </docs/examples/bookinfo/>`_ sample application is used as "
+"the example application throughout this task."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:12
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:14
+msgid "`Install Istio </docs/setup/>`_ in your cluster and deploy an application."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:18
+msgid "Querying Istio metrics"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:20
+msgid "Verify that the ``prometheus`` service is running in your cluster."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:22
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:47
+msgid "In Kubernetes environments, execute the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:27
+msgid "CLUSTER-IP EXTERNAL-IP PORT(S) AGE prometheus 10.59.241.54 9090/TCP 2m"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:30
+msgid "Send traffic to the mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:32
+msgid ""
+"For the Bookinfo sample, visit ``http://$GATEWAY_URL/productpage`` in "
+"your web browser or issue the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:38
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:42
+msgid ""
+"``$GATEWAY_URL`` is the value set in the `Bookinfo "
+"</docs/examples/bookinfo/>`_ example."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:45
+msgid "Open the Prometheus UI."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:53
+msgid "Click **Graph** to the right of Prometheus in the header."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:55
+msgid "Execute a Prometheus query."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:57
+msgid "In the “Expression” input box at the top of the web page, enter the text:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:60
+msgid "{{< text plain >}} istio_requests_total"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:62
+msgid "Then, click the **Execute** button."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:64
+msgid "The results will be similar to:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:71
+msgid ""
+"You can also see the query results graphically by selecting the Graph tab"
+" underneath the **Execute** button."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:79
+msgid "Other queries to try:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:81
+msgid "Total count of all requests to the ``productpage`` service:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:83
+msgid ""
+"{{< text plain >}} "
+"istio_requests_total{destination_service=“productpage.default.svc.cluster.local”}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:87
+msgid "Total count of all requests to ``v3`` of the ``reviews`` service:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:89
+msgid ""
+"{{< text plain >}} "
+"istio_requests_total{destination_service=“reviews.default.svc.cluster.local”,"
+" destination_version=“v3”}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:93
+msgid ""
+"This query returns the current total count of all requests to the v3 of "
+"the ``reviews`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:96
+msgid ""
+"Rate of requests over the past 5 minutes to all instances of the "
+"``productpage`` service:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:99
+msgid ""
+"{{< text plain >}} "
+"rate(istio_requests_total{destination_service=~\"productpage.\\*“, "
+"response_code=”200\"}[5m])"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:104
+msgid "About the Prometheus addon"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:106
+msgid ""
+"The Prometheus addon is a Prometheus server that comes preconfigured to "
+"scrape Istio endpoints to collect metrics. It provides a mechanism for "
+"persistent storage and querying of Istio metrics."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:110
+msgid ""
+"For more on querying Prometheus, please read their `querying docs "
+"<https://prometheus.io/docs/querying/basics/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:114
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:116
+msgid ""
+"Remove any ``istioctl`` processes that may still be running using "
+"control-C or:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/querying-metrics/index.rst:123
+msgid ""
+"If you are not planning to explore any follow-on tasks, refer to the "
+"`Bookinfo cleanup </docs/examples/bookinfo/#cleanup>`_ instructions to "
+"shutdown the application."
+msgstr ""
+

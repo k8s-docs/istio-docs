@@ -1,0 +1,482 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/getting-started/index.rst:2
+msgid "Getting Started"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:4
+msgid ""
+"This guide lets you quickly evaluate Istio. If you are already familiar "
+"with Istio or interested in installing other configuration profiles or "
+"advanced `deployment models </docs/ops/deployment/deployment-models/>`_, "
+"see `Customizable Install with istioctl </docs/setup/install/istioctl/>`_"
+" instead."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:9
+msgid ""
+"These steps require you to have a {{< gloss >}}cluster{{< /gloss >}} "
+"running a compatible version of Kubernetes. You can use any supported "
+"platform, for example `Minikube <https://kubernetes.io/docs/tasks/tools"
+"/install-minikube/>`_ or others specified by the `platform-specific setup"
+" instructions </docs/setup/platform-setup/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:16
+msgid "Follow these steps to get started with Istio:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:18
+msgid "`Download and install Istio <#download>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:19
+msgid "`Deploy the sample application <#bookinfo>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:20
+msgid "`Open the application to outside traffic <#ip>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:21
+msgid "`View the dashboard <#dashboard>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:26
+msgid "Download Istio"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:28
+#, python-format
+msgid ""
+"Go to the `Istio release <%7B%7B%3C%20istio_release_url%20%3E%7D%7D>`_ "
+"page to download the installation file for your OS, or download and "
+"extract the latest release automatically (Linux or macOS):"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:39
+msgid ""
+"The command above downloads the latest release (numerically) of Istio. To"
+" download a specific version, you can add a variable on the command line."
+" For example to download Istio 1.4.3, you would run ``curl -L "
+"https://istio.io/downloadIstio | ISTIO_VERSION=1.4.3 sh -``"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:46
+msgid ""
+"Move to the Istio package directory. For example, if the package is "
+"``istio-{{< istio_full_version >}}``:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:52
+msgid "The installation directory contains:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:54
+msgid "Installation YAML files for Kubernetes in ``install/kubernetes``"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:55
+msgid "Sample applications in ``samples/``"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:56
+msgid ""
+"The `istioctl </docs/reference/commands/istioctl>`_ client binary in the "
+"``bin/`` directory."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:58
+msgid "Add the ``istioctl`` client to your path (Linux or macOS):"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:67
+msgid "Install Istio"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:69
+msgid ""
+"For this installation, we use the ``demo`` `configuration profile "
+"</docs/setup/additional-setup/config-profiles/>`_. It’s selected to have "
+"a good set of defaults for testing, but there are other profiles for "
+"production or performance testing."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:76
+msgid ""
+"Detected that your cluster does not support third party JWT "
+"authentication. Falling back to less secure first party JWT"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:78
+msgid "Applying manifest for component Base… ✔"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:80
+msgid "Finished applying manifest for component Base."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:82
+msgid "Applying manifest for component Pilot… ✔"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:84
+msgid ""
+"Finished applying manifest for component Pilot. Waiting for resources to "
+"become ready…"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:86
+msgid "Applying manifest for component EgressGateways…"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:87
+msgid "Applying manifest for component IngressGateways…"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:88
+msgid "Applying manifest for component AddonComponents… ✔"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:90
+msgid "Finished applying manifest for component EgressGateways. ✔"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:92
+msgid "Finished applying manifest for component IngressGateways. ✔"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:94
+msgid "Finished applying manifest for component AddonComponents."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:96
+msgid "✔ Installation complete"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:98
+msgid ""
+"Add a namespace label to instruct Istio to automatically inject Envoy "
+"sidecar proxies when you deploy your application later:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:107
+msgid "Deploy the sample application"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:109
+msgid "Deploy the `Bookinfo sample application </docs/examples/bookinfo/>`_:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:124
+msgid ""
+"The application will start. As each pod becomes ready, the Istio sidecar "
+"will deploy along with it."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:135
+msgid "and"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:150
+msgid ""
+"Re-run the previous command and wait until all pods report READY 2 / 2 "
+"and STATUS Running before you go to the next step. This might take a few "
+"minutes depending on your platform."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:154
+msgid ""
+"Verify everything is working correctly up to this point. Run this command"
+" to see if the app is running inside the cluster and serving HTML pages "
+"by checking for the page title in the response:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:168
+msgid "Open the application to outside traffic"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:170
+msgid ""
+"The Bookinfo application is deployed but not accessible from the outside."
+" To make it accessible, you need to create an `Istio Ingress Gateway "
+"</docs/concepts/traffic-management/#gateways>`_, which maps a path to a "
+"route at the edge of your mesh."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:175
+msgid "Associate this application with the Istio gateway:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:185
+msgid "Confirm the gateway has been created:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:193
+msgid "Determining the ingress IP and ports"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:195
+msgid ""
+"Follow these instructions to set the ``INGRESS_HOST`` and "
+"``INGRESS_PORT`` variables for accessing the gateway. Use the tabs to "
+"choose the instructions for your chosen platform:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:199
+#: ../../source/docs/setup/getting-started/index.rst:288
+msgid "Set the ingress ports:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:209
+msgid "Ensure a port was successfully assigned to each environment variable:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:219
+msgid "Set the ingress IP:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:225
+msgid ""
+"Ensure an IP address was successfully assigned to the environment "
+"variable:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:231
+msgid ""
+"Run this command in a new terminal window to start a Minikube tunnel that"
+" sends traffic to your Istio Ingress Gateway:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:237
+msgid ""
+"Execute the following command to determine if your Kubernetes cluster is "
+"running in an environment that supports external load balancers:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:247
+msgid ""
+"If the ``EXTERNAL-IP`` value is set, your environment has an external "
+"load balancer that you can use for the ingress gateway. If the "
+"``EXTERNAL-IP`` value is ``<none>`` (or perpetually ``<pending>``), your "
+"environment does not provide an external load balancer for the ingress "
+"gateway. In this case, you can access the gateway using the service’s "
+"`node port <https://kubernetes.io/docs/concepts/services-"
+"networking/service/#nodeport>`_."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:254
+msgid "Choose the instructions corresponding to your environment:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:256
+msgid ""
+"**Follow these instructions if you have determined that your environment "
+"has an external load balancer.**"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:258
+msgid "Set the ingress IP and ports:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:273
+msgid ""
+"In certain environments, the load balancer may be exposed using a host "
+"name, instead of an IP address. In this case, the ingress gateway’s "
+"``EXTERNAL-IP`` value will not be an IP address, but rather a host name, "
+"and the above command will have failed to set the ``INGRESS_HOST`` "
+"environment variable. Use the following command to correct the "
+"``INGRESS_HOST`` value:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:286
+msgid ""
+"**Follow these instructions if your environment does not have an external"
+" load balancer and choose a node port instead.**"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:299
+msgid "*GKE:*"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:305
+msgid ""
+"You need to create firewall rules to allow the TCP traffic to the "
+"``ingressgateway`` service’s ports. Run the following commands to allow "
+"the traffic for the HTTP port, the secure port (HTTPS) or both:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:315
+msgid "*Docker For Desktop:*"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:321
+msgid "*Other environments (e.g., IBM Cloud Private, etc.):*"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:327
+msgid "Set ``GATEWAY_URL``:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:333
+msgid ""
+"Ensure an IP address and port were successfully assigned to the "
+"environment variable:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:342
+msgid "Verify external access"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:344
+msgid ""
+"Confirm that the Bookinfo application is accessible from outside. Copy "
+"the output of this command and paste into your browser:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:354
+msgid "View the dashboard"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:356
+msgid ""
+"Istio has several optional dashboards installed by the ``demo`` "
+"installation. The Kiali dashboard helps you understand the structure of "
+"your service mesh by displaying the topology and indicates the health of "
+"your mesh."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:361
+msgid ""
+"Access the Kiali dashboard. The default user name is ``admin`` and "
+"default password is ``admin``."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:367
+msgid ""
+"In the left navigation menu, select *Graph* and in the *Namespace* drop "
+"down, select *default*."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:369
+msgid ""
+"The Kiali dashboard shows an overview of your mesh with the relationships"
+" between the services in the ``Bookinfo`` sample application. It also "
+"provides filters to visualize the traffic flow."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:378
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:380
+msgid "Congratulations on completing the evaluation installation!"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:382
+msgid ""
+"These tasks are a great place for beginners to further evaluate Istio’s "
+"features using this ``demo`` installation:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:385
+msgid "`Request routing </docs/tasks/traffic-management/request-routing/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:386
+msgid "`Fault injection </docs/tasks/traffic-management/fault-injection/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:387
+msgid "`Traffic shifting </docs/tasks/traffic-management/traffic-shifting/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:388
+msgid "`Querying metrics </docs/tasks/observability/metrics/querying-metrics/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:389
+msgid ""
+"`Visualizing metrics </docs/tasks/observability/metrics/using-istio-"
+"dashboard/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:390
+msgid "`Rate limiting </docs/tasks/policy-enforcement/rate-limiting/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:391
+msgid ""
+"`Accessing external services </docs/tasks/traffic-management/egress"
+"/egress-control/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:392
+msgid "`Visualizing your mesh </docs/tasks/observability/kiali/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:394
+msgid "Before you customize Istio for production use, see these resources:"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:396
+msgid "`Deployment models </docs/ops/deployment/deployment-models/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:397
+msgid "`Deployment best practices </docs/ops/best-practices/deployment/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:398
+msgid "`Pod requirements </docs/ops/deployment/requirements/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:399
+msgid "`General installation instructions </docs/setup/>`_"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:402
+msgid "Join the Istio community"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:404
+msgid ""
+"We welcome you to ask questions and give us feedback by joining the "
+"`Istio community </about/community/join/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:407
+msgid "Uninstall"
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:409
+msgid ""
+"The uninstall deletes the RBAC permissions, the ``istio-system`` "
+"namespace, and all resources hierarchically under it. It is safe to "
+"ignore errors for non-existent resources because they may have been "
+"deleted hierarchically."
+msgstr ""
+
+#: ../../source/docs/setup/getting-started/index.rst:418
+msgid ""
+"To delete the ``Bookinfo`` sample application and its configuration, see "
+"`Bookinfo cleanup </docs/examples/bookinfo/#cleanup>`_."
+msgstr ""
+

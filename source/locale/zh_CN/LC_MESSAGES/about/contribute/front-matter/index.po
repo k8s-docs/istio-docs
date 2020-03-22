@@ -1,0 +1,329 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/contribute/front-matter/index.rst:2
+msgid "front-matter"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:4
+msgid ""
+"The front matter is YAML code in between triple-dashed lines at the top "
+"of each file and provides important management options for our content. "
+"For example, the front matter allows us to ensure that existing links "
+"continue to work for pages that are moved or deleted entirely. This page "
+"explains the features currently available for front matters in Istio."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:10
+msgid ""
+"The following example shows a front matter with all the required fields "
+"filled by placeholders:"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:18
+msgid "title:"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:24
+msgid "description: weight: keywords: [,,…] aliases: - —"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:26
+msgid ""
+"You can copy the example above and replace all the placeholders with the "
+"appropriate values for your page."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:30
+msgid "Required front matter fields"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:32
+msgid "The following table shows descriptions for all the **required** fields:"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:63
+msgid "Rename, move, or delete pages"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:65
+msgid ""
+"When you move pages or delete them completely, you must ensure that the "
+"existing links to those pages continue to work. The ``aliases`` field in "
+"the front matter helps you meet this requirement. Add the path to the "
+"page before the move or deletion to the ``aliases`` field. Hugo "
+"implements automatic redirects from the old URL to the new URL for our "
+"users."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:72
+msgid ""
+"On the *target page*, which is the page where you want users to land, add"
+" the ``<path>`` of the *original page* to the front-matter as follows:"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:76
+msgid "{{< text plain >}} aliases: -"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:78
+msgid ""
+"For example, you could find our FAQ page in the past under ``/help/faq``."
+" To help our users find the FAQ page, we moved the page one level up to "
+"``/faq/`` and changed the front matter as follows:"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:83
+#: ../../source/about/contribute/front-matter/index.rst:96
+msgid "{{< text plain >}}"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:85
+msgid ""
+"title: Frequently Asked Questions description: Questions Asked "
+"Frequently. weight: 12 aliases: - /help/faq —"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:88
+msgid ""
+"The change above allows any user to access the FAQ when they visit "
+"``https://istio.io/faq/`` or ``https://istio.io/help/faq/``."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:91
+msgid "Multiple redirects are supported, for example:"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:98
+msgid ""
+"title: Frequently Asked Questions description: Questions Asked "
+"Frequently. weight: 12 aliases: - /faq - /faq2 - /faq3 —"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:102
+msgid "Optional front matter fields"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:104
+msgid ""
+"However, Hugo supports many front matter fields and this page only covers"
+" those implemented on istio.io."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:107
+msgid "The following table shows the most commonly used **optional** fields:"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:110
+#: ../../source/about/contribute/front-matter/index.rst:141
+#: ../../source/about/contribute/front-matter/index.rst:169
+#: ../../source/about/contribute/front-matter/index.rst:198
+msgid "Field"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:110
+#: ../../source/about/contribute/front-matter/index.rst:141
+#: ../../source/about/contribute/front-matter/index.rst:169
+#: ../../source/about/contribute/front-matter/index.rst:198
+msgid "Description"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:112
+msgid "``linktitle``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:112
+msgid "A shorter version of the title that is used for links to the page."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:116
+msgid "``subtitle``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:116
+msgid "A subtitle displayed below the main title."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:119
+msgid "``icon``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:119
+msgid "A path to the image that appears next to the title."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:123
+msgid "``draft``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:123
+msgid "If true, the page is not shown in the site’s navigation."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:127
+msgid "``skip_byline``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:127
+msgid "If true, Hugo doesn’t show a byline under the main title."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:131
+msgid "``skip_seealso``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:131
+msgid "If true, Hugo doesn’t generate a “See also” section for the page."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:136
+msgid ""
+"Some front matter fields control the auto-generated table of contents "
+"(ToC). The following table shows the fields and explains how to use them:"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:143
+msgid "``skip_toc``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:143
+msgid "If true, Hugo doesn’t generate a ToC for the page."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:147
+msgid "``force_inline_toc``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:147
+msgid ""
+"If true, Hugo inserts an auto-generated ToC in the text instead of in the"
+" sidebar to the right."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:153
+msgid "``max_toc_level``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:153
+msgid "Sets the heading levels used in the ToC. Values can go from 2 to 6."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:157
+msgid "``remove_toc_prefix``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:157
+msgid "Hugo removes this string from the beginning of every entry in the ToC"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:162
+msgid ""
+"Some front matter fields only apply to so-called *bundle pages*. You can "
+"identify bundle pages because their file names begin with an underscore "
+"``_``, for example ``_index.md``. In Istio, we use bundle pages as our "
+"section landing pages. The following table shows the front matter fields "
+"pertinent to bundle pages."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:171
+msgid "``skip_list``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:171
+msgid "If true, Hugo doesn’t auto-generate the content tiles of a section page."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:176
+msgid "``simple_list``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:176
+msgid ""
+"If true, Hugo uses a simple list for the auto-generated content of a "
+"section page."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:181
+msgid "``list_below``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:181
+msgid ""
+"If true, Hugo inserts the auto-generated content below the manually-"
+"written content."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:187
+msgid "``list_by_publishdate``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:187
+msgid ""
+"If true, Hugo sorts the auto-generated content by publication date, "
+"instead of by weight."
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:194
+msgid ""
+"Similarly, some front matter fields apply specifically to blog posts. The"
+" following table shows those fields:"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:200
+msgid "``publishdate``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:200
+msgid "Date of the post’s original publication"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:203
+msgid "``last_update``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:203
+msgid "Date when the post last received a major revision"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:206
+msgid "``attribution``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:206
+msgid "Optional name of the post’s author"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:209
+msgid "``twitter``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:209
+msgid "Optional Twitter handle of the post’s author"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:212
+msgid "``target_release``"
+msgstr ""
+
+#: ../../source/about/contribute/front-matter/index.rst:212
+msgid ""
+"The release used on this blog. Normally, this value is the current major "
+"Istio release at the time the blog is authored or updated."
+msgstr ""
+

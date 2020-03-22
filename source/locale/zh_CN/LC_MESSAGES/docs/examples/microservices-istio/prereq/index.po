@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:2
+msgid "prereq"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:4
+msgid "{{< boilerplate work-in-progress >}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:6
+msgid ""
+"For this tutorial you need a Kubernetes cluster with a namespace for the "
+"tutorial’s modules and a local computer to run the commands. If you have "
+"your own cluster, ensure your cluster satisfies the prerequisites."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:10
+msgid ""
+"If you are in a workshop and the instructors provide a cluster, let them "
+"handle the cluster prerequisites, while you skip ahead to setup your "
+"local computer."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:15
+msgid "Kubernetes cluster"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:17
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:27
+msgid "Ensure the following conditions are met:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:19
+msgid ""
+"You have administrator privileges to the virtual machine running a "
+"Kubernetes cluster named ``tutorial-cluster`` and administrator "
+"privileges to the virtual machine it runs on."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:22
+msgid "You can create a namespace in the cluster for each participant."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:25
+msgid "Local computer"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:29
+msgid "You have write access to the local computer’s ``/etc/hosts`` file."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:30
+msgid ""
+"You have the ability and permission to download, install and run command "
+"line tools on the local computer."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/prereq/index.rst:32
+msgid "You have Internet connectivity for the duration of the tutorial."
+msgstr ""
+

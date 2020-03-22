@@ -1,0 +1,32 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/glossary/annotation.rst:2
+msgid "annotation"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/annotation.rst:4
+msgid ""
+"Annotation refers to a `Kubernetes annotation "
+"<https://kubernetes.io/docs/concepts/overview/working-with-"
+"objects/annotations/>`_ attached to a resource, for example a pod. For a "
+"list of valid Istio-specific annotations, see `Resource Annotations "
+"</docs/reference/config/annotations/>`_."
+msgstr ""
+

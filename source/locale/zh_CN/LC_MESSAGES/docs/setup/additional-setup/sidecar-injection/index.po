@@ -1,0 +1,511 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:2
+msgid "Installing the Sidecar"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:5
+msgid "Injection"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:7
+msgid ""
+"In order to take advantage of all of Istio’s features, pods in the mesh "
+"must be running an Istio sidecar proxy."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:10
+msgid ""
+"The following sections describe two ways of injecting the Istio sidecar "
+"into a pod: manually using the `istioctl "
+"</docs/reference/commands/istioctl>`_ command or by enabling automatic "
+"Istio sidecar injection in the pod’s namespace."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:15
+msgid ""
+"Manual injection directly modifies configuration, like deployments, and "
+"injects the proxy configuration into it."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:18
+msgid ""
+"When enabled in a pod’s namespace, automatic injection injects the proxy "
+"configuration at pod creation time using an admission controller."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:21
+msgid ""
+"Injection occurs by applying a template defined in the ``istio-sidecar-"
+"injector`` ConfigMap."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:25
+msgid "Manual sidecar injection"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:27
+msgid ""
+"To manually inject a deployment, use `istioctl kube-inject "
+"</docs/reference/commands/istioctl/#istioctl-kube-inject>`_:"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:33
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:56
+msgid "\\| kubectl apply -f -"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:35
+msgid ""
+"By default, this will use the in-cluster configuration. Alternatively, "
+"injection can be done using local copies of the configuration."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:41
+msgid ""
+"istio-sidecar-injector -o=jsonpath=‘{.data.config}’ > inject-config.yaml "
+"$ kubectl -n istio-system get configmap istio-sidecar-injector "
+"-o=jsonpath=‘{.data.values}’ > inject-values.yaml $ kubectl -n istio-"
+"system get configmap istio -o=jsonpath=‘{.data.mesh}’ > mesh-config.yaml"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:47
+msgid "Run ``kube-inject`` over the input file and deploy."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:49
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:51
+msgid "$ istioctl kube-inject"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:52
+msgid "–injectConfigFile inject-config.yaml"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:53
+msgid "–meshConfigFile mesh-config.yaml"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:54
+msgid "–valuesFile inject-values.yaml"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:55
+msgid "–filename @samples/sleep/sleep.yaml@"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:58
+msgid ""
+"Verify that the sidecar has been injected into the sleep pod with ``2/2``"
+" under the READY column."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:64
+msgid "RESTARTS AGE sleep-64c6f57bc8-f5n4x 2/2 Running 0 24s"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:67
+msgid "Automatic sidecar injection"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:69
+msgid ""
+"Sidecars can be automatically added to applicable Kubernetes pods using a"
+" `mutating webhook admission controller "
+"<https://kubernetes.io/docs/reference/access-authn-authz/admission-"
+"controllers/>`_ provided by Istio."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:76
+msgid "While admission controllers are enabled by default, some"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:77
+msgid ""
+"Kubernetes distributions may disable them. If this is the case, follow "
+"the instructions to `turn on admission controllers "
+"<https://kubernetes.io/docs/reference/access-authn-authz/admission-"
+"controllers/#how-do-i-turn-on-an-admission-controller>`_."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:82
+msgid ""
+"When you set the ``istio-injection=enabled`` label on a namespace and the"
+" injection webhook is enabled, any new pods that are created in that "
+"namespace will automatically have a sidecar added to them."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:86
+msgid ""
+"Note that unlike manual injection, automatic injection occurs at the pod-"
+"level. You won’t see any change to the deployment itself. Instead you’ll "
+"want to check individual pods (via ``kubectl describe``) to see the "
+"injected proxy."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:92
+msgid "Disabling or updating the webhook"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:94
+msgid ""
+"The sidecar injecting webhook is enabled by default. If you wish to "
+"disable the webhook, you can use `Helm </docs/setup/install/helm/>`_ to "
+"set option ``sidecarInjectorWebhook.enabled`` to ``false``."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:98
+msgid ""
+"There are also a `variety of other options </docs/reference/config"
+"/installation-options/#sidecarinjectorwebhook-options>`_ that can be "
+"configured."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:103
+msgid "Deploying an app"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:105
+msgid "Deploy sleep app. Verify both deployment and pod have a single container."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:111
+msgid ""
+"kubectl get deployment -o wide NAME DESIRED CURRENT UP-TO-DATE AVAILABLE "
+"AGE CONTAINERS IMAGES SELECTOR sleep 1 1 1 1 12m sleep tutum/curl "
+"app=sleep"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:118
+msgid "sleep-776b7bcdcd-7hpnk 1/1 Running 0 4"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:120
+msgid "Label the ``default`` namespace with ``istio-injection=enabled``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:125
+msgid ""
+"istio-injection=enabled $ kubectl get namespace -L istio-injection NAME "
+"STATUS AGE ISTIO-INJECTION default Active 1h enabled istio-system Active "
+"1h kube-public Active 1h kube-system Active 1h"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:129
+msgid ""
+"Injection occurs at pod creation time. Kill the running pod and verify a "
+"new pod is created with the injected sidecar. The original pod has 1/1 "
+"READY containers and the pod with injected sidecar has 2/2 READY "
+"containers."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:137
+msgid ""
+"app=sleep NAME READY STATUS RESTARTS AGE sleep-776b7bcdcd-7hpnk 1/1 "
+"Terminating 0 1m sleep-776b7bcdcd-bhn9m 2/2 Running 0 7s"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:140
+msgid ""
+"View detailed state of the injected pod. You should see the injected "
+"``istio-proxy`` container and corresponding volumes. Be sure to "
+"substitute the correct name for the ``Running`` pod below."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:148
+msgid ""
+"Disable injection for the ``default`` namespace and verify new pods are "
+"created without the sidecar."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:154
+msgid ""
+"kubectl delete pod -l app=sleep $ kubectl get pod NAME READY STATUS "
+"RESTARTS AGE sleep-776b7bcdcd-bhn9m 2/2 Terminating 0 2m sleep-"
+"776b7bcdcd-gmvnr 1/1 Running 0 2s"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:159
+msgid "Understanding what happened"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:161
+msgid ""
+"When Kubernetes invokes the webhook, the "
+"`admissionregistration.k8s.io/v1beta1#MutatingWebhookConfiguration "
+"<https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.10"
+"/#mutatingwebhookconfiguration-v1beta1-admissionregistration-k8s-io>`_ "
+"configuration is applied. The default configuration injects the sidecar "
+"into pods in any namespace with the ``istio-injection=enabled label``. "
+"The ``istio-sidecar-injector`` configuration map specifies the "
+"configuration for the injected sidecar. To change how namespaces are "
+"selected for injection, you can edit the ``MutatingWebhookConfiguration``"
+" with the following command:"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:173
+msgid "istio-sidecar-injector"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:177
+msgid "You should restart the sidecar injector pod(s) after"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:178
+msgid "modifying the ``MutatingWebhookConfiguration``."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:180
+msgid ""
+"For example, you can modify the ``MutatingWebhookConfiguration`` to "
+"always inject the sidecar into every namespace, unless a label is set. "
+"Editing this configuration is an advanced operation. Refer to the "
+"Kubernetes documentation for the `MutatingWebhookConfiguration API "
+"<https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.10"
+"/#mutatingwebhookconfiguration-v1beta1-admissionregistration-k8s-io>`_ "
+"for more information."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:188
+msgid "**policy**"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:190
+msgid ""
+"``disabled`` - The sidecar injector will not inject the sidecar into pods"
+" by default. Add the ``sidecar.istio.io/inject`` annotation with value "
+"``true`` to the pod template spec to override the default and enable "
+"injection."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:195
+msgid ""
+"``enabled`` - The sidecar injector will inject the sidecar into pods by "
+"default. Add the ``sidecar.istio.io/inject`` annotation with value "
+"``false`` to the pod template spec to override the default and disable "
+"injection."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:200
+msgid ""
+"The following example uses the ``sidecar.istio.io/inject`` annotation to "
+"disable sidecar injection."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:206
+msgid ""
+"ignored spec: template: metadata: annotations: sidecar.istio.io/inject: "
+"“false” spec: containers: - name: ignored image: tutum/curl command: "
+"[“/bin/sleep”,“infinity”]"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:211
+msgid "**template**"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:213
+msgid ""
+"The sidecar injection template uses https://golang.org/pkg/text/template "
+"which, when parsed and executed, is decoded to the following struct "
+"containing the list of containers and volumes to inject into the pod."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:217
+msgid ""
+"{{< text go >}} type SidecarInjectionSpec struct { RewriteAppHTTPProbe "
+"bool ``yaml:\"rewriteAppHTTPProbe\"`` InitContainers []corev1.Container "
+"``yaml:\"initContainers\"`` Containers []corev1.Container "
+"``yaml:\"containers\"`` Volumes []corev1.Volume ``yaml:\"volumes\"`` "
+"DNSConfig \\*corev1.PodDNSConfig ``yaml:\"dnsConfig\"`` ImagePullSecrets "
+"[]corev1.LocalObjectReference ``yaml:\"imagePullSecrets\"`` } {{< /text "
+">}}"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:225
+msgid "The template is applied to the following data structure at runtime."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:227
+msgid ""
+"{{< text go >}} type SidecarTemplateData struct { DeploymentMeta "
+"*metav1.ObjectMeta ObjectMeta*\\ metav1.ObjectMeta Spec *corev1.PodSpec "
+"ProxyConfig*\\ meshconfig.ProxyConfig // Defined by "
+"https://istio.io/docs/reference/config/service-mesh.html#proxyconfig "
+"MeshConfig \\*meshconfig.MeshConfig // Defined by "
+"https://istio.io/docs/reference/config/service-mesh.html#meshconfig }"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:235
+msgid ""
+"``ObjectMeta`` and ``Spec`` are from the pod. ``ProxyConfig`` and "
+"``MeshConfig`` are from the ``istio`` ConfigMap in the ``istio-system`` "
+"namespace. Templates can conditionally define injected containers and "
+"volumes with this data."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:240
+msgid "For example, the following template"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:242
+msgid ""
+"{{< text plain >}} containers: - name: istio-proxy image: "
+"istio.io/proxy:0.5.0 args: - proxy - sidecar - –configPath - {{ "
+".ProxyConfig.ConfigPath }} - –binaryPath - {{ .ProxyConfig.BinaryPath }} "
+"- –serviceCluster {{ if ne \"\" (index .ObjectMeta.Labels “app”) -}} - {{"
+" index .ObjectMeta.Labels “app” }} {{ else -}} - “istio-proxy” {{ end -}}"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:249
+msgid "expands to"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:254
+msgid ""
+"istio.io/proxy:0.5.0 args: - proxy - sidecar - –configPath - "
+"/etc/istio/proxy - –binaryPath - /usr/local/bin/envoy - –serviceCluster -"
+" sleep"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:258
+#, python-format
+msgid ""
+"when applied over a pod defined by the pod template spec in "
+"`samples/sleep/sleep.yaml "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep/sleep.yaml>`_"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:262
+msgid "More control: adding exceptions"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:264
+msgid ""
+"There are cases where users do not have control of the pod creation, for "
+"instance, when they are created by someone else. Therefore they are "
+"unable to add the annotation ``sidecar.istio.io/inject`` in the pod, to "
+"explicitly instruct Istio whether to install the sidecar or not."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:269
+msgid ""
+"Think of auxiliary pods that might be created as an intermediate step "
+"while deploying an application. `OpenShift Builds "
+"<https://docs.okd.io/latest/dev_guide/builds/index.html>`_, for example, "
+"creates such pods for building the source code of an application. Once "
+"the binary artifact is built, the application pod is ready to run and the"
+" auxiliary pods are discarded. Those intermediate pods should not get an "
+"Istio sidecar, even if the policy is set to ``enabled`` and the namespace"
+" is properly labeled to get automatic injection."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:279
+msgid ""
+"For such cases you can instruct Istio to **not** inject the sidecar on "
+"those pods, based on labels that are present in those pods. You can do "
+"this by editing the ``istio-sidecar-injector`` ConfigMap and adding the "
+"entry ``neverInjectSelector``. It is an array of Kubernetes label "
+"selectors. They are ``OR'd``, stopping at the first match. See an "
+"example:"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:289
+msgid ""
+"istio-sidecar-injector data: config: \\|- policy: enabled "
+"neverInjectSelector: - matchExpressions: - {key: openshift.io/build.name,"
+" operator: Exists} - matchExpressions: - {key: openshift.io/deployer-pod-"
+"for.name, operator: Exists} template: \\|- initContainers: …"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:295
+msgid ""
+"The above statement means: Never inject on pods that have the label "
+"``openshift.io/build.name`` **or** ``openshift.io/deployer-pod-for.name``"
+" – the values of the labels don’t matter, we are just checking if the "
+"keys exist. With this rule added, the OpenShift Builds use case "
+"illustrated above is covered, meaning auxiliary pods will not have "
+"sidecars injected (because source-to-image auxiliary pods **do** contain "
+"those labels)."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:303
+msgid ""
+"For completeness, you can also use a field called "
+"``alwaysInjectSelector``, with similar syntax, which will always inject "
+"the sidecar on pods that match that label selector, regardless of the "
+"global policy."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:308
+msgid ""
+"The label selector approach gives a lot of flexibility on how to express "
+"those exceptions. Take a look at `these docs "
+"<https://kubernetes.io/docs/concepts/overview/working-with-objects/labels"
+"/#resources-that-support-set-based-requirements>`_ to see what you can do"
+" with them!"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:315
+msgid "It’s worth noting that annotations in the pods have higher"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:316
+msgid ""
+"precedence than the label selectors. If a pod is annotated with "
+"``sidecar.istio.io/inject: \"true/false\"`` then it will be honored. So, "
+"the order of evaluation is:"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:320
+msgid ""
+"``Pod Annotations → NeverInjectSelector → AlwaysInjectSelector → Default "
+"Policy``"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:324
+msgid "Uninstalling the automatic sidecar injector"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:329
+msgid ""
+"istio-sidecar-injector $ kubectl -n istio-system delete service istio-"
+"sidecar-injector $ kubectl -n istio-system delete deployment istio-"
+"sidecar-injector $ kubectl -n istio-system delete serviceaccount istio-"
+"sidecar-injector-service-account $ kubectl delete clusterrole istio-"
+"sidecar-injector-istio-system $ kubectl delete clusterrolebinding istio-"
+"sidecar-injector-admin-role-binding-istio-system"
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:336
+msgid ""
+"The above command will not remove the injected sidecars from Pods. A "
+"rolling update or simply deleting the pods and forcing the deployment to "
+"create them is required."
+msgstr ""
+
+#: ../../source/docs/setup/additional-setup/sidecar-injection/index.rst:340
+msgid ""
+"Optionally, it may also be desirable to clean-up other resources that "
+"were modified in this task."
+msgstr ""
+

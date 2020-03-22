@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:2
+msgid "announcing-0.3"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:4
+msgid ""
+"We’re pleased to announce the availability of Istio 0.3. Please see below"
+" for what’s changed."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:10
+msgid "General"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:12
+msgid ""
+"Starting with 0.3, Istio is switching to a monthly release cadence. We "
+"hope this will help accelerate our ability to deliver timely "
+"improvements. See `here </about/feature-stages/>`_ for information on the"
+" state of individual features for this release."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:17
+msgid ""
+"This is a fairly modest release in terms of new features as the team put "
+"emphasis on internal infrastructure work to improve our velocity. Many "
+"bugs and smaller issues have been addressed and overall performance has "
+"been improved in a number of areas."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:23
+msgid "Security"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:25
+msgid ""
+"**Secure Control Plane Communication**. Mixer and Pilot are now secured "
+"with mutual TLS, just like all services in a mesh."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:28
+msgid ""
+"**Selective Authentication**. You can now control authentication on a "
+"per-service basis via service annotations, which helps with incremental "
+"migration to Istio."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:33
+msgid "Networking"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:35
+msgid ""
+"**Egress rules for TCP**. You can now specify egress rules that affect "
+"TCP-level traffic."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:39
+msgid "Policy enforcement and telemetry"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:41
+msgid ""
+"**Improved Caching**. Caching between Envoy and Mixer has gotten "
+"substantially better, resulting in a significant drop in average latency "
+"for authorization checks."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:45
+msgid ""
+"**Improved list Adapter**. The Mixer ‘list’ adapter now supports regular "
+"expression matching. See the adapter’s `configuration options "
+"</docs/reference/config/policy-and-telemetry/adapters/list/>`_ for "
+"details."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:50
+msgid ""
+"**Configuration Validation**. Mixer does more extensive validation of "
+"configuration state in order to catch problems earlier. We expect to "
+"invest more in this area in coming releases."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.3/index.rst:54
+msgid ""
+"If you’re into the nitty-gritty details, you can see our more detailed "
+"low-level release notes `here "
+"<https://github.com/istio/istio/wiki/v0.3.0>`_."
+msgstr ""
+

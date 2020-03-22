@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/boilerplates/kubectl-multicluster-contexts.rst:2
+msgid "kubectl-multicluster-contexts"
+msgstr ""
+
+#: ../../source/boilerplates/kubectl-multicluster-contexts.rst:4
+msgid ""
+"You can use the ``kubectl`` command to access both the ``cluster1`` and "
+"``cluster2`` clusters with the ``--context`` flag, for example ``kubectl "
+"get pods --context cluster1``. Use the following command to list your "
+"contexts:"
+msgstr ""
+
+#: ../../source/boilerplates/kubectl-multicluster-contexts.rst:12
+msgid "AUTHINFO NAMESPACE"
+msgstr ""
+
+#: ../../source/boilerplates/kubectl-multicluster-contexts.rst:21
+msgid "Store the context names of your clusters in environment variables:"
+msgstr ""
+
+#: ../../source/boilerplates/kubectl-multicluster-contexts.rst:26
+msgid ""
+"jsonpath=‘{.contexts[0].name}’) $ export CTX_CLUSTER2=$(kubectl config "
+"view -o jsonpath=‘{.contexts[1].name}’) $ echo CTX_CLUSTER1 = "
+"${CTX_CLUSTER1}, CTX_CLUSTER2 = ${CTX_CLUSTER2} CTX_CLUSTER1 = cluster1, "
+"CTX_CLUSTER2 = cluster2"
+msgstr ""
+
+#: ../../source/boilerplates/kubectl-multicluster-contexts.rst:33
+msgid ""
+"If you have more than two clusters in the context list and you want to "
+"configure your mesh using clusters other than the first two, you will "
+"need to manually set the environment variables to the appropriate context"
+" names."
+msgstr ""
+

@@ -1,0 +1,932 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:2
+msgid "helm-changes"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:4
+msgid ""
+"The tables below show changes made to the installation options used to "
+"customize Istio install using Helm between Istio 1.1 and Istio 1.2. The "
+"tables are grouped in to three different categories:"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:8
+msgid ""
+"The installation options already in the previous release but whose values"
+" have been modified in the new release."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:10
+msgid "The new installation options added in the new release."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:11
+msgid "The installation options removed from the new release."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:22
+msgid "Modified configuration options"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:25
+msgid "Modified ``kiali`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:28
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:38
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:47
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:80
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:97
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:109
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:119
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:155
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:198
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:210
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:222
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:233
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:244
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:272
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:285
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:302
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:313
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:325
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:336
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:350
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:367
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:376
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:385
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:394
+msgid "Key"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:28
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:38
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:47
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:80
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:97
+msgid "Old Default Value"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:28
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:38
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:47
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:80
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:97
+msgid "New Default Value"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:28
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:38
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:47
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:80
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:97
+msgid "Old Description"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:28
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:38
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:47
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:80
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:97
+msgid "New Description"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:30
+msgid "``kiali.hub``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:30
+msgid "``docker.io/kiali``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:30
+msgid "``quay.io/kiali``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:31
+msgid "``kiali.tag``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:31
+msgid "``v0.14``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:31
+msgid "``v0.20``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:35
+msgid "Modified ``prometheus`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:40
+msgid "``prometheus.tag``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:40
+msgid "``v2.3.1``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:40
+msgid "``v2.8.0``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:44
+msgid "Modified ``global`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:50
+msgid "``global.ta g``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:50
+msgid "``release-1 .1-latest-d aily``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:50
+msgid "``1.2.0-rc. 3``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:50
+msgid "``Default t ag for Isti o images.``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:54
+msgid "``global.pr oxy.resourc es.limits.m emory``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:54
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:247
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:251
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:259
+msgid "``128Mi``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:54
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:249
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:253
+msgid "``1024Mi``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:59
+msgid "``global.pr oxy.dnsRefr eshRate``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:59
+msgid "``5s``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:59
+msgid "``300s``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:59
+msgid "``Configure"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:60
+msgid "the DNS re"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:61
+msgid ""
+"fresh rate for Envoy c luster of t ype STRICT_ DNS 5 secon ds is the d "
+"efault refr esh rate us ed by Envoy ``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:61
+msgid "fresh rate for Envoy c luster of t ype STRICT_ DNS This mu st be given"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:67
+msgid "it terms o"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:68
+msgid "f seconds. For example , 300s is v alid but 5m"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:72
+msgid "is invalid"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:73
+msgid ".``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:77
+msgid "Modified ``mixer`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:83
+msgid "``mixer.ada pters.useAd apterCRDs``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:83
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:387
+msgid "``true``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:83
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:215
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:293
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:316
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:396
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:411
+msgid "``false``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:83
+msgid ""
+"``Setting t his to fals e sets the useAdapterC RDs mixer s tartup argu "
+"ment to fal se``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:94
+msgid "Modified ``grafana`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:99
+msgid "``grafana.image.tag``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:99
+msgid "``5.4.0``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:99
+msgid "``6.1.6``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:103
+msgid "New configuration options"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:106
+msgid "New ``tracing`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:109
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:119
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:155
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:198
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:210
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:222
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:233
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:244
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:272
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:285
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:302
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:313
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:325
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:336
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:350
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:367
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:376
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:385
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:394
+msgid "Default Value"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:109
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:119
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:155
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:198
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:210
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:222
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:233
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:244
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:272
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:285
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:302
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:313
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:325
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:336
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:350
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:367
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:376
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:385
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:394
+msgid "Description"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:111
+msgid "``tracing.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:111
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:112
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:121
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:125
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:129
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:146
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:185
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:201
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:202
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:203
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:212
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:213
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:214
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:224
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:225
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:226
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:235
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:236
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:237
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:255
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:256
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:257
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:262
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:263
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:264
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:265
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:276
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:277
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:278
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:287
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:290
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:304
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:305
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:306
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:315
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:317
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:318
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:327
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:328
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:329
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:338
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:339
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:340
+msgid "``[]``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:112
+msgid "``tracing.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:116
+msgid "New ``sidecarInjectorWebhook`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:121
+msgid "``sidecarInjectorWebh ook.podAntiAffinityLa belSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:125
+msgid "``sidecarInjectorWebh ook.podAntiAffinityTe rmLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:129
+msgid "``sidecarInjectorWebh ook.neverInjectSelect or``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:129
+msgid ""
+"``You can use the fie ld called alwaysInjec tSelector and neverIn "
+"jectSelector which wi ll always inject the sidecar or always ski p the "
+"injection on po ds that match that la bel selector, regardl ess of the "
+"global pol icy. See https://isti o.io/docs/setup/kuber netes/additional-"
+"setu p/sidecar-injection/m ore-control-adding-ex ceptions``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:146
+msgid "``sidecarInjectorWebh ook.alwaysInjectSelec tor``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:152
+msgid "New ``global`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:157
+msgid "``global.logging.leve l``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:157
+msgid "``\"default:info\"``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:160
+msgid "``global.proxy.logLev el``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:160
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:169
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:179
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:254
+msgid "``\"\"``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:160
+msgid "``Log level for proxy , applies to gateways"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:162
+msgid "and sidecars.  If le"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:163
+msgid ""
+"ft empty, \"warning\" i s used. Expected valu es are: trace\\|debug\\ "
+"|info\\|warning\\|error \\|critical\\|off``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:169
+msgid "``global.proxy.compon entLogLevel``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:169
+msgid ""
+"``Per Component log l evel for proxy, appli es to gateways and si decars."
+" If a componen t level is not set, t hen the global \"logLe vel\" will be"
+" used. If"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:176
+msgid "left empty, \"misc:er"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:177
+msgid "ror\" is used.``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:179
+msgid "``global.proxy.exclud eOutboundPorts``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:182
+msgid "``global.tracer.datad og.address``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:182
+msgid "``\"$(HOST_IP):8126\"``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:185
+msgid "``global.imagePullSec rets``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:185
+msgid "``Lists the secrets y ou need to use to pul l Istio images from a"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:188
+msgid "secure registry.``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:190
+msgid "``global.localityLbSe tting``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:190
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:200
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:275
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:378
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:408
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:423
+msgid "``{}``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:195
+msgid "New ``galley`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:200
+msgid "``galley.nodeSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:201
+msgid "``galley.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:202
+msgid "``galley.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:203
+msgid "``galley.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:207
+msgid "New ``mixer`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:212
+msgid "``mixer.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:213
+msgid "``mixer.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:214
+msgid "``mixer.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:215
+msgid "``mixer.templates.useTemplateCRDs``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:219
+msgid "New ``grafana`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:224
+msgid "``grafana.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:225
+msgid "``grafana.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:226
+msgid "``grafana.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:230
+msgid "New ``prometheus`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:235
+msgid "``prometheus.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:236
+msgid "``prometheus.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:237
+msgid "``prometheus.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:241
+msgid "New ``gateways`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:246
+msgid "``gateways.istio-ingressgateway.sds.resources.requests.cpu``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:246
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:250
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:258
+msgid "``100m``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:247
+msgid "``gateways.istio-ingressgateway.sds.resources.requests.memory``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:248
+msgid "``gateways.istio-ingressgateway.sds.resources.limits.cpu``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:248
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:252
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:260
+msgid "``2000m``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:249
+msgid "``gateways.istio-ingressgateway.sds.resources.limits.memory``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:250
+msgid "``gateways.istio-ingressgateway.resources.requests.cpu``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:251
+msgid "``gateways.istio-ingressgateway.resources.requests.memory``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:252
+msgid "``gateways.istio-ingressgateway.resources.limits.cpu``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:253
+msgid "``gateways.istio-ingressgateway.resources.limits.memory``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:254
+msgid "``gateways.istio-ingressgateway.applicationPorts``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:255
+msgid "``gateways.istio-ingressgateway.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:256
+msgid "``gateways.istio-ingressgateway.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:257
+msgid "``gateways.istio-ingressgateway.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:258
+msgid "``gateways.istio-egressgateway.resources.requests.cpu``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:259
+msgid "``gateways.istio-egressgateway.resources.requests.memory``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:260
+msgid "``gateways.istio-egressgateway.resources.limits.cpu``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:261
+msgid "``gateways.istio-egressgateway.resources.limits.memory``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:261
+msgid "``256Mi``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:262
+msgid "``gateways.istio-egressgateway.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:263
+msgid "``gateways.istio-egressgateway.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:264
+msgid "``gateways.istio-egressgateway.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:265
+msgid "``gateways.istio-ilbgateway.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:269
+msgid "New ``certmanager`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:274
+msgid "``certmanager.replicaCount``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:274
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:369
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:402
+msgid "``1``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:275
+msgid "``certmanager.nodeSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:276
+msgid "``certmanager.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:277
+msgid "``certmanager.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:278
+msgid "``certmanager.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:282
+msgid "New ``kiali`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:287
+msgid "``kiali.podAntiAffini tyLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:290
+msgid "``kiali.podAntiAffini tyTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:293
+msgid "``kiali.dashboard.vie wOnlyMode``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:293
+msgid "``Bind the service ac count to a role with only read access``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:299
+msgid "New ``istiocoredns`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:304
+msgid "``istiocoredns.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:305
+msgid "``istiocoredns.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:306
+msgid "``istiocoredns.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:310
+msgid "New ``security`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:315
+msgid "``security.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:316
+msgid "``security.citadelHealthCheck``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:317
+msgid "``security.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:318
+msgid "``security.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:322
+msgid "New ``nodeagent`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:327
+msgid "``nodeagent.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:328
+msgid "``nodeagent.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:329
+msgid "``nodeagent.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:333
+msgid "New ``pilot`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:338
+msgid "``pilot.tolerations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:339
+msgid "``pilot.podAntiAffinityLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:340
+msgid "``pilot.podAntiAffinityTermLabelSelector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:344
+msgid "Removed configuration options"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:347
+msgid "Removed ``kiali`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:352
+msgid "``kiali.dashboard.use rnameKey``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:352
+msgid "``username``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:352
+msgid ""
+"``This is the key nam e within the secret w hose value is the act ual "
+"username.``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:357
+msgid "``kiali.dashboard.pas sphraseKey``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:357
+msgid "``passphrase``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:357
+msgid ""
+"``This is the key nam e within the secret w hose value is the act ual "
+"passphrase.``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:364
+msgid "Removed ``security`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:369
+msgid "``security.replicaCount``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:373
+msgid "Removed ``gateways`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:378
+msgid "``gateways.istio-ingressgateway.resources``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:382
+msgid "Removed ``mixer`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:387
+msgid "``mixer.enabled``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:391
+msgid "Removed ``servicegraph`` key/value pairs"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:396
+msgid "``servicegraph.ingres s.enabled``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:399
+msgid "``servicegraph.servic e.name``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:399
+msgid "``http``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:402
+msgid "``servicegraph.replic aCount``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:405
+msgid "``servicegraph.servic e.type``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:405
+msgid "``ClusterIP``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:408
+msgid "``servicegraph.servic e.annotations``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:411
+msgid "``servicegraph.enable d``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:414
+msgid "``servicegraph.image` `"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:414
+msgid "``servicegraph``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:417
+msgid "``servicegraph.servic e.externalPort``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:417
+msgid "``8088``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:420
+msgid "``servicegraph.ingres s.hosts``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:420
+msgid "``servicegraph.local` `"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:420
+msgid "``Used to create an I ngress record.``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:423
+msgid "``servicegraph.nodeSe lector``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:426
+msgid "``servicegraph.promet heusAddr``"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2/helm-changes/index.rst:426
+msgid "``http://prometheus:9 090``"
+msgstr ""
+

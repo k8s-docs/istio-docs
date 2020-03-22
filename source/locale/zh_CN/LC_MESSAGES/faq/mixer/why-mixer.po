@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/mixer/why-mixer.rst:2
+msgid "why-mixer"
+msgstr ""
+
+#: ../../source/faq/mixer/why-mixer.rst:4
+msgid ""
+"Mixer provides a rich intermediation layer between the Istio components "
+"as well as Istio-based services, and the infrastructure backends used to "
+"perform access control checks and telemetry capture. This layer enables "
+"operators to have rich insights and control over service behavior without"
+" requiring changes to service binaries."
+msgstr ""
+
+#: ../../source/faq/mixer/why-mixer.rst:10
+msgid ""
+"Mixer is designed as a stand-alone component, distinct from Envoy. This "
+"has numerous benefits:"
+msgstr ""
+
+#: ../../source/faq/mixer/why-mixer.rst:13
+msgid ""
+"*Scalability*. The work that Mixer and Envoy do is very different in "
+"nature, leading to different scalability requirements. Keeping the "
+"components separate enables independent component-appropriate scaling."
+msgstr ""
+
+#: ../../source/faq/mixer/why-mixer.rst:18
+msgid ""
+"*Resource Usage*. Istio depends on being able to deploy many instances of"
+" its proxy, making it important to minimize the cost of each individual "
+"instance. Moving Mixer’s complex logic into a distinct component makes it"
+" possible for Envoy to remain svelte and agile."
+msgstr ""
+
+#: ../../source/faq/mixer/why-mixer.rst:24
+msgid ""
+"*Reliability*. Mixer and its open-ended extensibility model represents "
+"the most complex parts of the data path processing pipeline. By hosting "
+"this functionality in Mixer rather than Envoy, it creates distinct "
+"failure domains which enables Envoy to continue operating even if Mixer "
+"fails, preventing outages."
+msgstr ""
+
+#: ../../source/faq/mixer/why-mixer.rst:30
+msgid ""
+"*Isolation*. Mixer provides a level of insulation between Istio and the "
+"infrastructure backends. Each Envoy instance can be configured to have a "
+"very narrow scope of interaction, limiting the impact of potential "
+"attacks."
+msgstr ""
+
+#: ../../source/faq/mixer/why-mixer.rst:35
+msgid ""
+"*Extensibility*. It was imperative to design a simple extensibility model"
+" to allow Istio to interoperate with as widest breath of backends as "
+"possible. Due to its design and language choice, Mixer is inherently "
+"easier to extend than Envoy is. The separation of concerns also makes it "
+"possible to use Istio policy and telemetry processing with different "
+"proxies, just as a mix of Envoy and NGINX."
+msgstr ""
+
+#: ../../source/faq/mixer/why-mixer.rst:42
+msgid ""
+"Envoy implements sophisticated caching, batching, and prefetching, to "
+"largely mitigate the latency impact of needing to interact with Mixer on "
+"the request path."
+msgstr ""
+

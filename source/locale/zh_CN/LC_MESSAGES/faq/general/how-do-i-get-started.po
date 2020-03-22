@@ -1,0 +1,37 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/general/how-do-i-get-started.rst:2
+msgid "how-do-i-get-started"
+msgstr ""
+
+#: ../../source/faq/general/how-do-i-get-started.rst:4
+msgid ""
+"We recommend starting with the `Guides </docs/examples/>`_, which walks "
+"through different core Istio concepts in a tutorial style. The guides "
+"show case intelligent routing, policy enforcement, security, telemetry, "
+"etc."
+msgstr ""
+
+#: ../../source/faq/general/how-do-i-get-started.rst:9
+msgid ""
+"To start using Istio on your existing Kubernetes or Consul deployment, "
+"please refer to our `Installation instructions </docs/setup/>`_."
+msgstr ""
+

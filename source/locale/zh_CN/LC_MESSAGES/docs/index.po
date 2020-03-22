@@ -1,0 +1,43 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/index.rst:2
+msgid "Docs"
+msgstr ""
+
+#: ../../source/docs/index.rst:4
+msgid ""
+"In addition to the above documentation links, please consider the "
+"following resources:"
+msgstr ""
+
+#: ../../source/docs/index.rst:7
+msgid "`Frequently Asked Questions </faq>`_"
+msgstr ""
+
+#: ../../source/docs/index.rst:8
+msgid "`Glossary </docs/reference/glossary>`_"
+msgstr ""
+
+#: ../../source/docs/index.rst:9
+msgid ""
+"`Documentation Archive <https://archive.istio.io/>`_, which contains "
+"snapshots of the documentation for prior releases."
+msgstr ""
+

@@ -1,0 +1,374 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:2
+msgid "Egress TLS Origination"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:4
+msgid ""
+"The `Control Egress Traffic </docs/tasks/traffic-management/egress/>`_ "
+"task demonstrates how external, i.e., outside of the service mesh, HTTP "
+"and HTTPS services can be accessed from applications inside the mesh. As "
+"described in that task, a ```ServiceEntry`` "
+"</docs/reference/config/networking/service-entry/>`_ is used to configure"
+" Istio to access external services in a controlled way. This example "
+"shows how to configure Istio to perform {{< gloss >}}TLS origination{{< "
+"/gloss >}} for traffic to an external service. Istio will open HTTPS "
+"connections to the external service while the original traffic is HTTP."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:16
+msgid "Use case"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:18
+msgid ""
+"Consider a legacy application that performs HTTP calls to external sites."
+" Suppose the organization that operates the application receives a new "
+"requirement which states that all the external traffic must be encrypted."
+" With Istio, this requirement can be achieved just by configuration, "
+"without changing any code in the application. The application can send "
+"unencrypted HTTP requests and Istio will then encrypt them for the "
+"application."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:26
+msgid ""
+"Another benefit of sending unencrypted HTTP requests from the source, and"
+" letting Istio perform the TLS upgrade, is that Istio can produce better "
+"telemetry and provide more routing control for requests that are not "
+"encrypted."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:32
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:34
+msgid ""
+"Setup Istio by following the instructions in the `Installation guide "
+"</docs/setup/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:37
+#, python-format
+msgid ""
+"Start the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ "
+"sample which will be used as a test source for external calls."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:41
+msgid ""
+"If you have enabled `automatic sidecar injection </docs/setup/additional-"
+"setup/sidecar-injection/#automatic-sidecar-injection>`_, deploy the "
+"``sleep`` application:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:49
+msgid ""
+"Otherwise, you have to manually inject the sidecar before deploying the "
+"``sleep`` application:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:55
+msgid "@samples/sleep/sleep.yaml@)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:57
+msgid ""
+"Note that any pod that you can ``exec`` and ``curl`` from will do for the"
+" procedures below."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:60
+#, python-format
+msgid ""
+"Create a shell variable to hold the name of the source pod for sending "
+"requests to external services. If you used the `sleep "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ sample, run:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:68
+msgid "-o jsonpath={.items..metadata.name})"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:71
+msgid "Configuring access to an external service"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:73
+msgid ""
+"First start by configuring access to an external service, "
+"``edition.cnn.com``, using the same technique shown in the `Control "
+"Egress Traffic </docs/tasks/traffic-management/egress/>`_ task. This "
+"time, however, use a single ``ServiceEntry`` to enable both HTTP and "
+"HTTPS access to the service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:79
+msgid ""
+"Create a ``ServiceEntry`` and ``VirtualService`` to enable access to "
+"``edition.cnn.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:85
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:150
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: edition-"
+"cnn-com spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:88
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:153
+msgid "edition.cnn.com ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:89
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:154
+msgid "number: 80 name: http-port protocol: HTTP"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:90
+msgid ""
+"number: 443 name: https-port protocol: HTTPS resolution: DNS — "
+"apiVersion: networking.istio.io/v1alpha3 kind: VirtualService metadata: "
+"name: edition-cnn-com spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:93
+msgid "edition.cnn.com tls:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:94
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:159
+msgid "match:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:96
+msgid "port: 443 sni_hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:98
+msgid "edition.cnn.com route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:100
+msgid "destination: host: edition.cnn.com port: number: 443 weight: 100 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:103
+msgid "Make a request to the external HTTP service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:108
+msgid ""
+"-o /dev/null -D - http://edition.cnn.com/politics HTTP/1.1 301 Moved "
+"Permanently … location: https://edition.cnn.com/politics …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:111
+msgid ""
+"HTTP/1.1 200 OK Content-Type: text/html; charset=utf-8 … Content-Length: "
+"151654 …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:114
+msgid ""
+"The output should be similar to the above (some details replaced by "
+"ellipsis)."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:117
+msgid ""
+"Notice the ``-L`` flag of *curl* which instructs *curl* to follow "
+"redirects. In this case, the server returned a redirect response (`301 "
+"Moved Permanently <https://tools.ietf.org/html/rfc2616#section-10.3.2>`_)"
+" for the HTTP request to ``http://edition.cnn.com/politics``. The "
+"redirect response instructs the client to send an additional request, "
+"this time using HTTPS, to ``https://edition.cnn.com/politics``. For the "
+"second request, the server returned the requested content and a *200 OK* "
+"status code."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:127
+msgid ""
+"Although the *curl* command handled the redirection transparently, there "
+"are two issues here. The first issue is the redundant request, which "
+"doubles the latency of fetching the content of "
+"``http://edition.cnn.com/politics``. The second issue is that the path of"
+" the URL, *politics* in this case, is sent in clear text. If there is an "
+"attacker who sniffs the communication between your application and "
+"``edition.cnn.com``, the attacker would know which specific topics of "
+"``edition.cnn.com`` the application fetched. For privacy reasons, you "
+"might want to prevent such disclosure."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:137
+msgid ""
+"Both of these issues can be resolved by configuring Istio to perform TLS "
+"origination."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:141
+msgid "TLS origination for egress traffic"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:143
+msgid ""
+"Redefine your ``ServiceEntry`` and ``VirtualService`` from the previous "
+"section to rewrite the HTTP request port and add a ``DestinationRule`` to"
+" perform TLS origination."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:155
+msgid ""
+"number: 443 name: https-port-for-tls-origination protocol: HTTPS "
+"resolution: DNS — apiVersion: networking.istio.io/v1alpha3 kind: "
+"VirtualService metadata: name: edition-cnn-com spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:158
+msgid "edition.cnn.com http:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:161
+msgid "port: 80 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:162
+msgid ""
+"destination: host: edition.cnn.com subset: tls-origination port: number: "
+"443 — apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule "
+"metadata: name: edition-cnn-com spec: host: edition.cnn.com subsets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:167
+msgid ""
+"name: tls-origination trafficPolicy: loadBalancer: simple: ROUND_ROBIN "
+"portLevelSettings:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:170
+msgid ""
+"port: number: 443 tls: mode: SIMPLE # initiates HTTPS when accessing "
+"edition.cnn.com EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:173
+msgid ""
+"As you can see, the ``VirtualService`` redirects HTTP requests on port 80"
+" to port 443 where the corresponding ``DestinationRule`` then performs "
+"the TLS origination. Notice that unlike the ``ServiceEntry`` in the "
+"previous section, this time the protocol on port 443 is HTTP, instead of "
+"HTTPS. This is because clients will only send HTTP requests and Istio "
+"will upgrade the connection to HTTPS."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:180
+msgid ""
+"Send an HTTP request to ``http://edition.cnn.com/politics``, as in the "
+"previous section:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:186
+msgid ""
+"-o /dev/null -D - http://edition.cnn.com/politics HTTP/1.1 200 OK "
+"Content-Type: text/html; charset=utf-8 … Content-Length: 151654 …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:189
+msgid ""
+"This time you receive *200 OK* as the first and the only response. Istio "
+"performed TLS origination for *curl* so the original HTTP request was "
+"forwarded to ``edition.cnn.com`` as HTTPS. The server returned the "
+"content directly, without the need for redirection. You eliminated the "
+"double round trip between the client and the server, and the request left"
+" the mesh encrypted, without disclosing the fact that your application "
+"fetched the *politics* section of ``edition.cnn.com``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:198
+msgid ""
+"Note that you used the same command as in the previous section. For "
+"applications that access external services programmatically, the code "
+"does not need to be changed. You get the benefits of TLS origination by "
+"configuring Istio, without changing a line of code."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:203
+msgid ""
+"Note that the applications that used HTTPS to access the external service"
+" continue to work as before:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:209
+msgid ""
+"-o /dev/null -D - https://edition.cnn.com/politics HTTP/1.1 200 OK "
+"Content-Type: text/html; charset=utf-8 … Content-Length: 151654 …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:213
+msgid "Additional security considerations"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:215
+msgid ""
+"Because the traffic between the application pod and the sidecar proxy on "
+"the local host is still unencrypted, an attacker that is able to "
+"penetrate the node of your application would still be able to see the "
+"unencrypted communication on the local network of the node. In some "
+"environments a strict security requirement might state that all the "
+"traffic must be encrypted, even on the local network of the nodes. With "
+"such a strict requirement, applications should use HTTPS (TLS) only. The "
+"TLS origination described in this example would not be sufficient."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:224
+msgid ""
+"Also note that even with HTTPS originated by the application, an attacker"
+" could know that requests to ``edition.cnn.com`` are being sent by "
+"inspecting `Server Name Indication (SNI) "
+"<https://en.wikipedia.org/wiki/Server_Name_Indication>`_. The *SNI* field"
+" is sent unencrypted during the TLS handshake. Using HTTPS prevents the "
+"attackers from knowing specific topics and articles but does not prevent "
+"an attackers from learning that ``edition.cnn.com`` is accessed."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:234
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:236
+msgid "Remove the Istio configuration items you created:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:241
+msgid ""
+"kubectl delete virtualservice edition-cnn-com $ kubectl delete "
+"destinationrule edition-cnn-com"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-tls-origination/index.rst:244
+#, python-format
+msgid ""
+"Shutdown the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_"
+" service:"
+msgstr ""
+

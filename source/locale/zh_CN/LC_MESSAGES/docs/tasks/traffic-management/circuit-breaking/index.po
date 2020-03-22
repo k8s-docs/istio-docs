@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:2
+msgid "Circuit Breaking"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:4
+msgid ""
+"This task shows you how to configure circuit breaking for connections, "
+"requests, and outlier detection."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:7
+msgid ""
+"Circuit breaking is an important pattern for creating resilient "
+"microservice applications. Circuit breaking allows you to write "
+"applications that limit the impact of failures, latency spikes, and other"
+" undesirable effects of network peculiarities."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:12
+msgid ""
+"In this task, you will configure circuit breaking rules and then test the"
+" configuration by intentionally “tripping” the circuit breaker."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:16
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:18
+msgid ""
+"Setup Istio by following the instructions in the `Installation guide "
+"</docs/setup/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:20
+msgid "The ``httpbin`` application serves as the backend service for this task."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:23
+msgid "Configuring the circuit breaker"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:25
+msgid ""
+"Create a `destination rule </docs/reference/config/networking"
+"/destination-rule/>`_ to apply circuit breaking settings when calling the"
+" ``httpbin`` service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:30
+msgid ""
+"If you installed/configured Istio with mutual TLS authentication enabled,"
+" you must add a TLS traffic policy ``mode: ISTIO_MUTUAL`` to the "
+"``DestinationRule`` before applying it. Otherwise requests will generate "
+"503 errors as described `here </docs/ops/common-problems/network-"
+"issues/#503-errors-after-setting-destination-rule>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:46
+msgid "Verify the destination rule was created correctly:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:59
+msgid "Adding a client"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:61
+msgid ""
+"Create a client to send traffic to the ``httpbin`` service. The client is"
+" a simple load-testing client called `fortio "
+"<https://github.com/istio/fortio>`_. Fortio lets you control the number "
+"of connections, concurrency, and delays for outgoing HTTP calls. You will"
+" use this client to “trip” the circuit breaker policies you set in the "
+"``DestinationRule``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:68
+msgid ""
+"Inject the client with the Istio sidecar proxy so network interactions "
+"are governed by Istio."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:70
+msgid ""
+"If you have enabled `automatic sidecar injection </docs/setup/additional-"
+"setup/sidecar-injection/#automatic-sidecar-injection>`_, deploy the "
+"``fortio`` service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:76
+msgid ""
+"Otherwise, you have to manually inject the sidecar before deploying the "
+"``fortio`` application:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:82
+msgid ""
+"Log in to the client pod and use the fortio tool to call ``httpbin``. "
+"Pass in ``-curl`` to indicate that you just want to make one call:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:103
+msgid "You can see the request succeeded! Now, it’s time to break something."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:106
+msgid "Tripping the circuit breaker"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:108
+msgid ""
+"In the ``DestinationRule`` settings, you specified ``maxConnections: 1`` "
+"and ``http1MaxPendingRequests: 1``. These rules indicate that if you "
+"exceed more than one connection and request concurrently, you should see "
+"some failures when the ``istio-proxy`` opens the circuit for further "
+"requests and connections."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:114
+msgid ""
+"Call the service with two concurrent connections (``-c 2``) and send 20 "
+"requests (``-n 20``):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:143
+msgid ""
+"It’s interesting to see that almost all requests made it through! The "
+"``istio-proxy`` does allow for some leeway."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:150
+msgid "Bring the number of concurrent connections up to 3:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:195
+#, python-format
+msgid ""
+"Now you start to see the expected circuit breaking behavior. Only 36.7% "
+"of the requests succeeded and the rest were trapped by circuit breaking:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:199
+msgid "{{< text plain >}} Code 200 : 11 (36.7 %) Code 503 : 19 (63.3 %)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:201
+msgid "Query the ``istio-proxy`` stats to see more:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:213
+msgid ""
+"You can see ``21`` for the ``upstream_rq_pending_overflow`` value which "
+"means ``21`` calls so far have been flagged for circuit breaking."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:217
+msgid "Cleaning up"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:219
+msgid "Remove the rules:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/circuit-breaking/index.rst:225
+#, python-format
+msgid ""
+"Shutdown the `httpbin "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/httpbin>`_ service and "
+"client:"
+msgstr ""
+

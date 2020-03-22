@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst:2
+msgid "Oracle Cloud Infrastructure"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst:4
+msgid "Follow these instructions to prepare an OKE cluster for Istio."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst:6
+msgid ""
+"Create a new OKE cluster within your OCI tenancy. The simplest way to do "
+"this is by using the ‘Quick Cluster’ option within the `web console "
+"<https://docs.cloud.oracle.com/iaas/Content/ContEng/Tasks/contengcreatingclusterusingoke.htm>`_."
+" You may also use the `OCI cli "
+"<https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliinstall.htm>`_"
+" as shown below."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst:15
+msgid "$ oci ce cluster create –name oke-cluster1"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst
+msgid "–kubernetes-version"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst
+msgid "–vcn-id"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst
+msgid "–service-lb-subnet-ids []"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst
+msgid ".."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst:21
+msgid "Retrieve your credentials for ``kubectl`` using the OCI cli."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst:25
+msgid "$ oci ce cluster create-kubeconfig"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst
+msgid "–file"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst
+msgid "–cluster-id"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst:29
+msgid ""
+"Grant cluster administrator (admin) permissions to the current user. To "
+"create the necessary RBAC rules for Istio, the current user requires "
+"admin permissions."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst:35
+msgid "$ kubectl create clusterrolebinding"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst:36
+msgid "cluster-admin-binding"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst
+msgid "–clusterrole=cluster-admin"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/oci/index.rst
+msgid "–user="
+msgstr ""
+

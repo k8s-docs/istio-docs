@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:2
+msgid "istio-security-2019-001"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:4
+msgid "{{< security_bulletin >}}"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:6
+msgid ""
+"During review of the `Istio 1.1.7 "
+"</news/releases/1.1.x/announcing-1.1.7>`_ release notes, we realized that"
+" `issue 13868 <https://github.com/istio/istio/issues/13868>`_, which is "
+"fixed in the release, actually represents a security vulnerability."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:12
+msgid ""
+"Initially we thought the bug was impacting the `TCP Authorization </about"
+"/feature-stages/#security-and-policy-enforcement>`_ feature advertised as"
+" alpha stability, which would not have required invoking this security "
+"advisory process, but we later realized that the `Deny Checker "
+"</docs/reference/config/policy-and-telemetry/adapters/denier/>`_ and "
+"`List Checker </docs/reference/config/policy-and-"
+"telemetry/adapters/list/>`_ feature were affected and those are "
+"considered stable features. We are revisiting our processes to flag "
+"vulnerabilities that are initially reported as bugs instead of through "
+"the `private disclosure process </about/security-vulnerabilities/>`_."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:25
+msgid ""
+"We tracked the bug to a code change introduced in Istio 1.1 and affecting"
+" all releases up to 1.1.6."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:29
+msgid "Impact and detection"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:31
+msgid ""
+"Since Istio 1.1, In the default Istio installation profile, policy "
+"enforcement is disabled by default."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:34
+msgid ""
+"You can check the status of policy enforcement for your mesh with the "
+"following command:"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:40
+msgid ""
+"jsonpath=“{@.data.mesh}” \\| grep disablePolicyChecks "
+"disablePolicyChecks: true"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:43
+msgid ""
+"You are not impacted by this vulnerability if ``disablePolicyChecks`` is "
+"set to true."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:46
+msgid ""
+"You are impacted by the vulnerability issue if the following conditions "
+"are all true:"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:49
+msgid "You are running one of the affected Istio releases."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:50
+msgid ""
+"``disablePolicyChecks`` is set to false (follow the steps mentioned above"
+" to check)"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:52
+msgid "Your workload is NOT using HTTP, HTTP/2, or gRPC protocols"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:53
+msgid ""
+"A mixer adapter (e.g., Deny Checker, List Checker) is used to provide "
+"authorization for your backend TCP service."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:57
+msgid "Mitigation"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:59
+msgid "Users of Istio 1.0.x are not affected."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:60
+msgid ""
+"For Istio 1.1.x deployments: update to `Istio 1.1.7 "
+"</news/releases/1.1.x/announcing-1.1.7>`_ or later."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:64
+msgid "Credit"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:66
+msgid ""
+"The Istio team would like to thank ``Haim Helman`` for the original bug "
+"report."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-001/index.rst:69
+msgid "{{< boilerplate “security-vulnerability” >}}"
+msgstr ""
+

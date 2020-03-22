@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:2
+msgid "how-to-support-tracing"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:4
+msgid ""
+"Istio enables reporting of trace spans for workload-to-workload "
+"communications within a mesh. However, in order for various trace spans "
+"to be stitched together for a complete view of the traffic flow, "
+"applications must propagate the trace context between incoming and "
+"outgoing requests."
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:10
+msgid ""
+"In particular, Istio relies on applications to `propagate the B3 trace "
+"headers <https://github.com/openzipkin/b3-propagation>`_, as well as the "
+"Envoy-generated request ID. These headers include:"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:14
+msgid "``x-request-id``"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:15
+msgid "``x-b3-traceid``"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:16
+msgid "``x-b3-spanId``"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:17
+msgid "``x-b3-parentspanid``"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:18
+msgid "``x-b3-sampled``"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:19
+msgid "``x-b3-flags``"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:20
+msgid "``b3``"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:22
+msgid ""
+"If you are using LightStep, you will also need to forward the following "
+"headers:"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:25
+msgid "``x-ot-span-context``"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-to-support-tracing.rst:27
+msgid ""
+"Header propagation may be accomplished through client libraries, such as "
+"`Zipkin <https://zipkin.io/pages/tracers_instrumentation.html>`_ or "
+"`Jaeger <https://github.com/jaegertracing/jaeger-client-java/tree/master"
+"/jaeger-core#b3-propagation>`_. It may also be accomplished manually, as "
+"documented in the `Distributed Tracing Task </docs/tasks/observability"
+"/distributed-tracing/overview#trace-context-propagation>`_."
+msgstr ""
+

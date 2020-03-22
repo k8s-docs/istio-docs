@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/metrics-and-logs/prometheus-application-metrics.rst:2
+msgid "prometheus-application-metrics"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/prometheus-application-metrics.rst:4
+#, python-format
+msgid ""
+"Yes. Istio ships with `configuration for Prometheus "
+"<%7B%7B%3C%20github_file%20%3E%7D%7D/install/kubernetes/helm/istio/charts/prometheus/templates/configmap.yaml>`_"
+" that enables collection of application metrics when mutual TLS is "
+"enabled or disabled."
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/prometheus-application-metrics.rst:9
+msgid ""
+"The ``kubernetes-pods`` job collects application metrics from pods in "
+"environments without mutual TLS. The ``kubernetes-pods-istio-secure`` job"
+" collects metrics from application pods when mutual TLS is enabled for "
+"Istio."
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/prometheus-application-metrics.rst:14
+msgid ""
+"Both jobs require that the following annotations are added to any "
+"deployments from which application metric collection is desired:"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/prometheus-application-metrics.rst:17
+msgid "``prometheus.io/scrape: \"true\"``"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/prometheus-application-metrics.rst:18
+msgid "``prometheus.io/path: \"<metrics path>\"``"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/prometheus-application-metrics.rst:19
+msgid "``prometheus.io/port: \"<metrics port>\"``"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/prometheus-application-metrics.rst:21
+msgid "A few notes:"
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/prometheus-application-metrics.rst:23
+msgid ""
+"If the Prometheus pod started before the Istio Citadel pod could generate"
+" the required certificates and distribute them to Prometheus, the "
+"Prometheus pod will need to be restarted in order to collect from mutual "
+"TLS-protected targets."
+msgstr ""
+
+#: ../../source/faq/metrics-and-logs/prometheus-application-metrics.rst:27
+msgid ""
+"If your application exposes Prometheus metrics on a dedicated port, that "
+"port should be added to the service and deployment specifications."
+msgstr ""
+

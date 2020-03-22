@@ -1,0 +1,543 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/install/helm/index.rst:2
+msgid "Customizable Install with Helm"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:6
+msgid "The Helm installation approach will be deprecated in the"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:7
+msgid ""
+"future. We recommend `Installing with {{< istioctl >}} "
+"</docs/setup/install/istioctl/>`_, instead."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:10
+msgid ""
+"Follow this guide to install and configure an Istio mesh for in-depth "
+"evaluation or production use."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:13
+msgid ""
+"This installation guide uses `Helm <https://github.com/helm/helm>`_ "
+"charts that provide rich customization of the Istio control plane and of "
+"the sidecars for the Istio data plane. You can simply use ``helm "
+"template`` to generate the configuration and then install it using "
+"``kubectl apply``, or you can choose to use ``helm install`` and let "
+"`Tiller <https://helm.sh/docs/topics/architecture/#components>`_ "
+"completely manage the installation."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:21
+msgid ""
+"Using these instructions, you can select any one of Istio’s built-in "
+"`configuration profiles </docs/setup/additional-setup/config-profiles/>`_"
+" and then further customize the configuration for your specific needs."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:27
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:29
+msgid "`Download the Istio release </docs/setup/getting-started/#download>`_."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:32
+msgid ""
+"Perform any necessary `platform-specific setup </docs/setup/platform-"
+"setup/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:35
+msgid ""
+"Check the `Requirements for Pods and Services "
+"</docs/ops/deployment/requirements/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:38
+msgid ""
+"`Install a Helm client <https://github.com/helm/helm#install>`_ with a "
+"version higher than 2.10."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:43
+msgid "Use a 2.x version of Helm. Helm 3 is not supported."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:47
+msgid "Helm chart release repositories"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:49
+msgid ""
+"The commands in this guide use the Helm charts that are included in the "
+"Istio release image. If you want to use the Istio release Helm chart "
+"repository instead, adjust the commands accordingly and add the Istio "
+"release repository as follows:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:57
+msgid ""
+"https://storage.googleapis.com/istio-release/releases/{{< "
+"istio_full_version >}}/charts/"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:61
+msgid "Installation steps"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:63
+msgid ""
+"Change directory to the root of the release and then choose one of the "
+"following two **mutually exclusive** options:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:66
+msgid ""
+"To deploy Istio without using Tiller, follow the instructions for `option"
+" 1 </docs/setup/install/helm/#option-1-install-with-helm-via-helm-"
+"template>`_."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:69
+msgid ""
+"To use `Helm’s Tiller pod <https://helm.sh/>`_ to manage your Istio "
+"release, follow the instructions for `option 2 "
+"</docs/setup/install/helm/#option-2-install-with-helm-and-tiller-via-"
+"helm-install>`_."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:75
+msgid "Istio, by default, uses ``LoadBalancer`` service object"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:76
+msgid ""
+"types. Some platforms do not support ``LoadBalancer`` service objects. "
+"For platforms lacking ``LoadBalancer`` support, install Istio with "
+"``NodePort`` support instead with the flags ``--set gateways.istio-"
+"ingressgateway.type=NodePort`` appended to the end of the Helm "
+"instructions in the installation steps below. {{< /tip >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:84
+msgid "Option 1: Install with Helm via ``helm template``"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:86
+msgid ""
+"Choose this option if your cluster doesn’t have `Tiller "
+"<https://helm.sh/docs/topics/architecture/#components>`_ deployed and you"
+" don’t want to install it."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:90
+msgid "Create a namespace for the ``istio-system`` components:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:95
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:97
+msgid ""
+"Install all the Istio `Custom Resource Definitions "
+"<https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension"
+"/custom-resources/#customresourcedefinitions>`_ (CRDs) using ``kubectl "
+"apply``:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:104
+msgid "–name istio-init –namespace istio-system \\| kubectl apply -f -"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:106
+#: ../../source/docs/setup/install/helm/index.rst:229
+msgid "{{< boilerplate verify-crds >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:108
+msgid ""
+"Select a `configuration profile </docs/setup/additional-setup/config-"
+"profiles/>`_ and then render and apply Istio’s core components "
+"corresponding to your chosen profile. The **default** profile is "
+"recommended for production deployments:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:116
+#: ../../source/docs/setup/install/helm/index.rst:238
+msgid ""
+"You can further customize the configuration by adding one or more ``--set"
+" <key>=<value>`` `Installation Options </docs/reference/config"
+"/installation-options/>`_ to the helm command."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:121
+#: ../../source/docs/setup/install/helm/index.rst:243
+#: ../../source/docs/setup/install/helm/index.rst:341
+msgid "{{< tabset category-name=“helm_profile” >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:123
+#: ../../source/docs/setup/install/helm/index.rst:245
+#: ../../source/docs/setup/install/helm/index.rst:343
+msgid "{{< tab name=“default” category-value=“default” >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:128
+msgid "istio –namespace istio-system \\| kubectl apply -f -"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:130
+#: ../../source/docs/setup/install/helm/index.rst:141
+#: ../../source/docs/setup/install/helm/index.rst:152
+#: ../../source/docs/setup/install/helm/index.rst:171
+#: ../../source/docs/setup/install/helm/index.rst:194
+#: ../../source/docs/setup/install/helm/index.rst:252
+#: ../../source/docs/setup/install/helm/index.rst:263
+#: ../../source/docs/setup/install/helm/index.rst:273
+#: ../../source/docs/setup/install/helm/index.rst:292
+#: ../../source/docs/setup/install/helm/index.rst:312
+#: ../../source/docs/setup/install/helm/index.rst:351
+#: ../../source/docs/setup/install/helm/index.rst:363
+#: ../../source/docs/setup/install/helm/index.rst:375
+#: ../../source/docs/setup/install/helm/index.rst:382
+#: ../../source/docs/setup/install/helm/index.rst:396
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:132
+#: ../../source/docs/setup/install/helm/index.rst:254
+#: ../../source/docs/setup/install/helm/index.rst:353
+msgid "{{< tab name=“demo” category-value=“demo” >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:134
+#: ../../source/docs/setup/install/helm/index.rst:145
+#: ../../source/docs/setup/install/helm/index.rst:163
+#: ../../source/docs/setup/install/helm/index.rst:188
+#: ../../source/docs/setup/install/helm/index.rst:256
+#: ../../source/docs/setup/install/helm/index.rst:267
+#: ../../source/docs/setup/install/helm/index.rst:284
+#: ../../source/docs/setup/install/helm/index.rst:355
+#: ../../source/docs/setup/install/helm/index.rst:367
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:136
+#: ../../source/docs/setup/install/helm/index.rst:147
+#: ../../source/docs/setup/install/helm/index.rst:165
+#: ../../source/docs/setup/install/helm/index.rst:190
+#: ../../source/docs/setup/install/helm/index.rst:357
+#: ../../source/docs/setup/install/helm/index.rst:369
+msgid "$ helm template install/kubernetes/helm/istio –name"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:137
+#: ../../source/docs/setup/install/helm/index.rst:148
+#: ../../source/docs/setup/install/helm/index.rst:166
+#: ../../source/docs/setup/install/helm/index.rst:191
+#: ../../source/docs/setup/install/helm/index.rst:250
+#: ../../source/docs/setup/install/helm/index.rst:259
+#: ../../source/docs/setup/install/helm/index.rst:270
+#: ../../source/docs/setup/install/helm/index.rst:287
+#: ../../source/docs/setup/install/helm/index.rst:358
+#: ../../source/docs/setup/install/helm/index.rst:370
+msgid "istio –namespace istio-system"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:139
+msgid ""
+"–values install/kubernetes/helm/istio/values-istio-demo.yaml \\| kubectl "
+"apply -f -"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:143
+#: ../../source/docs/setup/install/helm/index.rst:265
+#: ../../source/docs/setup/install/helm/index.rst:365
+msgid "{{< tab name=“minimal” category-value=“minimal” >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:150
+msgid ""
+"–values install/kubernetes/helm/istio/values-istio-minimal.yaml \\| "
+"kubectl apply -f -"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:154
+#: ../../source/docs/setup/install/helm/index.rst:275
+#: ../../source/docs/setup/install/helm/index.rst:377
+msgid "{{< tab name=“Mutual TLS enabled” category-value=“mtls” >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:156
+#: ../../source/docs/setup/install/helm/index.rst:277
+msgid ""
+"Enable mutual TLS in Istio by setting options "
+"``global.controlPlaneSecurityEnabled=true`` and "
+"``global.mtls.enabled=true``, in addition to the specifying the Helm "
+"values file corresponding to your chosen profile."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:161
+msgid "For example, to configure the ``demo`` profile with mutual TLS enabled:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:167
+#: ../../source/docs/setup/install/helm/index.rst:288
+msgid "–values install/kubernetes/helm/istio/values-istio-demo.yaml"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:168
+#: ../../source/docs/setup/install/helm/index.rst:289
+msgid "–set global.controlPlaneSecurityEnabled=true"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:169
+msgid "–set global.mtls.enabled=true \\| kubectl apply -f -"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:173
+#: ../../source/docs/setup/install/helm/index.rst:294
+#: ../../source/docs/setup/install/helm/index.rst:384
+msgid "{{< tab name=“Istio CNI enabled” category-value=“cni” >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:175
+msgid "Install the `Istio CNI </docs/setup/additional-setup/cni/>`_ components:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:181
+msgid ""
+"–name=istio-cni –namespace=kube-system \\| kubectl apply -f - {{< /text "
+">}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:184
+#: ../../source/docs/setup/install/helm/index.rst:303
+msgid ""
+"Enable CNI in Istio by setting ``--set istio_cni.enabled=true`` in "
+"addition to the settings for your chosen profile. For example, to "
+"configure the **default** profile:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:192
+msgid "–set istio_cni.enabled=true \\| kubectl apply -f -"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:196
+#: ../../source/docs/setup/install/helm/index.rst:314
+#: ../../source/docs/setup/install/helm/index.rst:398
+msgid "{{< /tabset >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:199
+msgid "Option 2: Install with Helm and Tiller via ``helm install``"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:201
+msgid ""
+"This option allows Helm and `Tiller "
+"<https://helm.sh/docs/topics/architecture/#components>`_ to manage the "
+"lifecycle of Istio."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:205
+msgid "{{< boilerplate helm-security-warning >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:207
+msgid ""
+"Make sure you have a service account with the ``cluster-admin`` role "
+"defined for Tiller. If not already defined, create one using following "
+"command:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:214
+msgid "@install/kubernetes/helm/helm-service-account.yaml@"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:216
+msgid "Install Tiller on your cluster with the service account:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:222
+msgid "Install the ``istio-init`` chart to bootstrap all the Istio’s CRDs:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:227
+msgid "–name istio-init –namespace istio-system"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:231
+msgid ""
+"Select a `configuration profile </docs/setup/additional-setup/config-"
+"profiles/>`_ and then install the ``istio`` chart corresponding to your "
+"chosen profile. The **default** profile is recommended for production "
+"deployments:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:258
+#: ../../source/docs/setup/install/helm/index.rst:269
+#: ../../source/docs/setup/install/helm/index.rst:286
+msgid "$ helm install install/kubernetes/helm/istio –name"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:261
+msgid "–values install/kubernetes/helm/istio/values-istio-demo.yaml {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:271
+msgid "–values install/kubernetes/helm/istio/values-istio-minimal.yaml"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:282
+msgid "For example, to configure the **demo** profile with mutual TLS enabled:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:290
+msgid "–set global.mtls.enabled=true"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:296
+msgid "Install the `Istio CNI </docs/setup/additional-setup/cni/>`_ chart:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:301
+msgid "istio-cni –namespace kube-system"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:310
+msgid "istio –namespace istio-system –set istio_cni.enabled=true"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:317
+msgid "Verifying the installation"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:319
+msgid ""
+"Referring to components table in `configuration profiles </docs/setup"
+"/additional-setup/config-profiles/>`_, verify that the Kubernetes "
+"services corresponding to your selected profile have been deployed."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:328
+msgid ""
+"Ensure the corresponding Kubernetes pods are deployed and have a "
+"``STATUS`` of ``Running``:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:336
+msgid "Uninstall"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:338
+msgid ""
+"If you installed Istio using the ``helm template`` command, uninstall "
+"with these commands:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:348
+msgid ""
+"istio –namespace istio-system \\| kubectl delete -f - $ kubectl delete "
+"namespace istio-system"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:361
+msgid ""
+"–values install/kubernetes/helm/istio/values-istio-demo.yaml \\| kubectl "
+"delete -f - $ kubectl delete namespace istio-system {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:373
+msgid ""
+"–values install/kubernetes/helm/istio/values-istio-minimal.yaml \\| "
+"kubectl delete -f - $ kubectl delete namespace istio-system {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:379
+msgid ""
+"Follow the instructions corresponding to your selected configuration "
+"profile."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:386
+msgid ""
+"Follow the instructions corresponding to your selected configuration "
+"profile and then execute the following command to uninstall the CNI plug-"
+"in:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:393
+msgid ""
+"–name=istio-cni –namespace=kube-system \\| kubectl delete -f - {{< /text "
+">}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:400
+msgid ""
+"If you installed Istio using Helm and Tiller, uninstall with these "
+"commands:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:406
+msgid ""
+"istio-init $ helm delete –purge istio-cni $ kubectl delete namespace "
+"istio-system"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:410
+msgid "Deleting CRDs and Istio Configuration"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:412
+msgid ""
+"Istio, by design, expects Istio’s Custom Resources contained within CRDs "
+"to leak into the Kubernetes environment. CRDs contain the runtime "
+"configuration set by the operator. Because of this, we consider it better"
+" for operators to explicitly delete the runtime configuration data rather"
+" than unexpectedly lose it."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:420
+msgid "Deleting CRDs permanently deletes any configuration"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:421
+msgid "changes that you have made to Istio."
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:423
+msgid ""
+"The ``istio-init`` chart contains all raw CRDs in the ``istio-"
+"init/files`` directory. You can simply delete the CRDs using ``kubectl``."
+" To permanently delete Istio’s CRDs and the entire Istio configuration, "
+"run:"
+msgstr ""
+
+#: ../../source/docs/setup/install/helm/index.rst:431
+msgid "install/kubernetes/helm/istio-init/files"
+msgstr ""
+

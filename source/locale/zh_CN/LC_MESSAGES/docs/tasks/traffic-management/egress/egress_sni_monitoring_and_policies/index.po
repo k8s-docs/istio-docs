@@ -1,0 +1,409 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:2
+msgid "Monitoring and Policies for TLS Egress with Mixer (Deprecated)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:4
+msgid ""
+"The `Configure Egress Traffic using Wildcard Hosts </docs/tasks/traffic-"
+"management/egress/wildcard-egress-hosts/>`_ example describes how to "
+"enable TLS egress traffic for a set of hosts in a common domain, in that "
+"case ``*.wikipedia.org``. This example extends that example to show how "
+"to configure SNI monitoring and apply policies on TLS egress traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:11
+msgid "{{< boilerplate before-you-begin-egress >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:13
+msgid ""
+"`Deploy Istio egress gateway </docs/tasks/traffic-management/egress"
+"/egress-gateway/#deploy-istio-egress-gateway>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:16
+msgid ""
+"`Enable Envoy’s access logging </docs/tasks/observability/logs/access-log"
+"/#enable-envoy-s-access-logging>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:19
+msgid ""
+"Configure traffic to ``*.wikipedia.org`` by following `the steps "
+"</docs/tasks/traffic-management/egress/wildcard-egress-hosts/#wildcard-"
+"configuration-for-arbitrary-domains>`_ in `Configure Egress Traffic using"
+" Wildcard Hosts </docs/tasks/traffic-management/egress/wildcard-egress-"
+"hosts/>`_ example, **with mutual TLS enabled**."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:27
+msgid ""
+"Policy enforcement **must** be enabled in your cluster for this task. "
+"Follow the steps in `Enabling Policy Enforcement </docs/tasks/policy-"
+"enforcement/enabling-policy/>`_ to ensure that policy enforcement is "
+"enabled."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:33
+msgid "SNI monitoring and access policies"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:35
+msgid ""
+"Since you configured the egress traffic to flow through the egress "
+"gateway, you can apply monitoring and access policy enforcement on the "
+"egress traffic, **securely**. In this section you will define a log entry"
+" and an access policy for the egress traffic to \\_*.wikipedia.org_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:40
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:228
+msgid "Create logging configuration:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:45
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:233
+msgid "@samples/sleep/telemetry/sni-logging.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:47
+msgid ""
+"Send HTTPS requests to https://en.wikipedia.org and "
+"https://de.wikipedia.org:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:53
+msgid "’curl -s https://en.wikipedia.org/wiki/Main_Page \\| grep -o \""
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:59
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:72
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:144
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:157
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:248
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:261
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:274
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:288
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:378
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:391
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:404
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:418
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:478
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:491
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:504
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:518
+msgid ".\\*"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:65
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:150
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:254
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:384
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:484
+msgid "“; curl -s https://de.wikipedia.org/wiki/Wikipedia:Hauptseite \\| grep -o”"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:78
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:163
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:294
+msgid "\"’"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:84
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:300
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:430
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:530
+msgid "Wikipedia, the free encyclopedia"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:94
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:179
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:310
+msgid "Wikipedia – Die freie Enzyklopädie"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:102
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:338
+msgid ""
+"Check the mixer log. If Istio is deployed in the ``istio-system`` "
+"namespace, the command to print the log is:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:108
+msgid "istio-mixer-type=telemetry -c mixer \\| grep ‘egress-access’ {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:111
+msgid ""
+"Define a policy that allows access to the hostnames matching "
+"``*.wikipedia.org`` except for Wikipedia in English:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:117
+msgid "@samples/sleep/policy/sni-wikipedia.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:119
+msgid ""
+"Send an HTTPS request to the blacklisted `Wikipedia in English "
+"<https://en.wikipedia.org>`_:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:125
+msgid ""
+"‘curl -v https://en.wikipedia.org/wiki/Main_Page’ … curl: (35) Unknown "
+"SSL protocol error in connection to en.wikipedia.org:443 command "
+"terminated with exit code 35"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:129
+msgid ""
+"Access to Wikipedia in English is blocked according to the policy you "
+"defined."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:132
+msgid ""
+"Send HTTPS requests to some other Wikipedia sites, for example "
+"https://es.wikipedia.org and https://de.wikipedia.org:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:138
+msgid "’curl -s https://es.wikipedia.org/wiki/Wikipedia:Portada \\| grep -o \""
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:169
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:320
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:440
+msgid "Wikipedia, la enciclopedia libre"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:187
+msgid "Access to Wikipedia sites in other languages is allowed, as expected."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:190
+msgid "Cleanup of monitoring and policy enforcement"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:195
+msgid ""
+"@samples/sleep/telemetry/sni-logging.yaml@ $ kubectl delete -f "
+"@samples/sleep/policy/sni-wikipedia.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:199
+msgid ""
+"Monitor the SNI and the source identity, and enforce access policies "
+"based on them"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:201
+msgid ""
+"Since you enabled mutual TLS between the sidecar proxies and the egress "
+"gateway, you can monitor the `service identity "
+"</docs/ops/deployment/architecture/#citadel>`_ of the applications that "
+"access external services, and enforce policies based on the identities of"
+" the traffic source. In Istio on Kubernetes, the identities are based on "
+"`Service Accounts <https://kubernetes.io/docs/tasks/configure-pod-"
+"container/configure-service-account/>`_. In this subsection, you deploy "
+"two *sleep* containers, ``sleep-us`` and ``sleep-canada`` under two "
+"service accounts, ``sleep-us`` and ``sleep-canada``, respectively. Then "
+"you define a policy that allows applications with the ``sleep-us`` "
+"identity to access the English and the Spanish versions of Wikipedia, and"
+" services with ``sleep-canada`` identity to access the English and the "
+"French versions."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:215
+msgid ""
+"Deploy two *sleep* containers, ``sleep-us`` and ``sleep-canada``, with "
+"``sleep-us`` and ``sleep-canada`` service accounts, respectively:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:222
+msgid ""
+"@samples/sleep/sleep.yaml@ \\| kubectl apply -f - $ sed ‘s/: sleep/: "
+"sleep-canada/g’ @samples/sleep/sleep.yaml@ \\| kubectl apply -f - "
+"serviceaccount “sleep-us” created service “sleep-us” created deployment "
+"“sleep-us” created serviceaccount “sleep-canada” created service “sleep-"
+"canada” created deployment “sleep-canada” created"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:235
+msgid ""
+"Send HTTPS requests to Wikipedia sites in English, German, Spanish and "
+"French, from ``sleep-us``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:241
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:371
+msgid ""
+"app=sleep-us -o jsonpath=‘{.items[0].metadata.name}’) -c sleep-us – sh -c"
+" ’curl -s https://en.wikipedia.org/wiki/Main_Page \\| grep -o \""
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:267
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:397
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:497
+msgid "“; curl -s https://es.wikipedia.org/wiki/Wikipedia:Portada \\| grep -o”"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:280
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:410
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:510
+msgid ""
+"“; curl -s https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal"
+" \\| grep -o”"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:330
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:540
+msgid "Wikipédia, l’encyclopédie libre"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:344
+msgid ""
+"istio-mixer-type=telemetry -c mixer \\| grep ‘egress-access’ "
+"{“level”:“info”,“time”:“2019-01-10T17:33:55.559093Z”,“instance”:“egress-"
+"access.instance.istio-"
+"system”,“connectionEvent”:“open”,“destinationApp”:\"“,”requestedServerName“:”en.wikipedia.org“,”source"
+"“:”istio-egressgateway-with-sni-"
+"proxy“,”sourceNamespace“:”default“,”sourcePrincipal“:”cluster.local/ns/default/sa"
+"/sleep-us“,”sourceWorkload“:”istio-egressgateway-with-sni-proxy“} "
+"{”level“:”info“,”time“:”2019-01-10T17:33:56.166227Z“,”instance“:”egress-"
+"access.instance.istio-"
+"system“,”connectionEvent“:”open“,”destinationApp“:”“,”requestedServerName“:”de.wikipedia.org“,”source"
+"“:”istio-egressgateway-with-sni-"
+"proxy“,”sourceNamespace“:”default“,”sourcePrincipal“:”cluster.local/ns/default/sa"
+"/sleep-us“,”sourceWorkload“:”istio-egressgateway-with-sni-proxy“} "
+"{”level“:”info“,”time“:”2019-01-10T17:33:56.779842Z“,”instance“:”egress-"
+"access.instance.istio-"
+"system“,”connectionEvent“:”open“,”destinationApp“:”“,”requestedServerName“:”es.wikipedia.org“,”source"
+"“:”istio-egressgateway-with-sni-"
+"proxy“,”sourceNamespace“:”default“,”sourcePrincipal“:”cluster.local/ns/default/sa"
+"/sleep-us“,”sourceWorkload“:”istio-egressgateway-with-sni-proxy“} "
+"{”level“:”info“,”time“:”2019-01-10T17:33:57.413908Z“,”instance“:”egress-"
+"access.instance.istio-"
+"system“,”connectionEvent“:”open“,”destinationApp“:”“,”requestedServerName“:”fr.wikipedia.org“,”source"
+"“:”istio-egressgateway-with-sni-"
+"proxy“,”sourceNamespace“:”default“,”sourcePrincipal“:”cluster.local/ns/default/sa"
+"/sleep-us“,”sourceWorkload“:”istio-egressgateway-with-sni-proxy\"}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:351
+msgid ""
+"Note the ``requestedServerName`` attribute, and ``sourcePrincipal``, it "
+"must be ``cluster.local/ns/default/sa/sleep-us``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:354
+msgid ""
+"Define a policy that will allow access to Wikipedia in English and "
+"Spanish for applications with the ``sleep-us`` service account and to "
+"Wikipedia in English and French for applications with the ``sleep-"
+"canada`` service account. Access to other Wikipedia sites will be "
+"blocked."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:363
+msgid "@samples/sleep/policy/sni-serviceaccount.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:365
+msgid ""
+"Resend HTTPS requests to Wikipedia sites in English, German, Spanish and "
+"French, from ``sleep-us``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:424
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:524
+msgid "\";:’"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:448
+msgid ""
+"Note that only the allowed Wikipedia sites for ``sleep-us`` service "
+"account are allowed, namely Wikipedia in English and Spanish."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:453
+msgid ""
+"It may take several minutes for the Mixer policy components to "
+"synchronize on the new policy. In case you want to quickly demonstrate "
+"the new policy without waiting until the synchronization is complete, "
+"delete the Mixer policy pods: {{< /tip >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:462
+msgid "istio-mixer-type=policy"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:464
+msgid ""
+"Resend HTTPS requests to Wikipedia sites in English, German, Spanish and "
+"French, from ``sleep-canada``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:470
+msgid ""
+"app=sleep-canada -o jsonpath=‘{.items[0].metadata.name}’) -c sleep-canada"
+" – sh -c ’curl -s https://en.wikipedia.org/wiki/Main_Page \\| grep -o \""
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:548
+msgid ""
+"Note that only the allowed Wikipedia sites for ``sleep-canada`` service "
+"account are allowed, namely Wikipedia in English and French."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:552
+msgid "Cleanup of monitoring and policy enforcement of SNI and source identity"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:557
+msgid ""
+"kubectl delete deployment sleep-us sleep-canada $ kubectl delete "
+"serviceaccount sleep-us sleep-canada $ kubectl delete -f "
+"@samples/sleep/telemetry/sni-logging.yaml@ $ kubectl delete -f "
+"@samples/sleep/policy/sni-serviceaccount.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:563
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:565
+msgid ""
+"Perform `the cleanup steps </docs/tasks/traffic-management/egress"
+"/wildcard-egress-hosts/#cleanup-wildcard-configuration-for-arbitrary-"
+"domains>`_ from `Configure Egress Traffic using Wildcard Hosts "
+"</docs/tasks/traffic-management/egress/wildcard-egress-hosts/>`_ example."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress_sni_monitoring_and_policies/index.rst:571
+#, python-format
+msgid ""
+"Shutdown the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_"
+" service:"
+msgstr ""
+

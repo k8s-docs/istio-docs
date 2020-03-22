@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:2
+msgid "setup-local-computer"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:4
+msgid "{{< boilerplate work-in-progress >}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:6
+msgid "In this module you prepare your local computer for the tutorial."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:8
+msgid "Install `curl <https://curl.haxx.se/download.html>`_."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:10
+msgid "Install `Node.js <https://nodejs.org/en/download/>`_."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:12
+msgid "Install `Docker <https://docs.docker.com/install/>`_."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:14
+msgid ""
+"Install `kubectl <https://kubernetes.io/docs/tasks/tools/install-"
+"kubectl/>`_."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:17
+msgid ""
+"Set the ``KUBECONFIG`` environment variable for the configuration file "
+"you received from the tutorial instructors, or created yourself in the "
+"previous module."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:25
+msgid ""
+"Verify that the configuration took effect by printing the current "
+"namespace:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:31
+msgid ""
+"jsonpath=“{.contexts[?(@.name==\"$(kubectl config current-"
+"context)\")].context.namespace}” tutorial"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:34
+msgid ""
+"You should see in the output the name of the namespace, allocated for you"
+" by the instructors or allocated by yourself in the previous module."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:38
+msgid ""
+"Download one of the `Istio release archives "
+"<https://github.com/istio/istio/releases>`_ and extract the ``istioctl`` "
+"command line tool from the ``bin`` directory, and verify that you can run"
+" ``istioctl`` with the following command:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:46
+msgid ""
+"version.BuildInfo{Version:“release-1.1-20190214-09-16”, "
+"GitRevision:“6113e155ac85e2485e30dfea2b80fd97afd3130a”, User:“root”, "
+"Host:“4496ae63-3039-11e9-86e9-0a580a2c0304”, GolangVersion:“go1.10.4”, "
+"DockerHub:“gcr.io/istio-release”, BuildStatus:“Clean”, "
+"GitTag:“1.1.0-snapshot.6-6-g6113e15”} {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:53
+msgid "Congratulations, you configured your local computer!"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/setup-local-computer/index.rst:55
+msgid ""
+"You are ready to `run a single service locally </docs/examples"
+"/microservices-istio/single/>`_."
+msgstr ""
+

@@ -1,0 +1,889 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:2
+msgid "shared-vpn"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:4
+msgid ""
+"Follow this guide to install an Istio `multicluster service mesh "
+"</docs/ops/deployment/deployment-models/#multiple-clusters>`_ where the "
+"Kubernetes cluster services and the applications in each cluster have the"
+" capability to expose their internal Kubernetes network to other "
+"clusters."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:10
+msgid ""
+"In this configuration, multiple Kubernetes clusters running a remote "
+"configuration connect to a shared Istio `control plane "
+"</docs/ops/deployment/deployment-models/#control-plane-models>`_. Once "
+"one or more remote Kubernetes clusters are connected to the Istio control"
+" plane, Envoy can then form a mesh network across multiple clusters."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:23
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:25
+msgid ""
+"Two or more clusters running a supported Kubernetes version ({{< "
+"supported_kubernetes_versions >}})."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:28
+msgid ""
+"The ability to `deploy the Istio control plane "
+"</docs/setup/install/istioctl/>`_ on **one** of the clusters."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:31
+msgid ""
+"A RFC1918 network, VPN, or an alternative more advanced network technique"
+" meeting the following requirements:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:34
+msgid ""
+"Individual cluster Pod CIDR ranges and service CIDR ranges must be unique"
+" across the multicluster environment and may not overlap."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:37
+msgid "All pod CIDRs in every cluster must be routable to each other."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:39
+msgid "All Kubernetes control plane API servers must be routable to each other."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:42
+msgid ""
+"This guide describes how to install a multicluster Istio topology using "
+"the remote configuration profile provided by Istio."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:46
+msgid "Deploy the local control plane"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:48
+msgid ""
+"`Install the Istio control plane </docs/setup/install/istioctl/>`_ on "
+"**one** Kubernetes cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:54
+msgid "Set environment variables"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:56
+msgid ""
+"Wait for the Istio control plane to finish initializing before following "
+"the steps in this section."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:59
+msgid ""
+"You must run these operations on the Istio control plane cluster to "
+"capture the Istio control plane service endpoints, for example, the Pilot"
+" and Policy Pod IP endpoints."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:63
+msgid "Set the environment variables with the following commands:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:68
+msgid ""
+"pod -l istio=pilot -o jsonpath=‘{.items[0].status.podIP}’) $ export "
+"POLICY_POD_IP=$(kubectl -n istio-system get pod -l istio-mixer-"
+"type=policy -o jsonpath=‘{.items[0].status.podIP}’) $ export "
+"TELEMETRY_POD_IP=$(kubectl -n istio-system get pod -l istio-mixer-"
+"type=telemetry -o jsonpath=‘{.items[0].status.podIP}’)"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:74
+msgid ""
+"Normally, automatic sidecar injection on the remote clusters is enabled. "
+"To perform a manual sidecar injection refer to the `manual sidecar "
+"example <#manual-sidecar>`_"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:79
+msgid "Install the Istio remote"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:81
+msgid ""
+"You must deploy the ``istio-remote`` component to each remote Kubernetes "
+"cluster. You can install the component in one of two ways:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:84
+msgid ""
+"Use the following command on the remote cluster to install the Istio "
+"control plane service endpoints:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:328
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:89
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:361
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:581
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:611
+msgid "$ istioctl manifest apply"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:331
+msgid "–set profile=remote"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:332
+msgid "–set values.global.controlPlaneSecurityEnabled=false"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:333
+msgid "–set values.global.createRemoteSvcEndpoints=true"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:334
+msgid "–set values.global.remotePilotCreateSvcEndpoint=true"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:336
+msgid ""
+"–set values.global.remotePilotAddress=\\ :math:`{PILOT_POD_IP} \\ --set "
+"values.global.remotePolicyAddress=`\\ {POLICY_POD_IP}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:337
+msgid "–set values.global.remoteTelemetryAddress=${TELEMETRY_POD_IP}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst
+msgid "–set gateways.enabled=false"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:101
+msgid ""
+"All clusters must have the same namespace for the Istio components. It is"
+" possible to override the ``istio-system`` name on the main cluster as "
+"long as the namespace is the same for all Istio components in all "
+"clusters."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:106
+msgid ""
+"The following command example labels the ``default`` namespace. Use "
+"similar commands to label all the remote cluster’s namespaces requiring "
+"automatic sidecar injection."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:113
+msgid "istio-injection=enabled"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:115
+msgid ""
+"Repeat for all Kubernetes namespaces that need to setup automatic sidecar"
+" injection."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:119
+msgid "Installation configuration parameters"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:121
+msgid ""
+"You must configure the remote cluster’s sidecars interaction with the "
+"Istio control plane including the following endpoints in the ``istio-"
+"remote`` profile: ``pilot``, ``policy``, ``telemetry`` and tracing "
+"service. The profile enables automatic sidecar injection in the remote "
+"cluster by default. You can disable the automatic sidecar injection via a"
+" separate setting."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:128
+msgid ""
+"The following table shows the ``istioctl`` configuration values for "
+"remote clusters:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:132
+msgid "Install setting"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:132
+msgid "Accepted Values"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:132
+msgid "Default"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:132
+msgid "Purpose of Value"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:135
+msgid "``values.global .remotePilotAdd ress``"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:135
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:144
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:153
+msgid "A valid IP address or hostname"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:135
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:144
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:153
+msgid "None"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:135
+msgid ""
+"Specifies the Istio control plane’s pilot Pod IP address or remote "
+"cluster DNS resolvable hostname"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:144
+msgid "``values.global .remotePolicyAd dress``"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:144
+msgid ""
+"Specifies the Istio control plane’s policy Pod IP address or remote "
+"cluster DNS resolvable hostname"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:153
+msgid "``values.global .remoteTelemetr yAddress``"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:153
+msgid ""
+"Specifies the Istio control plane’s telemetry Pod IP address or remote "
+"cluster DNS resolvable hostname"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:162
+msgid "``values.sideca rInjectorWebhoo k.enabled``"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:162
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:171
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:189
+msgid "true, false"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:162
+msgid "true"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:162
+msgid ""
+"Specifies whether to enable automatic sidecar injection on the remote "
+"cluster"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:171
+msgid "``values.global .remotePilotCre ateSvcEndpoint` `"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:171
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:189
+msgid "false"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:171
+msgid ""
+"If set, a selector-less service and endpoint for ``istio-pilot`` are "
+"created with the ``remotePilotAd dress`` IP, which ensures the ``istio-"
+"pilot.< namespace>`` is DNS resolvable in the remote cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:189
+msgid "``values.global .createRemoteSv cEndpoints``"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:189
+msgid ""
+"If set, selector-less services and endpoints for ``istio-pilot`` , "
+"``istio-telemet ry``, ``istio-policy` ` are created with the "
+"corresponding remote IPs: ``remotePilotAd dress``, ``remoteTelmetr "
+"yAddress``, ``remotePolicyA ddress``, which ensures the service names are"
+" DNS resolvable in the remote cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:220
+msgid "Generate configuration files for remote clusters"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:222
+msgid ""
+"The Istio control plane requires access to all clusters in the mesh to "
+"discover services, endpoints, and pod attributes. The following steps "
+"describe how to generate a ``kubeconfig`` configuration file for the "
+"Istio control plane to use a remote cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:227
+msgid ""
+"Perform this procedure on each remote cluster to add the cluster to the "
+"service mesh. This procedure requires the ``cluster-admin`` user access "
+"permission to the remote cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:231
+msgid ""
+"Set the environment variables needed to build the ``kubeconfig`` file for"
+" the ``istio-reader-service-account`` service account with the following "
+"commands:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:238
+msgid ""
+"config view –minify=true -o jsonpath=‘{.clusters[].name}’) $ export "
+"KUBECFG_FILE=\\ :math:`{WORK_DIR}/`\\ {CLUSTER_NAME} $ SERVER=$(kubectl "
+"config view –minify=true -o jsonpath=‘{.clusters[].cluster.server}’) $ "
+"NAMESPACE=istio-system $ SERVICE_ACCOUNT=istio-reader-service-account $ "
+"SECRET_NAME=$(kubectl get sa ${SERVICE_ACCOUNT} -n ${NAMESPACE} -o "
+"jsonpath=‘{.secrets[].name}’) $ CA_DATA=$(kubectl get secret "
+"${SECRET_NAME} -n ${NAMESPACE} -o jsonpath=“{.data[‘ca.crt’]}”) $ "
+"TOKEN=$(kubectl get secret ${SECRET_NAME} -n ${NAMESPACE} -o "
+"jsonpath=“{.data[‘token’]}” \\| base64 –decode)"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:251
+msgid ""
+"An alternative to ``base64 --decode`` is ``openssl enc -d -base64 -A`` on"
+" many systems."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:254
+msgid ""
+"Create a ``kubeconfig`` file in the working directory for the ``istio-"
+"reader-service-account`` service account with the following command:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:261
+msgid ""
+"cluster: certificate-authority-data: ${CA_DATA} server: ${SERVER} name: "
+"${CLUSTER_NAME} contexts: - context: cluster: ${CLUSTER_NAME} user: "
+"${CLUSTER_NAME} name: ${CLUSTER_NAME} current-context: ${CLUSTER_NAME} "
+"kind: Config preferences: {} users: - name: ${CLUSTER_NAME} user: token: "
+"${TOKEN} EOF"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:267
+msgid ""
+"*(Optional)* Create file with environment variables to create the remote "
+"cluster’s secret:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:273
+msgid ""
+"CLUSTER_NAME=\\ :math:`{CLUSTER_NAME}  export KUBECFG_FILE=`\\ "
+"{KUBECFG_FILE} export NAMESPACE=${NAMESPACE} EOF"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:276
+msgid ""
+"At this point, you created the remote clusters’ ``kubeconfig`` files in "
+"the current directory. The filename of the ``kubeconfig`` file is the "
+"same as the original cluster name."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:283
+msgid "Instantiate the credentials"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:285
+msgid ""
+"Perform this procedure on the cluster running the Istio control plane. "
+"This procedure uses the ``WORK_DIR``, ``CLUSTER_NAME``, and ``NAMESPACE``"
+" environment values set and the file created for the remote cluster’s "
+"secret from the `previous section <#kubeconfig>`_."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:290
+msgid ""
+"If you created the environment variables file for the remote cluster’s "
+"secret, source the file with the following command:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:297
+msgid ""
+"You can install Istio in a different namespace. This procedure uses the "
+"``istio-system`` namespace."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:302
+msgid "Do not store and label the secrets for the local cluster"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:303
+msgid ""
+"running the Istio control plane. Istio is always aware of the local "
+"cluster’s Kubernetes credentials."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:306
+msgid "Create a secret and label it properly for each remote cluster:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:311
+msgid ""
+"–from-file ${KUBECFG_FILE} -n ${NAMESPACE} $ kubectl label secret "
+"${CLUSTER_NAME} istio/multiCluster=true -n ${NAMESPACE}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:316
+msgid "The Kubernetes secret data keys must conform with the"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:317
+msgid ""
+"``DNS-1123 subdomain`` `format "
+"<https://tools.ietf.org/html/rfc1123#page-13>`_. For example, the "
+"filename can’t have underscores. Resolve any issue with the filename "
+"simply by changing the filename to conform with the format. {{< /warning "
+">}}"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:324
+msgid "Uninstalling the remote cluster"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:326
+msgid "To uninstall the cluster run the following command:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:330
+msgid "$ istioctl manifest generate"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:338
+msgid "–set gateways.enabled=false \\| kubectl delete -f -"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:343
+msgid "Manual sidecar injection example"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:345
+msgid ""
+"The following example shows how to use the ``istioctl manifest`` command "
+"to generate the manifest for a remote cluster with the automatic sidecar "
+"injection disabled. Additionally, the example shows how to use the "
+"``configmaps`` of the remote cluster with the ```istioctl kube-inject`` "
+"</docs/reference/commands/istioctl/#istioctl-kube-inject>`_ command to "
+"generate any application manifests for the remote cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:352
+msgid "Perform the following procedure against the remote cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:354
+msgid ""
+"Before you begin, set the endpoint IP environment variables as described "
+"in the `set the environment variables section <#environment-var>`_"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:357
+msgid "Install the Istio remote profile:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:371
+msgid ""
+"`Generate <#kubeconfig>`_ the ``kubeconfig`` configuration file for each "
+"remote cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:374
+msgid "`Instantiate the credentials <#credentials>`_ for each remote cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:378
+msgid "Manually inject the sidecars into the application manifests"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:380
+msgid ""
+"The following example ``istioctl`` command injects the sidecars into the "
+"application manifests. Run the following commands in a shell with the "
+"``kubeconfig`` context set up for the remote cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:387
+msgid ""
+"kube-inject –injectConfigMapName istio-sidecar-injector "
+"–meshConfigMapName istio -f ${ORIGINAL_SVC_MANIFEST} \\| kubectl apply -f"
+" -"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:392
+msgid "Access services from different clusters"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:394
+msgid ""
+"Kubernetes resolves DNS on a cluster basis. Because the DNS resolution is"
+" tied to the cluster, you must define the service object in every cluster"
+" where a client runs, regardless of the location of the service’s "
+"endpoints. To ensure this is the case, duplicate the service object to "
+"every cluster using ``kubectl``. Duplication ensures Kubernetes can "
+"resolve the service name in any cluster. Since the service objects are "
+"defined in a namespace, you must define the namespace if it doesn’t "
+"exist, and include it in the service definitions in all clusters."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:404
+msgid "Deployment considerations"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:406
+msgid ""
+"The previous procedures provide a simple and step-by-step guide to deploy"
+" a multicluster environment. A production environment might require "
+"additional steps or more complex deployment options. The procedures "
+"gather the endpoint IPs of the Istio services and use them to invoke "
+"``istioctl``. This process creates Istio services on the remote clusters."
+" As part of creating those services and endpoints in the remote cluster, "
+"Kubernetes adds DNS entries to the ``kube-dns`` configuration object."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:415
+msgid ""
+"This allows the ``kube-dns`` configuration object in the remote clusters "
+"to resolve the Istio service names for all Envoy sidecars in those remote"
+" clusters. Since Kubernetes pods don’t have stable IPs, restart of any "
+"Istio service pod in the control plane cluster causes its endpoint to "
+"change. Therefore, any connection made from remote clusters to that "
+"endpoint are broken. This behavior is documented in `Istio issue #4822 "
+"<https://github.com/istio/istio/issues/4822>`_"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:423
+msgid ""
+"To either avoid or resolve this scenario several options are available. "
+"This section provides a high level overview of these options:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:426
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:431
+msgid "Update the DNS entries"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:427
+msgid "Use a load balancer service type"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:428
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:462
+msgid "Expose the Istio services via a gateway"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:433
+msgid ""
+"Upon any failure or restart of the local Istio control plane, ``kube-"
+"dns`` on the remote clusters must be updated with the correct endpoint "
+"mappings for the Istio services. There are a number of ways this can be "
+"done. The most obvious is to rerun the ``istioctl`` command in the remote"
+" cluster after the Istio services on the control plane cluster have "
+"restarted."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:441
+msgid "Use load balance service type"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:443
+msgid ""
+"In Kubernetes, you can declare a service with a service type of "
+"``LoadBalancer``. See the Kubernetes documentation on `service types "
+"<https://kubernetes.io/docs/concepts/services-networking/service"
+"/#publishing-services-service-types>`_ for more information."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:448
+msgid ""
+"A simple solution to the pod restart issue is to use load balancers for "
+"the Istio services. Then, you can use the load balancers’ IPs as the "
+"Istio services’ endpoint IPs to configure the remote clusters. You may "
+"need load balancer IPs for these Istio services:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:453
+msgid "``istio-pilot``"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:454
+msgid "``istio-telemetry``"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:455
+msgid "``istio-policy``"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:457
+msgid ""
+"Currently, the Istio installation doesn’t provide an option to specify "
+"service types for the Istio services. You can manually specify the "
+"service types in the Istio manifests."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:464
+msgid ""
+"This method uses the Istio ingress gateway functionality. The remote "
+"clusters have the ``istio-pilot``, ``istio-telemetry`` and ``istio-"
+"policy`` services pointing to the load balanced IP of the Istio ingress "
+"gateway. Then, all the services point to the same IP. You must then "
+"create the destination rules to reach the proper Istio service in the "
+"main cluster in the ingress gateway."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:471
+msgid "This method provides two alternatives:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:473
+msgid ""
+"Re-use the default Istio ingress gateway installed with the provided "
+"manifests. You only need to add the correct destination rules."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:476
+msgid "Create another Istio ingress gateway specifically for the multicluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:480
+msgid "Security"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:482
+msgid ""
+"Istio supports deployment of mutual TLS between the control plane "
+"components as well as between sidecar injected application pods."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:486
+msgid "Control plane security"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:488
+msgid "To enable control plane security follow these general steps:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:490
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:525
+msgid "Deploy the Istio control plane cluster with:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:492
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:502
+msgid "The control plane security enabled."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:494
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:504
+msgid "The ``citadel`` certificate self signing disabled."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:496
+msgid ""
+"A secret named ``cacerts`` in the Istio control plane namespace with the "
+"`Certificate Authority (CA) certificates </docs/tasks/security/citadel-"
+"config/plugin-ca-cert/#plugging-in-the-existing-certificate-and-key>`_."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:500
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:535
+msgid "Deploy the Istio remote clusters with:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:506
+msgid ""
+"A secret named ``cacerts`` in the Istio control plane namespace with the "
+"`CA certificates </docs/tasks/security/citadel-config/plugin-ca-cert"
+"/#plugging-in-the-existing-certificate-and-key>`_. The Certificate "
+"Authority (CA) of the main cluster or a root CA must sign the CA "
+"certificate for the remote clusters too."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:512
+msgid ""
+"The Istio pilot service hostname must be resolvable via DNS. DNS "
+"resolution is required because Istio configures the sidecar to verify the"
+" certificate subject names using the ``istio-pilot.<namespace>`` subject "
+"name format."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:517
+msgid "Set control plane IPs or resolvable host names."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:520
+msgid "Mutual TLS between application pods"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:522
+msgid "To enable mutual TLS for all application pods, follow these general steps:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:527
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:537
+msgid "Mutual TLS globally enabled."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:529
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:539
+msgid "The Citadel certificate self-signing disabled."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:531
+msgid ""
+"A secret named ``cacerts`` in the Istio control plane namespace with the "
+"`CA certificates </docs/tasks/security/citadel-config/plugin-ca-cert"
+"/#plugging-in-the-existing-certificate-and-key>`_"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:541
+msgid ""
+"A secret named ``cacerts`` in the Istio control plane namespace with the "
+"`CA certificates </docs/tasks/security/citadel-config/plugin-ca-cert"
+"/#plugging-in-the-existing-certificate-and-key>`_ The CA of the main "
+"cluster or a root CA must sign the CA certificate for the remote clusters"
+" too."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:549
+msgid "The CA certificate steps are identical for both control"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:550
+msgid "plane security and application pod security steps."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:553
+msgid "Example deployment"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:555
+msgid ""
+"This example procedure installs Istio with both the control plane mutual "
+"TLS and the application pod mutual TLS enabled. The procedure sets up a "
+"remote cluster with a selector-less service and endpoint. Istio Pilot "
+"uses the service and endpoint to allow the remote sidecars to resolve the"
+" ``istio-pilot.istio-system`` hostname via Istio’s local Kubernetes DNS."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:563
+msgid "Primary cluster: deploy the control plane cluster"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:565
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:588
+msgid ""
+"Create the ``cacerts`` secret using the Istio certificate samples in the "
+"``istio-system`` namespace:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:571
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:594
+msgid ""
+"secret generic cacerts -n istio-system –from-file=samples/certs/ca-"
+"cert.pem –from-file=samples/certs/ca-key.pem –from-file=samples/certs"
+"/root-cert.pem –from-file=samples/certs/cert-chain.pem"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:577
+msgid "Deploy the Istio control plane with its security features enabled:"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst
+msgid "–set values.global.controlPlaneSecurityEnabled=true"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst
+msgid "–set values.security.selfSigned=false"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:586
+msgid "Remote cluster: deploy Istio components"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:600
+msgid ""
+"Set the environment variables for the IP addresses of the pods as "
+"described in the `setting environment variables section <#environment-"
+"var>`_."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:604
+msgid ""
+"The following command deploys the remote cluster’s components with "
+"security features for the control plane enabled, and enables the creation"
+" of the an Istio Pilot selector-less service and endpoint to get a DNS "
+"entry in the remote cluster."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:622
+msgid ""
+"To generate the ``kubeconfig`` configuration file for the remote cluster,"
+" follow the steps in the `Kubernetes configuration section "
+"<#kubeconfig>`_"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:627
+msgid "Primary cluster: instantiate credentials"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:629
+msgid ""
+"You must instantiate credentials for each remote cluster. Follow the "
+"`instantiate credentials procedure <#credentials>`_ to complete the "
+"deployment."
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:633
+msgid "**Congratulations!**"
+msgstr ""
+
+#: ../../source/docs/setup/install/multicluster/shared-vpn/index.rst:635
+msgid ""
+"You have configured all the Istio components in both clusters to use "
+"mutual TLS between application sidecars, the control plane components, "
+"and other application sidecars."
+msgstr ""
+

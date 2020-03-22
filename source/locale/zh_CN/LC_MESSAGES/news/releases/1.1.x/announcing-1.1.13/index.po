@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.13/index.rst:2
+msgid "announcing-1.1.13"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.13/index.rst:4
+msgid ""
+"We’re pleased to announce the availability of Istio 1.1.13. Please see "
+"below for what’s changed."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.13/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.13/index.rst:10
+msgid "Security update"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.13/index.rst:12
+msgid ""
+"This release contains fixes for the security vulnerabilities described in"
+" `ISTIO-SECURITY-2019-003 </news/security/istio-security-2019-003/>`_ and"
+" `ISTIO-SECURITY-2019-004 </news/security/istio-security-2019-004/>`_. "
+"Specifically:"
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.13/index.rst:18
+msgid ""
+"**ISTIO-SECURITY-2019-003**: An Envoy user reported publicly an issue "
+"(c.f. `Envoy Issue 7728 "
+"<https://github.com/envoyproxy/envoy/issues/7728>`_) about regular "
+"expressions matching that crashes Envoy with very large URIs. \\* "
+"`CVE-2019-14993 <https://cve.mitre.org/cgi-"
+"bin/cvename.cgi?name=CVE-2019-14993>`_: After investigation, the Istio "
+"team has found that this issue could be leveraged for a DoS attack in "
+"Istio, if users are employing regular expressions in some of the Istio "
+"APIs: ``JWT``, ``VirtualService``, ``HTTPAPISpecBinding``, "
+"``QuotaSpecBinding``."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.13/index.rst:28
+msgid ""
+"**ISTIO-SECURITY-2019-004**: Envoy, and subsequently Istio are vulnerable"
+" to a series of trivial HTTP/2-based DoS attacks: \\* `CVE-2019-9512 "
+"<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9512>`_: HTTP/2 "
+"flood using ``PING`` frames and queuing of response ``PING`` ACK frames "
+"that results in unbounded memory growth (which can lead to out of memory "
+"conditions). \\* `CVE-2019-9513 <https://cve.mitre.org/cgi-"
+"bin/cvename.cgi?name=CVE-2019-9513>`_: HTTP/2 flood using PRIORITY frames"
+" that results in excessive CPU usage and starvation of other clients. \\*"
+" `CVE-2019-9514 <https://cve.mitre.org/cgi-"
+"bin/cvename.cgi?name=CVE-2019-9514>`_: HTTP/2 flood using ``HEADERS`` "
+"frames with invalid HTTP headers and queuing of response ``RST_STREAM`` "
+"frames that results in unbounded memory growth (which can lead to out of "
+"memory conditions). \\* `CVE-2019-9515 <https://cve.mitre.org/cgi-"
+"bin/cvename.cgi?name=CVE-2019-9515>`_: HTTP/2 flood using ``SETTINGS`` "
+"frames and queuing of ``SETTINGS`` ACK frames that results in unbounded "
+"memory growth (which can lead to out of memory conditions). \\* "
+"`CVE-2019-9518 <https://cve.mitre.org/cgi-"
+"bin/cvename.cgi?name=CVE-2019-9518>`_: HTTP/2 flood using frames with an "
+"empty payload that results in excessive CPU usage and starvation of other"
+" clients."
+msgstr ""
+
+#: ../../source/news/releases/1.1.x/announcing-1.1.13/index.rst:49
+msgid ""
+"Nothing else is included in this release except for the above security "
+"fixes."
+msgstr ""
+

@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/general/how-do-i-contribute.rst:2
+msgid "how-do-i-contribute"
+msgstr ""
+
+#: ../../source/faq/general/how-do-i-contribute.rst:4
+msgid ""
+"Contributions are highly welcome. We look forward to community feedback, "
+"additions, and bug reports."
+msgstr ""
+
+#: ../../source/faq/general/how-do-i-contribute.rst:7
+msgid ""
+"The code repositories are hosted on `GitHub <https://github.com/istio>`_."
+" Please see our `Contribution Guidelines "
+"<https://github.com/istio/community/blob/master/CONTRIBUTING.md>`_ to "
+"learn how to contribute."
+msgstr ""
+
+#: ../../source/faq/general/how-do-i-contribute.rst:12
+msgid ""
+"In addition to the code, there are other ways to contribute to the Istio "
+"`community </about/community/>`_, including on our `discussion forum "
+"<https://discuss.istio.io>`_, `Slack <https://istio.slack.com>`_, and "
+"`Stack Overflow <https://stackoverflow.com/questions/tagged/istio>`_."
+msgstr ""
+

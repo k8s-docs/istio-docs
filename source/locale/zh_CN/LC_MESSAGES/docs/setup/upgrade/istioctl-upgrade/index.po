@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:2
+msgid "Upgrade Istio using istioctl"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:4
+msgid ""
+"The ``istioctl upgrade`` command performs an upgrade of Istio. Before "
+"performing the upgrade, it checks that the Istio installation meets the "
+"upgrade eligibility criteria. Also, it alerts the user if it detects any "
+"changes in the profile default values between Istio versions."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:9
+msgid "The upgrade command can also perform a downgrade of Istio."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:11
+msgid ""
+"See the `istioctl upgrade reference </docs/reference/commands/istioctl"
+"/#istioctl-upgrade>`_ for all the options provided by the ``istioctl "
+"upgrade`` command."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:15
+msgid "Upgrade prerequisites"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:17
+msgid "Ensure you meet these requirements before starting the upgrade process:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:19
+msgid "Istio version 1.4.4 or higher is installed."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:21
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:106
+msgid ""
+"Your Istio installation was `installed using {{< istioctl >}} "
+"</docs/setup/install/istioctl/>`_."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:25
+msgid "Upgrade steps"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:29
+msgid "Traffic disruption may occur during the upgrade process."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:30
+msgid ""
+"To minimize the disruption, ensure that at least two replicas of each "
+"component (except Citadel) are running. Also, ensure that "
+"```PodDistruptionBudgets`` <https://kubernetes.io/docs/tasks/run-"
+"application/configure-pdb/>`_ are configured with a minimum availability "
+"of 1."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:35
+msgid ""
+"The commands in this section should be run using the new version of "
+"``istioctl`` which can be found in the ``bin/`` subdirectory of the "
+"downloaded package."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:39
+msgid ""
+"`Download the new Istio release </docs/setup/getting-started/#download>`_"
+" and change directory to the new release directory."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:43
+msgid ""
+"Verify that ``istoctl`` supports upgrading from your current Istio "
+"version by viewing the supported versions list:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:50
+msgid ""
+"Ensure that your Kubernetes configuration points to the cluster to "
+"upgrade:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:57
+msgid "Begin the upgrade by running this command:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:62
+msgid "``<your-custom-configuration-file>``"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:64
+msgid ""
+"``<your-custom-configuration-file>`` is the `IstioOperator API "
+"Configuration </docs/setup/install/istioctl/#configure-the-component-"
+"settings>`_ file you used to customize the installation of the currently-"
+"running version of Istio."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:71
+msgid ""
+"If you installed Istio using the ``-f`` flag, for example ``istioctl "
+"manifest apply -f <IstioControlPlane-custom-resource-definition-file>``, "
+"then you must provide the same ``-f`` flag value to the ``istioctl "
+"upgrade`` command."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:77
+msgid ""
+"``istioctl upgrade`` does not support the ``--set`` flag. Therefore, if "
+"you installed Istio using the ``--set`` command, create a configuration "
+"file with the equivalent configuration options and pass it to the "
+"``istioctl upgrade`` command using the ``-f`` flag instead."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:82
+msgid "If you omit the ``-f`` flag, Istio upgrades using the default profile."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:85
+msgid ""
+"After performing several checks, ``istioctl`` will ask you to confirm "
+"whether to proceed."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:88
+msgid ""
+"``istioctl`` will install the new version of Istio control plane and "
+"indicate the completion status."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:91
+msgid ""
+"After ``istioctl`` completes the upgrade, you must manually update the "
+"Istio data plane by restarting any pods with Istio sidecars:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:99
+msgid "Downgrade prerequisites"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:101
+msgid "Ensure you meet these requirements before starting the downgrade process:"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:104
+msgid "Istio version 1.5 or higher is installed."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:109
+msgid ""
+"Downgrade must be done using the ``istioctl`` binary version that "
+"corresponds to the Istio version that you intend to downgrade to. For "
+"example, if you are downgrading from Istio 1.5 to 1.4.4, use ``istioctl``"
+" version 1.4.4."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:115
+msgid "Downgrade to Istio 1.4.4 and lower versions steps"
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:117
+msgid ""
+"You can use ``istioctl experimental upgrade`` to downgrade to 1.4 "
+"versions. Please notice that you need to use the ``istioctl`` binary "
+"corresponding to the lower version (e.g., 1.4.4), and ``upgrade`` is "
+"experimental in 1.4. The process steps are identical to the upgrade "
+"process mentioned in the previous section. When completed, the process "
+"will restore Istio back to the Istio version that was installed before."
+msgstr ""
+
+#: ../../source/docs/setup/upgrade/istioctl-upgrade/index.rst:124
+msgid ""
+"``istioctl manifest apply`` also installs the same Istio control plane, "
+"but does not perform any checks. For example, default values applied to "
+"the cluster for a configuration profile may change without warning."
+msgstr ""
+

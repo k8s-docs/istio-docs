@@ -1,0 +1,36 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/boilerplates/trace-generation.rst:2
+msgid "trace-generation"
+msgstr ""
+
+#: ../../source/boilerplates/trace-generation.rst:4
+msgid ""
+"To see trace data, you must send requests to your service. The number of "
+"requests depends on Istio’s sampling rate. You set this rate when you "
+"install Istio. The default sampling rate is 1%. You need to send at least"
+" 100 requests before the first trace is visible. To send a 100 requests "
+"to the ``productpage`` service, use the following command:"
+msgstr ""
+
+#: ../../source/boilerplates/trace-generation.rst:13
+msgid "http://$GATEWAY_URL/productpage; done"
+msgstr ""
+

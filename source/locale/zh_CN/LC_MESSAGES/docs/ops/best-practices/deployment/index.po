@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/best-practices/deployment/index.rst:2
+msgid "deployment"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/deployment/index.rst:4
+msgid ""
+"We have identified the following general principles to help you get the "
+"most out of your Istio deployments. These best practices aim to limit the"
+" impact of bad configuration changes and make managing your deployments "
+"easier."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/deployment/index.rst:10
+msgid "Deploy fewer clusters"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/deployment/index.rst:12
+msgid ""
+"Deploy Istio across a small number of large clusters, rather than a large"
+" number of small clusters. Instead of adding clusters to your deployment,"
+" the best practice is to use `namespace tenancy </docs/ops/deployment"
+"/deployment-models/#namespace-tenancy>`_ to manage large clusters. "
+"Following this approach, you can deploy Istio across one or two clusters "
+"per zone or region. You can then deploy a control plane on one cluster "
+"per region or zone for added reliability."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/deployment/index.rst:21
+msgid "Deploy clusters near your users"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/deployment/index.rst:23
+msgid ""
+"Include clusters in your deployment across the globe for **geographic "
+"proximity to end-users**. Proximity helps your deployment have low "
+"latency."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/deployment/index.rst:28
+msgid "Deploy across multiple availability zones"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/deployment/index.rst:30
+msgid ""
+"Include clusters in your deployment **across multiple availability "
+"regions and zones** within each geographic region. This approach limits "
+"the size of the {{< gloss “failure domain” >}}failure domains{{< /gloss "
+">}} of your deployment, and helps you avoid global failures."
+msgstr ""
+

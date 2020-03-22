@@ -1,0 +1,573 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/contribute/code-blocks/index.rst:2
+msgid "code-blocks"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:5
+msgid ""
+"Code blocks in the Istio documentation are embedded preformatted block of"
+" content. We use Hugo to build our website, and it uses the ``text`` and "
+"``text_import`` shortcodes to add code to a page."
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:9
+msgid ""
+"Using this markup allows us to provide our readers with a better "
+"experience. The rendered code blocks can be easily copied, printed, or "
+"downloaded."
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:13
+msgid ""
+"Use of these shortcodes is required for all content contributions. If "
+"your content doesn’t use the appropriate shortcodes, it won’t be merged "
+"until it does. This page contains several examples of embedded blocks and"
+" the formatting options available."
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:18
+msgid ""
+"The most common example of code blocks are Command Line Interface (CLI) "
+"commands, for example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:21
+msgid ""
+"{{< text markdown >}} {{</\\* text bash */>}} $ echo “Hello” {{</* /text "
+"\\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:24
+msgid ""
+"The shortcode requires you to start each CLI command with a ``$`` and it "
+"renders the content as follows:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:31
+msgid ""
+"You can have multiple commands in a code block, but the shortcode only "
+"recognizes a single output, for example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:34
+msgid ""
+"{{< text markdown >}} {{</\\* text bash */>}} $ echo “Hello” >file.txt $ "
+"cat file.txt Hello {{</* /text \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:37
+msgid ""
+"By default and given the set ``bash`` attribute, the commands render "
+"using bash syntax highlighting and the output renders as plain text, for "
+"example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:45
+msgid ""
+"For readability, you can use ``\\`` to continue long commands on new "
+"lines, for example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:48
+msgid ""
+"{{< text markdown >}} {{</\\* text bash */>}} $ echo “Hello” >file.txt $ "
+"echo “There” >>file.txt $ cat file.txt Hello There {{</* /text \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:52
+msgid "Hugo renders the multi-line command without issue:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:54
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:56
+msgid "$ echo “Hello”"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:57
+msgid ">file.txt $ echo “There” >>file.txt $ cat file.txt Hello There"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:59
+msgid ""
+"Your {{}}workloads{{}} can be coded in various programming languages. "
+"Therefore, we have implemented support for multiple combinations of "
+"syntax highlighting in code blocks."
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:64
+msgid "Add syntax highlighting"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:66
+msgid "Let’s start with the following “Hello World” example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:68
+msgid ""
+"{{< text markdown >}} {{</\\* text plain */>}} func HelloWorld() { "
+"fmt.Println(“Hello World”) } {{</* /text \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:71
+msgid "The ``plain`` attribute renders the code without syntax highlighting:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:73
+msgid "{{< text plain >}} func HelloWorld() { fmt.Println(“Hello World”) }"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:75
+msgid ""
+"You can set the language of the code in the block to highlight its "
+"syntax. The previous example set the syntax to ``plain``, and the "
+"rendered code block doesn’t have any syntax highlighting. However, you "
+"can set the syntax to GoLang, for example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:80
+msgid ""
+"{{< text markdown >}} {{</\\* text go */>}} func HelloWorld() { "
+"fmt.Println(“Hello World”) } {{</* /text \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:83
+msgid "Then, Hugo adds the appropriate highlighting:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:85
+msgid "{{< text go >}} func HelloWorld() { fmt.Println(“Hello World”) }"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:88
+msgid "Supported syntax"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:90
+msgid ""
+"Code blocks in Istio support the following languages with syntax "
+"highlighting:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:93
+msgid "``plain``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:94
+msgid "``markdown``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:95
+msgid "``yaml``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:96
+msgid "``json``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:97
+msgid "``java``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:98
+msgid "``javascript``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:99
+msgid "``c``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:100
+msgid "``cpp``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:101
+msgid "``csharp``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:102
+msgid "``go``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:103
+msgid "``html``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:104
+msgid "``protobuf``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:105
+msgid "``perl``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:106
+msgid "``docker``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:107
+msgid "``bash``"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:109
+msgid ""
+"By default, the output of CLI commands is considered plain text and "
+"renders without syntax highlighting. If you need to add syntax "
+"highlighting to the output, you can specify the language in the "
+"shortcode. In Istio, the most common examples are YAML or JSON outputs, "
+"for example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:115
+msgid ""
+"{{< text markdown >}} {{</\\* text bash json */>}} $ kubectl -n istio-"
+"system logs $(kubectl -n istio-system get pods -l istio-mixer-"
+"type=telemetry -o jsonpath=‘{.items[0].metadata.name}’) mixer \\| grep "
+"\"instance\":\"newlog.logentry.istio-system\" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.249Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“details”,“latency”:“6.848ms”,“responseCode”:200,“responseSize”:178,“source”:“productpage”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.291Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“ratings”,“latency”:“6.753ms”,“responseCode”:200,“responseSize”:48,“source”:“reviews”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.263Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“reviews”,“latency”:“39.848ms”,“responseCode”:200,“responseSize”:379,“source”:“productpage”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.239Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“productpage”,“latency”:“67.675ms”,“responseCode”:200,“responseSize”:5599,“source”:“ingress"
+".istio-system.svc.cluster.local”,“user”:“unknown”} "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.233Z”,“instance”:“newlog.logentry"
+".istio-system”,“destination”:“ingress.istio-"
+"system.svc.cluster.local”,“latency”:“74.47ms”,“responseCode”:200,“responseSize”:5599,“source”:“unknown”,“user”:“unknown”}"
+" {{</* /text \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:126
+msgid ""
+"Renders the commands with bash syntax highlighting and the output with "
+"the appropriate JASON syntax highlighting."
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:129
+msgid ""
+"{{< text bash json >}} $ kubectl -n istio-system logs $(kubectl -n istio-"
+"system get pods -l istio-mixer-type=telemetry -o "
+"jsonpath=‘{.items[0].metadata.name}’) mixer \\| grep "
+"\"instance\":\"newlog.logentry.istio-system\" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.249Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“details”,“latency”:“6.848ms”,“responseCode”:200,“responseSize”:178,“source”:“productpage”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.291Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“ratings”,“latency”:“6.753ms”,“responseCode”:200,“responseSize”:48,“source”:“reviews”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.263Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“reviews”,“latency”:“39.848ms”,“responseCode”:200,“responseSize”:379,“source”:“productpage”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.239Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“productpage”,“latency”:“67.675ms”,“responseCode”:200,“responseSize”:5599,“source”:“ingress"
+".istio-system.svc.cluster.local”,“user”:“unknown”} "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.233Z”,“instance”:“newlog.logentry"
+".istio-system”,“destination”:“ingress.istio-"
+"system.svc.cluster.local”,“latency”:“74.47ms”,“responseCode”:200,“responseSize”:5599,“source”:“unknown”,“user”:“unknown”}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:141
+msgid "Dynamically import code into your document"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:143
+msgid ""
+"The previous examples show how to format the code in your document. "
+"However, you can use the ``text_import`` shortcode to import content or "
+"code from a file too. The file can be stored in the documentation "
+"repository or in an external source with Cross-Origin Resource Sharing "
+"(CORS) enabled."
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:150
+msgid "Import code from a file in the ``istio.io`` repository"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:152
+msgid ""
+"Use the ``file`` attribute to import content from a file in the Istio "
+"documentation repository, for example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:155
+msgid ""
+"{{< text markdown >}} {{</\\* text_import file=“test/snippet_example.txt”"
+" syntax=“plain” \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:158
+msgid "The example above renders the content in the file as plain text:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:160
+#: ../../source/about/contribute/code-blocks/index.rst:198
+msgid "{{< text_import file=“test/snippet_example.txt” syntax=“plain” >}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:162
+msgid ""
+"Set the language of the content through the ``syntax=`` field to get the "
+"appropriate syntax highlighting."
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:166
+msgid "Import code from an external source through a URL"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:168
+msgid ""
+"Similarly, you can dynamically import content from the Internet. Use the "
+"``url`` attribute to specify the source. The following example imports "
+"the same file, but from a URL:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:172
+msgid ""
+"{{< text markdown >}} {{</\\* text_import "
+"url=“https://raw.githubusercontent.com/istio/istio.io/master/test/snippet_example.txt”"
+" syntax=“plain” \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:176
+msgid "As you can see, the content is rendered in the same way as before:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:178
+msgid ""
+"{{< text_import "
+"url=“https://raw.githubusercontent.com/istio/istio.io/master/test/snippet_example.txt”"
+" syntax=“plain” >}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:182
+msgid ""
+"If the file is from a different origin site, CORS should be enabled on "
+"that site. Note the GitHub raw content site "
+"(``raw.githubusercontent.com``) may be used here."
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:189
+msgid "Import a code snippet from a larger file"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:191
+msgid ""
+"Sometimes, you don’t need the contents of the entire file. You can "
+"control which parts of the content to render using *named snippets*. Tag "
+"the code you want in the snippet with comments containing the ``$snippet "
+"SNIPPET_NAME`` and ``$endsnippet`` tags. The content between the two tags"
+" represents the snippet. For example, take the following file:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:200
+msgid ""
+"The file has three separate snippets: ``SNIP1``, ``SNIP2``, and "
+"``SNIP3``. The convention is name snippets using all caps. To reference a"
+" specific snippet in your document, set the value of the ``snippet`` "
+"attribute in the shortcode to the name of the snippet, for example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:205
+msgid ""
+"{{< text markdown >}} {{</\\* text_import file=“test/snippet_example.txt”"
+" syntax=“plain” snippet=“SNIP1” \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:208
+msgid "The resulting code block only includes the code of the ``SNIP1`` snippet:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:211
+msgid ""
+"{{< text_import file=“test/snippet_example.txt” syntax=“plain” "
+"snippet=“SNIP1” >}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:214
+msgid ""
+"You can use the ``syntax`` attribute of the ``text_import`` shortcode to "
+"specify the syntax of the snippet. For snippets containing CLI commands, "
+"you can use the ``outputis`` attribute to specify the output’s syntax."
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:221
+msgid "Link to files in GitHub"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:223
+msgid ""
+"Some code blocks need to reference files from `Istio’s GitHub repository "
+"<https://github.com/istio/istio>`_. The most common example is "
+"referencing YAML configuration files. Instead of copying the entire "
+"contents of the YAML file into your code block, you can surround the "
+"relative path name of the file with ``@`` symbols. This markup renders "
+"the path should as a link to the file from the current release branch in "
+"GitHub, for example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:231
+msgid ""
+"{{< text markdown >}} {{</\\* text bash */>}} $ kubectl apply -f "
+"@samples/bookinfo/networking/virtual-service-reviews-v3.yaml@ {{</* /text"
+" \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:235
+msgid "The path renders as a link that takes you to the corresponding file:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:240
+msgid ""
+"@samples/bookinfo/networking/virtual-service-reviews-v3.yaml@ {{< /text "
+">}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:243
+msgid ""
+"By default, these links point to the current release branch of the "
+"``istio/istio`` repository. For the link to point to a different Istio "
+"repository instead, you can use the ``repo`` attribute, for example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:247
+msgid ""
+"{{< text markdown >}} {{</\\* text syntax=“bash” repo=“api” */>}} $ cat "
+"@README.md@ {{</* /text \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:250
+msgid ""
+"The path renders as a link to the ``README.md`` file of the ``istio/api``"
+" repository:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:253
+msgid "{{< text syntax=“bash” repo=“api” >}} $ cat @README.md@"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:255
+msgid ""
+"Sometimes, your code block uses ``@`` for something else. You can turn "
+"the link expansion on and off with the ``expandlinks`` attribute, for "
+"example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:259
+msgid ""
+"{{< text markdown >}} {{</\\* text syntax=“bash” expandlinks=“false” "
+"*/>}} $ kubectl apply -f @samples/bookinfo/networking/virtual-service-"
+"reviews-v3.yaml@ {{</* /text \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:265
+msgid "Advanced features"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:267
+msgid ""
+"To use the more advanced features for preformatted content which are "
+"described in the following sections, use the extended form of the "
+"``text`` sequence rather than the simplified form shown so far. The "
+"expanded form uses normal HTML attributes:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:272
+msgid ""
+"{{< text markdown >}} {{</\\* text syntax=“bash” outputis=“json” */>}} $ "
+"kubectl -n istio-system logs $(kubectl -n istio-system get pods -l istio-"
+"mixer-type=telemetry -o jsonpath=‘{.items[0].metadata.name}’) mixer \\| "
+"grep \"instance\":\"newlog.logentry.istio-system\" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.249Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“details”,“latency”:“6.848ms”,“responseCode”:200,“responseSize”:178,“source”:“productpage”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.291Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“ratings”,“latency”:“6.753ms”,“responseCode”:200,“responseSize”:48,“source”:“reviews”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.263Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“reviews”,“latency”:“39.848ms”,“responseCode”:200,“responseSize”:379,“source”:“productpage”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.239Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“productpage”,“latency”:“67.675ms”,“responseCode”:200,“responseSize”:5599,“source”:“ingress"
+".istio-system.svc.cluster.local”,“user”:“unknown”} "
+"{“level”:“warn”,“ts”:“2017-09-21T04:33:31.233Z”,“instance”:“newlog.logentry"
+".istio-system”,“destination”:“ingress.istio-"
+"system.svc.cluster.local”,“latency”:“74.47ms”,“responseCode”:200,“responseSize”:5599,“source”:“unknown”,“user”:“unknown”}"
+" {{</* /text \\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:283
+msgid "The available attributes are:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:324
+msgid "Download name"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:326
+msgid ""
+"You can define the name used when someone chooses to download the code "
+"block with the ``downloadas`` attribute, for example:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:329
+msgid ""
+"{{< text markdown >}} {{</\\* text syntax=“go” downloadas=“hello.go” "
+"*/>}} func HelloWorld() { fmt.Println(“Hello World”) } {{</* /text "
+"\\*/>}}"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:333
+msgid ""
+"If you don’t specify a download name, Hugo derives one automatically "
+"based on one of the following available possible names:"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:336
+msgid "The title of the current page for inline content"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:337
+msgid "The name of the file containing the imported code"
+msgstr ""
+
+#: ../../source/about/contribute/code-blocks/index.rst:338
+msgid "The URL of the source of the imported code"
+msgstr ""
+

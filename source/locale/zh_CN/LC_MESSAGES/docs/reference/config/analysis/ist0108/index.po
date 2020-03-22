@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/analysis/ist0108/index.rst:2
+msgid "ist0108"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0108/index.rst:4
+msgid ""
+"This message occurs when you attach an unrecognized annotation in the "
+"format ``*.istio.io`` to a namespace."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0108/index.rst:7
+msgid ""
+"Istio only recognizes certain `annotation names "
+"</docs/reference/config/annotations/>`_."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0108/index.rst:10
+msgid "To resolve this problem, check the name of your annotation and try again."
+msgstr ""
+

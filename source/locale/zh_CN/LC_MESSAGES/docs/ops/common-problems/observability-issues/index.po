@@ -1,0 +1,486 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:2
+msgid "observability-issues"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:6
+msgid "No traces appearing in Zipkin when running Istio locally on Mac"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:8
+msgid ""
+"Istio is installed and everything seems to be working except there are no"
+" traces showing up in Zipkin when there should be."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:11
+msgid ""
+"This may be caused by a known `Docker issue <https://github.com/docker"
+"/for-mac/issues/1260>`_ where the time inside containers may skew "
+"significantly from the time on the host machine. If this is the case, "
+"when you select a very long date range in Zipkin you will see the traces "
+"appearing as much as several days too early."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:18
+msgid ""
+"You can also confirm this problem by comparing the date inside a Docker "
+"container to outside:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:24
+msgid ""
+"gcr.io/istio-testing/ubuntu-16-04-slave:latest Sun Jun 11 11:44:18 UTC "
+"2017"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:31
+msgid ""
+"To fix the problem, you’ll need to shutdown and then restart Docker "
+"before reinstalling Istio."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:35
+msgid "Missing Grafana output"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:37
+msgid ""
+"If you’re unable to get Grafana output when connecting from a local web "
+"client to Istio remotely hosted, you should validate the client and "
+"server date and time match."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:41
+msgid ""
+"The time of the web client (e.g. Chrome) affects the output from Grafana."
+" A simple solution to this problem is to verify a time synchronization "
+"service is running correctly within the Kubernetes cluster and the web "
+"client machine also is correctly using a time synchronization service. "
+"Some common time synchronization systems are NTP and Chrony. This is "
+"especially problematic in engineering labs with firewalls. In these "
+"scenarios, NTP may not be configured properly to point at the lab-based "
+"NTP services."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:51
+msgid "Mixer Telemetry Issues"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:55
+msgid "Mixer is deprecated. The functionality provided by Mixer"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:56
+msgid ""
+"is being moved into the Envoy proxies. Use of Mixer with Istio will only "
+"be supported through the 1.7 release of Istio. {{</ warning>}}"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:60
+msgid "Expected metrics are not being collected"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:62
+msgid ""
+"The following procedure helps you diagnose problems where metrics you are"
+" expecting to see reported are not being collected."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:65
+msgid "The expected flow for metrics is:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:67
+msgid "Envoy reports attributes from requests asynchronously to Mixer in a batch."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:70
+msgid ""
+"Mixer translates the attributes into instances based on the operator-"
+"provided configuration."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:73
+msgid ""
+"Mixer hands the instances to Mixer adapters for processing and backend "
+"storage."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:76
+msgid "The backend storage systems record the metrics data."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:78
+msgid ""
+"The Mixer default installations include a Prometheus adapter and the "
+"configuration to generate a `default set of metric values "
+"</docs/reference/config/policy-and-telemetry/metrics/>`_ and send them to"
+" the Prometheus adapter. The Prometheus adapter configuration enables a "
+"Prometheus instance to scrape Mixer for metrics."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:84
+msgid ""
+"If the Istio Dashboard or the Prometheus queries don’t show the expected "
+"metrics, any step of the flow above may present an issue. The following "
+"sections provide instructions to troubleshoot each step."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:89
+msgid "Verify Istio CNI pods are running (if used)"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:91
+msgid ""
+"The Istio CNI plugin performs the Istio mesh pod traffic redirection in "
+"the Kubernetes pod lifecycle’s network setup phase, thereby removing the "
+"`requirement for the ``NET_ADMIN`` and ``NET_RAW`` capabilities "
+"</docs/ops/deployment/requirements/>`_ for users deploying pods into the "
+"Istio mesh. The Istio CNI plugin replaces the functionality provided by "
+"the ``istio-init`` container."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:98
+msgid "Verify that the ``istio-cni-node`` pods are running:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:103
+msgid "k8s-app=istio-cni-node"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:105
+msgid ""
+"If ``PodSecurityPolicy`` is being enforced in your cluster, ensure the "
+"``istio-cni`` service account can use a ``PodSecurityPolicy`` which "
+"`allows the ``NET_ADMIN`` and ``NET_RAW`` capabilities "
+"</docs/ops/deployment/requirements/>`_ #### Verify Mixer is receiving "
+"report calls"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:111
+msgid ""
+"Mixer generates metrics to monitor its own behavior. The first step is to"
+" check these metrics:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:114
+msgid ""
+"Establish a connection to the Mixer self-monitoring endpoint for the "
+"``istio-telemetry`` deployment. In Kubernetes environments, execute the "
+"following command:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:122
+msgid ""
+"Verify successful report calls. On the Mixer self-monitoring endpoint "
+"(``http://localhost:15014/metrics``), search for "
+"``grpc_io_server_completed_rpcs``. You should see something like:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:126
+msgid ""
+"{{< text plain >}} "
+"grpc_io_server_completed_rpcs{grpc_server_method=“istio.mixer.v1.Mixer/Report”,grpc_server_status=“OK”}"
+" 2532"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:130
+msgid ""
+"If you do not see any data for ``grpc_io_server_completed_rpcs`` with a "
+"``grpc_server_method=\"istio.mixer.v1.Mixer/Report\"``, then Envoy is not"
+" calling Mixer to report telemetry."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:134
+msgid ""
+"In this case, ensure you integrated the services properly into the mesh. "
+"You can achieve this task with either `automatic or manual sidecar "
+"injection </docs/setup/additional-setup/sidecar-injection/>`_."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:140
+msgid "Verify the Mixer rules exist"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:142
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:163
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:189
+msgid "In Kubernetes environments, issue the following command:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:147
+msgid ""
+"istio-system kubeattrgenrulerule 4h istio-system promhttp 4h istio-system"
+" promtcp 4h istio-system promtcpconnectionclosed 4h istio-system "
+"promtcpconnectionopen 4h istio-system tcpkubeattrgenrulerule 4h"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:152
+msgid ""
+"If the output shows no rules named ``promhttp`` or ``promtcp``, then the "
+"Mixer configuration for sending metric instances to the Prometheus "
+"adapter is missing. You must supply the configuration for rules "
+"connecting the Mixer metric instances to a Prometheus handler."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:157
+#, python-format
+msgid ""
+"For reference, please consult the `default rules for Prometheus "
+"<%7B%7B%3C%20github_file%20%3E%7D%7D/install/kubernetes/helm/istio/charts/mixer/templates/config.yaml>`_."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:161
+msgid "Verify the Prometheus handler configuration exists"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:168
+msgid ""
+"–all-namespaces NAMESPACE NAME AGE istio-system kubernetesenv 4h istio-"
+"system prometheus 4h"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:171
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:197
+msgid ""
+"If you’re upgrading from Istio 1.1 or earlier, issue the following "
+"command instead:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:177
+msgid "–all-namespaces NAMESPACE NAME AGE istio-system handler 13d {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:180
+msgid ""
+"If the output shows no configured Prometheus handlers, you must "
+"reconfigure Mixer with the appropriate handler configuration."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:183
+#, python-format
+msgid ""
+"For reference, please consult the `default handler configuration for "
+"Prometheus "
+"<%7B%7B%3C%20github_file%20%3E%7D%7D/install/kubernetes/helm/istio/charts/mixer/templates/config.yaml>`_."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:187
+msgid "Verify Mixer metric instances configuration exists"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:194
+msgid ""
+"custom-columns=NAME:.metadata.name,TEMPLATE:.spec.compiledTemplate –all-"
+"namespaces"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:203
+msgid "–all-namespaces"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:205
+msgid ""
+"If the output shows no configured metric instances, you must reconfigure "
+"Mixer with the appropriate instance configuration."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:208
+#, python-format
+msgid ""
+"For reference, please consult the `default instances configuration for "
+"metrics "
+"<%7B%7B%3C%20github_file%20%3E%7D%7D/install/kubernetes/helm/istio/charts/mixer/templates/config.yaml>`_."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:213
+msgid "Verify there are no known configuration errors"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:215
+msgid ""
+"To establish a connection to the Istio-telemetry self-monitoring "
+"endpoint, setup a port-forward to the Istio-telemetry self-monitoring "
+"port as described in `Verify Mixer is receiving Report calls <#verify-"
+"mixer-is-receiving-report-calls>`_."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:220
+msgid ""
+"For each of the following metrics, verify that the most up-to-date value "
+"is 0:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:223
+msgid "``mixer_config_adapter_info_config_errors_total``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:225
+msgid "``mixer_config_template_config_errors_total``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:227
+msgid "``mixer_config_instance_config_errors_total``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:229
+msgid "``mixer_config_rule_config_errors_total``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:231
+msgid "``mixer_config_rule_config_match_error_total``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:233
+msgid "``mixer_config_unsatisfied_action_handler_total``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:235
+msgid "``mixer_config_handler_validation_error_total``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:237
+msgid "``mixer_handler_handler_build_failures_total``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:239
+msgid ""
+"On the page showing Mixer self-monitoring port, search for each of the "
+"metrics listed above. You should not find any values for those metrics if"
+" everything is configured correctly."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:243
+msgid ""
+"If any of those metrics have a value, confirm that the metric value with "
+"the largest configuration ID is 0. This will verify that Mixer has "
+"generated no errors in processing the most recent configuration as "
+"supplied."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:249
+msgid "Verify Mixer is sending metric instances to the Prometheus adapter"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:251
+msgid ""
+"Establish a connection to the ``istio-telemetry`` self-monitoring "
+"endpoint. Setup a port-forward to the ``istio-telemetry`` self-monitoring"
+" port as described in `Verify Mixer is receiving Report calls <#verify-"
+"mixer-is-receiving-report-calls>`_."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:256
+msgid ""
+"On the Mixer self-monitoring port, search for "
+"``mixer_runtime_dispatches_total``. The output should be similar to:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:259
+msgid ""
+"{{< text plain >}} "
+"mixer_runtime_dispatches_total{adapter=“prometheus”,error=“false”,handler=“prometheus"
+".istio-system”,meshFunction=“metric”} 2532"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:263
+msgid ""
+"Confirm that ``mixer_runtime_dispatches_total`` is present with the "
+"values:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:266
+msgid "{{< text plain >}} adapter=“prometheus” error=“false”"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:268
+msgid ""
+"If you can’t find recorded dispatches to the Prometheus adapter, there is"
+" likely a configuration issue. Please follow the steps above to ensure "
+"everything is configured properly."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:272
+msgid ""
+"If the dispatches to the Prometheus adapter report errors, check the "
+"Mixer logs to determine the source of the error. The most likely cause is"
+" a configuration issue for the handler listed in "
+"``mixer_runtime_dispatches_total``."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:277
+msgid "Check the Mixer logs in a Kubernetes environment with:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:282
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:285
+msgid "Verify Prometheus configuration"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:287
+msgid "Connect to the Prometheus UI"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:289
+msgid "Verify you can successfully scrape Mixer through the UI."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:291
+msgid "In Kubernetes environments, setup port-forwarding with:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:297
+msgid "In the Prometheus browser window, select **Status** then **Targets**."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:299
+msgid "Confirm the target ``istio-mesh`` has a status of UP."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:301
+msgid ""
+"In the Prometheus browser window, select **Status** then "
+"**Configuration**."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:304
+msgid "Confirm an entry exists similar to:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:306
+msgid "{{< text plain >}}"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:308
+msgid ""
+"job_name: ‘istio-mesh’ # Override the global default and scrape targets "
+"from this job every 5 seconds. scrape_interval: 5s # metrics_path "
+"defaults to ‘/metrics’ # scheme defaults to ‘http’. static_configs:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/observability-issues/index.rst:312
+msgid "targets: [‘istio-mixer.istio-system:42422’]"
+msgstr ""
+

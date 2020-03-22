@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:2
+msgid "istio-security-2019-003"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:4
+msgid "{{< security_bulletin >}}"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:6
+msgid ""
+"An Envoy user reported publicly an issue (c.f. `Envoy Issue 7728 "
+"<https://github.com/envoyproxy/envoy/issues/7728>`_) about regular "
+"expressions (or regex) matching that crashes Envoy with very large URIs. "
+"After investigation, the Istio team has found that this issue could be "
+"leveraged for a DoS attack in Istio, if users are employing regular "
+"expressions in some of the Istio APIs: ``JWT``, ``VirtualService``, "
+"``HTTPAPISpecBinding``, ``QuotaSpecBinding``."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:15
+msgid "Impact and detection"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:17
+msgid ""
+"To detect if there is any regular expressions used in Istio APIs in your "
+"cluster, run the following command which prints either of the following "
+"output:"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:21
+msgid ""
+"YOU ARE AFFECTED: found regex used in ``AuthenticationPolicy`` or "
+"``VirtualService``"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:23
+msgid "YOU ARE NOT AFFECTED: did not find regex usage"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:29
+msgid "red=\\ ``tput setaf 1`` green=\\ ``tput setaf 2`` reset=\\ ``tput sgr0``"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:31
+msgid "echo “Checking regex usage in Istio API …”"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:33
+msgid "AFFECTED=()"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:35
+msgid ""
+"JWT_REGEX=() JWT_REGEX+=(\\ :math:`(kubectl get Policy --all-namespaces "
+"-o jsonpath='{..regex}')) JWT_REGEX+=(`\\ (kubectl get MeshPolicy –all-"
+"namespaces -o jsonpath=‘{..regex}’)) if [ “${#JWT_REGEX[@]}” != 0 ]; then"
+" AFFECTED+=(“AuthenticationPolicy”) fi"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:40
+msgid ""
+"VS_REGEX=() VS_REGEX+=(\\ :math:`(kubectl get VirtualService --all-"
+"namespaces -o jsonpath='{..regex}')) if [ \"`\\ {#VS_REGEX[@]}\" != 0 ]; "
+"then AFFECTED+=(“VirtualService”) fi"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:44
+msgid ""
+"HTTPAPI_REGEX=() HTTPAPI_REGEX+=(\\ :math:`(kubectl get HTTPAPISpec "
+"--all-namespaces -o jsonpath='{..regex}')) if [ \"`\\ "
+"{#HTTPAPI_REGEX[@]}\" != 0 ]; then AFFECTED+=(“HTTPAPISpec”) fi"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:48
+msgid ""
+"QUOTA_REGEX=() QUOTA_REGEX+=(\\ :math:`(kubectl get QuotaSpec --all-"
+"namespaces -o jsonpath='{..regex}')) if [ \"`\\ {#QUOTA_REGEX[@]}\" != 0 "
+"]; then AFFECTED+=(“QuotaSpec”) fi"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:52
+msgid ""
+"if [ “${#AFFECTED[@]}” != 0 ]; then echo “${red}YOU ARE AFFECTED: found "
+"regex used in :math:`{AFFECTED[@]}`\\ {reset}” exit 1 fi"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:55
+msgid ""
+"echo “:math:`{green}YOU ARE NOT AFFECTED: did not find regex usage`\\ "
+"{reset}” EOF"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:60
+msgid "Mitigation"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:62
+msgid ""
+"For Istio 1.1.x deployments: update to `Istio 1.1.13 "
+"</news/releases/1.1.x/announcing-1.1.13>`_ or later"
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:64
+msgid ""
+"For Istio 1.2.x deployments: update to `Istio 1.2.4 "
+"</news/releases/1.2.x/announcing-1.2.4>`_ or later."
+msgstr ""
+
+#: ../../source/news/security/istio-security-2019-003/index.rst:67
+msgid "{{< boilerplate “security-vulnerability” >}}"
+msgstr ""
+

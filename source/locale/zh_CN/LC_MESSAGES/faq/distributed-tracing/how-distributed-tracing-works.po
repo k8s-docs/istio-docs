@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/distributed-tracing/how-distributed-tracing-works.rst:2
+msgid "how-distributed-tracing-works"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-distributed-tracing-works.rst:4
+msgid ""
+"Istio integrates with distributed tracing systems in two different ways: "
+"`Envoy-based <#how-envoy-based-tracing-works>`_ and `Mixer-based <#how-"
+"mixer-based-tracing-works>`_ tracing integrations. For both tracing "
+"integration approaches, `applications are responsible for forwarding "
+"tracing headers <#istio-copy-headers>`_ for subsequent outgoing requests."
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/how-distributed-tracing-works.rst:11
+msgid ""
+"You can find additional information in the Istio Distributed Tracing "
+"(`Jaeger </docs/tasks/observability/distributed-tracing/jaeger/>`_, "
+"`LightStep </docs/tasks/observability/distributed-tracing/lightstep/>`_, "
+"`Zipkin </docs/tasks/observability/distributed-tracing/zipkin/>`_) Tasks "
+"and in the `Envoy tracing docs "
+"<https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/observability/tracing>`_."
+msgstr ""
+

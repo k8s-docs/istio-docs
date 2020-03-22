@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/test/tabs_and_lists/index.rst:2
+msgid "tabs and lists"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:4
+msgid "{{< tabset category-name=“test” >}}"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:6
+msgid ""
+"{{< tab name=“One” category-value=“one” >}} 1. One paragraph in a list in"
+" a tab {{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:9
+msgid "{{< tab name=“Two” category-value=“two” >}} 1. Three"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:11
+msgid "separate"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:13
+msgid "bullets in a list in a tab"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:15
+msgid "This last bullet with two paragraphs {{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:17
+msgid ""
+"{{< tab name=“Three” category-value=“three” >}} 1. Simple text in a list "
+"in a tab"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:32
+msgid "Second bullet"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:34
+msgid "Third bullet {{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:36
+msgid ""
+"{{< tab name=“Four” category-value=“four” >}} 1. Simple text with "
+"*markdown* in a list in a tab"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:47
+#: ../../source/test/tabs_and_lists/index.rst:58
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:49
+msgid ""
+"{{< tab name=“Five” category-value=“five” >}} 1. Simple text in a list in"
+" a tab"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:60
+msgid ""
+"{{< tab name=“Six” category-value=“six” >}} 1. Simple text with "
+"*markdown* in a list in a tab"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:71
+#: ../../source/test/tabs_and_lists/index.rst:88
+msgid "Second bullet {{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:73
+msgid ""
+"{{< tab name=“Seven” category-value=“seven” >}} 1. Simple text with "
+"*markdown* in a list in a tab"
+msgstr ""
+
+#: ../../source/test/tabs_and_lists/index.rst:90
+msgid "{{< /tabset >}}"
+msgstr ""
+

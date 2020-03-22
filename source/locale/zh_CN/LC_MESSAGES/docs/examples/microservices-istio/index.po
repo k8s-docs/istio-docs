@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/examples/microservices-istio/index.rst:2
+msgid "Learn Microservices using Kubernetes and Istio"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/index.rst:4
+msgid ""
+"This modular tutorial provides new users with hands-on experience using "
+"Istio for common microservices scenarios, one step at a time."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/index.rst:6
+msgid ""
+"Prerequisites Setup a Kubernetes Cluster Setup a Local Computer Run a "
+"Microservice Locally Run ratings in Docker Run Bookinfo with Kubernetes "
+"Test in production Add a new version of reviews Enable Istio on "
+"productpage Enable Istio on all the microservices Configure Istio Ingress"
+" Gateway Monitoring with Istio It is intended for self-guided users or "
+"instructors who train others. It begins with the steps to set up a "
+"cluster to control an example microservice running on a local computer, "
+"and culminates into demonstrating several crucial microservice management"
+" tasks using Istio."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/index.rst:20
+#: ../../source/docs/examples/microservices-istio/index.rst:29
+msgid "For the best experience, follow the modules in the order provided."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/index.rst:22
+msgid ""
+"This is work in progress. We will add its sections in pieces. Your "
+"feedback is welcome at discuss.istio.io."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/index.rst:24
+msgid ""
+"It is intended for self-guided users or instructors who train others. It "
+"begins with the steps to set up a cluster to control an example "
+"microservice running on a local computer, and culminates into "
+"demonstrating several crucial microservice management tasks using Istio."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/index.rst:31
+msgid "{{< boilerplate work-in-progress >}}"
+msgstr ""
+

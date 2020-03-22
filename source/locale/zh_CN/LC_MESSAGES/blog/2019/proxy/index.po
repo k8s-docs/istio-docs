@@ -1,0 +1,358 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/proxy/index.rst:2
+#: ../../source/blog/2019/proxy/index.rst:105
+#: ../../source/blog/2019/proxy/index.rst:126
+msgid "proxy"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:4
+msgid ""
+"The `Control Ingress Traffic </docs/tasks/traffic-management/ingress"
+"/ingress-control/>`_ and the `Ingress Gateway without TLS Termination "
+"</docs/tasks/traffic-management/ingress/ingress-sni-passthrough/>`_ tasks"
+" describe how to configure an ingress gateway to expose services inside "
+"the mesh to external traffic. The services can be HTTP or HTTPS. In the "
+"case of HTTPS, the gateway passes the traffic through, without "
+"terminating TLS."
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:13
+msgid ""
+"This blog post describes how to use the same ingress gateway mechanism of"
+" Istio to enable access to external services and not to applications "
+"inside the mesh. This way Istio as a whole can serve just as a proxy "
+"server, with the added value of observability, traffic management and "
+"policy enforcement."
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:19
+msgid ""
+"The blog post shows configuring access to an HTTP and an HTTPS external "
+"service, namely ``httpbin.org`` and ``edition.cnn.com``."
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:23
+msgid "Configure an ingress gateway"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:25
+msgid ""
+"Define an ingress gateway with a ``servers:`` section configuring the "
+"``80`` and ``443`` ports. Ensure ``mode:`` is set to ``PASSTHROUGH`` for "
+"``tls:`` in the port ``443``, which instructs the gateway to pass the "
+"ingress traffic AS IS, without terminating TLS."
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:34
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: proxy spec: "
+"selector: istio: ingressgateway # use istio default ingress gateway "
+"servers:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:38
+msgid "port: number: 80 name: http protocol: HTTP hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:40
+msgid "httpbin.org"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:42
+msgid "port: number: 443 name: tls protocol: TLS tls: mode: PASSTHROUGH hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:45
+msgid "edition.cnn.com EOF"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:47
+msgid ""
+"Create service entries for the ``httpbin.org`` and ``edition.cnn.com`` "
+"services to make them accessible from the ingress gateway:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:54
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: httpbin-"
+"ext spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:57
+msgid "httpbin.org ports:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:58
+msgid ""
+"number: 80 name: http protocol: HTTP resolution: DNS location: "
+"MESH_EXTERNAL — apiVersion: networking.istio.io/v1alpha3 kind: "
+"ServiceEntry metadata: name: cnn spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:61
+msgid "edition.cnn.com ports:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:62
+msgid ""
+"number: 443 name: tls protocol: TLS resolution: DNS location: "
+"MESH_EXTERNAL EOF"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:65
+msgid ""
+"Create a service entry and configure a destination rule for the "
+"``localhost`` service. You need this service entry in the next step as a "
+"destination for traffic to the external services from applications inside"
+" the mesh to block traffic from inside the mesh. In this example you use "
+"Istio as a proxy between external applications and external services."
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:75
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: localhost"
+" spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:78
+msgid "localhost.local location: MESH_EXTERNAL ports:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:79
+msgid "number: 80 name: http protocol: HTTP"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:80
+msgid "number: 443 name: tls protocol: TLS resolution: STATIC endpoints:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst
+msgid "address: 127.0.0.1"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:84
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule metadata: "
+"name: localhost spec: host: localhost.local trafficPolicy: tls: mode: "
+"DISABLE sni: localhost.local EOF"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:88
+msgid ""
+"Create a virtual service for each external service to configure routing "
+"to it. Both virtual services include the ``proxy`` gateway in the "
+"``gateways:`` section and in the ``match:`` section for HTTP and HTTPS "
+"traffic accordingly."
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:93
+msgid ""
+"Notice the ``route:`` section for the ``mesh`` gateway, the gateway that "
+"represents the applications inside the mesh. The ``route:`` for the "
+"``mesh`` gateway shows how the traffic is directed to the "
+"``localhost.local`` service, effectively blocking the traffic."
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:101
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: httpbin"
+" spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:104
+msgid "httpbin.org gateways:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:106
+msgid "mesh http:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:107
+#: ../../source/blog/2019/proxy/index.rst:115
+#: ../../source/blog/2019/proxy/index.rst:128
+#: ../../source/blog/2019/proxy/index.rst:137
+msgid "match:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:109
+#: ../../source/blog/2019/proxy/index.rst:117
+#: ../../source/blog/2019/proxy/index.rst:130
+#: ../../source/blog/2019/proxy/index.rst:139
+msgid "gateways:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:111
+msgid "proxy port: 80 uri: prefix: /status route:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:113
+msgid "destination: host: httpbin.org port: number: 80"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:119
+msgid "mesh port: 80 route:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:121
+msgid ""
+"destination: host: localhost.local port: number: 80 — apiVersion: "
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: cnn "
+"spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:125
+msgid "edition.cnn.com gateways:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:127
+msgid "mesh tls:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:132
+msgid "proxy port: 443 sni_hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:133
+#: ../../source/blog/2019/proxy/index.rst:142
+msgid "edition.cnn.com route:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:135
+msgid "destination: host: edition.cnn.com port: number: 443"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:141
+msgid "mesh port: 443 sni_hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:144
+msgid "destination: host: localhost.local port: number: 443 EOF"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:146
+msgid ""
+"`Enable Envoy’s access logging </docs/tasks/observability/logs/access-log"
+"/#enable-envoy-s-access-logging>`_."
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:149
+msgid ""
+"Follow the instructions in `Determining the ingress IP and ports "
+"</docs/tasks/traffic-management/ingress/ingress-control/#determining-the-"
+"ingress-ip-and-ports>`_ to define the ``SECURE_INGRESS_PORT`` and "
+"``INGRESS_HOST`` environment variables."
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:154
+msgid ""
+"Access the ``httbin.org`` service through your ingress IP and port which "
+"you stored in the ``$INGRESS_HOST`` and ``$INGRESS_PORT`` environment "
+"variables, respectively, during the previous step. Access the "
+"``/status/418`` path of the ``httpbin.org`` service that returns the HTTP"
+" status `418 I’m a teapot <https://developer.mozilla.org/en-"
+"US/docs/Web/HTTP/Status/418>`_."
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:164
+msgid ":math:`INGRESS_HOST:`\\ INGRESS_PORT/status/418 -Hhost:httpbin.org"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:166
+msgid "-=[ teapot ]=-"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:168
+msgid ""
+"*….* .’ \\_ \\_ ``. | .\"`` ^ ``\". _, \\_;``\\ “—”\\ ``|//   |       ;/"
+"   \\_     _/``\"\"\"\\` {{< /text >}}"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:172
+#: ../../source/blog/2019/proxy/index.rst:220
+msgid ""
+"If the Istio ingress gateway is deployed in the ``istio-system`` "
+"namespace, print the gateway’s log with the following command:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:178
+msgid "istio-proxy -n istio-system \\| grep ‘httpbin.org’"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:180
+#: ../../source/blog/2019/proxy/index.rst:228
+msgid "Search the log for an entry similar to:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:182
+msgid ""
+"{{< text plain >}} [2019-01-31T14:40:18.645Z] “GET /status/418 HTTP/1.1” "
+"418 - 0 135 187 186 “10.127.220.75” “curl/7.54.0” "
+"“28255618-6ca5-9d91-9634-c562694a3625” “httpbin.org” “34.232.181.106:80” "
+"outbound|80||httpbin.org - 172.30.230.33:80 10.127.220.75:52077 -"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:188
+msgid "Access the ``edition.cnn.com`` service through your ingress gateway:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:193
+msgid ""
+"edition.cnn.com:\\ :math:`SECURE_INGRESS_PORT:`\\ INGRESS_HOST "
+"https://edition.cnn.com:$SECURE_INGRESS_PORT \\| grep -o \""
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:200
+msgid ".\\*"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:206
+msgid "\""
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:212
+msgid "CNN International - Breaking News, US News, World News and Video"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:226
+msgid "istio-proxy -n istio-system \\| grep ‘edition.cnn.com’"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:230
+msgid ""
+"{{< text plain >}} [2019-01-31T13:40:11.076Z] “- - -” 0 - 589 17798 1644 "
+"- “-” “-” “-” “-” “172.217.31.132:443” outbound|443||edition.cnn.com "
+"172.30.230.33:54508 172.30.230.33:443 10.127.220.75:49467 edition.cnn.com"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:236
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:238
+msgid "Remove the gateway, the virtual services and the service entries:"
+msgstr ""
+
+#: ../../source/blog/2019/proxy/index.rst:243
+msgid ""
+"virtualservice cnn httpbin $ kubectl delete serviceentry cnn httpbin-ext "
+"localhost $ kubectl delete destinationrule localhost"
+msgstr ""
+

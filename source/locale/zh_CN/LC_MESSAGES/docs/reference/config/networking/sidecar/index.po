@@ -1,0 +1,957 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:2
+msgid "Sidecar"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/api' REPO "
+"source_repo: https://github.com/istio/api title: Sidecar description: "
+"Configuration affecting network reachability of a sidecar. location: "
+"https://istio.io/docs/reference/config/networking/sidecar.html layout: "
+"protoc-gen-docs generator: protoc-gen-docs schema: "
+"istio.networking.v1alpha3.Sidecar aliases: "
+"[/docs/reference/config/networking/v1alpha3/sidecar] number_of_entries: 7"
+" --- <p><code>Sidecar</code> describes the configuration of the sidecar "
+"proxy that mediates inbound and outbound communication to the workload "
+"instance it is attached to. By default, Istio will program all sidecar "
+"proxies in the mesh with the necessary configuration required to reach "
+"every workload instance in the mesh, as well as accept traffic on all the"
+" ports associated with the workload. The <code>Sidecar</code> "
+"configuration provides a way to fine tune the set of ports, protocols "
+"that the proxy will accept when forwarding traffic to and from the "
+"workload. In addition, it is possible to restrict the set of services "
+"that the proxy can reach when forwarding outbound traffic from workload "
+"instances.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:27
+msgid ""
+"<p>Services and configuration in a mesh are organized into one or more "
+"namespaces (e.g., a Kubernetes namespace or a CF org/space). A "
+"<code>Sidecar</code> configuration in a namespace will apply to one or "
+"more workload instances in the same namespace, selected using the "
+"<code>workloadSelector</code> field. In the absence of a "
+"<code>workloadSelector</code>, it will apply to all workload instances in"
+" the same namespace. When determining the <code>Sidecar</code> "
+"configuration to be applied to a workload instance, preference will be "
+"given to the resource with a <code>workloadSelector</code> that selects "
+"this workload instance, over a <code>Sidecar</code> configuration without"
+" any <code>workloadSelector</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:37
+msgid ""
+"<p><strong>NOTE 1</strong>: <em><em>Each namespace can have only one "
+"<code>Sidecar</code> configuration without any "
+"<code>workloadSelector</code></em> that specifies the default for all "
+"pods in that namespace</em>. It is recommended to use the name "
+"<code>default</code> for the namespace-wide sidecar. The behavior of the "
+"system is undefined if more than one selector-less <code>Sidecar</code> "
+"configurations exist in a given namespace. The behavior of the system is "
+"undefined if two or more <code>Sidecar</code> configurations with a "
+"<code>workloadSelector</code> select the same workload instance.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:46
+msgid ""
+"<p><strong>NOTE 2</strong>: <em><em>A <code>Sidecar</code> configuration "
+"in the <code>MeshConfig</code> <a "
+"href=\"/docs/reference/config/istio.mesh.v1alpha1/#MeshConfig\">root "
+"namespace</a> will be applied by default to all namespaces without a "
+"<code>Sidecar</code> configuration</em></em>. This global default "
+"<code>Sidecar</code> configuration should not have any "
+"<code>workloadSelector</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:52
+msgid ""
+"<p>The example below declares a global default <code>Sidecar</code> "
+"configuration in the root namespace called <code>istio-config</code>, "
+"that configures sidecars in all namespaces to allow egress traffic only "
+"to other workloads in the same namespace as well as to services in the "
+"<code>istio-system</code> namespace.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:58
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:98
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:150
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:254
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:319
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:385
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:440
+msgid ""
+"<p>{{<tabset category-name=\"example\">}} {{<tab name=\"v1alpha3\" "
+"category-value=\"v1alpha3\">}}</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:61
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:101
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:153
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:322
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:443
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"networking.istio.io/v1alpha3 kind: Sidecar metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:64
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:80
+msgid "name: default namespace: istio-config"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:69
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:85
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:110
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:127
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:184
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:223
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:247
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:273
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:297
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:345
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:376
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:400
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:420
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:466
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:497
+msgid "spec:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:67
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:83
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:107
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:124
+msgid "egress: - hosts:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:69
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:85
+msgid "&quot;./*&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:70
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:86
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:111
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:128
+msgid "&quot;istio-system/*&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:71
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:87
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:112
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:129
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:186
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:225
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:249
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:275
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:299
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:347
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:378
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:402
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:422
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:468
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:499
+msgid "</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:73
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:114
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:188
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:277
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:349
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:404
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:470
+msgid "<p>{{</tab>}}</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:75
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:116
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:190
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:279
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:351
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:406
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:472
+msgid "<p>{{<tab name=\"v1beta1\" category-value=\"v1beta1\">}}</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:77
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:118
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:192
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:353
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:474
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"networking.istio.io/v1beta1 kind: Sidecar metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:89
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:131
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:227
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:301
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:380
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:424
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:501
+msgid "<p>{{</tab>}} {{</tabset>}}</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:92
+msgid ""
+"<p>The example below declares a <code>Sidecar</code> configuration in the"
+" <code>prod-us1</code> namespace that overrides the global default "
+"defined above, and configures the sidecars in the namespace to allow "
+"egress traffic to public services in the <code>prod-us1</code>, <code"
+">prod-apis</code>, and the <code>istio-system</code> namespaces.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:104
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:121
+msgid "name: default namespace: prod-us1"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:109
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:126
+msgid "&quot;prod-us1/*&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:110
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:127
+msgid "&quot;prod-apis/*&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:134
+msgid ""
+"<p>The following example declares a <code>Sidecar</code> configuration in"
+" the <code>prod-us1</code> namespace for all pods with labels <code>app: "
+"ratings</code> belonging to the <code>ratings.prod-us1</code> service.  "
+"The workload accepts inbound HTTP traffic on port 9080 without any "
+"authentication, and HTTPS traffic on port 9443 with one-way TLS "
+"termination using custom certificates. <em>To accomplish custom TLS "
+"termination on this workload, the <code>PeerAuthentication</code> "
+"security policy must be declared to disable Istio mutual TLS on these two"
+" ports. Any other auto-generated listener for this workload will still "
+"obey the mutual TLS termination requirements set forth in the "
+"PeerAuthentication policy</em>. The traffic is then forwarded to the "
+"attached workload instance listening on a Unix domain socket. In the "
+"egress direction, in addition to the <code>istio-system</code> namespace,"
+" the sidecar proxies only HTTP traffic bound for port 9080 for services "
+"in the <code>prod-us1</code> namespace.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:156
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:195
+msgid "name: ratings namespace: prod-us1"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:160
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:199
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:329
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:360
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:450
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:481
+msgid "workloadSelector:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:160
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:199
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:329
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:360
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:450
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:481
+msgid "labels:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:161
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:200
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:242
+msgid "app: ratings"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:162
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:201
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:331
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:362
+msgid "ingress: - port:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:164
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:203
+msgid "number: 9080 protocol: HTTP name: somename"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:167
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:176
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:206
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:215
+msgid "defaultEndpoint: unix:///var/run/someuds.sock"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:170
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:209
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:270
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:294
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:456
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:487
+msgid "port:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:169
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:208
+msgid "number: 9443 protocol: HTTPS name: httpsport"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:174
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:213
+msgid "inboundTls:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:173
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:212
+msgid ""
+"mode: SIMPLE # overrides namespace default serverCertificate: "
+"/etc/certs/servercert.pem privateKey: /etc/certs/privatekey.pem"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:177
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:216
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:338
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:369
+msgid "egress: - port:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:179
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:218
+msgid "number: 9080 protocol: HTTP name: egresshttp"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:182
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:221
+msgid "hosts: - &quot;prod-us1/*&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:184
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:223
+msgid "hosts: - &quot;istio-system/*&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:230
+msgid ""
+"<p>and the associated PeerAuthentication security policy to ensure that "
+"mutual TLS based authentication is not configured for ports 9080 and "
+"9443:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:234
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: security.istio.io/v1beta1 "
+"kind: PeerAuthentication metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:237
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:260
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:284
+msgid "name: ratings-istio-mtls-exception namespace: prod-us1"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:241
+msgid "selector:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:241
+msgid "matchLabels:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:243
+msgid ""
+"# other ports inherit the settings from namespace-wide policy. "
+"portLevelMtls:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:245
+msgid "9080:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:246
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:248
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:269
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:293
+msgid "mode: DISABLE"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:247
+msgid "9443:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:251
+msgid ""
+"<p>and the associated DestinationRule to ensure that the clients use the "
+"appropriate TLS settings:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:257
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"networking.istio.io/v1alpha3 kind: DestinationRule metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:263
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:287
+msgid "host: ratings.prod-us1.svc.cluster.local trafficPolicy:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:265
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:289
+msgid "portLevelSettings: - port:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:267
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:291
+msgid "number: 9080"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:268
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:273
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:292
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:297
+msgid "tls:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:271
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:295
+msgid "number: 9443"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:273
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:297
+msgid "mode: SIMPLE caCertificates: /etc/certs/ca-certs.pem"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:281
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"networking.istio.io/v1beta1 kind: DestinationRule metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:304
+msgid ""
+"<p>If the workload is deployed without IPTables-based traffic capture, "
+"the <code>Sidecar</code> configuration is the only way to configure the "
+"ports on the proxy attached to the workload instance. The following "
+"example declares a <code>Sidecar</code> configuration in the <code>prod-"
+"us1</code> namespace for all pods with labels <code>app: "
+"productpage</code> belonging to the <code>productpage.prod-us1</code> "
+"service. Assuming that these pods are deployed without IPtable rules "
+"(i.e. the <code>istio-init</code> container) and the proxy metadata "
+"<code>ISTIO_META_INTERCEPTION_MODE</code> is set to <code>NONE</code>, "
+"the specification, below, allows such pods to receive HTTP traffic on "
+"port 9080 (wrapped inside Istio mutual TLS) and forward it to the "
+"application listening on <code>127.0.0.1:8080</code>. It also allows the "
+"application to communicate with a backing MySQL database on "
+"<code>127.0.0.1:3306</code>, that then gets proxied to the externally "
+"hosted MySQL service at <code>mysql.foo.com:3306</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:325
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:356
+msgid "name: no-ip-tables namespace: prod-us1"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:330
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:361
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:451
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:482
+msgid "app: productpage"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:333
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:364
+msgid ""
+"number: 9080 # binds to proxy_instance_ip:9080 (0.0.0.0:9080, if no "
+"unicast IP is available for the instance) protocol: HTTP name: somename"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:336
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:367
+msgid ""
+"defaultEndpoint: 127.0.0.1:8080 captureMode: NONE # not needed if "
+"metadata is set for entire proxy"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:340
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:371
+msgid "number: 3306 protocol: MYSQL name: egressmysql"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:343
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:374
+msgid ""
+"captureMode: NONE # not needed if metadata is set for entire proxy bind: "
+"127.0.0.1 hosts: - &quot;*/mysql.foo.com&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:383
+msgid ""
+"<p>And the associated service entry for routing to "
+"<code>mysql.foo.com:3306</code></p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:388
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:391
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:411
+msgid "name: external-svc-mysql namespace: ns1"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:394
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:414
+msgid "hosts: - mysql.foo.com ports: - number: 3306"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:398
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:418
+msgid "name: mysql protocol: MYSQL"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:400
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:420
+msgid "location: MESH_EXTERNAL resolution: DNS"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:408
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"networking.istio.io/v1beta1 kind: ServiceEntry metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:427
+msgid ""
+"<p>It is also possible to mix and match traffic capture modes in a single"
+" proxy. For example, consider a setup where internal services are on the "
+"<code>192.168.0.0/16</code> subnet. So, IP tables are setup on the VM to "
+"capture all outbound traffic on <code>192.168.0.0/16</code> subnet. "
+"Assume that the VM has an additional network interface on "
+"<code>172.16.0.0/16</code> subnet for inbound traffic. The following "
+"<code>Sidecar</code> configuration allows the VM to expose a listener on "
+"<code>172.16.1.32:80</code> (the VM&rsquo;s IP) for traffic arriving from"
+" the <code>172.16.0.0/16</code> subnet.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:436
+msgid ""
+"<p><strong>NOTE</strong>: The <code>ISTIO_META_INTERCEPTION_MODE</code> "
+"metadata on the proxy in the VM should contain <code>REDIRECT</code> or "
+"<code>TPROXY</code> as its value, implying that IP tables based traffic "
+"capture is active.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:446
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:477
+msgid "name: partial-ip-tables namespace: prod-us1"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:452
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:483
+msgid "ingress: - bind: 172.16.1.32"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:455
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:486
+msgid "number: 80 # binds to 172.16.1.32:80 protocol: HTTP name: somename"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:458
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:489
+msgid "defaultEndpoint: 127.0.0.1:8080 captureMode: NONE"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:463
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:494
+msgid "egress:"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:461
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:492
+msgid ""
+"# use the system detected defaults # sets up configuration to handle "
+"outbound traffic to services # in 192.168.0.0/16 subnet, based on "
+"information provided by the # service registry"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:465
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:496
+msgid "captureMode: IPTABLES hosts: - &quot;*/*&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:504
+msgid ""
+"<h2 id=\"CaptureMode\">CaptureMode</h2> <section> "
+"<p><code>CaptureMode</code> describes how traffic to a listener is "
+"expected to be captured. Applicable only when the listener is bound to an"
+" IP.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:509
+msgid ""
+"<table class=\"enum-values\"> <thead> <tr> <th>Name</th> "
+"<th>Description</th> </tr> </thead> <tbody> <tr id=\"CaptureMode-"
+"DEFAULT\"> <td><code>DEFAULT</code></td> <td> <p>The default capture mode"
+" defined by the environment.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:522
+msgid ""
+"</td> </tr> <tr id=\"CaptureMode-IPTABLES\"> "
+"<td><code>IPTABLES</code></td> <td> <p>Capture traffic using IPtables "
+"redirection.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:529
+msgid ""
+"</td> </tr> <tr id=\"CaptureMode-NONE\"> <td><code>NONE</code></td> <td> "
+"<p>No traffic capture. When used in an egress listener, the application "
+"is expected to explicitly communicate with the listener port or Unix "
+"domain socket. When used in an ingress listener, care needs to be taken "
+"to ensure that the listener port is not in use by other processes on the "
+"host.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:540
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 "
+"id=\"IstioEgressListener\">IstioEgressListener</h2> <section> "
+"<p><code>IstioEgressListener</code> specifies the properties of an "
+"outbound traffic listener on the sidecar proxy attached to a workload "
+"instance.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:550
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"IstioEgressListener-port\"> <td><code>port</code></td> "
+"<td><code><a "
+"href=\"/docs/reference/config/networking/gateway.html#Port\">Port</a></code></td>"
+" <td> <p>The port associated with the listener. If using Unix domain "
+"socket, use 0 as the port number, with a valid protocol. The port if "
+"specified, will be used as the default destination port associated with "
+"the imported hosts. If the port is omitted, Istio will infer the listener"
+" ports based on the imported hosts. Note that when multiple egress "
+"listeners are specified, where one or more listeners have specific ports "
+"while others have no port, the hosts exposed on a listener port will be "
+"based on the listener with the most specific port.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:574
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"IstioEgressListener-bind\"> "
+"<td><code>bind</code></td> <td><code>string</code></td> <td> <p>The IP or"
+" the Unix domain socket to which the listener should be bound to. Port "
+"MUST be specified if bind is not empty. Format: <code>x.x.x.x</code> or "
+"<code>unix:///path/to/uds</code> or <code>unix://@foobar</code> (Linux "
+"abstract namespace). If omitted, Istio will automatically configure the "
+"defaults based on imported services, the workload instances to which this"
+" configuration is applied to and the captureMode. If captureMode is "
+"<code>NONE</code>, bind will default to 127.0.0.1.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:591
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"IstioEgressListener-capture_mode\"> "
+"<td><code>captureMode</code></td> <td><code><a "
+"href=\"#CaptureMode\">CaptureMode</a></code></td> <td> <p>When the bind "
+"address is an IP, the captureMode option dictates how traffic to the "
+"listener is expected to be captured (or not). captureMode must be DEFAULT"
+" or <code>NONE</code> for Unix domain socket binds.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:604
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"IstioEgressListener-hosts\"> "
+"<td><code>hosts</code></td> <td><code>string[]</code></td> <td> <p>One or"
+" more service hosts exposed by the listener in "
+"<code>namespace/dnsName</code> format. Services in the specified "
+"namespace matching <code>dnsName</code> will be exposed. The "
+"corresponding service can be a service in the service registry (e.g., a "
+"Kubernetes or cloud foundry service) or a service specified using a "
+"<code>ServiceEntry</code> or <code>VirtualService</code> configuration. "
+"Any associated <code>DestinationRule</code> in the same namespace will "
+"also be used.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:621
+msgid ""
+"<p>The <code>dnsName</code> should be specified using FQDN format, "
+"optionally including a wildcard character in the left-most component "
+"(e.g., <code>prod/*.example.com</code>). Set the <code>dnsName</code> to "
+"<code>*</code> to select all services from the specified namespace (e.g.,"
+" <code>prod/*</code>).</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:626
+msgid ""
+"<p>The <code>namespace</code> can be set to <code>*</code>, "
+"<code>.</code>, or <code>~</code>, representing any, the current, or no "
+"namespace, respectively. For example, <code>*/foo.example.com</code> "
+"selects the service from any available namespace while "
+"<code>./foo.example.com</code> only selects the service from the "
+"namespace of the sidecar. If a host is set to <code>*/*</code>, Istio "
+"will configure the sidecar to be able to reach every service in the mesh "
+"that is exported to the sidecar&rsquo;s namespace. The value "
+"<code>~/*</code> can be used to completely trim the configuration for "
+"sidecars that simply receive traffic and respond, but make no outbound "
+"connections of their own.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:635
+msgid ""
+"<p>NOTE: Only services and configuration artifacts exported to the "
+"sidecar&rsquo;s namespace (e.g., <code>exportTo</code> value of "
+"<code>*</code>) can be referenced. Private configurations (e.g., "
+"<code>exportTo</code> set to <code>.</code>) will not be available. Refer"
+" to the <code>exportTo</code> setting in <code>VirtualService</code>, "
+"<code>DestinationRule</code>, and <code>ServiceEntry</code> "
+"configurations for details.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:641
+msgid ""
+"<p><strong>WARNING:</strong> The list of egress hosts in a "
+"<code>Sidecar</code> must also include the Mixer control plane services "
+"if they are enabled. Envoy will not be able to reach them otherwise. For "
+"example, add host <code>istio-system/istio-telemetry.istio-"
+"system.svc.cluster.local</code> if telemetry is enabled, <code>istio-"
+"system/istio-policy.istio-system.svc.cluster.local</code> if policy is "
+"enabled, or add <code>istio-system/*</code> to allow all services in the "
+"<code>istio-system</code> namespace. This requirement is temporary and "
+"will be removed in a future Istio release.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:650
+msgid ""
+"</td> <td> Yes </td> </tr> </tbody> </table> </section> <h2 "
+"id=\"IstioIngressListener\">IstioIngressListener</h2> <section> "
+"<p><code>IstioIngressListener</code> specifies the properties of an "
+"inbound traffic listener on the sidecar proxy attached to a workload "
+"instance.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:663
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"IstioIngressListener-port\"> <td><code>port</code></td> "
+"<td><code><a "
+"href=\"/docs/reference/config/networking/gateway.html#Port\">Port</a></code></td>"
+" <td> <p>The port associated with the listener.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:679
+msgid ""
+"</td> <td> Yes </td> </tr> <tr id=\"IstioIngressListener-bind\"> "
+"<td><code>bind</code></td> <td><code>string</code></td> <td> <p>The IP to"
+" which the listener should be bound. Must be in the format "
+"<code>x.x.x.x</code>. Unix domain socket addresses are not allowed in the"
+" bind field for ingress listeners. If omitted, Istio will automatically "
+"configure the defaults based on imported services and the workload "
+"instances to which this configuration is applied to.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:695
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"IstioIngressListener-capture_mode\"> "
+"<td><code>captureMode</code></td> <td><code><a "
+"href=\"#CaptureMode\">CaptureMode</a></code></td> <td> <p>The captureMode"
+" option dictates how traffic to the listener is expected to be captured "
+"(or not).</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:707
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"IstioIngressListener-"
+"default_endpoint\"> <td><code>defaultEndpoint</code></td> "
+"<td><code>string</code></td> <td> <p>The loopback IP endpoint or Unix "
+"domain socket to which traffic should be forwarded to. This configuration"
+" can be used to redirect traffic arriving at the bind "
+"<code>IP:Port</code> on the sidecar to a <code>localhost:port</code> or "
+"Unix domain socket where the application workload instance is listening "
+"for connections. Format should be <code>127.0.0.1:PORT</code> or "
+"<code>unix:///path/to/socket</code></p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:722
+msgid ""
+"</td> <td> Yes </td> </tr> <tr id=\"IstioIngressListener-inbound_tls\"> "
+"<td><code>inboundTls</code></td> <td><code><a "
+"href=\"/docs/reference/config/networking/gateway.html#Server-"
+"TLSOptions\">TLSOptions</a></code></td> <td> <p>Overrides Sidecar level "
+"<code>inboundTls</code> settings. Has same restrictions as the Sidecar "
+"level inboundTls, i.e. PeerAuthentication policy takes precedance unless "
+"explicitly disabled.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:736
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 "
+"id=\"OutboundTrafficPolicy\">OutboundTrafficPolicy</h2> <section> "
+"<p><code>OutboundTrafficPolicy</code> sets the default behavior of the "
+"sidecar for handling outbound traffic from the application. If your "
+"application uses one or more external services that are not known "
+"apriori, setting the policy to <code>ALLOW_ANY</code> will cause the "
+"sidecars to route any unknown traffic originating from the application to"
+" its requested destination.  Users are strongly encouraged to use "
+"<code>ServiceEntry</code> configurations to explicitly declare any "
+"external dependencies, instead of using <code>ALLOW_ANY</code>, so that "
+"traffic to these services can be monitored.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:756
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"OutboundTrafficPolicy-mode\"> <td><code>mode</code></td>"
+" <td><code><a href=\"#OutboundTrafficPolicy-Mode\">Mode</a></code></td> "
+"<td> </td> <td> No </td> </tr> </tbody> </table> </section> <h2 id"
+"=\"OutboundTrafficPolicy-Mode\">OutboundTrafficPolicy.Mode</h2> <section>"
+" <table class=\"enum-values\"> <thead> <tr> <th>Name</th> "
+"<th>Description</th> </tr> </thead> <tbody> <tr id"
+"=\"OutboundTrafficPolicy-Mode-REGISTRY_ONLY\"> "
+"<td><code>REGISTRY_ONLY</code></td> <td> <p>Outbound traffic will be "
+"restricted to services defined in the service registry as well as those "
+"defined through <code>ServiceEntry</code> configurations.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:794
+msgid ""
+"</td> </tr> <tr id=\"OutboundTrafficPolicy-Mode-ALLOW_ANY\"> "
+"<td><code>ALLOW_ANY</code></td> <td> <p>Outbound traffic to unknown "
+"destinations will be allowed, in case there are no services or "
+"<code>ServiceEntry</code> configurations for the destination port.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:802
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 id=\"Sidecar\">Sidecar</h2> "
+"<section> <p><code>Sidecar</code> describes the configuration of the "
+"sidecar proxy that mediates inbound and outbound communication of the "
+"workload instance to which it is attached.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:813
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Sidecar-workload_selector\"> "
+"<td><code>workloadSelector</code></td> <td><code><a "
+"href=\"#WorkloadSelector\">WorkloadSelector</a></code></td> <td> "
+"<p>Criteria used to select the specific set of pods/VMs on which this "
+"<code>Sidecar</code> configuration should be applied. If omitted, the "
+"<code>Sidecar</code> configuration will be applied to all workload "
+"instances in the same namespace.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:831
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Sidecar-ingress\"> "
+"<td><code>ingress</code></td> <td><code><a "
+"href=\"#IstioIngressListener\">IstioIngressListener[]</a></code></td> "
+"<td> <p>Ingress specifies the configuration of the sidecar for processing"
+" inbound traffic to the attached workload instance. If omitted, Istio "
+"will automatically configure the sidecar based on the information about "
+"the workload obtained from the orchestration platform (e.g., exposed "
+"ports, services, etc.). If specified, inbound ports are configured if and"
+" only if the workload instance is associated with a service.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:847
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Sidecar-egress\"> "
+"<td><code>egress</code></td> <td><code><a "
+"href=\"#IstioEgressListener\">IstioEgressListener[]</a></code></td> <td> "
+"<p>Egress specifies the configuration of the sidecar for processing "
+"outbound traffic from the attached workload instance to other services in"
+" the mesh. If not specified, inherits the system detected defaults from "
+"the namespace-wide or the global default Sidecar.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:861
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Sidecar-outbound_traffic_policy\"> "
+"<td><code>outboundTrafficPolicy</code></td> <td><code><a "
+"href=\"#OutboundTrafficPolicy\">OutboundTrafficPolicy</a></code></td> "
+"<td> <p>Configuration for the outbound traffic policy.  If your "
+"application uses one or more external services that are not known "
+"apriori, setting the policy to <code>ALLOW_ANY</code> will cause the "
+"sidecars to route any unknown traffic originating from the application to"
+" its requested destination. If not specified, inherits the system "
+"detected defaults from the namespace-wide or the global default "
+"Sidecar.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:878
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Sidecar-inbound_tls\"> "
+"<td><code>inboundTls</code></td> <td><code><a "
+"href=\"/docs/reference/config/networking/gateway.html#Server-"
+"TLSOptions\">TLSOptions</a></code></td> <td> <p>Set of TLS related "
+"options that allow a listener to terminate SIMPLE or MUTUAL TLS "
+"connections at the sidecar. <code>PeerAuthentication</code> "
+"policy&rsquo;s settings take precedance over custom TLS settings for the "
+"workload. When the PeerAuthentication policy disables mTLS tunneling for "
+"one or more ports in the workload, the TLS settings specified here will "
+"be applied.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:895
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 "
+"id=\"WorkloadSelector\">WorkloadSelector</h2> <section> "
+"<p><code>WorkloadSelector</code> specifies the criteria used to determine"
+" if the <code>Gateway</code>, <code>Sidecar</code>, or "
+"<code>EnvoyFilter</code> configuration can be applied to a proxy. The "
+"matching criteria includes the metadata associated with a proxy, workload"
+" instance info such as labels attached to the pod/VM, or any other info "
+"that the proxy provides to Istio during the initial handshake. If "
+"multiple conditions are specified, all conditions need to match in order "
+"for the workload instance to be selected. Currently, only label based "
+"selection mechanism is supported.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:913
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"WorkloadSelector-labels\"> <td><code>labels</code></td> "
+"<td><code>map&lt;string,&nbsp;string&gt;</code></td> <td> <p>One or more "
+"labels that indicate a specific set of pods/VMs on which this "
+"<code>Sidecar</code> configuration should be applied. The scope of label "
+"search is restricted to the configuration namespace in which the the "
+"resource is present.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/networking/sidecar/index.rst:932
+msgid "</td> <td> Yes </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

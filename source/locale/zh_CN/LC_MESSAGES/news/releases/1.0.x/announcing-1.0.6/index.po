@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:2
+msgid "announcing-1.0.6"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:4
+msgid ""
+"We’re pleased to announce the availability of Istio 1.0.6. Please see "
+"below for what’s changed."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:10
+msgid "Bug fixes"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:12
+msgid ""
+"Fix Galley Helm charts so that the ``validatingwebhookconfiguration`` "
+"object can now deployed to a namespace other than ``istio-system`` "
+"(`Issue 13625 <https://github.com/istio/istio/issues/13625>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:15
+msgid ""
+"Additional Helm chart fixes for anti-affinity support: fix "
+"``gatewaypodAntiAffinityRequiredDuringScheduling`` and "
+"``podAntiAffinityLabelSelector`` match expressions and fix the default "
+"value for ``podAntiAffinityLabelSelector`` (`Issue 13892 "
+"<https://github.com/istio/istio/issues/13892>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:20
+msgid ""
+"Make Pilot handle a condition where Envoy continues to request routes for"
+" a deleted gateway while listeners are still draining (`Issue 13739 "
+"<https://github.com/istio/istio/issues/13739>`_)."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:25
+msgid "Small enhancements"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:27
+msgid ""
+"If access logs are enabled, ``passthrough`` listener requests will be "
+"logged."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:29
+msgid ""
+"Make Pilot tolerate unknown JSON fields to make it easier to rollback to "
+"older versions during upgrade."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.6/index.rst:31
+msgid ""
+"Add support for fallback secrets to ``SDS`` which Envoy can use instead "
+"of waiting indefinitely for late or non-existent secrets during startup "
+"(`Issue 13853 <https://github.com/istio/istio/issues/13853>`_)."
+msgstr ""
+

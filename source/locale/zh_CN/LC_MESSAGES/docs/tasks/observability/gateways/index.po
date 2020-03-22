@@ -1,0 +1,585 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:2
+msgid "gateways"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:4
+msgid ""
+"This task shows how to configure Istio to expose and access the telemetry"
+" addons outside of a cluster."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:8
+msgid "Configuring remote access"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:10
+msgid ""
+"Remote access to the telemetry addons can be configured in a number of "
+"different ways. This task covers two basic access methods: secure (via "
+"HTTPS) and insecure (via HTTP). The secure method is *strongly "
+"recommended* for any production or sensitive environment. Insecure access"
+" is simpler to set up, but will not protect any credentials or data "
+"transmitted outside of your cluster."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:18
+msgid "Option 1: Secure access (HTTPS)"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:20
+msgid ""
+"A server certificate is required for secure access. Follow these steps to"
+" install and configure server certificates for a domain that you control."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:24
+msgid ""
+"You may use self-signed certificates instead. Visit our `Securing "
+"Gateways with HTTPS Using Secret Discovery Service task </docs/tasks"
+"/traffic-management/ingress/secure-ingress-sds/>`_ for general "
+"information on using self-signed certificates to access in-cluster "
+"services."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:32
+msgid "This option covers securing the transport layer *only*."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:33
+msgid ""
+"You should also configure the telemetry addons to require authentication "
+"when exposing them externally."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:36
+msgid ""
+"`Install cert-manager <https://docs.cert-manager.io/en/latest/getting-"
+"started/install/kubernetes.html>`_ to manage certificates automatically."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:40
+msgid ""
+"`Install Istio </docs/setup/install/istioctl>`_ in your cluster and "
+"enable the ``cert-manager`` flag and configure ``istio-ingressgateway`` "
+"to use the `Secret Discovery Service "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret"
+"#sds-configuration>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:45
+msgid "To install Istio accordingly, use the following installation options:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:47
+msgid "``--set values.gateways.enabled=true``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:48
+msgid "``--set values.gateways.istio-ingressgateway.enabled=true``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:49
+msgid "``--set values.gateways.istio-ingressgateway.sds.enabled=true``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:51
+#: ../../source/docs/tasks/observability/gateways/index.rst:263
+msgid ""
+"To additionally install the telemetry addons, use the following "
+"installation options:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:54
+#: ../../source/docs/tasks/observability/gateways/index.rst:266
+msgid "Grafana: ``--set values.grafana.enabled=true``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:55
+#: ../../source/docs/tasks/observability/gateways/index.rst:267
+msgid "Kiali: ``--set values.kiali.enabled=true``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:56
+#: ../../source/docs/tasks/observability/gateways/index.rst:268
+msgid "Prometheus: ``--set values.prometheus.enabled=true``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:57
+#: ../../source/docs/tasks/observability/gateways/index.rst:269
+msgid "Tracing: ``--set values.tracing.enabled=true``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:59
+msgid "Configure the DNS records for your domain."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:61
+msgid "Get the external IP address of the ``istio-ingressgateway``."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:65
+msgid ""
+"$ kubectl -n istio-system get service istio-ingressgateway -o "
+"jsonpath=‘{.status.loadBalancer.ingress[0].ip}’"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:69
+msgid "Set an environment variable to hold your target domain."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:73
+msgid "$ TELEMETRY_DOMAIN=<your.desired.domain>"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:75
+msgid ""
+"Point your desired domain at that external IP address via your domain "
+"provider."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:78
+msgid ""
+"The mechanism for achieving this step varies by provider. Here are a few "
+"example documentation links:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:81
+msgid ""
+"Bluehost: `DNS Management Add Edit or Delete DNS Entries "
+"<https://my.bluehost.com/hosting/help/559>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:83
+msgid ""
+"GoDaddy: `Add an A record <https://www.godaddy.com/help/add-"
+"an-a-record-19238>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:85
+msgid ""
+"Google Domains: `Resource Records "
+"<https://support.google.com/domains/answer/3290350?hl=en>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:87
+msgid ""
+"Name.com: `Adding an A record "
+"<https://www.name.com/support/articles/115004893508-Adding-an-A-record>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:90
+msgid "Verify that the DNS records are correct."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:94
+msgid "$ dig +short $TELEMETRY_DOMAIN"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:96
+msgid "Generate a server certificate"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:101
+msgid ""
+"certmanager.k8s.io/v1alpha1 kind: Certificate metadata: name: telemetry-"
+"gw-cert namespace: istio-system spec: secretName: telemetry-gw-cert "
+"issuerRef: name: letsencrypt kind: ClusterIssuer commonName: "
+"$TELEMETRY_DOMAIN dnsNames:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:106
+msgid "$TELEMETRY_DOMAIN acme: config:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:108
+msgid "http01: ingressClass: istio domains:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:113
+msgid "EOF certificate.certmanager.k8s.io “telemetry-gw-cert” created"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:118
+msgid "Wait until the server certificate is ready."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:120
+msgid ""
+"{{< text syntax=“bash” expandlinks=“false” >}} $ JSONPATH=‘{range "
+".items[*]}{@.metadata.name}:{range "
+"@.status.conditions[*]}{@.type}={@.status}{end}{end}’ && kubectl -n "
+"istio-system get certificates -o jsonpath=“$JSONPATH” telemetry-gw-"
+"cert:Ready=True"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:126
+#: ../../source/docs/tasks/observability/gateways/index.rst:271
+msgid "Apply networking configuration for the telemetry addons."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:128
+#: ../../source/docs/tasks/observability/gateways/index.rst:273
+msgid "Apply the following configuration to expose Grafana:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:132
+#: ../../source/docs/tasks/observability/gateways/index.rst:277
+msgid ""
+"$ cat <<EOF \\| kubectl apply -f - apiVersion: "
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: grafana-"
+"gateway namespace: istio-system spec: selector: istio: ingressgateway "
+"servers:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:137
+msgid ""
+"port: number: 15031 name: https-grafana protocol: HTTPS tls: mode: SIMPLE"
+" serverCertificate: sds privateKey: sds credentialName: telemetry-gw-cert"
+" hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:141
+msgid ""
+"“$TELEMETRY_DOMAIN” — apiVersion: networking.istio.io/v1alpha3 kind: "
+"VirtualService metadata: name: grafana-vs namespace: istio-system spec: "
+"hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:145
+#: ../../source/docs/tasks/observability/gateways/index.rst:175
+#: ../../source/docs/tasks/observability/gateways/index.rst:205
+#: ../../source/docs/tasks/observability/gateways/index.rst:237
+msgid "“$TELEMETRY_DOMAIN” gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:146
+#: ../../source/docs/tasks/observability/gateways/index.rst:289
+msgid "grafana-gateway http:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:147
+#: ../../source/docs/tasks/observability/gateways/index.rst:177
+#: ../../source/docs/tasks/observability/gateways/index.rst:207
+#: ../../source/docs/tasks/observability/gateways/index.rst:239
+#: ../../source/docs/tasks/observability/gateways/index.rst:290
+#: ../../source/docs/tasks/observability/gateways/index.rst:318
+#: ../../source/docs/tasks/observability/gateways/index.rst:346
+#: ../../source/docs/tasks/observability/gateways/index.rst:376
+msgid "match:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:149
+#: ../../source/docs/tasks/observability/gateways/index.rst:292
+msgid "port: 15031 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:150
+#: ../../source/docs/tasks/observability/gateways/index.rst:293
+msgid ""
+"destination: host: grafana port: number: 3000 — apiVersion: "
+"networking.istio.io/v1alpha3 kind: DestinationRule metadata: name: "
+"grafana namespace: istio-system spec: host: grafana trafficPolicy: tls: "
+"mode: DISABLE — EOF gateway.networking.istio.io “grafana-gateway” "
+"configured virtualservice.networking.istio.io “grafana-vs” configured "
+"destinationrule.networking.istio.io “grafana” configured"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:158
+#: ../../source/docs/tasks/observability/gateways/index.rst:301
+msgid "Apply the following configuration to expose Kiali:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:162
+#: ../../source/docs/tasks/observability/gateways/index.rst:305
+msgid ""
+"$ cat <<EOF \\| kubectl apply -f - apiVersion: "
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: kiali-gateway "
+"namespace: istio-system spec: selector: istio: ingressgateway servers:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:167
+msgid ""
+"port: number: 15029 name: https-kiali protocol: HTTPS tls: mode: SIMPLE "
+"serverCertificate: sds privateKey: sds credentialName: telemetry-gw-cert "
+"hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:171
+msgid ""
+"“$TELEMETRY_DOMAIN” — apiVersion: networking.istio.io/v1alpha3 kind: "
+"VirtualService metadata: name: kiali-vs namespace: istio-system spec: "
+"hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:176
+#: ../../source/docs/tasks/observability/gateways/index.rst:317
+msgid "kiali-gateway http:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:179
+#: ../../source/docs/tasks/observability/gateways/index.rst:320
+msgid "port: 15029 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:180
+#: ../../source/docs/tasks/observability/gateways/index.rst:321
+msgid ""
+"destination: host: kiali port: number: 20001 — apiVersion: "
+"networking.istio.io/v1alpha3 kind: DestinationRule metadata: name: kiali "
+"namespace: istio-system spec: host: kiali trafficPolicy: tls: mode: "
+"DISABLE — EOF gateway.networking.istio.io “kiali-gateway” configured "
+"virtualservice.networking.istio.io “kiali-vs” configured "
+"destinationrule.networking.istio.io “kiali” configured"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:188
+#: ../../source/docs/tasks/observability/gateways/index.rst:329
+msgid "Apply the following configuration to expose Prometheus:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:192
+#: ../../source/docs/tasks/observability/gateways/index.rst:333
+msgid ""
+"$ cat <<EOF \\| kubectl apply -f - apiVersion: "
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: prometheus-"
+"gateway namespace: istio-system spec: selector: istio: ingressgateway "
+"servers:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:197
+msgid ""
+"port: number: 15030 name: https-prom protocol: HTTPS tls: mode: SIMPLE "
+"serverCertificate: sds privateKey: sds credentialName: telemetry-gw-cert "
+"hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:201
+msgid ""
+"“$TELEMETRY_DOMAIN” — apiVersion: networking.istio.io/v1alpha3 kind: "
+"VirtualService metadata: name: prometheus-vs namespace: istio-system "
+"spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:206
+#: ../../source/docs/tasks/observability/gateways/index.rst:345
+msgid "prometheus-gateway http:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:209
+#: ../../source/docs/tasks/observability/gateways/index.rst:348
+msgid "port: 15030 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:210
+#: ../../source/docs/tasks/observability/gateways/index.rst:349
+msgid ""
+"destination: host: prometheus port: number: 9090 — apiVersion: "
+"networking.istio.io/v1alpha3 kind: DestinationRule metadata: name: "
+"prometheus namespace: istio-system spec: host: prometheus trafficPolicy: "
+"tls: mode: DISABLE — EOF gateway.networking.istio.io “prometheus-gateway”"
+" configured virtualservice.networking.istio.io “prometheus-vs” configured"
+" destinationrule.networking.istio.io “prometheus” configured"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:220
+#: ../../source/docs/tasks/observability/gateways/index.rst:359
+msgid "Apply the following configuration to expose the tracing service:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:224
+#: ../../source/docs/tasks/observability/gateways/index.rst:363
+msgid ""
+"$ cat <<EOF \\| kubectl apply -f - apiVersion: "
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: tracing-"
+"gateway namespace: istio-system spec: selector: istio: ingressgateway "
+"servers:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:229
+msgid ""
+"port: number: 15032 name: https-tracing protocol: HTTPS tls: mode: SIMPLE"
+" serverCertificate: sds privateKey: sds credentialName: telemetry-gw-cert"
+" hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:233
+msgid ""
+"“$TELEMETRY_DOMAIN” — apiVersion: networking.istio.io/v1alpha3 kind: "
+"VirtualService metadata: name: tracing-vs namespace: istio-system spec: "
+"hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:238
+#: ../../source/docs/tasks/observability/gateways/index.rst:375
+msgid "tracing-gateway http:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:241
+#: ../../source/docs/tasks/observability/gateways/index.rst:378
+msgid "port: 15032 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:242
+#: ../../source/docs/tasks/observability/gateways/index.rst:379
+msgid ""
+"destination: host: tracing port: number: 80 — apiVersion: "
+"networking.istio.io/v1alpha3 kind: DestinationRule metadata: name: "
+"tracing namespace: istio-system spec: host: tracing trafficPolicy: tls: "
+"mode: DISABLE — EOF gateway.networking.istio.io “tracing-gateway” "
+"configured virtualservice.networking.istio.io “tracing-vs” configured "
+"destinationrule.networking.istio.io “tracing” configured"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:250
+#: ../../source/docs/tasks/observability/gateways/index.rst:387
+msgid "Visit the telemetry addons via your browser."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:252
+msgid "Kiali: ``https://$TELEMETRY_DOMAIN:15029/``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:253
+msgid "Prometheus: ``https://$TELEMETRY_DOMAIN:15030/``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:254
+msgid "Grafana: ``https://$TELEMETRY_DOMAIN:15031/``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:255
+msgid "Tracing: ``https://$TELEMETRY_DOMAIN:15032/``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:258
+msgid "Option 2: Insecure access (HTTP)"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:260
+msgid ""
+"`Install Istio </docs/setup/install/istioctl>`_ in your cluster with your"
+" desired telemetry addons."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:282
+msgid "port: number: 15031 name: http-grafana protocol: HTTP hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:284
+msgid ""
+"\"*\" — apiVersion: networking.istio.io/v1alpha3 kind: VirtualService "
+"metadata: name: grafana-vs namespace: istio-system spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:288
+#: ../../source/docs/tasks/observability/gateways/index.rst:316
+#: ../../source/docs/tasks/observability/gateways/index.rst:344
+#: ../../source/docs/tasks/observability/gateways/index.rst:374
+msgid "\"*\" gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:310
+msgid "port: number: 15029 name: http-kiali protocol: HTTP hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:312
+msgid ""
+"\"*\" — apiVersion: networking.istio.io/v1alpha3 kind: VirtualService "
+"metadata: name: kiali-vs namespace: istio-system spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:338
+msgid "port: number: 15030 name: http-prom protocol: HTTP hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:340
+msgid ""
+"\"*\" — apiVersion: networking.istio.io/v1alpha3 kind: VirtualService "
+"metadata: name: prometheus-vs namespace: istio-system spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:368
+msgid "port: number: 15032 name: http-tracing protocol: HTTP hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:370
+msgid ""
+"\"*\" — apiVersion: networking.istio.io/v1alpha3 kind: VirtualService "
+"metadata: name: tracing-vs namespace: istio-system spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:389
+msgid "Kiali: ``http://<IP ADDRESS OF CLUSTER INGRESS>:15029/``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:390
+msgid "Prometheus: ``http://<IP ADDRESS OF CLUSTER INGRESS>:15030/``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:391
+msgid "Grafana: ``http://<IP ADDRESS OF CLUSTER INGRESS>:15031/``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:392
+msgid "Tracing: ``http://<IP ADDRESS OF CLUSTER INGRESS>:15032/``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:395
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:397
+msgid "Remove all related Gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:402
+msgid ""
+"grafana-gateway kiali-gateway prometheus-gateway tracing-gateway "
+"gateway.networking.istio.io “grafana-gateway” deleted "
+"gateway.networking.istio.io “kiali-gateway” deleted "
+"gateway.networking.istio.io “prometheus-gateway” deleted "
+"gateway.networking.istio.io “tracing-gateway” deleted"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:408
+msgid "Remove all related Virtual Services:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:413
+msgid ""
+"grafana-vs kiali-vs prometheus-vs tracing-vs "
+"virtualservice.networking.istio.io “grafana-vs” deleted "
+"virtualservice.networking.istio.io “kiali-vs” deleted "
+"virtualservice.networking.istio.io “prometheus-vs” deleted "
+"virtualservice.networking.istio.io “tracing-vs” deleted"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:419
+msgid "If installed, remove the gateway certificate:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/gateways/index.rst:424
+msgid ""
+"telemetry-gw-cert certificate.certmanager.k8s.io “telemetry-gw-cert” "
+"deleted"
+msgstr ""
+

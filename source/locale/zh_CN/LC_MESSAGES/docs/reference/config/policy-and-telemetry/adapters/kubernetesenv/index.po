@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:2
+msgid "Kubernetes Env"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: Kubernetes Env "
+"description: Adapter that extracts information from a Kubernetes "
+"environment. location: https://istio.io/docs/reference/config/policy-and-"
+"telemetry/adapters/kubernetesenv.html layout: protoc-gen-docs generator: "
+"protoc-gen-docs supported_templates: kubernetes aliases:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:14
+msgid "/docs/reference/config/adapters/kubernetesenv.html"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:15
+msgid ""
+"number_of_entries: 1 --- <p>The <code>kubernetesenv</code> adapter "
+"extracts information from a Kubernetes environment and produces "
+"attributes that can be used in downstream adapters.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:20
+msgid ""
+"<p>This adapter supports the <a href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/kubernetes/\">kubernetes template</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:22
+msgid ""
+"<h2 id=\"Params\">Params</h2> <section> <p>Configuration parameters for "
+"the kubernetes adapter. These params control the manner in which the "
+"kubernetes adapter discovers and generates values related to pod "
+"information.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:28
+msgid ""
+"<p>The adapter works by looking up pod information by UIDs (of the form: "
+"&ldquo;kubernetes://pod.namespace&rdquo;). It expects that the UIDs will "
+"be supplied in an input map for three distinct traffic classes (source, "
+"destination, and origin).</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:33
+msgid ""
+"<p>For all valid UIDs supplied, this adapter generates output values "
+"containing information about the related pods.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:36
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-kubeconfig_path\"> "
+"<td><code>kubeconfigPath</code></td> <td><code>string</code></td> <td> "
+"<p>File path to discover <code>kubeconfig</code>. For in-cluster "
+"configuration, this should be left unset. For local configuration, this "
+"should be set to the path of a <code>kubeconfig</code> file that can be "
+"used to reach a kubernetes API server.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:55
+msgid ""
+"<p>NOTE: The <code>kubernetesenv</code> adapter will use the value of the"
+" <code>KUBECONFIG</code> environment variable in the case where it is set"
+" (overriding any value configured through this proto).</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:59
+msgid "<p>Default: &ldquo;&rdquo; (unset)</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:61
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-cache_refresh_duration\"> "
+"<td><code>cacheRefreshDuration</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> <p>Controls the resync period of the Kubernetes cluster info cache."
+" The cache will watch for events and every so often completely resync. "
+"This controls how frequently the complete resync occurs.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:74
+msgid "<p>Default: 5 minutes</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:76
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-cluster_registries_namespace\">"
+" <td><code>clusterRegistriesNamespace</code></td> "
+"<td><code>string</code></td> <td> <p>Namespace of the secret created for "
+"multicluster support.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:87
+msgid ""
+"<p>Details on multicluster and the Kubernetes secret required to access "
+"the remote cluster&rsquo;s credentials can be found in <a "
+"href=\"/docs/setup/install/multicluster/\">multicluster install</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:91
+msgid ""
+"<p>NOTE: If <code>cluster_registries_namespace</code> is not set then the"
+" environment variable <code>POD_NAMESPACE</code> is checked/used. If "
+"<code>POD_NAMESPACE</code> is not set then "
+"<code>cluster_registries_namespace</code> defaults to &ldquo;istio-"
+"system&rdquo;.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:95
+msgid "<p>Default: &ldquo;istio-system&rdquo;</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/kubernetesenv/index.rst:97
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

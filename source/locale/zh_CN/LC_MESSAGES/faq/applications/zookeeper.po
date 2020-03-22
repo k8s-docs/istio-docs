@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/applications/zookeeper.rst:2
+msgid "zookeeper"
+msgstr ""
+
+#: ../../source/faq/applications/zookeeper.rst:4
+msgid ""
+"By default, Zookeeper listens on the pod IP address for communication "
+"between servers. Istio and other service meshes require ``localhost`` "
+"(``127.0.0.1``) to be the address to listen on."
+msgstr ""
+
+#: ../../source/faq/applications/zookeeper.rst:8
+msgid ""
+"There is a configuration parameter that can be used to change this "
+"default behavior: `quorumListenOnAllIPs "
+"<https://zookeeper.apache.org/doc/r3.5.7/zookeeperAdmin.html>`_. This "
+"option allows Zookeeper to listen on all addresses including the "
+"``localhost``. Set this parameter to ``true`` by using the following "
+"command where ``$ZK_CONFIG_FILE`` is your Zookeeper configuration file."
+msgstr ""
+

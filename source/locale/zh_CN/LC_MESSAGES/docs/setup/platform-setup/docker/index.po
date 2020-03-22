@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/platform-setup/docker/index.rst:2
+msgid "Docker Desktop"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/docker/index.rst:4
+msgid ""
+"To run Istio with Docker Desktop, install a version which contains a "
+"supported Kubernetes version ({{< supported_kubernetes_versions >}})."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/docker/index.rst:7
+msgid ""
+"If you want to run Istio under Docker Desktop’s built-in Kubernetes, you "
+"need to increase Docker’s memory limit under the *Advanced* pane of "
+"Docker Desktop’s preferences. Set the resources to 8.0 ``GB`` of memory "
+"and 4 ``CPUs``."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/docker/index.rst:19
+msgid ""
+"Minimum memory requirements vary. 8 ``GB`` is sufficent to run Istio and "
+"Bookinfo. If you don’t have enough memory allocated in Docker Desktop, "
+"the following errors could occur:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/docker/index.rst:23
+msgid "image pull failures"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/docker/index.rst:24
+msgid "healthcheck timeout failures"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/docker/index.rst:25
+msgid "kubectl failures on the host"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/docker/index.rst:26
+msgid "general network instability of the hypervisor"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/docker/index.rst:28
+msgid "Additional Docker Desktop resources may be freed up using:"
+msgstr ""
+

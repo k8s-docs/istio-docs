@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:2
+msgid "Attribute vocabulary"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:4
+msgid ""
+"Attributes are a central concept used throughout Istio. You can find a "
+"description of what attributes are and what they are used for `here "
+"</docs/reference/config/policy-and-telemetry/mixer-"
+"overview/#attributes>`_."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:8
+msgid ""
+"A given Istio deployment has a fixed vocabulary of attributes that it "
+"understands. The specific vocabulary is determined by the set of "
+"attribute producers being used in the deployment. The primary attribute "
+"producer in Istio is Envoy, although Mixer and services can also "
+"introduce attributes."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:14
+msgid ""
+"The table below shows the set of canonical attributes and their "
+"respective types. Most Istio deployments will have agents (Envoy or Mixer"
+" adapters) that produce these attributes."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:529
+msgid "Timestamp and duration attributes format"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:531
+msgid ""
+"Timestamp attributes are represented in the RFC 3339 format. When "
+"operating with timestamp attributes, you can use the ``timestamp`` "
+"function defined in `CEXL </docs/reference/config/policy-and-telemetry"
+"/expression-language/>`_ to convert a textual timestamp in RFC 3339 "
+"format into the ``TIMESTAMP`` type, for example: ``request.time | "
+"timestamp(\"2018-01-01T22:08:41+00:00\")``, ``response.time > "
+"timestamp(\"2020-02-29T00:00:00-08:00\")``."
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:540
+msgid ""
+"Duration attributes represent an amount of time, expressed as a series of"
+" decimal numbers with an optional fractional part denoted with a period, "
+"and a unit value. The possible unit values are ``ns`` for nanoseconds, "
+"``us`` (or ``µs``) for microseconds, ``ms`` for milliseconds, ``s`` for "
+"seconds, ``m`` for minutes, ``h`` for hours. For example:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:547
+msgid "``1ms`` represents 1 millisecond"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:548
+msgid "``2.3s`` represents 2.3 seconds"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:549
+msgid "``4m`` represents 4 minutes"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/attribute-vocabulary/index.rst:550
+msgid "``5h10m`` represents 5 hours and 10 minutes"
+msgstr ""
+

@@ -1,0 +1,850 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:2
+msgid "Accessing External Services"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:4
+msgid ""
+"Because all outbound traffic from an Istio-enabled pod is redirected to "
+"its sidecar proxy by default, accessibility of URLs outside of the "
+"cluster depends on the configuration of the proxy. By default, Istio "
+"configures the Envoy proxy to passthrough requests for unknown services. "
+"Although this provides a convenient way to get started with Istio, "
+"configuring stricter control is usually preferable."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:11
+msgid ""
+"This task shows you how to access external services in three different "
+"ways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:14
+msgid ""
+"Allow the Envoy proxy to pass requests through to services that are not "
+"configured inside the mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:16
+msgid ""
+"Configure `service entries </docs/reference/config/networking/service-"
+"entry/>`_ to provide controlled access to external services."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:19
+msgid "Completely bypass the Envoy proxy for a specific range of IPs."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:22
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:24
+msgid ""
+"Setup Istio by following the instructions in the `Installation guide "
+"</docs/setup/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:27
+#, python-format
+msgid ""
+"Deploy the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ "
+"sample app to use as a test source for sending requests. If you have "
+"`automatic sidecar injection </docs/setup/additional-setup/sidecar-"
+"injection/#automatic-sidecar-injection>`_ enabled, run the following "
+"command to deploy the sample app:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:38
+msgid ""
+"Otherwise, manually inject the sidecar before deploying the ``sleep`` "
+"application with the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:44
+msgid "@samples/sleep/sleep.yaml@)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:48
+msgid "You can use any pod with ``curl`` installed as a test source."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:51
+msgid ""
+"Set the ``SOURCE_POD`` environment variable to the name of your source "
+"pod:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:57
+msgid "-o jsonpath={.items..metadata.name})"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:60
+msgid "Envoy passthrough to external services"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:62
+msgid ""
+"Istio has an `installation option </docs/reference/config/installation-"
+"options/>`_, ``global.outboundTrafficPolicy.mode``, that configures the "
+"sidecar handling of external services, that is, those services that are "
+"not defined in Istio’s internal service registry. If this option is set "
+"to ``ALLOW_ANY``, the Istio proxy lets calls to unknown services pass "
+"through. If the option is set to ``REGISTRY_ONLY``, then the Istio proxy "
+"blocks any host without an HTTP service or service entry defined within "
+"the mesh. ``ALLOW_ANY`` is the default value, allowing you to start "
+"evaluating Istio quickly, without controlling access to external "
+"services. You can then decide to `configure access to external services "
+"<#controlled-access-to-external-services>`_ later."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:75
+msgid ""
+"To see this approach in action you need to ensure that your Istio "
+"installation is configured with the ``global.outboundTrafficPolicy.mode``"
+" option set to ``ALLOW_ANY``. Unless you explicitly set it to "
+"``REGISTRY_ONLY`` mode when you installed Istio, it is probably enabled "
+"by default."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:81
+msgid "Run the following command to confirm it is configured correctly:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:86
+msgid "yaml \\| grep -o “mode: ALLOW_ANY” mode: ALLOW_ANY"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:88
+msgid ""
+"The string ``mode: ALLOW_ANY`` should appear in the output if it is "
+"enabled."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:93
+msgid ""
+"If you have explicitly configured ``REGISTRY_ONLY`` mode, you can run the"
+" following command to change it:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:99
+msgid ""
+"yaml \\| sed ‘s/mode: REGISTRY_ONLY/mode: ALLOW_ANY/g’ \\| kubectl "
+"replace -n istio-system -f - configmap “istio” replaced"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:104
+msgid ""
+"Make a couple of requests to external HTTPS services from the "
+"``SOURCE_POD`` to confirm successful ``200`` responses:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:110
+msgid ""
+"https://www.google.com \\| grep “HTTP/”; kubectl exec -it $SOURCE_POD -c "
+"sleep – curl -I https://edition.cnn.com \\| grep “HTTP/” HTTP/2 200 "
+"HTTP/2 200"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:114
+msgid "Congratulations! You successfully sent egress traffic from your mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:116
+msgid ""
+"This simple approach to access external services, has the drawback that "
+"you lose Istio monitoring and control for traffic to external services; "
+"calls to external services will not appear in the Mixer log, for example."
+" The next section shows you how to monitor and control your mesh’s access"
+" to external services."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:123
+msgid "Controlled access to external services"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:125
+msgid ""
+"Using Istio ``ServiceEntry`` configurations, you can access any publicly "
+"accessible service from within your Istio cluster. This section shows you"
+" how to configure access to an external HTTP service, `httpbin.org "
+"<http://httpbin.org>`_, as well as an external HTTPS service, "
+"`www.google.com <https://www.google.com>`_ without losing Istio’s traffic"
+" monitoring and control features."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:133
+msgid "Change to the blocking-by-default policy"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:135
+msgid ""
+"To demonstrate the controlled way of enabling access to external "
+"services, you need to change the ``global.outboundTrafficPolicy.mode`` "
+"option from the ``ALLOW_ANY`` mode to the ``REGISTRY_ONLY`` mode."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:141
+msgid "You can add controlled access to services that are already"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:142
+msgid ""
+"accessible in ``ALLOW_ANY`` mode. This way, you can start using Istio "
+"features on some external services without blocking any others. Once "
+"you’ve configured all of your services, you can then switch the mode to "
+"``REGISTRY_ONLY`` to block any other unintentional accesses. {{< /tip >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:148
+msgid ""
+"Run the following command to change the "
+"``global.outboundTrafficPolicy.mode`` option to ``REGISTRY_ONLY``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:154
+msgid ""
+"yaml \\| sed ‘s/mode: ALLOW_ANY/mode: REGISTRY_ONLY/g’ \\| kubectl "
+"replace -n istio-system -f - configmap “istio” replaced"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:157
+msgid ""
+"Make a couple of requests to external HTTPS services from ``SOURCE_POD`` "
+"to verify that they are now blocked:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:163
+msgid ""
+"https://www.google.com \\| grep “HTTP/”; kubectl exec -it $SOURCE_POD -c "
+"sleep – curl -I https://edition.cnn.com \\| grep “HTTP/” command "
+"terminated with exit code 35 command terminated with exit code 35"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:169
+msgid ""
+"It may take a while for the configuration change to propagate, so you "
+"might still get successful connections. Wait for several seconds and then"
+" retry the last command."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:174
+msgid "Access an external HTTP service"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:176
+msgid "Create a ``ServiceEntry`` to allow access to an external HTTP service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:182
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: httpbin-"
+"ext spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:185
+msgid "httpbin.org ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:186
+msgid ""
+"number: 80 name: http protocol: HTTP resolution: DNS location: "
+"MESH_EXTERNAL EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:189
+msgid "Make a request to the external HTTP service from ``SOURCE_POD``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:194
+msgid ""
+"http://httpbin.org/headers { “headers”: { “Accept”: “*/*”, “Connection”: "
+"“close”, “Host”: “httpbin.org”, “User-Agent”: “curl/7.60.0”, … “X-Envoy-"
+"Decorator-Operation”: \"httpbin.org:80/*\", } }"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:199
+msgid ""
+"Note the headers added by the Istio sidecar proxy: ``X-Envoy-Decorator-"
+"Operation``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:202
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:254
+msgid "Check the log of the sidecar proxy of ``SOURCE_POD``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:207
+msgid ""
+"[2019-01-24T12:17:11.640Z] “GET /headers HTTP/1.1” 200 - 0 599 214 214 "
+"“-” “curl/7.60.0” “17fde8f7-fa62-9b39-8999-302324e6def2” “httpbin.org” "
+"“35.173.6.94:80” outbound|80||httpbin.org - 35.173.6.94:80 "
+"172.30.109.82:55314 -"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:212
+msgid "Note the entry related to your HTTP request to ``httpbin.org/headers``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:215
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:266
+msgid ""
+"Check the Mixer log. If Istio is deployed in the ``istio-system`` "
+"namespace, the command to print the log is:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:221
+msgid ""
+"istio-mixer-type=telemetry -c mixer \\| grep ‘httpbin.org’ "
+"{“level”:“info”,“time”:“2019-01-24T12:17:11.855496Z”,“instance”:“accesslog.logentry"
+".istio-"
+"system”,“apiClaims”:\"“,”apiKey“:”“,”clientTraceId“:”“,”connection_security_policy“:”unknown“,”destinationApp“:”“,”destinationIp“:”I60GXg==“,”destinationName“:”unknown“,”destinationNamespace“:”default“,”destinationOwner“:”unknown“,”destinationPrincipal“:”“,”destinationServiceHost“:”httpbin.org“,”destinationWorkload“:”unknown“,”grpcMessage“:”“,”grpcStatus“:”“,”httpAuthority“:”httpbin.org“,”latency“:”214.661667ms“,”method“:”GET“,”permissiveResponseCode“:”none“,”permissiveResponsePolicyID“:”none“,”protocol“:”http“,”receivedBytes“:270,”referer“:”“,”reporter“:”source“,”requestId“:”17fde8f7-fa62-9b39-8999-302324e6def2“,”requestSize“:0,”requestedServerName“:”“,”responseCode“:200,”responseSize“:599,”responseTimestamp“:”2019-01-24T12:17:11.855521Z“,”sentBytes“:806,”sourceApp“:”sleep“,”sourceIp“:”AAAAAAAAAAAAAP//rB5tUg==“,”sourceName"
+"“:”sleep-88ddbcfdd-"
+"rgk77“,”sourceNamespace“:”default“,”sourceOwner“:”kubernetes://apis/apps/v1/namespaces/default/deployments/sleep“,”sourcePrincipal“:”“,”sourceWorkload“:”sleep“,”url“:”/headers“,”userAgent“:”curl/7.60.0“,”xForwardedFor“:”0.0.0.0\"}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:225
+msgid ""
+"Note that the ``destinationServiceHost`` attribute is equal to "
+"``httpbin.org``. Also notice the HTTP-related attributes: ``method``, "
+"``url``, ``responseCode`` and others. Using Istio egress traffic control,"
+" you can monitor access to external HTTP services, including the HTTP-"
+"related information of each access."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:232
+msgid "Access an external HTTPS service"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:234
+msgid "Create a ``ServiceEntry`` to allow access to an external HTTPS service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:240
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: google "
+"spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:243
+msgid "www.google.com ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:244
+msgid ""
+"number: 443 name: https protocol: HTTPS resolution: DNS location: "
+"MESH_EXTERNAL EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:247
+msgid "Make a request to the external HTTPS service from ``SOURCE_POD``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:252
+msgid "https://www.google.com \\| grep “HTTP/” HTTP/2 200"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:259
+msgid ""
+"[2019-01-24T12:48:54.977Z] “- - -” 0 - 601 17766 1289 - “-” “-” “-” “-” "
+"“172.217.161.36:443” outbound|443||www.google.com 172.30.109.82:59480 "
+"172.217.161.36:443 172.30.109.82:59478 www.google.com"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:264
+msgid "Note the entry related to your HTTPS request to ``www.google.com``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:272
+msgid ""
+"istio-mixer-type=telemetry -c mixer \\| grep ‘www.google.com’ "
+"{“level”:“info”,“time”:“2019-01-24T12:48:56.266553Z”,“instance”:“tcpaccesslog.logentry"
+".istio-"
+"system”,“connectionDuration”:“1.289085134s”,“connectionEvent”:“close”,“connection_security_policy”:“unknown”,“destinationApp”:\"“,”destinationIp“:”rNmhJA==“,”destinationName“:”unknown“,”destinationNamespace“:”default“,”destinationOwner“:”unknown“,”destinationPrincipal“:”“,”destinationServiceHost“:”www.google.com“,”destinationWorkload“:”unknown“,”protocol“:”tcp“,”receivedBytes“:601,”reporter“:”source“,”requestedServerName“:”www.google.com“,”sentBytes“:17766,”sourceApp“:”sleep“,”sourceIp“:”rB5tUg==“,”sourceName"
+"“:”sleep-88ddbcfdd-"
+"rgk77“,”sourceNamespace“:”default“,”sourceOwner“:”kubernetes://apis/apps/v1/namespaces/default/deployments/sleep“,”sourcePrincipal“:”“,”sourceWorkload“:”sleep“,”totalReceivedBytes“:601,”totalSentBytes\":17766}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:276
+msgid ""
+"Note that the ``requestedServerName`` attribute is equal to "
+"``www.google.com``. Using Istio egress traffic control, you can monitor "
+"access to external HTTPS services, in particular the `SNI "
+"<https://en.wikipedia.org/wiki/Server_Name_Indication>`_ and the number "
+"of sent and received bytes. Note that in HTTPS all the HTTP-related "
+"information like method, URL path, response code, is encrypted so Istio "
+"cannot see and cannot monitor that information for HTTPS. If you need to "
+"monitor HTTP-related information in access to external HTTPS services, "
+"you may want to let your applications issue HTTP requests and `configure "
+"Istio to perform TLS origination </docs/tasks/traffic-management/egress"
+"/egress-tls-origination/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:289
+msgid "Manage traffic to external services"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:291
+msgid ""
+"Similar to inter-cluster requests, Istio `routing rules </docs/concepts"
+"/traffic-management/#routing-rules>`_ can also be set for external "
+"services that are accessed using ``ServiceEntry`` configurations. In this"
+" example, you set a timeout rule on calls to the ``httpbin.org`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:297
+msgid ""
+"From inside the pod being used as the test source, make a *curl* request "
+"to the ``/delay`` endpoint of the httpbin.org external service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:304
+msgid ""
+"curl -o /dev/null -s -w “%{http_code}:raw-latex:`\\n`” "
+"http://httpbin.org/delay/5 200"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:307
+msgid "real 0m5.024s user 0m0.003s sys 0m0.003s"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:309
+msgid "The request should return 200 (OK) in approximately 5 seconds."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:311
+msgid ""
+"Exit the source pod and use ``kubectl`` to set a 3s timeout on calls to "
+"the ``httpbin.org`` external service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:317
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: "
+"httpbin-ext spec: hosts: - httpbin.org http:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:320
+msgid "timeout: 3s route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:322
+msgid "destination: host: httpbin.org weight: 100 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:324
+msgid "Wait a few seconds, then make the *curl* request again:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:329
+msgid ""
+"curl -o /dev/null -s -w “%{http_code}:raw-latex:`\\n`” "
+"http://httpbin.org/delay/5 504"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:332
+msgid "real 0m3.149s user 0m0.004s sys 0m0.004s"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:334
+msgid ""
+"This time a 504 (Gateway Timeout) appears after 3 seconds. Although "
+"httpbin.org was waiting 5 seconds, Istio cut off the request at 3 "
+"seconds."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:339
+msgid "Cleanup the controlled access to external services"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:344
+msgid "kubectl delete virtualservice httpbin-ext –ignore-not-found=true"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:347
+msgid "Direct access to external services"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:349
+msgid ""
+"If you want to completely bypass Istio for a specific IP range, you can "
+"configure the Envoy sidecars to prevent them from `intercepting "
+"</docs/concepts/traffic-management/>`_ external requests. To set up the "
+"bypass, change either the ``global.proxy.includeIPRanges`` or the "
+"``global.proxy.excludeIPRanges`` `configuration option "
+"</docs/reference/config/installation-options/>`_ and update the ``istio-"
+"sidecar-injector`` configuration map using the ``kubectl apply`` command."
+" This can also be configured on a pod by setting corresponding "
+"`annotations </docs/reference/config/annotations/>`_ such as "
+"``traffic.sidecar.istio.io/includeOutboundIPRanges``. After updating the "
+"``istio-sidecar-injector`` configuration, it affects all future "
+"application pod deployments."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:364
+msgid "Unlike `Envoy passthrough to external"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:365
+msgid ""
+"services <#envoy-passthrough-to-external-services>`_, which uses the "
+"``ALLOW_ANY`` traffic policy to instruct the Istio sidecar proxy to "
+"passthrough calls to unknown services, this approach completely bypasses "
+"the sidecar, essentially disabling all of Istio’s features for the "
+"specified IPs. You cannot incrementally add service entries for specific "
+"destinations, as you can with the ``ALLOW_ANY`` approach. Therefore, this"
+" configuration approach is only recommended as a last resort when, for "
+"performance or other reasons, external access cannot be configured using "
+"the sidecar."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:375
+msgid ""
+"A simple way to exclude all external IPs from being redirected to the "
+"sidecar proxy is to set the ``global.proxy.includeIPRanges`` "
+"configuration option to the IP range or ranges used for internal cluster "
+"services. These IP range values depend on the platform where your cluster"
+" runs."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:382
+msgid "Determine the internal IP ranges for your platform"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:384
+msgid ""
+"Set the value of ``global.proxy.includeIPRanges`` according to your "
+"cluster provider."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:388
+msgid "IBM Cloud Private"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:390
+msgid ""
+"Get your ``service_cluster_ip_range`` from IBM Cloud Private "
+"configuration file under ``cluster/config.yaml``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:396
+msgid "service_cluster_ip_range"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:398
+msgid "The following is a sample output:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:400
+msgid "{{< text plain >}} service_cluster_ip_range: 10.0.0.1/24 {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:403
+msgid "Use ``--set global.proxy.includeIPRanges=\"10.0.0.1/24\"``"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:406
+msgid "IBM Cloud Kubernetes Service"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:408
+msgid ""
+"Use ``--set "
+"global.proxy.includeIPRanges=\"172.30.0.0/16\\,172.21.0.0/16\\,10.10.10.0/24\"``"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:412
+msgid "Google Container Engine (GKE)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:414
+msgid ""
+"The ranges are not fixed, so you will need to run the ``gcloud container "
+"clusters describe`` command to determine the ranges to use. For example:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:421
+msgid ""
+"–zone=XXXXXX \\| grep -e clusterIpv4Cidr -e servicesIpv4Cidr "
+"clusterIpv4Cidr: 10.4.0.0/14 servicesIpv4Cidr: 10.7.240.0/20 {{< /text "
+">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:425
+msgid "Use ``--set global.proxy.includeIPRanges=\"10.4.0.0/14\\,10.7.240.0/20\"``"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:428
+msgid "Azure Container Service(ACS)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:430
+msgid "Use ``--set global.proxy.includeIPRanges=\"10.244.0.0/16\\,10.240.0.0/16``"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:433
+msgid "Minikube, Docker For Desktop, Bare Metal"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:435
+msgid ""
+"The default value is ``10.96.0.0/12``, but it’s not fixed. Use the "
+"following command to determine your actual value:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:441
+msgid "\\| grep ‘service-cluster-ip-range’ –service-cluster-ip-range=10.96.0.0/12"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:444
+msgid "Use ``--set global.proxy.includeIPRanges=\"10.96.0.0/12\"``"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:447
+msgid "Configuring the proxy bypass"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:451
+msgid "Remove the service entry and virtual service previously"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:452
+msgid "deployed in this guide."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:454
+msgid ""
+"Update your ``istio-sidecar-injector`` configuration map using the IP "
+"ranges specific to your platform. For example, if the range is "
+"10.0.0.1/24, use the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:461
+msgid "values.global.proxy.includeIPRanges=“10.0.0.1/24”"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:463
+msgid ""
+"Use the same command that you used to `install Istio "
+"</docs/setup/install/istioctl>`_ and add ``--set "
+"values.global.proxy.includeIPRanges=\"10.0.0.1/24\"``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:468
+msgid "Access the external services"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:470
+msgid ""
+"Because the bypass configuration only affects new deployments, you need "
+"to redeploy the ``sleep`` application as described in the `Before you "
+"begin <#before-you-begin>`_ section."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:474
+msgid ""
+"After updating the ``istio-sidecar-injector`` configmap and redeploying "
+"the ``sleep`` application, the Istio sidecar will only intercept and "
+"manage internal requests within the cluster. Any external request "
+"bypasses the sidecar and goes straight to its intended destination. For "
+"example:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:483
+msgid ""
+"jsonpath={.items..metadata.name}) $ kubectl exec -it $SOURCE_POD -c sleep"
+" curl http://httpbin.org/headers { “headers”: { “Accept”: “*/*”, "
+"“Connection”: “close”, “Host”: “httpbin.org”, “User-Agent”: “curl/7.60.0”"
+" } }"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:488
+msgid ""
+"Unlike accessing external services through HTTP or HTTPS, you don’t see "
+"any headers related to the Istio sidecar and the requests sent to "
+"external services appear neither in the log of the sidecar nor in the "
+"Mixer log. Bypassing the Istio sidecars means you can no longer monitor "
+"the access to external services."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:495
+msgid "Cleanup the direct access to external services"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:497
+msgid ""
+"Update the ``istio-sidecar-injector.configmap.yaml`` configuration map to"
+" redirect all outbound traffic to the sidecar proxies:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:505
+msgid "Understanding what happened"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:507
+msgid ""
+"In this task you looked at three ways to call external services from an "
+"Istio mesh:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:510
+msgid "Configuring Envoy to allow access to any external service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:512
+msgid ""
+"Use a service entry to register an accessible external service inside the"
+" mesh. This is the recommended approach."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:515
+msgid ""
+"Configuring the Istio sidecar to exclude external IPs from its remapped "
+"IP table."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:518
+msgid ""
+"The first approach directs traffic through the Istio sidecar proxy, "
+"including calls to services that are unknown inside the mesh. When using "
+"this approach, you can’t monitor access to external services or take "
+"advantage of Istio’s traffic control features for them. To easily switch "
+"to the second approach for specific services, simply create service "
+"entries for those external services. This process allows you to initially"
+" access any external service and then later decide whether or not to "
+"control access, enable traffic monitoring, and use traffic control "
+"features as needed."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:528
+msgid ""
+"The second approach lets you use all of the same Istio service mesh "
+"features for calls to services inside or outside of the cluster. In this "
+"task, you learned how to monitor access to external services and set a "
+"timeout rule for calls to an external service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:533
+msgid ""
+"The third approach bypasses the Istio sidecar proxy, giving your services"
+" direct access to any external server. However, configuring the proxy "
+"this way does require cluster-provider specific knowledge and "
+"configuration. Similar to the first approach, you also lose monitoring of"
+" access to external services and you can’t apply Istio features on "
+"traffic to external services."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:541
+msgid "Security note"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:545
+msgid "Note that configuration examples in this task **do not"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:546
+msgid ""
+"enable secure egress traffic control** in Istio. A malicious application "
+"can bypass the Istio sidecar proxy and access any external service "
+"without Istio control."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:550
+msgid ""
+"To implement egress traffic control in a more secure way, you must "
+"`direct egress traffic through an egress gateway </docs/tasks/traffic-"
+"management/egress/egress-gateway/>`_ and review the security concerns "
+"described in the `additional security considerations </docs/tasks"
+"/traffic-management/egress/egress-gateway/#additional-security-"
+"considerations>`_ section."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:558
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:560
+#, python-format
+msgid ""
+"Shutdown the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_"
+" service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:568
+msgid "Set the outbound traffic policy mode to your desired value"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:570
+msgid "Check the current value:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:575
+msgid ""
+"yaml \\| grep -o “mode: ALLOW_ANY” \\| uniq $ kubectl get configmap istio"
+" -n istio-system -o yaml \\| grep -o “mode: REGISTRY_ONLY” \\| uniq mode:"
+" ALLOW_ANY"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:579
+msgid "The output will be either ``mode: ALLOW_ANY`` or ``mode: REGISTRY_ONLY``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:582
+msgid "If you want to change the mode, perform the following commands:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:584
+msgid "{{< tabset category-name=“outbound_traffic_policy_mode” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:586
+msgid ""
+"{{< tab name=“change from ALLOW_ANY to REGISTRY_ONLY” category-"
+"value=“REGISTRY_ONLY” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:592
+msgid ""
+"yaml \\| sed ‘s/mode: ALLOW_ANY/mode: REGISTRY_ONLY/g’ \\| kubectl "
+"replace -n istio-system -f - configmap/istio replaced"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:595
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:606
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:597
+msgid ""
+"{{< tab name=“change from REGISTRY_ONLY to ALLOW_ANY” category-"
+"value=“ALLOW_ANY” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:603
+msgid ""
+"yaml \\| sed ‘s/mode: REGISTRY_ONLY/mode: ALLOW_ANY/g’ \\| kubectl "
+"replace -n istio-system -f - configmap/istio replaced"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-control/index.rst:608
+msgid "{{< /tabset >}}"
+msgstr ""
+

@@ -1,0 +1,317 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:2
+msgid "Wavefront by VMware"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/vmware/wavefront-adapter-"
+"for-istio' REPO source_repo: https://github.com/vmware/wavefront-adapter-"
+"for-istio title: Wavefront by VMware description: Adapter to deliver "
+"metrics to Wavefront by VMware. location: "
+"https://istio.io/docs/reference/config/policy-and-"
+"telemetry/adapters/wavefront.html layout: partner-component generator: "
+"protoc-gen-docs provider: VMware, Inc. contact_email: veniln@vmware.com "
+"support_link: source_link: https://github.com/vmware/wavefront-adapter-"
+"for-istio latest_release_link: https://github.com/vmware/wavefront-"
+"adapter-for-istio/releases/tag/0.1.1 helm_chart_link: istio_versions: "
+"\"1.0.3, 1.0.4\" supported_templates: metric logo_link: "
+"https://github.com/vmware/wavefront-adapter-for-"
+"istio/raw/master/docs/images/logo.png number_of_entries: 9 --- <p>The "
+"<code>wavefront</code> adapter collects metrics and makes them available "
+"to <a href=\"https://www.wavefront.com/\">Wavefront by VMware</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:26
+msgid ""
+"<p>This adapter supports the <a href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/metric/\">metric template</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:28
+msgid ""
+"<h2 id=\"Params\">Params</h2> <section> <p>Configuration format for the "
+"<code>wavefront</code> adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:32
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr id"
+"=\"Params-direct\" class=\"oneof oneof-start\"> "
+"<td><code>direct</code></td> <td><code><a href=\"#Params-"
+"WavefrontDirect\">Params.WavefrontDirect (oneof)</a></code></td> <td> "
+"<p>The credentials for direct ingestion.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:47
+msgid ""
+"</td> </tr> <tr id=\"Params-proxy\" class=\"oneof\"> "
+"<td><code>proxy</code></td> <td><code><a href=\"#Params-"
+"WavefrontProxy\">Params.WavefrontProxy (oneof)</a></code></td> <td> "
+"<p>The credentials for ingestion via a Wavefront Proxy.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:55
+msgid ""
+"</td> </tr> <tr id=\"Params-flush_interval\"> "
+"<td><code>flushInterval</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">google.protobuf.Duration</a></code></td>"
+" <td> <p>The metrics flush interval.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:63
+msgid ""
+"</td> </tr> <tr id=\"Params-source\"> <td><code>source</code></td> "
+"<td><code>string</code></td> <td> <p>The source tag for all metrics "
+"handled by this adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:71
+msgid ""
+"</td> </tr> <tr id=\"Params-prefix\"> <td><code>prefix</code></td> "
+"<td><code>string</code></td> <td> <p>The prefix to prepend all metrics "
+"handled by the adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:79
+msgid ""
+"</td> </tr> <tr id=\"Params-metrics\"> <td><code>metrics</code></td> "
+"<td><code><a href=\"#Params-"
+"MetricInfo\">Params.MetricInfo[]</a></code></td> <td> <p>The set of "
+"metrics to publish to Wavefront.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:87
+msgid ""
+"</td> </tr> <tr id=\"Params-logs\"> <td><code>logs</code></td> "
+"<td><code><a href=\"#Params-Logs\">Params.Logs</a></code></td> <td> "
+"<p>The log configuration.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:95
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"Logs\">Params.Logs</h2> <section> <p>Describes the logging "
+"configuration.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:104
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr id"
+"=\"Params-Logs-level\"> <td><code>level</code></td> "
+"<td><code>string</code></td> <td> <p>The log level (one of error, warn, "
+"info, debug, or none). Ex: info</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:119
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"MetricInfo\">Params.MetricInfo</h2> <section> <p>Describes how a metric "
+"should be represented on Wavefront.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:128
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr id"
+"=\"Params-MetricInfo-name\"> <td><code>name</code></td> "
+"<td><code>string</code></td> <td> <p>The metric name. (Optional)</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:143
+msgid ""
+"</td> </tr> <tr id=\"Params-MetricInfo-instance_name\"> "
+"<td><code>instanceName</code></td> <td><code>string</code></td> <td> "
+"<p>The fully qualified Istio metric instance name.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:151
+msgid ""
+"</td> </tr> <tr id=\"Params-MetricInfo-type\"> <td><code>type</code></td>"
+" <td><code><a href=\"#Params-MetricInfo-"
+"Type\">Params.MetricInfo.Type</a></code></td> <td> <p>The metric "
+"type.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:159
+msgid ""
+"</td> </tr> <tr id=\"Params-MetricInfo-sample\"> "
+"<td><code>sample</code></td> <td><code><a href=\"#Params-MetricInfo-"
+"Sample\">Params.MetricInfo.Sample</a></code></td> <td> <p>For metrics "
+"with type HISTOGRAM, this describes the sample definition.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:167
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 id=\"Params-MetricInfo-"
+"Sample\">Params.MetricInfo.Sample</h2> <section> <p>Describes a sample as"
+" in the <a href=\"https://github.com/rcrowley/go-metrics\">rcrowley/go-"
+"metrics</a> library.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:176
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr id"
+"=\"Params-MetricInfo-Sample-exp_decay\" class=\"oneof oneof-start\"> "
+"<td><code>expDecay</code></td> <td><code><a href=\"#Params-MetricInfo-"
+"Sample-ExpDecay\">Params.MetricInfo.Sample.ExpDecay "
+"(oneof)</a></code></td> <td> <p>Definition of an exponentially decaying "
+"sample.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:191
+msgid ""
+"</td> </tr> <tr id=\"Params-MetricInfo-Sample-uniform\" class=\"oneof\"> "
+"<td><code>uniform</code></td> <td><code><a href=\"#Params-MetricInfo-"
+"Sample-Uniform\">Params.MetricInfo.Sample.Uniform (oneof)</a></code></td>"
+" <td> <p>Definition of a uniform sample.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:199
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 id=\"Params-MetricInfo-"
+"Sample-ExpDecay\">Params.MetricInfo.Sample.ExpDecay</h2> <section> "
+"<p>Describes an exponentially decaying sample.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:208
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr id"
+"=\"Params-MetricInfo-Sample-ExpDecay-reservoir_size\"> "
+"<td><code>reservoirSize</code></td> <td><code>int32</code></td> <td> "
+"<p>The reservoir size.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:223
+msgid ""
+"</td> </tr> <tr id=\"Params-MetricInfo-Sample-ExpDecay-alpha\"> "
+"<td><code>alpha</code></td> <td><code>double</code></td> <td> <p>The "
+"alpha.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:231
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 id=\"Params-MetricInfo-"
+"Sample-Uniform\">Params.MetricInfo.Sample.Uniform</h2> <section> "
+"<p>Describes a uniform sample.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:240
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr id"
+"=\"Params-MetricInfo-Sample-Uniform-reservoir_size\"> "
+"<td><code>reservoirSize</code></td> <td><code>int32</code></td> <td> "
+"<p>The reservoir size.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:255
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 id=\"Params-MetricInfo-"
+"Type\">Params.MetricInfo.Type</h2> <section> <p>Describes metric types as"
+" in <a "
+"href=\"https://docs.wavefront.com/metric_types.html\">Wavefront</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:264
+msgid ""
+"<table class=\"enum-values\"> <thead> <tr> <th>Name</th> "
+"<th>Description</th> </tr> </thead> <tbody> <tr id=\"Params-MetricInfo-"
+"Type-UNKNOWN\"> <td><code>UNKNOWN</code></td> <td> <p>Reserved for "
+"unknown metric types.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:277
+msgid ""
+"</td> </tr> <tr id=\"Params-MetricInfo-Type-GAUGE\"> "
+"<td><code>GAUGE</code></td> <td> <p>Represents a gauge metric type.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:284
+msgid ""
+"</td> </tr> <tr id=\"Params-MetricInfo-Type-COUNTER\"> "
+"<td><code>COUNTER</code></td> <td> <p>Represents a counter metric "
+"type.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:291
+msgid ""
+"</td> </tr> <tr id=\"Params-MetricInfo-Type-DELTA_COUNTER\"> "
+"<td><code>DELTA_COUNTER</code></td> <td> <p>Represents a delta counter "
+"metric type.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:298
+msgid ""
+"</td> </tr> <tr id=\"Params-MetricInfo-Type-HISTOGRAM\"> "
+"<td><code>HISTOGRAM</code></td> <td> <p>Represents a histogram metric "
+"type.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:305
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"WavefrontDirect\">Params.WavefrontDirect</h2> <section> <p>Describes "
+"Wavefront Server credentials.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:314
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr id"
+"=\"Params-WavefrontDirect-server\"> <td><code>server</code></td> "
+"<td><code>string</code></td> <td> <p>The Wavefront server URL. Ex: "
+"https://mydomain.wavefront.com</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:329
+msgid ""
+"</td> </tr> <tr id=\"Params-WavefrontDirect-token\"> "
+"<td><code>token</code></td> <td><code>string</code></td> <td> <p>The "
+"Wavefront API token.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:337
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"WavefrontProxy\">Params.WavefrontProxy</h2> <section> <p>Describes "
+"Wavefront Proxy credentials.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:346
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> </tr> </thead> <tbody> <tr id"
+"=\"Params-WavefrontProxy-address\"> <td><code>address</code></td> "
+"<td><code>string</code></td> <td> <p>The wavefront proxy address. Ex: "
+"192.168.99.100:2878</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/wavefront/index.rst:361
+msgid "</td> </tr> </tbody> </table> </section>"
+msgstr ""
+

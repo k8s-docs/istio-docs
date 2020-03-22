@@ -1,0 +1,146 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:2
+msgid "production-testing"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:4
+msgid "{{< boilerplate work-in-progress >}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:6
+msgid "Test your microservice, in production!"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:9
+msgid "Testing individual microservices"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:11
+msgid "Issue an HTTP request from the testing pod to one of your services:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:16
+msgid ""
+"-o jsonpath=‘{.items[0].metadata.name}’) – curl "
+"http://ratings:9080/ratings/7"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:20
+msgid "Chaos testing"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:22
+msgid ""
+"Perform some `chaos testing <http://www.boyter.org/2016/07/chaos-testing-"
+"engineering/>`_ in production and see how your application reacts. After "
+"each chaos operation, access the application’s webpage and see if "
+"anything changed. Check the pods’ status with ``kubectl get pods``."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:28
+msgid "Terminate the ``details`` service in one pod."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:33
+msgid "app=details -o jsonpath=‘{.items[0].metadata.name}’) – pkill ruby"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:35
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:74
+msgid "Check the pods status:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:40
+msgid ""
+"details-v1-6d86fd9949-fr59p 1/1 Running 1 47m details-v1-6d86fd9949-mksv7"
+" 1/1 Running 0 47m details-v1-6d86fd9949-q8rrf 1/1 Running 0 48m "
+"productpage-v1-c9965499-hwhcn 1/1 Running 0 47m "
+"productpage-v1-c9965499-nccwq 1/1 Running 0 47m "
+"productpage-v1-c9965499-tjdjx 1/1 Running 0 48m "
+"ratings-v1-7bf577cb77-cbdsg 1/1 Running 0 47m ratings-v1-7bf577cb77-cz6jm"
+" 1/1 Running 0 47m ratings-v1-7bf577cb77-pq9kg 1/1 Running 0 48m "
+"reviews-v1-77c65dc5c6-5wt8g 1/1 Running 0 47m reviews-v1-77c65dc5c6-kjvxs"
+" 1/1 Running 0 48m reviews-v1-77c65dc5c6-r55tl 1/1 Running 0 47m sleep-"
+"88ddbcfdd-l9zq4 1/1 Running 0 47m"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:54
+msgid "Note that the first pod was restarted once."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:56
+msgid "Terminate the ``details`` service in all its pods:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:61
+msgid ""
+"jsonpath=‘{.items[*].metadata.name}’); do echo terminating $pod; kubectl "
+"exec -it $pod – pkill ruby; done"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:64
+msgid "Check the webpage of the application:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:71
+msgid ""
+"Note that the details section contains error messages instead of book "
+"details."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:79
+msgid ""
+"details-v1-6d86fd9949-fr59p 1/1 Running 2 48m details-v1-6d86fd9949-mksv7"
+" 1/1 Running 1 48m details-v1-6d86fd9949-q8rrf 1/1 Running 1 49m "
+"productpage-v1-c9965499-hwhcn 1/1 Running 0 48m "
+"productpage-v1-c9965499-nccwq 1/1 Running 0 48m "
+"productpage-v1-c9965499-tjdjx 1/1 Running 0 48m "
+"ratings-v1-7bf577cb77-cbdsg 1/1 Running 0 48m ratings-v1-7bf577cb77-cz6jm"
+" 1/1 Running 0 48m ratings-v1-7bf577cb77-pq9kg 1/1 Running 0 49m "
+"reviews-v1-77c65dc5c6-5wt8g 1/1 Running 0 48m reviews-v1-77c65dc5c6-kjvxs"
+" 1/1 Running 0 49m reviews-v1-77c65dc5c6-r55tl 1/1 Running 0 48m sleep-"
+"88ddbcfdd-l9zq4 1/1 Running 0 48m"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:93
+msgid ""
+"The first pod restarted twice and two other ``details`` pods restarted "
+"once. You may experience the ``Error`` and the ``CrashLoopBackOff`` "
+"statuses until the pods reach ``Running`` status."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:98
+msgid ""
+"In both cases, the application did not crash. The crash in the "
+"``details`` microservice did not cause other microservices to fail. This "
+"behavior means you did not have a **cascading failure** in this "
+"situation. Instead, you had **gradual service degradation**: despite one "
+"microservice crashing, the application could still provide useful "
+"functionality. It displayed the reviews and the basic information about "
+"the book."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/production-testing/index.rst:106
+msgid ""
+"You are ready to `add a new version of the reviews application "
+"</docs/examples/microservices-istio/add-new-microservice-version>`_."
+msgstr ""
+

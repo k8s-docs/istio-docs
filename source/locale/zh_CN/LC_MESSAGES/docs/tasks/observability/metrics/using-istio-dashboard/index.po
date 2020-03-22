@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:2
+msgid "using-istio-dashboard"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:4
+msgid ""
+"This task shows you how to setup and use the Istio Dashboard to monitor "
+"mesh traffic. As part of this task, you will use the Grafana Istio add-on"
+" and the web-based interface for viewing service mesh traffic data."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:9
+msgid ""
+"The `Bookinfo </docs/examples/bookinfo/>`_ sample application is used as "
+"the example application throughout this task."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:13
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:15
+msgid ""
+"`Install Istio </docs/setup>`_ in your cluster. If not enabled in your "
+"chosen configuration profile, enable the Grafana addon ``--set "
+"values.grafana.enabled=true`` `option </docs/reference/config"
+"/installation-options/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:19
+msgid "Deploy `Bookinfo </docs/examples/bookinfo/>`_ application."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:22
+msgid "Viewing the Istio dashboard"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:24
+msgid "Verify that the ``prometheus`` service is running in your cluster."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:26
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:36
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:46
+msgid "In Kubernetes environments, execute the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:31
+msgid "CLUSTER-IP EXTERNAL-IP PORT(S) AGE prometheus 10.59.241.54 9090/TCP 2m"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:34
+msgid "Verify that the Grafana service is running in your cluster."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:41
+msgid "CLUSTER-IP EXTERNAL-IP PORT(S) AGE grafana 10.59.247.103 3000/TCP 2m"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:44
+msgid "Open the Istio Dashboard via the Grafana UI."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:51
+msgid ""
+"istio-system get pod -l app=grafana -o "
+"jsonpath=‘{.items[0].metadata.name}’) 3000:3000 &"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:54
+msgid ""
+"Visit http://localhost:3000/dashboard/db/istio-mesh-dashboard in your web"
+" browser."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:57
+msgid "The Istio Dashboard will look similar to:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:65
+msgid "Send traffic to the mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:67
+msgid ""
+"For the Bookinfo sample, visit ``http://$GATEWAY_URL/productpage`` in "
+"your web browser or issue the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:73
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:77
+msgid ""
+"``$GATEWAY_URL`` is the value set in the `Bookinfo "
+"</docs/examples/bookinfo/>`_ example."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:80
+msgid ""
+"Refresh the page a few times (or send the command a few times) to "
+"generate a small amount of traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:83
+msgid ""
+"Look at the Istio Dashboard again. It should reflect the traffic that was"
+" generated. It will look similar to:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:96
+msgid "Visualize Service Dashboards."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:98
+msgid ""
+"From the Grafana dashboard’s left hand corner navigation menu, you can "
+"navigate to Istio Service Dashboard or visit "
+"http://localhost:3000/dashboard/db/istio-service-dashboard in your web "
+"browser."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:105
+msgid "You may need to select a service in the Service dropdown."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:108
+msgid "The Istio Service Dashboard will look similar to:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:120
+msgid "Visualize Workload Dashboards."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:122
+msgid ""
+"From the Grafana dashboard’s left hand corner navigation menu, you can "
+"navigate to Istio Workload Dashboard or visit "
+"http://localhost:3000/dashboard/db/istio-workload-dashboard in your web "
+"browser."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:127
+msgid "The Istio Workload Dashboard will look similar to:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:140
+msgid "About the Grafana addon"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:142
+msgid ""
+"The Grafana addon is a preconfigured instance of Grafana. The base image "
+"(```grafana/grafana:5.2.3`` "
+"<https://hub.docker.com/r/grafana/grafana/>`_) has been modified to start"
+" with both a Prometheus data source and the Istio Dashboard installed. "
+"The base install files for Istio, and Mixer in particular, ship with a "
+"default configuration of global (used for every service) metrics. The "
+"Istio Dashboard is built to be used in conjunction with the default Istio"
+" metrics configuration and a Prometheus backend."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:151
+msgid "The Istio Dashboard consists of three main sections:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:153
+msgid ""
+"A Mesh Summary View. This section provides Global Summary view of the "
+"Mesh and shows HTTP/gRPC and TCP workloads in the Mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:156
+msgid ""
+"Individual Services View. This section provides metrics about requests "
+"and responses for each individual service within the mesh (HTTP/gRPC and "
+"TCP). This also provides metrics about client and service workloads for "
+"this service."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:161
+msgid ""
+"Individual Workloads View: This section provides metrics about requests "
+"and responses for each individual workload within the mesh (HTTP/gRPC and"
+" TCP). This also provides metrics about inbound workloads and outbound "
+"services for this workload."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:166
+msgid ""
+"For more on how to create, configure, and edit dashboards, please see the"
+" `Grafana documentation <https://docs.grafana.org/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:170
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:172
+msgid "Remove any ``kubectl port-forward`` processes that may be running:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/metrics/using-istio-dashboard/index.rst:178
+msgid ""
+"If you are not planning to explore any follow-on tasks, refer to the "
+"`Bookinfo cleanup </docs/examples/bookinfo/#cleanup>`_ instructions to "
+"shutdown the application."
+msgstr ""
+

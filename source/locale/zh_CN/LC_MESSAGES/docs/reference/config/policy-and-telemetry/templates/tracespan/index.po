@@ -1,0 +1,313 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:2
+msgid "Trace Span"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: Trace Span "
+"description: A template that represents an individual span within a "
+"distributed trace. location: https://istio.io/docs/reference/config"
+"/policy-and-telemetry/templates/tracespan.html layout: protoc-gen-docs "
+"generator: protoc-gen-docs number_of_entries: 1 --- <p>The "
+"<code>tracespan</code> template represents an individual span within a "
+"distributed trace.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:16
+msgid "<p>Example config:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:18
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"&quot;config.istio.io/v1alpha2&quot; kind: instance metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:21
+msgid "name: default namespace: istio-system"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:40
+msgid "spec:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:24
+msgid "compiledTemplate: tracespan params:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:26
+msgid ""
+"traceId: request.headers[&quot;x-b3-traceid&quot;] spanId: "
+"request.headers[&quot;x-b3-spanid&quot;] | &quot;&quot; parentSpanId: "
+"request.headers[&quot;x-b3-parentspanid&quot;] | &quot;&quot; spanName: "
+"request.path | &quot;/&quot; startTime: request.time endTime: "
+"response.time clientSpan: (context.reporter.kind | &quot;inbound&quot;) "
+"== &quot;outbound&quot; rewriteClientSpanId: &quot;false&quot; spanTags:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:35
+msgid ""
+"http.method: request.method | &quot;&quot; http.status_code: "
+"response.code | 200 http.url: request.path | &quot;&quot; request.size: "
+"request.size | 0 response.size: response.size | 0 source.principal: "
+"source.principal | &quot;&quot; source.version: "
+"source.labels[&quot;version&quot;] | &quot;&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:42
+msgid "</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:44
+msgid ""
+"<p>See also: <a href=\"/docs/tasks/observability/distributed-"
+"tracing/\">Distributed Tracing</a> for information on tracing within "
+"Istio.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:47
+msgid ""
+"<h2 id=\"Template\">Template</h2> <section> <p>TraceSpan represents an "
+"individual span within a distributed trace.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:51
+msgid ""
+"<p>When writing the configuration, the value for the fields associated "
+"with this template can either be a literal or an <a "
+"href=\"/docs/reference//config/policy-and-telemetry/expression-"
+"language/\">expression</a>. Please note that if the datatype of a field "
+"is not istio.policy.v1beta1.Value, then the expression&rsquo;s <a "
+"href=\"/docs/reference//config/policy-and-telemetry/expression-language"
+"/#type-checking\">inferred type</a> must match the datatype of the "
+"field.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:55
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Template-trace_id\"> <td><code>traceId</code></td> "
+"<td><code>string</code></td> <td> <p>Trace ID is the unique identifier "
+"for a trace. All spans from the same trace share the same Trace ID.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:72
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:118
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:131
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:144
+msgid "<p>Required.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:74
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-span_id\"> "
+"<td><code>spanId</code></td> <td><code>string</code></td> <td> <p>Span ID"
+" is the unique identifier for a span within a trace. It is assigned when "
+"the span is created.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:86
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:100
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:158
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:217
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:230
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:244
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:257
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:270
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:284
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:297
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:311
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:325
+msgid "<p>Optional.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:88
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-parent_span_id\"> "
+"<td><code>parentSpanId</code></td> <td><code>string</code></td> <td> "
+"<p>Parent Span ID is the unique identifier for a parent span of this span"
+" instance. If this is a root span, then this field MUST be empty.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:102
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-span_name\"> "
+"<td><code>spanName</code></td> <td><code>string</code></td> <td> <p>Span "
+"name is a description of the span&rsquo;s operation.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:113
+msgid ""
+"<p>For example, the name can be a qualified method name or a file name "
+"and a line number where the operation is called. A best practice is to "
+"use the same display name within an application and at the same call "
+"point. This makes it easier to correlate spans in different traces.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:120
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-start_time\"> "
+"<td><code>startTime</code></td> <td><code><a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#TimeStamp\">TimeStamp</a></code></td>"
+" <td> <p>The start time of the span.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:133
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-end_time\"> "
+"<td><code>endTime</code></td> <td><code><a href=\"/docs/reference/config"
+"/policy-and-"
+"telemetry/istio.policy.v1beta1.html#TimeStamp\">TimeStamp</a></code></td>"
+" <td> <p>The end time of the span.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:146
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-span_tags\"> "
+"<td><code>spanTags</code></td> <td><code>map&lt;string,&nbsp;<a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#Value\">Value</a>&gt;</code></td> "
+"<td> <p>Span tags are a set of &lt; key, value &gt; pairs that provide "
+"metadata for the entire span. The values can be specified in the form of "
+"expressions.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:160
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-httpStatusCode\"> "
+"<td><code>httpStatusCode</code></td> <td><code>int64</code></td> <td> "
+"<p>HTTP status code used to set the span status. If unset or set to 0, "
+"the span status will be assumed to be successful.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:172
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-client_span\"> "
+"<td><code>clientSpan</code></td> <td><code>bool</code></td> <td> "
+"<p>client_span indicates the span kind. True for client spans and False "
+"or not provided for server spans. Using bool instead of enum is a "
+"temporary work around since mixer expression language does not yet "
+"support enum type.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:186
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:203
+msgid "<p>Optional</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:188
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-rewrite_client_span_id\"> "
+"<td><code>rewriteClientSpanId</code></td> <td><code>bool</code></td> <td>"
+" <p>rewrite<em>client</em>span_id is used to indicate whether to create a"
+" new client span id to accommodate Zipkin shared span model. Some tracing"
+" systems like Stackdriver separates a RPC into client span and server "
+"span. To solve this incompatibility, deterministically rewriting both "
+"span id of client span and parent span id of server span to the same "
+"newly generated id.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:205
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-source_name\"> "
+"<td><code>sourceName</code></td> <td><code>string</code></td> <td> "
+"<p>Identifies the source (client side) of this span. Should usually be "
+"set to <code>source.workload.name</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:219
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-source_ip\"> "
+"<td><code>sourceIp</code></td> <td><code><a href=\"/docs/reference/config"
+"/policy-and-"
+"telemetry/istio.policy.v1beta1.html#IPAddress\">IPAddress</a></code></td>"
+" <td> <p>Client IP address. Should usually be set to "
+"<code>source.ip</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:232
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-destination_name\"> "
+"<td><code>destinationName</code></td> <td><code>string</code></td> <td> "
+"<p>Identifies the destination (server side) of this span. Should usually "
+"be set to <code>destination.workload.name</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:246
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-destination_ip\"> "
+"<td><code>destinationIp</code></td> <td><code><a "
+"href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#IPAddress\">IPAddress</a></code></td>"
+" <td> <p>Server IP address. Should usually be set to "
+"<code>destination.ip</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:259
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-request_size\"> "
+"<td><code>requestSize</code></td> <td><code>int64</code></td> <td> "
+"<p>Request body size. Should usually be set to "
+"<code>request.size</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:272
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-request_total_size\"> "
+"<td><code>requestTotalSize</code></td> <td><code>int64</code></td> <td> "
+"<p>Total request size (headers and body). Should usually be set to "
+"<code>request.total_size</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:286
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-response_size\"> "
+"<td><code>responseSize</code></td> <td><code>int64</code></td> <td> "
+"<p>Response body size. Should usually be set to "
+"<code>response.size</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:299
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-response_total_size\"> "
+"<td><code>responseTotalSize</code></td> <td><code>int64</code></td> <td> "
+"<p>Response total size (headers and body). Should usually be set to "
+"<code>response.total_size</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:313
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-api_protocol\"> "
+"<td><code>apiProtocol</code></td> <td><code>string</code></td> <td> "
+"<p>One of &ldquo;http&rdquo;, &ldquo;https&rdquo;, or &ldquo;grpc&rdquo; "
+"or any other value of the <code>api.protocol</code> attribute. Should "
+"usually be set to <code>api.protocol</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/tracespan/index.rst:327
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

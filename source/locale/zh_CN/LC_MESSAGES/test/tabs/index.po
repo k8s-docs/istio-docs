@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/test/tabs/index.rst:2
+msgid "tabs"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:4
+msgid "{{< tabset category-name=“test” >}}"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:6
+msgid "{{< tab name=“One” category-value=“one” >}} One paragraph {{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:8
+msgid "{{< tab name=“Two” category-value=“two” >}} Three"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:10
+msgid "separate"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:12
+msgid "paragraphs {{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:14
+msgid "{{< tab name=“Three” category-value=“three” >}} .. warning::"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:17
+msgid "in a tab  {{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:19
+msgid "{{< tab name=“Four” category-value=“four” >}} Simple text"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:21
+msgid "In two paragraphs"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:25
+msgid "Warning in a tab  {{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:27
+msgid "{{< tab name=“Five” category-value=“five” >}} Simple text"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:29
+msgid "{{< text plain >}} Text block in a tab"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:31 ../../source/test/tabs/index.rst:44
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:33
+msgid ""
+"{{< tab name=“Six” category-value=“six” >}} Simple text with *markdown* "
+"in a tab"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:38
+msgid "Warning with *markdown* in a tab"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:40
+msgid "{{< text plain >}} Text block in a warning in a tab"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:42
+msgid "And more *markdown*"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:46
+msgid ""
+"{{< tab name=“Seven” category-value=“seven” >}} Simple text with "
+"*markdown* in a tab"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:49
+msgid ""
+"{{< text plain >}} NoIndent: FourIndent: - EightIndent FourIndentAgain: -"
+" EightIndentAgain"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:52
+msgid "And more *markdown* {{< /tab >}}"
+msgstr ""
+
+#: ../../source/test/tabs/index.rst:54
+msgid "{{< /tabset >}}"
+msgstr ""
+

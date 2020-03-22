@@ -1,0 +1,329 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:2
+msgid "app-health-check"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:4
+msgid ""
+"`Kubernetes liveness and readiness probes "
+"<https://kubernetes.io/docs/tasks/configure-pod-container/configure-"
+"liveness-readiness-probes/>`_ offer three different options:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:8
+msgid "Command"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:9
+msgid "TCP request"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:10
+msgid "HTTP request"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:12
+msgid ""
+"This guide shows how to use these approaches in Istio with mutual TLS "
+"enabled."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:15
+msgid ""
+"Command and TCP type probes work with Istio regardless of whether or not "
+"mutual TLS is enabled. The HTTP request approach requires different Istio"
+" configuration with mutual TLS enabled."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:20
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:22
+msgid ""
+"Understand `Kubernetes liveness and readiness probes "
+"<https://kubernetes.io/docs/tasks/configure-pod-container/configure-"
+"liveness-readiness-probes/>`_, Istio `authentication policy "
+"</docs/concepts/security/#authentication-policies>`_ and `mutual TLS "
+"authentication </docs/concepts/security/#mutual-tls-authentication>`_ "
+"concepts."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:30
+msgid ""
+"Have a Kubernetes cluster with Istio installed, without global mutual TLS"
+" enabled."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:34
+msgid "Liveness and readiness probes with command option"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:36
+msgid "First, you need to configure health checking with mutual TLS enabled."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:38
+msgid ""
+"To enable mutual TLS for services, you must configure an authentication "
+"policy and a destination rule. Follow these steps to complete the "
+"configuration:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:42
+msgid "Run the following command to create namespace:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:48
+msgid "To configure the authentication policy, run:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:53
+msgid ""
+"“authentication.istio.io/v1alpha1” kind: “Policy” metadata: name: "
+"“default” namespace: “istio-io-health” spec: peers:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:56
+msgid "mtls: {} EOF"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:58
+msgid "To configure the destination rule, run:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:63
+msgid ""
+"“networking.istio.io/v1alpha3” kind: “DestinationRule” metadata: name: "
+"“default” namespace: “istio-io-health” spec: host: "
+"\"*.default.svc.cluster.local\" trafficPolicy: tls: mode: ISTIO_MUTUAL "
+"EOF"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:68
+msgid "Run the following command to deploy the service:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:73
+msgid "kube-inject -f @samples/health-check/liveness-command.yaml@) {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:76
+msgid "Repeat the check status command to verify that the liveness probes work:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:81
+msgid "RESTARTS AGE liveness-6857c8775f-zdv9r 2/2 Running 0 4m"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:84
+msgid "Liveness and readiness probes with HTTP request option"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:86
+msgid ""
+"This section shows how to configure health checking with the HTTP request"
+" option when mutual TLS is enabled."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:89
+msgid ""
+"Kubernetes HTTP health check request is sent from Kubelet, which does not"
+" have Istio issued certificate to the ``liveness-http`` service. So when "
+"mutual TLS is enabled, the health check request will fail."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:93
+msgid ""
+"We have two options to solve the problem: probe rewrites and separate "
+"ports."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:97
+msgid "Probe rewrite"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:99
+msgid ""
+"This approach rewrites the application ``PodSpec`` readiness/liveness "
+"probe, such that the probe request will be sent to `Pilot agent "
+"</docs/reference/commands/pilot-agent/>`_. Pilot agent then redirects the"
+" request to application, and strips the response body only returning the "
+"response code."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:105
+msgid "You have two ways to enable Istio to rewrite the liveness HTTP probes."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:108
+msgid "Enable globally via install option"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:110
+msgid ""
+"`Install Istio </docs/setup/install/istioctl/>`_ with ``--set "
+"values.sidecarInjectorWebhook.rewriteAppHTTPProbe=true``."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:113
+msgid ""
+"**Alternatively**, update the configuration map of Istio sidecar "
+"injection:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:119
+msgid ""
+"istio-system -o yaml \\| sed -e "
+"‘s/“rewriteAppHTTPProbe”:false/“rewriteAppHTTPProbe”:true/’ \\| kubectl "
+"apply -f -"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:123
+msgid ""
+"The above installation option and configuration map, each instruct the "
+"sidecar injection process to automatically rewrite the Kubernetes pod’s "
+"spec, so health checks are able to work under mutual TLS. No need to "
+"update your app or pod spec by yourself."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:130
+msgid "The configuration changes above (by install or by the"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:131
+msgid "configuration map) effect all Istio app deployments."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:134
+msgid "Use annotations on pod"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:140
+msgid ""
+"Rather than install Istio with different options, you can `annotate the "
+"pod </docs/reference/config/annotations/>`_ with "
+"``sidecar.istio.io/rewriteAppHTTPProbers: \"true\"``. Make sure you add "
+"the annotation to the `pod resource "
+"<https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/>`_ "
+"because it will be ignored anywhere else (for example, on an enclosing "
+"deployment resource)."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:151
+msgid ""
+"liveness-http spec: selector: matchLabels: app: liveness-http version: v1"
+" template: metadata: labels: app: liveness-http version: v1 annotations: "
+"sidecar.istio.io/rewriteAppHTTPProbers: “true” spec: containers: - name: "
+"liveness-http image: docker.io/istio/health:example ports: - "
+"containerPort: 8001 livenessProbe: httpGet: path: /foo port: 8001 "
+"initialDelaySeconds: 5 periodSeconds: 5"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:158
+msgid ""
+"This approach allows you to enable the health check prober rewrite "
+"gradually on each deployment without reinstalling Istio."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:162
+msgid "Re-deploy the liveness health check app"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:164
+msgid ""
+"Instructions below assume you turn on the feature globally via install "
+"option. Annotations works the same."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:170
+msgid ""
+"@samples/health-check/liveness-http-same-port.yaml@) $ kubectl apply -f "
+"<(istioctl kube-inject -f @samples/health-check/liveness-http-same-"
+"port.yaml@)"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:177
+msgid "liveness-http-975595bb6-5b2z7c 2/2 Running 0 1m"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:179
+msgid ""
+"This feature is not currently turned on by default. We’d like to `hear "
+"your feedback <https://github.com/istio/istio/issues/10357>`_ on whether "
+"we should change this to default behavior for Istio installation."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:185
+msgid "Separate port"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:187
+msgid ""
+"Another alternative is to use separate port for health checking and "
+"regular traffic."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:190
+msgid "Run these commands to re-deploy the service:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:195
+msgid ""
+"@samples/health-check/liveness-http.yaml@) $ kubectl apply -f <(istioctl "
+"kube-inject -f @samples/health-check/liveness-http.yaml@)"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:198
+msgid ""
+"Wait for a minute and check the pod status to make sure the liveness "
+"probes work with ‘0’ in the ‘RESTARTS’ column."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:204
+msgid "liveness-http-67d5db65f5-765bb 2/2 Running 0 1m"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:206
+#, python-format
+msgid ""
+"Note that the image in `liveness-http "
+"<%7B%7B%3C%20github_file%20%3E%7D%7D/samples/health-check/liveness-"
+"http.yaml>`_ exposes two ports: 8001 and 8002 (`source code "
+"<%7B%7B%3C%20github_file%20%3E%7D%7D/samples/health-check/server.go>`_). "
+"In this deployment, port 8001 serves the regular traffic while port 8002 "
+"is used for liveness probes."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:214
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:216
+msgid ""
+"Remove the mutual TLS policy and corresponding destination rule added in "
+"the steps above:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/app-health-check/index.rst:222
+msgid "destinationrules default $ kubectl delete ns istio-io-health {{< /text >}}"
+msgstr ""
+

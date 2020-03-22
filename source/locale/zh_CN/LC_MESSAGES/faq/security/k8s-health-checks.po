@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/security/k8s-health-checks.rst:2
+msgid "k8s-health-checks"
+msgstr ""
+
+#: ../../source/faq/security/k8s-health-checks.rst:4
+msgid ""
+"If mutual TLS is enabled, HTTP and TCP health checks from the kubelet "
+"will not work without modification, since the kubelet does not have "
+"Istio-issued certificates."
+msgstr ""
+
+#: ../../source/faq/security/k8s-health-checks.rst:8
+msgid "As of Istio 1.1, we have several options to solve this issue."
+msgstr ""
+
+#: ../../source/faq/security/k8s-health-checks.rst:10
+msgid ""
+"Using probe rewrite to redirect liveness and readiness requests to the "
+"workload directly. Please refer to `Probe Rewrite "
+"</docs/ops/configuration/mesh/app-health-check/#probe-rewrite>`_ for more"
+" information."
+msgstr ""
+
+#: ../../source/faq/security/k8s-health-checks.rst:15
+msgid ""
+"Using a separate port for health checks and enabling mutual TLS only on "
+"the regular service port. Please refer to `Health Checking of Istio "
+"Services </docs/ops/configuration/mesh/app-health-check/#separate-port>`_"
+" for more information."
+msgstr ""
+
+#: ../../source/faq/security/k8s-health-checks.rst:21
+msgid ""
+"Using the `PERMISSIVE mode </docs/tasks/security/authentication/mtls-"
+"migration>`_ for Istio services so they can accept both HTTP and mutual "
+"TLS traffic. Please keep in mind that mutual TLS is not enforced since "
+"others can communicate with the service with HTTP traffic."
+msgstr ""
+
+#: ../../source/faq/security/k8s-health-checks.rst:27
+msgid ""
+"Using a `liveness command <https://kubernetes.io/docs/tasks/configure-"
+"pod-container/configure-liveness-readiness-probes/#define-a-liveness-"
+"command>`_ for health checks, e.g., one can install ``curl`` in the "
+"service pod and ``curl`` itself within the pod."
+msgstr ""
+
+#: ../../source/faq/security/k8s-health-checks.rst:32
+msgid "An example of a readiness probe:"
+msgstr ""
+
+#: ../../source/faq/security/k8s-health-checks.rst:37
+msgid ""
+"http://localhost:8080/healthz # Replace port and URI by your actual "
+"health check initialDelaySeconds: 10 periodSeconds: 5"
+msgstr ""
+

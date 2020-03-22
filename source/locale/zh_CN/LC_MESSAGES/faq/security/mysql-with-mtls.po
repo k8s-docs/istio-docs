@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/security/mysql-with-mtls.rst:2
+msgid "mysql-with-mtls"
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:4
+msgid ""
+"You may find MySQL can’t connect after installing Istio. This is because "
+"of ``PERMISSIVE`` mode, which is enabled in the ``demo`` `configuration "
+"profile </docs/setup/additional-setup/config-profiles/>`_, does not work "
+"with MySQL. You may see error messages such as ``ERROR 2013 (HY000): Lost"
+" connection to MySQL server at 'reading initial communication packet', "
+"system error: 0``."
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:10
+msgid "There have two options to solve the problem."
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:12
+msgid "Disable Mutual TLS."
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:14
+msgid ""
+"Choose this option if you don’t want Istio mutual TLS. You achieve this "
+"by disabling mutual TLS on the MySQL service explicitly."
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:17
+msgid ""
+"{{< text syntax=“bash” >}} $ kubectl apply -f - <<EOF apiVersion: "
+"“authentication.istio.io/v1alpha1” kind: “Policy” metadata: name: mysql-"
+"nomtls-authn spec: targets:"
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:21
+msgid "name: YOUR-MYSQL-SERVICE # The name of *your* K8s Service EOF"
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:23
+msgid "Enable mutual TLS in STRICT mode."
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:25
+msgid ""
+"If you want mutual TLS protection for MySQL, enable mutual TLS using a "
+"destination rule and an authentication policy."
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:28
+msgid ""
+"{{< text syntax=“bash” >}} $ kubectl apply -f - <<EOF apiVersion: "
+"“authentication.istio.io/v1alpha1” kind: “Policy” metadata: name: mysql-"
+"mtls-authn spec: targets:"
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:32
+msgid "name: YOUR-MYSQL-SERVICE # The name of *your* K8s Service peers:"
+msgstr ""
+
+#: ../../source/faq/security/mysql-with-mtls.rst:33
+msgid ""
+"mtls: mode: STRICT — apiVersion: networking.istio.io/v1alpha3 kind: "
+"DestinationRule metadata: name: mysql-mtls-dr spec: host: YOUR-MYSQL-"
+"SERVICE # The name of *your* K8s Service trafficPolicy: tls: mode: "
+"ISTIO_MUTUAL EOF"
+msgstr ""
+

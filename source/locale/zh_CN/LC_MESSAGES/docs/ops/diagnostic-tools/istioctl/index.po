@@ -1,0 +1,333 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:1
+msgid ""
+"You can gain insights into what individual components are doing by "
+"inspecting their `logs </docs/ops/diagnostic-tools/component-logging/>`_ "
+"or peering inside via `introspection </docs/ops/diagnostic-"
+"tools/controlz/>`_. If that’s insufficient, the steps below explain how "
+"to get under the hood."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:7
+msgid ""
+"The `istioctl </docs/reference/commands/istioctl>`_ tool is a "
+"configuration command line utility that allows service operators to debug"
+" and diagnose their Istio service mesh deployments. The Istio project "
+"also includes two helpful scripts for ``istioctl`` that enable auto-"
+"completion for Bash and ZSH. Both of these scripts provide support for "
+"the currently available ``istioctl`` commands."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:16
+msgid "``istioctl`` only has auto-completion enabled for"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:17
+msgid "non-deprecated commands."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:20
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:22
+msgid ""
+"We recommend you use an ``istioctl`` version that is the same version as "
+"your Istio control plane. Using matching versions helps avoid unforeseen "
+"issues."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:28
+msgid "If you have already `downloaded the Istio"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:29
+msgid ""
+"release </docs/setup/getting-started/#download>`_, you should already "
+"have ``istioctl`` and do not need to install it again."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:33
+msgid "Install {{< istioctl >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:35
+msgid "Install the ``istioctl`` binary with ``curl``:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:37
+msgid "Download the latest release with the command:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:44
+msgid "Add the ``istioctl`` client to your path, on a macOS or Linux system:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:51
+msgid ""
+"You can optionally enable the `auto-completion option <#enabling-auto-"
+"completion>`_ when working with a bash or ZSH console."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:56
+msgid "Get an overview of your mesh"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:58
+msgid ""
+"You can get an overview of your mesh using the ``proxy-status`` or ``ps``"
+" command:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:65
+msgid ""
+"If a proxy is missing from the output list it means that it is not "
+"currently connected to a Pilot instance and so it will not receive any "
+"configuration. Additionally, if it is marked stale, it likely means there"
+" are networking issues or Pilot needs to be scaled."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:71
+msgid "Get proxy configuration"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:73
+msgid ""
+"`istioctl`` </docs/reference/commands/istioctl>`_ allows you to retrieve "
+"information about proxy configuration using the ``proxy-config`` or "
+"``pc`` command."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:77
+msgid ""
+"For example, to retrieve information about cluster configuration for the "
+"Envoy instance in a specific pod:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:84
+msgid ""
+"To retrieve information about bootstrap configuration for the Envoy "
+"instance in a specific pod:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:90
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:112
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:246
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:92
+msgid ""
+"To retrieve information about listener configuration for the Envoy "
+"instance in a specific pod:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:99
+msgid ""
+"To retrieve information about route configuration for the Envoy instance "
+"in a specific pod:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:106
+msgid ""
+"To retrieve information about endpoint configuration for the Envoy "
+"instance in a specific pod:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:114
+msgid ""
+"See `Debugging Envoy and Pilot </docs/ops/diagnostic-tools/proxy-cmd/>`_ "
+"for more advice on interpreting this information."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:119
+msgid "``istioctl`` auto-completion"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:121
+msgid "{{< tabset category-name=“prereqs” >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:123
+msgid "{{< tab name=“macOS” category-value=“macos” >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:125
+msgid ""
+"If you are using the macOS operating system with the Bash terminal shell,"
+" make sure that the ``bash-completion`` package is installed. With the "
+"`brew <https://brew.sh>`_ package manager for macOS, you can check to see"
+" if the ``bash-completion`` package is installed with the following "
+"command:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:134
+msgid "1.3 (bottled)"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:136
+msgid ""
+"If you find that the ``bash-completion`` package is *not* installed, "
+"proceed with installing the ``bash-completion`` package with the "
+"following command:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:144
+msgid ""
+"Once the ``bash-completion package`` has been installed on your macOS "
+"system, add the following line to your ``~/.bash_profile`` file:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:147
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:163
+msgid ""
+"{{< text plain >}} [[ -r “/usr/local/etc/profile.d/bash_completion.sh” ]]"
+" && . “/usr/local/etc/profile.d/bash_completion.sh”"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:150
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:166
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:198
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:232
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:152
+msgid "{{< tab name=“Linux” category-value=“linux” >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:154
+msgid ""
+"If you are using a Linux-based operating system, you can install the Bash"
+" completion package with the ``apt-get install bash-completion`` command "
+"for Debian-based Linux distributions or ``yum install bash-completion`` "
+"for RPM-based Linux distributions, the two most common occurrences."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:160
+msgid ""
+"Once the ``bash-completion`` package has been installed on your Linux "
+"system, add the following line to your ``~/.bash_profile`` file:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:168
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:234
+msgid "{{< /tabset >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:171
+msgid "Enabling auto-completion"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:173
+msgid ""
+"To enable ``istioctl`` completion on your system, follow the steps for "
+"your preferred shell:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:178
+msgid "You will need to download the full Istio release"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:179
+msgid ""
+"containing the auto-completion files (in the ``/tools`` directory). If "
+"you haven’t already done so, `download the full release </docs/setup"
+"/getting-started/#download>`_ now."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:183
+msgid "{{< tabset category-name=“profile” >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:185
+msgid "{{< tab name=“Bash” category-value=“bash” >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:187
+msgid "Installing the bash auto-completion file"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:189
+msgid ""
+"If you are using bash, the ``istioctl`` auto-completion file is located "
+"in the ``tools`` directory. To use it, copy the ``istioctl.bash`` file to"
+" your home directory, then add the following line to source the "
+"``istioctl`` tab completion file from your ``.bashrc`` file:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:200
+msgid "{{< tab name=“ZSH” category-value=“zsh” >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:202
+msgid "Installing the ZSH auto-completion file"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:204
+msgid ""
+"For ZSH users, the ``istioctl`` auto-completion file is located in the "
+"``tools`` directory. Copy the ``_istioctl`` file to your home directory, "
+"or any directory of your choosing (update directory in script snippet "
+"below), and source the ``istioctl`` auto-completion file in your "
+"``.zshrc`` file as follows:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:210
+msgid "{{< text zsh >}} source ~/_istioctl"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:212
+msgid ""
+"You may also add the ``_istioctl`` file to a directory listed in the "
+"``fpath`` variable. To achieve this, place the ``_istioctl`` file in an "
+"existing directory in the ``fpath``, or create a new directory and add it"
+" to the ``fpath`` variable in your ``~/.zshrc`` file."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:217
+msgid "{{< tip >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:219
+msgid ""
+"If you get an error like ``complete:13: command not found: compdef``, "
+"then add the following to the beginning of your ``~/.zshrc`` file:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:226
+msgid ""
+"If your auto-completion is not working, try again after restarting your "
+"terminal. If auto-completion still does not work, try resetting the "
+"completion cache using the above commands in your terminal."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:237
+msgid "Using auto-completion"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl/index.rst:239
+msgid ""
+"If the ``istioctl`` completion file has been installed correctly, press "
+"the Tab key while writing an ``istioctl`` command, and it should return a"
+" set of command suggestions for you to choose from:"
+msgstr ""
+

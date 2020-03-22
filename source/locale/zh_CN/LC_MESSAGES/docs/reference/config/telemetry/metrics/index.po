@@ -1,0 +1,258 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:2
+msgid "metrics"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:4
+msgid ""
+"The following are the standard service level metrics exported by Istio. "
+"Istio standard metrics are directly exported by the Envoy proxy since "
+"Istio 1.5. In prior Istio releases Mixer produced these metrics."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:9
+msgid "Metrics"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:11
+msgid "For HTTP, HTTP/2, and GRPC traffic, Istio generates the following metrics:"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:14
+msgid ""
+"**Request Count** (``istio_requests_total``): This is a ``COUNTER`` "
+"incremented for every request handled by an Istio proxy."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:17
+msgid ""
+"**Request Duration** (``istio_request_duration_seconds``): This is a "
+"``DISTRIBUTION`` which measures the duration of requests."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:20
+msgid ""
+"**Request Size** (``istio_request_bytes``): This is a ``DISTRIBUTION`` "
+"which measures HTTP request body sizes."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:23
+msgid ""
+"**Response Size** (``istio_response_bytes``): This is a ``DISTRIBUTION`` "
+"which measures HTTP response body sizes."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:26
+msgid "For TCP traffic, Istio generates the following metrics:"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:28
+msgid ""
+"**Tcp Byte Sent** (``istio_tcp_sent_bytes_total``): This is a ``COUNTER``"
+" which measures the size of total bytes sent during response in case of a"
+" TCP connection."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:32
+msgid ""
+"**Tcp Byte Received** (``istio_tcp_received_bytes_total``): This is a "
+"``COUNTER`` which measures the size of total bytes received during "
+"request in case of a TCP connection."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:36
+msgid ""
+"**Tcp Connections Opened** (``istio_tcp_connections_opened_total``): This"
+" is a ``COUNTER`` incremented for every opened connection."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:39
+msgid ""
+"**Tcp Connections Closed** (``istio_tcp_connections_closed_total``): This"
+" is a ``COUNTER`` incremented for every closed connection."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:43
+msgid "Labels"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:45
+msgid ""
+"**Reporter**: This identifies the reporter of the request. It is set to "
+"``destination`` if report is from a server Istio proxy and ``source`` if "
+"report is from a client Istio proxy."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:52
+msgid "“inbound”) == “outbound”, “source”, “destination”)"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:54
+msgid ""
+"**Source Workload**: This identifies the name of source workload which "
+"controls the source."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:62
+msgid ""
+"**Source Workload Namespace**: This identifies the namespace of the "
+"source workload."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:68
+msgid "source.workload.namespace \\| “unknown”"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:70
+msgid ""
+"**Source Principal**: This identifies the peer principal of the traffic "
+"source. It is set when peer authentication is used."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:77
+msgid ""
+"**Source App**: This identifies the source app based on ``app`` label of "
+"the source workload."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:84
+msgid "**Source Version**: This identifies the version of the source workload."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:90
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:98
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:114
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:122
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:139
+msgid "“unknown”"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:92
+msgid ""
+"**Destination Workload**: This identifies the name of destination "
+"workload."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:100
+msgid ""
+"**Destination Workload Namespace**: This identifies the namespace of the "
+"destination workload."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:106
+msgid "destination.workload.namespace \\| “unknown”"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:108
+msgid ""
+"**Destination Principal**: This identifies the peer principal of the "
+"traffic destination. It is set when peer authentication is used."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:116
+msgid ""
+"**Destination App**: This identifies the destination app based on ``app``"
+" label of the destination workload."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:124
+msgid ""
+"**Destination Version**: This identifies the version of the destination "
+"workload."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:130
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:147
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:164
+msgid "\\| “unknown”"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:132
+msgid ""
+"**Destination Service**: This identifies destination service host "
+"responsible for an incoming request. Ex: "
+"``details.default.svc.cluster.local``."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:141
+msgid ""
+"**Destination Service Name**: This identifies the destination service "
+"name. Ex: “details”."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:149
+msgid ""
+"**Destination Service Namespace**: This identifies the namespace of "
+"destination service."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:155
+msgid "destination.service.namespace \\| “unknown”"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:157
+msgid ""
+"**Request Protocol**: This identifies the protocol of the request. It is "
+"set to API protocol if provided, otherwise request or connection "
+"protocol."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:166
+msgid ""
+"**Response Code**: This identifies the response code of the request. This"
+" label is present only on HTTP metrics."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:173
+msgid ""
+"**Connection Security Policy**: This identifies the service "
+"authentication policy of the request. It is set to ``mutual_tls`` when "
+"Istio is used to make communication secure and report is from "
+"destination. It is set to ``unknown`` when report is from source since "
+"security policy cannot be properly populated."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:182
+msgid ""
+"conditional((context.reporter.kind \\| “inbound”) == “outbound”, "
+"“unknown”, conditional(connection.mtls \\| false, “mutual_tls”, “none”))"
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:186
+msgid ""
+"**Response Flags**: Additional details about the response or connection "
+"from proxy. In case of Envoy, see ``%RESPONSE_FLAGS%`` in `Envoy Access "
+"Log "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log#configuration>`_"
+" for more detail."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:196
+msgid ""
+"**Canonical Service**: A workload belongs to exactly one canonical "
+"service, whereas it can belong to multiple services. A canonical service "
+"has a name and a revision so it results in the following labels."
+msgstr ""
+
+#: ../../source/docs/reference/config/telemetry/metrics/index.rst:204
+msgid "destination_canonical_service destination_canonical_revision"
+msgstr ""
+

@@ -1,0 +1,644 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2018/egress-tcp/index.rst:2
+msgid "egress-tcp"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:6
+msgid "This blog post was updated on July 23, 2018 to use the new"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:7
+msgid ""
+"`v1alpha3 traffic management API </blog/2018/v1alpha3-routing/>`_. If you"
+" need to use the old version, follow these `docs "
+"<https://archive.istio.io/v0.7/blog/2018/egress-tcp.html>`_. {{< /tip >}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:12
+msgid ""
+"In my previous blog post, `Consuming External Web Services </blog/2018"
+"/egress-https/>`_, I described how external services can be consumed by "
+"in-mesh Istio applications via HTTPS. In this post, I demonstrate "
+"consuming external services over TCP. You will use the `Istio Bookinfo "
+"sample application </docs/examples/bookinfo/>`_, the version in which the"
+" book ratings data is persisted in a MySQL database. You deploy this "
+"database outside the cluster and configure the *ratings* microservice to "
+"use it. You define a `Service Entry </docs/reference/config/networking"
+"/service-entry/>`_ to allow the in-mesh applications to access the "
+"external database."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:25
+msgid "Bookinfo sample application with external ratings database"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:27
+msgid ""
+"First, you set up a MySQL database instance to hold book ratings data "
+"outside of your Kubernetes cluster. Then you modify the `Bookinfo sample "
+"application </docs/examples/bookinfo/>`_ to use your database."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:32
+msgid "Setting up the database for ratings data"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:34
+msgid ""
+"For this task you set up an instance of `MySQL <https://www.mysql.com>`_."
+" You can use any MySQL instance; I used `Compose for MySQL "
+"<https://www.ibm.com/cloud/compose/mysql>`_. I used ``mysqlsh`` (`MySQL "
+"Shell <https://dev.mysql.com/doc/mysql-shell/en/>`_) as a MySQL client to"
+" feed the ratings data."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:41
+msgid "Set the ``MYSQL_DB_HOST`` and ``MYSQL_DB_PORT`` environment variables:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:48
+msgid ""
+"In case of a local MySQL database with the default port, the values are "
+"``localhost`` and ``3306``, respectively."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:51
+msgid ""
+"To initialize the database, run the following command entering the "
+"password when prompted. The command is performed with the credentials of "
+"the ``admin`` user, created by default by `Compose for MySQL "
+"<https://www.ibm.com/cloud/compose/mysql>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:59
+msgid ""
+">}}/samples/bookinfo/src/mysql/mysqldb-init.sql \\| mysqlsh –sql –ssl-"
+"mode=REQUIRED -u admin -p –host $MYSQL_DB_HOST –port $MYSQL_DB_PORT"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:63
+#: ../../source/blog/2018/egress-tcp/index.rst:82
+#: ../../source/blog/2018/egress-tcp/index.rst:120
+#: ../../source/blog/2018/egress-tcp/index.rst:144
+#: ../../source/blog/2018/egress-tcp/index.rst:442
+msgid "**OR**"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:65
+msgid "When using the ``mysql`` client and a local MySQL database, run:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:70
+msgid ""
+">}}/samples/bookinfo/src/mysql/mysqldb-init.sql \\| mysql -u root -p "
+"–host $MYSQL_DB_HOST –port $MYSQL_DB_PORT"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:73
+msgid ""
+"Create a user with the name ``bookinfo`` and grant it *SELECT* privilege "
+"on the ``test.ratings`` table:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:79
+msgid ""
+"$MYSQL_DB_HOST –port $MYSQL_DB_PORT -e “CREATE USER ‘bookinfo’ IDENTIFIED"
+" BY ‘’; GRANT SELECT ON test.ratings to ‘bookinfo’;”"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:84
+msgid "For ``mysql`` and the local database, the command is:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:89
+msgid ""
+"$MYSQL_DB_PORT -e “CREATE USER ‘bookinfo’ IDENTIFIED BY ‘’; GRANT SELECT "
+"ON test.ratings to ‘bookinfo’;”"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:92
+msgid ""
+"Here you apply the `principle of least privilege "
+"<https://en.wikipedia.org/wiki/Principle_of_least_privilege>`_. This "
+"means that you do not use your ``admin`` user in the Bookinfo "
+"application. Instead, you create a special user for the Bookinfo "
+"application , ``bookinfo``, with minimal privileges. In this case, the "
+"*bookinfo* user only has the ``SELECT`` privilege on a single table."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:100
+msgid ""
+"After running the command to create the user, you may want to clean your "
+"bash history by checking the number of the last command and running "
+"``history -d <the number of the command that created the user>``. You "
+"don’t want the password of the new user to be stored in the bash history."
+" If you’re using ``mysql``, remove the last command from "
+"``~/.mysql_history`` file as well. Read more about password protection of"
+" the newly created user in `MySQL documentation "
+"<https://dev.mysql.com/doc/refman/5.5/en/create-user.html>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:110
+msgid "Inspect the created ratings to see that everything worked as expected:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:116
+msgid ""
+"–host $MYSQL_DB_HOST –port $MYSQL_DB_PORT -e “select \\* from "
+"test.ratings;” Enter password: +———-+——–+ \\| ReviewID \\| Rating \\| "
+"+———-+——–+ \\| 1 \\| 5 \\| \\| 2 \\| 4 \\| +———-+——–+"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:122
+#: ../../source/blog/2018/egress-tcp/index.rst:146
+#: ../../source/blog/2018/egress-tcp/index.rst:444
+msgid "For ``mysql`` and the local database:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:127
+msgid ""
+"$MYSQL_DB_PORT -e “select \\* from test.ratings;” Enter password: "
+"+———-+——–+ \\| ReviewID \\| Rating \\| +———-+——–+ \\| 1 \\| 5 \\| \\| 2 "
+"\\| 4 \\| +———-+——–+"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:131
+msgid ""
+"Set the ratings temporarily to ``1`` to provide a visual clue when our "
+"database is used by the Bookinfo *ratings* service:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:137
+msgid ""
+"$MYSQL_DB_HOST –port $MYSQL_DB_PORT -e “update test.ratings set rating=1;"
+" select \\* from test.ratings;” Enter password:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:140
+msgid ""
+"Rows matched: 2 Changed: 2 Warnings: 0 +———-+——–+ \\| ReviewID \\| Rating"
+" \\| +———-+——–+ \\| 1 \\| 1 \\| \\| 2 \\| 1 \\| +———-+——–+ {{< /text >}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:151
+msgid ""
+"$MYSQL_DB_PORT -e “update test.ratings set rating=1; select \\* from "
+"test.ratings;” Enter password: +———-+——–+ \\| ReviewID \\| Rating \\| "
+"+———-+——–+ \\| 1 \\| 1 \\| \\| 2 \\| 1 \\| +———-+——–+"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:155
+msgid ""
+"You used the ``admin`` user (and ``root`` for the local database) in the "
+"last command since the ``bookinfo`` user does not have the ``UPDATE`` "
+"privilege on the ``test.ratings`` table."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:159
+msgid ""
+"Now you are ready to deploy a version of the Bookinfo application that "
+"will use your database."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:163
+msgid "Initial setting of Bookinfo application"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:165
+msgid ""
+"To demonstrate the scenario of using an external database, you start with"
+" a Kubernetes cluster with `Istio installed </docs/setup/getting-"
+"started/>`_. Then you deploy the `Istio Bookinfo sample application "
+"</docs/examples/bookinfo/>`_, `apply the default destination rules "
+"</docs/examples/bookinfo/#apply-default-destination-rules>`_, and `change"
+" Istio to the blocking-egress-by-default policy </docs/tasks/traffic-"
+"management/egress/egress-control/#change-to-the-blocking-by-default-"
+"policy>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:174
+msgid ""
+"This application uses the ``ratings`` microservice to fetch book ratings,"
+" a number between 1 and 5. The ratings are displayed as stars for each "
+"review. There are several versions of the ``ratings`` microservice. Some "
+"use `MongoDB <https://www.mongodb.com>`_, others use `MySQL "
+"<https://www.mysql.com>`_ as their database."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:180
+msgid ""
+"The example commands in this blog post work with Istio 0.8+, with or "
+"without `mutual TLS </docs/concepts/security/#mutual-tls-"
+"authentication>`_ enabled."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:184
+msgid ""
+"As a reminder, here is the end-to-end architecture of the application "
+"from the `Bookinfo sample application </docs/examples/bookinfo/>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:192
+msgid "Use the database for ratings data in Bookinfo application"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:194
+#, python-format
+msgid ""
+"Modify the deployment spec of a version of the *ratings* microservice "
+"that uses a MySQL database, to use your database instance. The spec is in"
+" `samples/bookinfo/platform/kube/bookinfo-ratings-v2-mysql.yaml "
+"<%7B%7B%3Cgithub_blob%3E%7D%7D/samples/bookinfo/platform/kube/bookinfo-"
+"ratings-v2-mysql.yaml>`_ of an Istio release archive. Edit the following "
+"lines:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:204
+msgid "name: MYSQL_DB_HOST value: mysqldb"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:205
+msgid "name: MYSQL_DB_PORT value: “3306”"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:206
+msgid "name: MYSQL_DB_USER value: root"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:207
+msgid "name: MYSQL_DB_PASSWORD value: password"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:209
+msgid ""
+"Replace the values in the snippet above, specifying the database host, "
+"port, user, and password. Note that the correct way to work with "
+"passwords in container’s environment variables in Kubernetes is `to use "
+"secrets <https://kubernetes.io/docs/concepts/configuration/secret/#using-"
+"secrets-as-environment-variables>`_. For this example task only, you may "
+"want to write the password directly in the deployment spec. **Do not do "
+"it** in a real environment! I also assume everyone realizes that "
+"``\"password\"`` should not be used as a password…"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:219
+msgid ""
+"Apply the modified spec to deploy the version of the *ratings* "
+"microservice, *v2-mysql*, that will use your database."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:225
+msgid ""
+"@samples/bookinfo/platform/kube/bookinfo-ratings-v2-mysql.yaml@ "
+"deployment “ratings-v2-mysql” created"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:228
+msgid ""
+"Route all the traffic destined to the *reviews* service to its *v3* "
+"version. You do this to ensure that the *reviews* service always calls "
+"the *ratings* service. In addition, route all the traffic destined to the"
+" *ratings* service to *ratings v2-mysql* that uses your database."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:234
+msgid ""
+"Specify the routing for both services above by adding two `virtual "
+"services </docs/reference/config/networking/virtual-service/>`_. These "
+"virtual services are specified in ``samples/bookinfo/networking/virtual-"
+"service-ratings-mysql.yaml`` of an Istio release archive. **Important:** "
+"make sure you `applied the default destination rules "
+"</docs/examples/bookinfo/#apply-default-destination-rules>`_ before "
+"running the following command."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:246
+msgid "@samples/bookinfo/networking/virtual-service-ratings-mysql.yaml@"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:248
+msgid ""
+"The updated architecture appears below. Note that the blue arrows inside "
+"the mesh mark the traffic configured according to the virtual services we"
+" added. According to the virtual services, the traffic is sent to "
+"*reviews v3* and *ratings v2-mysql*."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:257
+msgid ""
+"Note that the MySQL database is outside the Istio service mesh, or more "
+"precisely outside the Kubernetes cluster. The boundary of the service "
+"mesh is marked by a dashed line."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:262
+msgid "Access the webpage"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:264
+msgid ""
+"Access the webpage of the application, after `determining the ingress IP "
+"and port </docs/examples/bookinfo/#determine-the-ingress-ip-and-port>`_."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:268
+msgid ""
+"You have a problem… Instead of the rating stars, the message *“Ratings "
+"service is currently unavailable”* is currently displayed below each "
+"review:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:276
+msgid ""
+"As in `Consuming External Web Services </blog/2018/egress-https/>`_, you "
+"experience **graceful service degradation**, which is good. The "
+"application did not crash due to the error in the *ratings* microservice."
+" The webpage of the application correctly displayed the book information,"
+" the details, and the reviews, just without the rating stars."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:283
+msgid ""
+"You have the same problem as in `Consuming External Web Services "
+"</blog/2018/egress-https/>`_, namely all the traffic outside the "
+"Kubernetes cluster, both TCP and HTTP, is blocked by default by the "
+"sidecar proxies. To enable such traffic for TCP, a mesh-external service "
+"entry for TCP must be defined."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:290
+msgid "Mesh-external service entry for an external MySQL instance"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:292
+msgid "TCP mesh-external service entries come to our rescue."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:294
+msgid ""
+"Get the IP address of your MySQL database instance. As an option, you can"
+" use the `host <https://linux.die.net/man/1/host>`_ command:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:300
+msgid "\" has address \" \\| cut -d\" \" -f4)"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:302
+msgid ""
+"For a local database, set ``MYSQL_DB_IP`` to contain the IP of your "
+"machine, accessible from your cluster."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:305
+msgid "Define a TCP mesh-external service entry:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:310
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: mysql-"
+"external spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:313
+msgid "$MYSQL_DB_HOST addresses:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:314
+msgid "$MYSQL_DB_IP/32 ports:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:315
+msgid "name: tcp number: $MYSQL_DB_PORT protocol: tcp location: MESH_EXTERNAL EOF"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:318
+msgid ""
+"Review the service entry you just created and check that it contains the "
+"correct values:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:324
+msgid "apiVersion: networking.istio.io/v1alpha3 kind: ServiceEntry metadata: …"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:327
+msgid ""
+"Note that for a TCP service entry, you specify ``tcp`` as the protocol of"
+" a port of the entry. Also note that you have to specify the IP of the "
+"external service in the list of addresses, as a `CIDR "
+"<https://tools.ietf.org/html/rfc2317>`_ block with suffix ``32``."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:332
+msgid ""
+"I will talk more about TCP service entries `below <#service-entries-for-"
+"tcp-traffic>`_. For now, verify that the service entry we added fixed the"
+" problem. Access the webpage and see if the stars are back."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:337
+msgid ""
+"It worked! Accessing the web page of the application displays the ratings"
+" without error:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:344
+msgid ""
+"Note that you see a one-star rating for both displayed reviews, as "
+"expected. You changed the ratings to be one star to provide us with a "
+"visual clue that our external database is indeed being used."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:348
+msgid ""
+"As with service entries for HTTP/HTTPS, you can delete and create service"
+" entries for TCP using ``kubectl``, dynamically."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:352
+msgid "Motivation for egress TCP traffic control"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:354
+msgid ""
+"Some in-mesh Istio applications must access external services, for "
+"example legacy systems. In many cases, the access is not performed over "
+"HTTP or HTTPS protocols. Other TCP protocols are used, such as database-"
+"specific protocols like `MongoDB Wire Protocol "
+"<https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/>`_ and "
+"`MySQL Client/Server Protocol <https://dev.mysql.com/doc/internals/en"
+"/client-server-protocol.html>`_ to communicate with external databases."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:363
+msgid ""
+"Next let me provide more details about the service entries for TCP "
+"traffic."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:367
+msgid "Service entries for TCP traffic"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:369
+msgid ""
+"The service entries for enabling TCP traffic to a specific port must "
+"specify ``TCP`` as the protocol of the port. Additionally, for the "
+"`MongoDB Wire Protocol <https://docs.mongodb.com/manual/reference"
+"/mongodb-wire-protocol/>`_, the protocol can be specified as ``MONGO``, "
+"instead of ``TCP``."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:375
+msgid ""
+"For the ``addresses`` field of the entry, a block of IPs in `CIDR "
+"<https://tools.ietf.org/html/rfc2317>`_ notation must be used. Note that "
+"the ``hosts`` field is ignored for TCP service entries."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:379
+msgid ""
+"To enable TCP traffic to an external service by its hostname, all the IPs"
+" of the hostname must be specified. Each IP must be specified by a CIDR "
+"block."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:383
+msgid ""
+"Note that all the IPs of an external service are not always known. To "
+"enable egress TCP traffic, only the IPs that are used by the applications"
+" must be specified."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:387
+msgid ""
+"Also note that the IPs of an external service are not always static, for "
+"example in the case of `CDNs "
+"<https://en.wikipedia.org/wiki/Content_delivery_network>`_. Sometimes the"
+" IPs are static most of the time, but can be changed from time to time, "
+"for example due to infrastructure changes. In these cases, if the range "
+"of the possible IPs is known, you should specify the range by CIDR "
+"blocks. If the range of the possible IPs is not known, service entries "
+"for TCP cannot be used and `the external services must be called directly"
+" </docs/tasks/traffic-management/egress/egress-control/#direct-access-to-"
+"external-services>`_, bypassing the sidecar proxies."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:399
+msgid "Relation to virtual machines support"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:401
+msgid ""
+"Note that the scenario described in this post is different from the "
+"`Bookinfo with Virtual Machines </docs/examples/virtual-"
+"machines/bookinfo/>`_ example. In that scenario, a MySQL instance runs on"
+" an external (outside the cluster) machine (a bare metal or a VM), "
+"integrated with the Istio service mesh. The MySQL service becomes a "
+"first-class citizen of the mesh with all the beneficial features of Istio"
+" applicable. Among other things, the service becomes addressable by a "
+"local cluster domain name, for example by "
+"``mysqldb.vm.svc.cluster.local``, and the communication to it can be "
+"secured by `mutual TLS authentication </docs/concepts/security/#mutual-"
+"tls-authentication>`_. There is no need to create a service entry to "
+"access this service; however, the service must be registered with Istio. "
+"To enable such integration, Istio components (*Envoy proxy*, *node-"
+"agent*, ``_istio-agent_``) must be installed on the machine and the Istio"
+" control plane (*Pilot*, *Mixer*, *Citadel*) must be accessible from it. "
+"See the `Istio VM-related </docs/examples/virtual-machines/>`_ tasks for "
+"more details."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:420
+msgid ""
+"In our case, the MySQL instance can run on any machine or can be "
+"provisioned as a service by a cloud provider. There is no requirement to "
+"integrate the machine with Istio. The Istio control plane does not have "
+"to be accessible from the machine. In the case of MySQL as a service, the"
+" machine which MySQL runs on may be not accessible and installing on it "
+"the required components may be impossible. In our case, the MySQL "
+"instance is addressable by its global domain name, which could be "
+"beneficial if the consuming applications expect to use that domain name. "
+"This is especially relevant when that expected domain name cannot be "
+"changed in the deployment configuration of the consuming applications."
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:432
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:434
+msgid "Drop the ``test`` database and the ``bookinfo`` user:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:439
+msgid ""
+"$MYSQL_DB_HOST –port $MYSQL_DB_PORT -e “drop database test; drop user "
+"bookinfo;”"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:449
+msgid "$MYSQL_DB_PORT -e “drop database test; drop user bookinfo;” {{< /text >}}"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:452
+msgid "Remove the virtual services:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:457
+msgid ""
+"@samples/bookinfo/networking/virtual-service-ratings-mysql.yaml@ Deleted "
+"config: virtual-service/default/reviews Deleted config: virtual-"
+"service/default/ratings"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:461
+msgid "Undeploy *ratings v2-mysql*:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:466
+msgid ""
+"@samples/bookinfo/platform/kube/bookinfo-ratings-v2-mysql.yaml@ "
+"deployment “ratings-v2-mysql” deleted"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:469
+msgid "Delete the service entry:"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:474
+msgid "default Deleted config: serviceentry mysql-external"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:477
+msgid "Conclusion"
+msgstr ""
+
+#: ../../source/blog/2018/egress-tcp/index.rst:479
+msgid ""
+"In this blog post, I demonstrated how the microservices in an Istio "
+"service mesh can consume external services via TCP. By default, Istio "
+"blocks all the traffic, TCP and HTTP, to the hosts outside the cluster. "
+"To enable such traffic for TCP, TCP mesh-external service entries must be"
+" created for the service mesh."
+msgstr ""
+

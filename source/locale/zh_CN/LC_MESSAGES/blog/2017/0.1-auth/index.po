@@ -1,0 +1,266 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2017/0.1-auth/index.rst:4
+msgid ""
+"Conventional network security approaches fail to address security threats"
+" to distributed applications deployed in dynamic production environments."
+" Today, we describe how Istio authentication enables enterprises to "
+"transform their security posture from just protecting the edge to "
+"consistently securing all inter-service communications deep within their "
+"applications. With Istio authentication, developers and operators can "
+"protect services with sensitive data against unauthorized insider access "
+"and they can achieve this without any changes to the application code!"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:14
+msgid ""
+"Istio authentication is the security component of the broader Istio "
+"platform. It incorporates the learnings of securing millions of "
+"microservice endpoints in Google’s production environment."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:19
+msgid "Background"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:21
+msgid ""
+"Modern application architectures are increasingly based on shared "
+"services that are deployed and scaled dynamically on cloud platforms. "
+"Traditional network edge security (e.g. firewall) is too coarse-grained "
+"and allows access from unintended clients. An example of a security risk "
+"is stolen authentication tokens that can be replayed from another client."
+" This is a major risk for companies with sensitive data that are "
+"concerned about insider threats. Other network security approaches like "
+"IP whitelists have to be statically defined, are hard to manage at scale,"
+" and are unsuitable for dynamic production environments."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:31
+msgid ""
+"Thus, security administrators need a tool that enables them to "
+"consistently, and by default, secure all communication between services "
+"across diverse production environments."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:36
+msgid "Solution: strong service identity and authentication"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:38
+msgid ""
+"Google has, over the years, developed architecture and technology to "
+"uniformly secure millions of microservice endpoints in its production "
+"environment against external attacks and insider threats. Key security "
+"principles include trusting the endpoints and not the network, strong "
+"mutual authentication based on service identity and service level "
+"authorization. Istio authentication is based on the same principles."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:45
+msgid ""
+"The version 0.1 release of Istio authentication runs on Kubernetes and "
+"provides the following features:"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:48
+msgid "Strong identity assertion between services"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:50
+msgid ""
+"Access control to limit the identities that can access a service (and its"
+" data)"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:53
+msgid "Automatic encryption of data in transit"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:55
+msgid "Management of keys and certificates at scale"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:57
+msgid ""
+"Istio authentication is based on industry standards like mutual TLS and "
+"X.509. Furthermore, Google is actively contributing to an open, "
+"community-driven service security framework called `SPIFFE "
+"<https://spiffe.io/>`_. As the `SPIFFE <https://spiffe.io/>`_ "
+"specifications mature, we intend for Istio authentication to become a "
+"reference implementation of the same."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:64
+msgid ""
+"The diagram below provides an overview of the Istio’s service "
+"authentication architecture on Kubernetes."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:71
+msgid "The above diagram illustrates three key security features:"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:74
+msgid "Strong identity"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:76
+msgid ""
+"Istio authentication uses `Kubernetes service accounts "
+"<https://kubernetes.io/docs/tasks/configure-pod-container/configure-"
+"service-account/>`_ to identify who the service runs as. The identity is "
+"used to establish trust and define service level access policies. The "
+"identity is assigned at service deployment time and encoded in the SAN "
+"(Subject Alternative Name) field of an X.509 certificate. Using a service"
+" account as the identity has the following advantages:"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:84
+msgid ""
+"Administrators can configure who has access to a Service Account by using"
+" the `RBAC <https://kubernetes.io/docs/reference/access-authn-"
+"authz/rbac/>`_ feature introduced in Kubernetes 1.6"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:89
+msgid "Flexibility to identify a human user, a service, or a group of services"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:92
+msgid ""
+"Stability of the service identity for dynamically placed and auto-scaled "
+"workloads"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:96
+msgid "Communication security"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:98
+msgid ""
+"Service-to-service communication is tunneled through high performance "
+"client side and server side `Envoy "
+"<https://envoyproxy.github.io/envoy/>`_ proxies. The communication "
+"between the proxies is secured using mutual TLS. The benefit of using "
+"mutual TLS is that the service identity is not expressed as a bearer "
+"token that can be stolen or replayed from another source. Istio "
+"authentication also introduces the concept of Secure Naming to protect "
+"from a server spoofing attacks - the client side proxy verifies that the "
+"authenticated server’s service account is allowed to run the named "
+"service."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:110
+msgid "Key management and distribution"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:112
+msgid ""
+"Istio authentication provides a per-cluster CA (Certificate Authority) "
+"and automated key & certificate management. In this context, Istio "
+"authentication:"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:116
+msgid "Generates a key and certificate pair for each service account."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:118
+msgid ""
+"Distributes keys and certificates to the appropriate pods using "
+"`Kubernetes Secrets "
+"<https://kubernetes.io/docs/concepts/configuration/secret/>`_."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:122
+msgid "Rotates keys and certificates periodically."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:124
+msgid "Revokes a specific key and certificate pair when necessary (future)."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:126
+msgid ""
+"The following diagram explains the end to end Istio authentication "
+"workflow on Kubernetes:"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:132
+msgid ""
+"Istio authentication is part of the broader security story for "
+"containers. Red Hat, a partner on the development of Kubernetes, has "
+"identified `10 Layers <https://www.redhat.com/en/resources/container-"
+"security-openshift-cloud-devops-whitepaper>`_ of container security. "
+"Istio addresses two of these layers: “Network Isolation” and “API and "
+"Service Endpoint Management”. As cluster federation evolves on Kubernetes"
+" and other platforms, our intent is for Istio to secure communications "
+"across services spanning multiple federated clusters."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:143
+msgid "Benefits of Istio authentication"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:145
+msgid ""
+"**Defense in depth**: When used in conjunction with Kubernetes (or "
+"infrastructure) network policies, users achieve higher levels of "
+"confidence, knowing that pod-to-pod or service-to-service communication "
+"is secured both at network and application layers."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:150
+msgid ""
+"**Secure by default**: When used with Istio’s proxy and centralized "
+"policy engine, Istio authentication can be configured during deployment "
+"with minimal or no application change. Administrators and operators can "
+"thus ensure that service communications are secured by default and that "
+"they can enforce these policies consistently across diverse protocols and"
+" runtimes."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:157
+msgid ""
+"**Strong service authentication**: Istio authentication secures service "
+"communication using mutual TLS to ensure that the service identity is not"
+" expressed as a bearer token that can be stolen or replayed from another "
+"source. This ensures that services with sensitive data can only be "
+"accessed from strongly authenticated and authorized clients."
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:164
+msgid "Join us in this journey"
+msgstr ""
+
+#: ../../source/blog/2017/0.1-auth/index.rst:166
+#, python-format
+msgid ""
+"Istio authentication is the first step towards providing a full stack of "
+"capabilities to protect services with sensitive data from external "
+"attacks and insider threats. While the initial version runs on "
+"Kubernetes, our goal is to enable Istio authentication to secure services"
+" across diverse production environments. We encourage the community to "
+"`join us <%7B%7B%3C%20github_tree%20%3E%7D%7D/security>`_ in making "
+"robust service security easy and ubiquitous across different application "
+"stacks and runtime platforms."
+msgstr ""
+

@@ -1,0 +1,265 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:1
+msgid ""
+"This task shows you how to set up an Istio authorization policy to "
+"enforce access based on a JSON Web Token (JWT). An Istio authorization "
+"policy supports both string typed and list-of-string typed JWT claims."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:6
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:8
+msgid "Before you begin this task, perform the following actions:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:10
+msgid ""
+"Read `Authorization </docs/concepts/security/#authorization>`_ and "
+"`Authentication </docs/concepts/security/#authentication>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:13
+msgid ""
+"Install Istio using `Istio installation guide "
+"</docs/setup/install/istioctl/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:16
+msgid ""
+"Deploy two workloads: ``httpbin`` and ``sleep``. Deploy these in one "
+"namespace, for example ``foo``. Both workloads run with an Envoy proxy in"
+" front of each. Deploy the example namespace and workloads using these "
+"commands:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:24
+msgid ""
+"<(istioctl kube-inject -f @samples/httpbin/httpbin.yaml@) -n foo $ "
+"kubectl apply -f <(istioctl kube-inject -f @samples/sleep/sleep.yaml@) -n"
+" foo"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:28
+msgid ""
+"Verify that ``sleep`` successfully communicates with ``httpbin`` using "
+"this command:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:34
+msgid ""
+"foo -o jsonpath={.items..metadata.name}) -c sleep -n foo – curl "
+"http://httpbin.foo:8000/ip -s -o /dev/null -w “%{http_code}:raw-"
+"latex:`\\n`” 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:40
+msgid "If you don’t see the expected output, retry after a few"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:41
+msgid "seconds. Caching and propagation can cause a delay."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:44
+msgid "Allow requests with valid JWT and list-typed claims"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:46
+msgid ""
+"The following command creates the ``jwt-example`` request authentication "
+"policy for the ``httpbin`` workload in the ``foo`` namespace. This policy"
+" for ``httpbin`` workload accepts a JWT issued by "
+"``testing@secure.istio.io``:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:54
+msgid ""
+"“security.istio.io/v1beta1” kind: “RequestAuthentication” metadata: name:"
+" “jwt-example” namespace: foo spec: selector: matchLabels: app: httpbin "
+"jwtRules:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:58
+msgid ""
+"issuer: “testing@secure.istio.io” jwksUri: “{{< github_file "
+">}}/security/tools/jwt/samples/jwks.json” EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:61
+msgid "Verify that a request with an invalid JWT is denied:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:66
+msgid ""
+"foo -o jsonpath={.items..metadata.name}) -c sleep -n foo – curl "
+"“http://httpbin.foo:8000/headers” -s -o /dev/null -H “Authorization: "
+"Bearer invalidToken” -w “%{http_code}:raw-latex:`\\n`” 401 {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:71
+msgid ""
+"Verify that a request without a JWT is allowed because there is no "
+"authorization policy:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:77
+msgid ""
+"foo -o jsonpath={.items..metadata.name}) -c sleep -n foo – curl "
+"“http://httpbin.foo:8000/headers” -s -o /dev/null -w “%{http_code}:raw-"
+"latex:`\\n`” 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:81
+msgid ""
+"The following command creates the ``require-jwt`` authorization policy "
+"for the ``httpbin`` workload in the ``foo`` namespace. The policy "
+"requires all requests to the ``httpbin`` workload to have a valid JWT "
+"with ``requestPrincipal`` set to "
+"``testing@secure.istio.io/testing@secure.istio.io``. Istio constructs the"
+" ``requestPrincipal`` by combining the ``iss`` and ``sub`` of the JWT "
+"token with a ``/`` separator as shown:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:89
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:132
+msgid ""
+"{{< text syntax=“bash” expandlinks=“false” >}} $ kubectl apply -f - <<EOF"
+" apiVersion: security.istio.io/v1beta1 kind: AuthorizationPolicy "
+"metadata: name: require-jwt namespace: foo spec: selector: matchLabels: "
+"app: httpbin action: ALLOW rules:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:94
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:137
+msgid "from:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:96
+msgid ""
+"source: requestPrincipals: "
+"[“testing@secure.istio.io/testing@secure.istio.io”] EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:99
+msgid ""
+"Get the JWT that sets the ``iss`` and ``sub`` keys to the same value, "
+"``testing@secure.istio.io``. This causes Istio to generate the attribute "
+"``requestPrincipal`` with the value "
+"``testing@secure.istio.io/testing@secure.istio.io``:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:104
+msgid ""
+"{{< text syntax=“bash” expandlinks=“false” >}} $ TOKEN=$(curl {{< "
+"github_file >}}/security/tools/jwt/samples/demo.jwt -s) && echo $TOKEN "
+"\\| cut -d ‘.’ -f2 - \\| base64 -d - "
+"{“exp”:4685989700,“foo”:“bar”,“iat”:1532389700,“iss”:“testing@secure.istio.io”,“sub”:“testing@secure.istio.io”}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:110
+msgid "Verify that a request with a valid JWT is allowed:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:115
+msgid ""
+"foo -o jsonpath={.items..metadata.name}) -c sleep -n foo – curl "
+"“http://httpbin.foo:8000/headers” -s -o /dev/null -H “Authorization: "
+"Bearer $TOKEN” -w “%{http_code}:raw-latex:`\\n`” 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:119
+msgid "Verify that a request without a JWT is denied:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:124
+msgid ""
+"foo -o jsonpath={.items..metadata.name}) -c sleep -n foo – curl "
+"“http://httpbin.foo:8000/headers” -s -o /dev/null -w “%{http_code}:raw-"
+"latex:`\\n`” 403"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:128
+msgid ""
+"The following command updates the ``require-jwt`` authorization policy to"
+" also require the JWT to have a claim named ``groups`` containing the "
+"value ``group1``:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:139
+msgid ""
+"source: requestPrincipals: "
+"[“testing@secure.istio.io/testing@secure.istio.io”] when:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:141
+msgid "key: request.auth.claims[groups] values: [“group1”] EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:143
+msgid ""
+"Get the JWT that sets the ``groups`` claim to a list of strings: "
+"``group1`` and ``group2``:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:146
+msgid ""
+"{{< text syntax=“bash” expandlinks=“false” >}} $ TOKEN_GROUP=$(curl {{< "
+"github_file >}}/security/tools/jwt/samples/groups-scope.jwt -s) && echo "
+"$TOKEN_GROUP \\| cut -d ‘.’ -f2 - \\| base64 -d - "
+"{“exp”:3537391104,“groups”:[“group1”,“group2”],“iat”:1537391104,“iss”:“testing@secure.istio.io”,“scope”:[“scope1”,“scope2”],“sub”:“testing@secure.istio.io”}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:152
+msgid ""
+"Verify that a request with the JWT that includes ``group1`` in the "
+"``groups`` claim is allowed:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:158
+msgid ""
+"foo -o jsonpath={.items..metadata.name}) -c sleep -n foo – curl "
+"“http://httpbin.foo:8000/headers” -s -o /dev/null -H “Authorization: "
+"Bearer $TOKEN_GROUP” -w “%{http_code}:raw-latex:`\\n`” 200 {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:163
+msgid ""
+"Verify that a request with a JWT, which doesn’t have the ``groups`` claim"
+" is rejected:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:169
+msgid ""
+"foo -o jsonpath={.items..metadata.name}) -c sleep -n foo – curl "
+"“http://httpbin.foo:8000/headers” -s -o /dev/null -H “Authorization: "
+"Bearer $TOKEN” -w “%{http_code}:raw-latex:`\\n`” 403"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:174
+msgid "Clean up"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authorization/authz-jwt/index.rst:176
+msgid "Remove the namespace ``foo``:"
+msgstr ""
+

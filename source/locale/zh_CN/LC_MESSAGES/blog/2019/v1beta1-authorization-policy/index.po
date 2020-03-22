@@ -1,0 +1,865 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:2
+msgid "v1beta1-authorization-policy"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:4
+msgid ""
+"Istio 1.4 introduces the `v1beta1 authorization policy "
+"</docs/reference/config/security/authorization-policy/>`_, which is a "
+"major update to the previous ``v1alpha1`` role-based access control "
+"(RBAC) policy. The new policy provides these improvements:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:9
+msgid "Aligns with Istio configuration model."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:10
+msgid "Improves the user experience by simplifying the API."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:11
+msgid ""
+"Supports more use cases (e.g. Ingress/Egress gateway support) without "
+"added complexity."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:14
+msgid ""
+"The ``v1beta1`` policy is not backward compatible and requires a one time"
+" conversion. A tool is provided to automate this process. The previous "
+"configuration resources ``ClusterRbacConfig``, ``ServiceRole``, and "
+"``ServiceRoleBinding`` will not be supported from Istio 1.6 onwards."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:19
+msgid ""
+"This post describes the new ``v1beta1`` authorization policy model, its "
+"design goals and the migration from ``v1alpha1`` RBAC policies. See the "
+"`authorization concept page </docs/concepts/security/#authorization>`_ "
+"for a detailed in-depth explanation of the ``v1beta1`` authorization "
+"policy."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:25
+msgid ""
+"We welcome your feedback about the ``v1beta1`` authorization policy at "
+"`discuss.istio.io <https://discuss.istio.io/c/security>`_."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:29
+msgid "Background"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:31
+msgid ""
+"To date, Istio provided RBAC policies to enforce access control on {{< "
+"gloss “service” >}}services{{< /gloss >}} using three configuration "
+"resources: ``ClusterRbacConfig``, ``ServiceRole`` and "
+"``ServiceRoleBinding``. With this API, users have been able to enforce "
+"control access at mesh-level, namespace-level and service-level. Like "
+"other RBAC policies, Istio RBAC uses the same concept of role and binding"
+" for granting permissions to identities."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:39
+msgid ""
+"Although Istio RBAC has been working reliably, we’ve found that many "
+"improvements were possible."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:42
+msgid ""
+"For example, users have mistakenly assumed that access control "
+"enforcement happens at service-level because ``ServiceRole`` uses service"
+" to specify where to apply the policy, however, the policy is actually "
+"applied on {{< gloss “workload” >}}workloads{{< /gloss >}}, the service "
+"is only used to find the corresponding workload. This nuance is "
+"significant when multiple services are referring to the same workload. A "
+"``ServiceRole`` for service A will also affect service B if the two "
+"services are referring to the same workload, which can cause confusion "
+"and incorrect configuration."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:52
+msgid ""
+"An other example is that it’s proven difficult for users to maintain and "
+"manage the Istio RBAC configurations because of the need to deeply "
+"understand three related resources."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:57
+msgid "Design goals"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:59
+msgid "The new ``v1beta1`` authorization policy had several design goals:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:61
+msgid ""
+"Align with `Istio Configuration Model <https://goo.gl/x3STjD>`_ for "
+"better clarity on the policy target. The configuration model provides a "
+"unified configuration hierarchy, resolution and target selection."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:65
+msgid ""
+"Improve the user experience by simplifying the API. It’s easier to manage"
+" one custom resource definition (CRD) that includes all access control "
+"specifications, instead of multiple CRDs."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:69
+msgid ""
+"Support more use cases without added complexity. For example, allow the "
+"policy to be applied on Ingress/Egress gateway to enforce access control "
+"for traffic entering/exiting the mesh."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:74
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:269
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:289
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:324
+msgid "``AuthorizationPolicy``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:76
+msgid ""
+"An `AuthorizationPolicy custom resource </docs/reference/config/security"
+"/authorization-policy/>`_ enables access control on workloads. This "
+"section gives an overview of the changes in the ``v1beta1`` authorization"
+" policy."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:81
+msgid ""
+"An ``AuthorizationPolicy`` includes a ``selector`` and a list of "
+"``rule``. The ``selector`` specifies on which workload to apply the "
+"policy and the list of ``rule`` specifies the detailed access control "
+"rule for the workload."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:86
+msgid ""
+"The ``rule`` is additive, which means a request is allowed if any "
+"``rule`` allows the request. Each ``rule`` includes a list of ``from``, "
+"``to`` and ``when``, which specifies **who** is allowed to do **what** "
+"under which **conditions**."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:91
+msgid ""
+"The ``selector`` replaces the functionality provided by "
+"``ClusterRbacConfig`` and the ``services`` field in ``ServiceRole``. The "
+"``rule`` replaces the other fields in the ``ServiceRole`` and "
+"``ServiceRoleBinding``."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:97
+msgid "Example"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:99
+msgid ""
+"The following authorization policy applies to workloads with ``app: "
+"httpbin`` and ``version: v1`` label in the ``foo`` namespace:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:105
+msgid ""
+"AuthorizationPolicy metadata: name: httpbin namespace: foo spec: "
+"selector: matchLabels: app: httpbin version: v1 rules: - from: - source: "
+"principals: [“cluster.local/ns/default/sa/sleep”] to: - operation: "
+"methods: [“GET”] when: - key: request.headers[version] values: [“v1”, "
+"“v2”]"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:111
+msgid ""
+"The policy allows principal ``cluster.local/ns/default/sa/sleep`` to "
+"access the workload using the ``GET`` method when the request includes a "
+"``version`` header of value ``v1`` or ``v2``. Any requests not matched "
+"with the policy will be denied by default."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:116
+msgid "Assuming the ``httpbin`` service is defined as:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:121
+msgid "namespace: foo spec: selector: app: httpbin version: v1 ports: # omitted"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:124
+msgid ""
+"You would need to configure three resources to achieve the same result in"
+" ``v1alpha1``:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:130
+msgid ""
+"ClusterRbacConfig metadata: name: default spec: mode: ‘ON_WITH_INCLUSION’"
+" inclusion: services: [“httpbin.foo.svc.cluster.local”] — apiVersion: "
+"“rbac.istio.io/v1alpha1” kind: ServiceRole metadata: name: httpbin "
+"namespace: foo spec: rules: - services: [“httpbin.foo.svc.cluster.local”]"
+" methods: [“GET”] constraints: - key: request.headers[version] values: "
+"[“v1”, “v2”] — apiVersion: “rbac.istio.io/v1alpha1” kind: "
+"ServiceRoleBinding metadata: name: httpbin namespace: foo spec: subjects:"
+" - user: “cluster.local/ns/default/sa/sleep” roleRef: kind: ServiceRole "
+"name: “httpbin”"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:142
+msgid "Workload selector"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:144
+msgid ""
+"A major change in the ``v1beta1`` authorization policy is that it now "
+"uses workload selector to specify where to apply the policy. This is the "
+"same workload selector used in the ``Gateway``, ``Sidecar`` and "
+"``EnvoyFilter`` configurations."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:149
+msgid ""
+"The workload selector makes it clear that the policy is applied and "
+"enforced on workloads instead of services. If a policy applies to a "
+"workload that is used by multiple different services, the same policy "
+"will affect the traffic to all the different services."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:154
+msgid ""
+"You can simply leave the ``selector`` empty to apply the policy to all "
+"workloads in a namespace. The following policy applies to all workloads "
+"in the namespace ``bar``:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:161
+msgid ""
+"AuthorizationPolicy metadata: name: policy namespace: bar spec: rules: # "
+"omitted"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:165
+msgid "Root namespace"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:167
+msgid ""
+"A policy in the root namespace applies to all workloads in the mesh in "
+"every namespaces. The root namespace is configurable in the "
+"```MeshConfig`` "
+"</docs/reference/config/istio.mesh.v1alpha1/#MeshConfig>`_ and has the "
+"default value of ``istio-system``."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:172
+msgid ""
+"For example, you installed Istio in ``istio-system`` namespace and "
+"deployed workloads in ``default`` and ``bookinfo`` namespace. The root "
+"namespace is changed to ``istio-config`` from the default value. The "
+"following policy will apply to workloads in every namespace including "
+"``default``, ``bookinfo`` and the ``istio-system``:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:181
+msgid ""
+"AuthorizationPolicy metadata: name: policy namespace: istio-config spec: "
+"rules: # omitted"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:185
+msgid "Ingress/Egress Gateway support"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:187
+msgid ""
+"The ``v1beta1`` authorization policy can also be applied on "
+"ingress/egress gateway to enforce access control on traffic "
+"entering/leaving the mesh, you only need to change the ``selector`` to "
+"make select the ingress/egress workload."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:192
+msgid ""
+"The following policy applies to workloads with the ``app: istio-"
+"ingressgateway`` label:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:198
+msgid ""
+"AuthorizationPolicy metadata: name: ingress namespace: istio-system spec:"
+" selector: matchLabels: app: istio-ingressgateway rules: # omitted"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:202
+msgid ""
+"Remember the authorization policy only applies to workloads in the same "
+"namespace as the policy, unless the policy is applied in the root "
+"namespace:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:206
+msgid ""
+"If you don’t change the default root namespace value (i.e. ``istio-"
+"system``), the above policy will apply to workloads with the ``app: "
+"istio-ingressgateway`` label in **every** namespace."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:210
+msgid ""
+"If you have changed the root namespace to a different value, the above "
+"policy will only apply to workloads with the ``app: istio-"
+"ingressgateway`` label **only** in the ``istio-system`` namespace."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:216
+msgid "Comparison"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:218
+msgid ""
+"The following table highlights the key differences between the old "
+"``v1alpha1`` RBAC policies and the new ``v1beta1`` authorization policy."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:222
+msgid "Feature"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:225
+msgid "Featur e"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:225
+msgid "``v1alpha1`` RBAC policy"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:225
+msgid "``v1beta1`` Authorization Policy"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:228
+msgid "API stabil ity"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:228
+msgid "``alpha``: **No** backward compatible"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:228
+msgid "``beta``: backward compatible **guaranteed**"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:232
+msgid "Number of CRDs"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:232
+msgid "Three: ``ClusterRbacConfig``, ``ServiceRole`` and ``ServiceRoleBinding``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:232
+msgid "Only One: ``AuthorizationPolicy``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:237
+msgid "Policy target"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:237
+msgid "**service**"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:237
+msgid "**workload**"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:240
+msgid "Deny-b y-defa ult behavi or"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:240
+msgid "Enabled **explicitly** by configuring ``ClusterRbacConfig``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:240
+msgid "Enabled **implicitly** with ``AuthorizationPolicy``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:246
+msgid "Ingres s/Egre ss gatewa y suppor t"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:246
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:297
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:309
+msgid "Not supported"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:246
+msgid "Supported"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:254
+msgid "The ``\"*\"` ` value in policy"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:254
+msgid "Match all contents (empty and non-empty)"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:254
+msgid "Match non-empty contents only"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:262
+msgid ""
+"The following tables show the relationship between the ``v1alpha1`` and "
+"``v1beta1`` API."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:266
+msgid "``ClusterRbacConfig``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:269
+msgid "``ClusterRbacConfig.Mode``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:271
+msgid "``OFF``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:271
+msgid "No policy applied"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:273
+msgid "``ON``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:273
+msgid "A deny-all policy applied in root namespace"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:276
+msgid "``ON_WITH_INCLUSION``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:276
+msgid ""
+"policies should be applied to namespaces or workloads included by "
+"``ClusterRbacConfig``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:280
+msgid "``ON_WITH_EXCLUSION``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:280
+msgid ""
+"policies should be applied to namespaces or workloads excluded by "
+"``ClusterRbacConfig``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:286
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:289
+msgid "``ServiceRole``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:291
+msgid "``services``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:291
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:303
+msgid "``selector``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:293
+msgid "``paths``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:293
+msgid "``paths`` in ``to``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:295
+msgid "``methods``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:295
+msgid "``methods`` in ``to``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:297
+msgid "``destination.ip`` in constraint"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:300
+msgid "``destination.port`` in constraint"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:300
+msgid "``ports`` in ``to``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:303
+msgid "``destination.labels`` in constraint"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:306
+msgid "``destination.namespace`` in constraint"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:306
+msgid ""
+"Replaced by the namespace of the policy, i.e. the ``namespace`` in "
+"metadata"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:309
+msgid "``destination.user`` in constraint"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:312
+msgid "``experimental.envoy.filt ers`` in constraint"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:312
+msgid "``experimental.envoy.filters`` in ``when``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:316
+msgid "``request.headers`` in constraint"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:316
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:337
+msgid "``request.headers`` in ``when``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:321
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:324
+msgid "``ServiceRoleBinding``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:326
+msgid "``user``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:326
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:335
+msgid "``principals`` in ``from``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:328
+msgid "``group``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:328
+msgid "``request.auth.claims[group]`` in ``when``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:331
+msgid "``source.ip`` in property"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:331
+msgid "``ipBlocks`` in ``from``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:333
+msgid "``source.namespace`` in property"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:333
+msgid "``namespaces`` in ``from``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:335
+msgid "``source.principal`` in property"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:337
+msgid "``request.headers`` in property"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:339
+msgid "``request.auth.principal`` in property"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:339
+msgid ""
+"``requestPrincipals`` in ``from`` or ``request.auth.principal`` in "
+"``when``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:343
+msgid "``request.auth.audiences`` in property"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:343
+msgid "``request.auth.audiences`` in ``when``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:346
+msgid "``request.auth.presenter`` in property"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:346
+msgid "``request.auth.presenter`` in ``when``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:349
+msgid "``request.auth.claims`` in property"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:349
+msgid "``request.auth.claims`` in ``when``"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:353
+msgid ""
+"Beyond all the differences, the ``v1beta1`` policy is enforced by the "
+"same engine in Envoy and supports the same authenticated identity (mutual"
+" TLS or JWT), condition and other primitives (e.g. IP, port and etc.) as "
+"the ``v1alpha1`` policy."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:359
+msgid "Future of the ``v1alpha1`` policy"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:361
+msgid ""
+"The ``v1alpha1`` RBAC policy (``ClusterRbacConfig``, ``ServiceRole``, and"
+" ``ServiceRoleBinding``) is deprecated by the ``v1beta1`` authorization "
+"policy."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:365
+msgid ""
+"Istio 1.4 continues to support the ``v1alpha1`` RBAC policy to give you "
+"enough time to move away from the alpha policies."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:369
+msgid "Migration from the ``v1alpha1`` policy"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:371
+msgid "Istio only supports one of the two versions for a given workload:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:373
+msgid ""
+"If there is only ``v1beta1`` policy for a workload, the ``v1beta1`` "
+"policy will be used."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:375
+msgid ""
+"If there is only ``v1alpha1`` policy for a workload, the ``v1alpha1`` "
+"policy will be used."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:377
+msgid ""
+"If there are both ``v1beta1`` and ``v1alpha1`` policies for a workload, "
+"only the ``v1beta1`` policy will be used and the the ``v1alpha1`` policy "
+"will be ignored."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:382
+msgid "General Guideline"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:386
+msgid "When migrating to use ``v1beta1`` policy for a given"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:387
+msgid ""
+"workload, make sure the new ``v1beta1`` policy covers all the existing "
+"``v1alpha1`` policies applied for the workload, because the ``v1alpha1`` "
+"policies applied for the workload will be ignored after you applied the "
+"``v1beta1`` policies."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:392
+msgid ""
+"The typical flow of migrating to ``v1beta1`` policy is to start by "
+"checking the ``ClusterRbacConfig`` to decide which namespace or service "
+"is enabled with RBAC."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:396
+msgid "For each service enabled with RBAC:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:398
+msgid "Get the workload selector from the service definition."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:399
+msgid "Create a ``v1beta1`` policy with the workload selector."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:400
+msgid ""
+"Update the ``v1beta1`` policy for each ``ServiceRole`` and "
+"``ServiceRoleBinding`` applied to the service."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:402
+msgid ""
+"Apply the ``v1beta1`` policy and monitor the traffic to make sure the "
+"policy is working as expected."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:404
+msgid "Repeat the process for the next service enabled with RBAC."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:406
+msgid "For each namespace enabled with RBAC:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:408
+msgid "Apply a ``v1beta1`` policy that denies all traffic to the given namespace."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:412
+msgid "Migration Example"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:414
+msgid ""
+"Assume you have the following ``v1alpha1`` policies for the ``httpbin`` "
+"service in the ``foo`` namespace:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:420
+msgid ""
+"ClusterRbacConfig metadata: name: default spec: mode: ‘ON_WITH_INCLUSION’"
+" inclusion: namespaces: [“foo”] — apiVersion: “rbac.istio.io/v1alpha1” "
+"kind: ServiceRole metadata: name: httpbin namespace: foo spec: rules: - "
+"services: [“httpbin.foo.svc.cluster.local”] methods: [“GET”] — "
+"apiVersion: “rbac.istio.io/v1alpha1” kind: ServiceRoleBinding metadata: "
+"name: httpbin namespace: foo spec: subjects: - user: "
+"“cluster.local/ns/default/sa/sleep” roleRef: kind: ServiceRole name: "
+"“httpbin”"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:430
+msgid "Migrate the above policies to ``v1beta1`` in the following ways:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:432
+msgid "Assume the ``httpbin`` service has the following workload selector:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:438
+msgid "Create a ``v1beta1`` policy with the workload selector:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:443
+msgid ""
+"AuthorizationPolicy metadata: name: httpbin namespace: foo spec: "
+"selector: matchLabels: app: httpbin version: v1"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:446
+msgid ""
+"Update the ``v1beta1`` policy with each ``ServiceRole`` and "
+"``ServiceRoleBinding`` applied to the service:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:452
+msgid ""
+"AuthorizationPolicy metadata: name: httpbin namespace: foo spec: "
+"selector: matchLabels: app: httpbin version: v1 rules:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:455
+msgid "from:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:457
+msgid "source: principals: [“cluster.local/ns/default/sa/sleep”] to:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:458
+msgid "operation: methods: [“GET”]"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:460
+msgid ""
+"Apply the ``v1beta1`` policy and monitor the traffic to make sure it "
+"works as expected."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:463
+msgid ""
+"Apply the following ``v1beta1`` policy that denies all traffic to the "
+"``foo`` namespace because the ``foo`` namespace is enabled with RBAC:"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:469
+msgid "AuthorizationPolicy metadata: name: deny-all namespace: foo spec: {}"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:472
+msgid ""
+"Make sure the ``v1beta1`` policy is working as expected and then you can "
+"delete the ``v1alpha1`` policies from the cluster."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:476
+msgid "Automation of the Migration"
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:478
+msgid ""
+"To help ease the migration, the ``istioctl experimental authz convert`` "
+"command is provided to automatically convert the ``v1alpha1`` policies to"
+" the ``v1beta1`` policy."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:482
+msgid ""
+"You can evaluate the command but it is experimental in Istio 1.4 and "
+"doesn’t support the full ``v1alpha1`` semantics as of the date of this "
+"blog post."
+msgstr ""
+
+#: ../../source/blog/2019/v1beta1-authorization-policy/index.rst:486
+msgid ""
+"The command to support the full ``v1alpha1`` semantics is expected in a "
+"patch release following Istio 1.4."
+msgstr ""
+

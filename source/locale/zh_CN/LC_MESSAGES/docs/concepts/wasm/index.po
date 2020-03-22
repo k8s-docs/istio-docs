@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/concepts/wasm/index.rst:2
+msgid "Extensibility"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:5
+msgid ""
+"WebAssembly is a sandboxing technology which can be used to extend the "
+"Istio proxy (Envoy).  The Proxy-Wasm sandbox API replaces Mixer as the "
+"primary extension mechanism in Istio. Istio 1.6 will provide a uniform "
+"configuration API for Proxy-Wasm plugins."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:7
+msgid "WebAssembly sandbox goals:"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:9
+msgid "**Efficiency** - An extension adds low latency, CPU, and memory overhead."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:10
+msgid ""
+"**Function** - An extension can enforce policy, collect telemetry, and "
+"perform payload mutations."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:11
+msgid ""
+"**Isolation** - A programming error or crash in one plugin does affect "
+"other plugins."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:12
+msgid ""
+"**Configuration** - The plugins are configured using an API that is "
+"consistent with other Istio APIs. An extension can be configured "
+"dynamically."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:13
+msgid ""
+"**Operator** - An extension can be canaried and deployed as log-only, "
+"fail-open or fail-close."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:14
+msgid ""
+"**Extension developer** - The plugin can be written in several "
+"programming languages."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:16
+msgid ""
+"This [video talk](https://youtu.be/XdWmm_mtVXI) is an introduction about "
+"architecture of WebAssembly integration."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:19
+msgid "High-level architecture"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:21
+msgid "Istio extensions (Proxy-Wasm plugins) have several components:"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:23
+msgid ""
+"**Filter Service Provider Interface (SPI)** for building Proxy-Wasm "
+"plugins for filters."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:24
+msgid "**Sandbox** V8 Wasm Runtime embedded in Envoy."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:25
+msgid "**Host APIs** for headers, trailers and metadata."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:26
+msgid "**Call out APIs** for gRPC and HTTP calls."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:27
+msgid "**Stats and Logging APIs** for metrics and monitoring."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:35
+msgid "Example"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:37
+msgid ""
+"An example C++ Proxy-Wasm plugin for a filter can be found "
+"[here](https://github.com/envoyproxy/envoy-"
+"wasm/tree/19b9fd9a22e27fcadf61a06bf6aac03b735418e6/examples/wasm)."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:40
+msgid "To implement a Proxy-Wasm plugin for a filter:"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:42
+msgid ""
+"Implement a [root context class](https://github.com/envoyproxy/envoy-"
+"wasm/blob/e8bf3ab26069a387f47a483d619221a0c482cd13/examples/wasm/envoy_filter_http_wasm_example.cc#L7)"
+" which inherits [base root context class](https://github.com/envoyproxy"
+"/envoy-"
+"wasm/blob/e8bf3ab26069a387f47a483d619221a0c482cd13/api/wasm/cpp/proxy_wasm_impl.h#L288)"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:43
+msgid ""
+"Implement a [stream context class](https://github.com/envoyproxy/envoy-"
+"wasm/blob/e8bf3ab26069a387f47a483d619221a0c482cd13/examples/wasm/envoy_filter_http_wasm_example.cc#L14)"
+" which inherits the [base context class](https://github.com/envoyproxy"
+"/envoy-"
+"wasm/blob/e8bf3ab26069a387f47a483d619221a0c482cd13/api/wasm/cpp/proxy_wasm_impl.h#L314)."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:44
+msgid ""
+"Override [context API](https://github.com/envoyproxy/envoy-"
+"wasm/blob/e8bf3ab26069a387f47a483d619221a0c482cd13/examples/wasm/envoy_filter_http_wasm_example.cc#L14)"
+" methods to handle corresponding initialization and stream events from "
+"host."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:45
+msgid ""
+"[Register](https://github.com/envoyproxy/envoy-"
+"wasm/blob/e8bf3ab26069a387f47a483d619221a0c482cd13/examples/wasm/envoy_filter_http_wasm_example.cc#L26)"
+" the root context and stream context."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:48
+msgid "SDK"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:51
+msgid ""
+"A detailed description of the C++ SDK can be found "
+"[here](https://github.com/proxy-wasm/proxy-wasm-cpp-"
+"sdk/tree/a30aaeedf30cc1545318505574c7fb3bb8d8c243/docs/wasm_filter.md)."
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:54
+msgid "Ecosystem"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:57
+msgid "[Proxy-Wasm ABI specification](https://github.com/proxy-wasm/spec)"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:58
+msgid "[Proxy-Wasm C++ SDK](https://github.com/proxy-wasm/proxy-wasm-cpp-sdk)"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:59
+msgid "[Proxy-Wasm Rust SDK](https://github.com/proxy-wasm/proxy-wasm-rust-sdk)"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:60
+msgid "[Proxy-Wasm AssemblyScript SDK](https://github.com/solo-io/proxy-runtime)"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:61
+msgid ""
+"[WebAssembly Hub](https://docs.solo.io/web-assembly-"
+"hub/latest/tutorial_code/)"
+msgstr ""
+
+#: ../../source/docs/concepts/wasm/index.rst:62
+msgid ""
+"[WebAssembly Extensions For Network Proxies "
+"(video)](https://www.youtube.com/watch?v=OIUPf8m7CGA)"
+msgstr ""
+

@@ -1,0 +1,306 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:2
+msgid "introducing-istio-operator"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:4
+msgid ""
+"Kubernetes `operators <https://kubernetes.io/docs/concepts/extend-"
+"kubernetes/operator/>`_ provide a pattern for encoding human operational "
+"knowledge in software and are a popular way to simplify the "
+"administration of software infrastructure components. Istio is a natural "
+"candidate for an automated operator as it is challenging to administer."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:11
+msgid ""
+"Up until now, `Helm <https://github.com/helm/helm>`_ has been the primary"
+" tool to install and upgrade Istio. Istio 1.4 introduces a new method of "
+"`installation using {{< istioctl >}} </docs/setup/install/istioctl/>`_. "
+"This new installation method builds on the strengths of Helm with the "
+"addition of the following:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:17
+msgid "Users only need to install one tool: ``istioctl``"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:18
+msgid "All API fields are validated"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:19
+msgid "Small customizations not in the API don’t require chart or API changes"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:21
+msgid "Version specific upgrade hooks can be easily and robustly implemented"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:23
+msgid ""
+"The `Helm installation </docs/setup/install/helm/>`_ method is in the "
+"process of deprecation. Upgrading from Istio 1.4 with a version not "
+"initially installed with Helm will also be replaced by a new `{{< "
+"istioctl >}} upgrade feature </docs/setup/upgrade/istioctl-upgrade/>`_."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:28
+msgid ""
+"The new ``istioctl`` installation commands use a `custom resource "
+"<https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension"
+"/custom-resources/>`_ to configure the installation. The custom resource "
+"is part of a new Istio operator implementation intended to simplify the "
+"common administrative tasks of installation, upgrade, and complex "
+"configuration changes for Istio. Validation and checking for installation"
+" and upgrade is tightly integrated with the tools to prevent common "
+"errors and simplify troubleshooting."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:38
+msgid "The Operator API"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:40
+msgid ""
+"Every operator implementation requires a `custom resource definition "
+"(CRD) <https://kubernetes.io/docs/concepts/extend-kubernetes/api-"
+"extension/custom-resources/#customresourcedefinitions>`_ to define its "
+"custom resource, that is, its API. Istio’s operator API is defined by the"
+" `IstioControlPlane CRD "
+"<https://archive.istio.io/v1.4/docs/reference/config/istio.operator.v1alpha12.pb/>`_,"
+" which is generated from an `IstioControlPlane proto "
+"<https://github.com/istio/operator/blob/release-1.4/pkg/apis/istio/v1alpha2/istiocontrolplane_types.proto>`_."
+" The API supports all of Istio’s current `configuration profiles "
+"</docs/setup/additional-setup/config-profiles/>`_ using a single field to"
+" select the profile. For example, the following ``IstioControlPlane`` "
+"resource configures Istio using the ``demo`` profile:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:56
+msgid ""
+"IstioControlPlane metadata: namespace: istio-operator name: example-"
+"istiocontrolplane spec: profile: demo"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:59
+msgid ""
+"You can then customize the configuration with additional settings. For "
+"example, to disable telemetry:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:65
+msgid ""
+"IstioControlPlane metadata: namespace: istio-operator name: example-"
+"istiocontrolplane spec: profile: demo telemetry: enabled: false"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:70
+msgid "Installing with {{< istioctl >}}"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:72
+msgid ""
+"The recommended way to use the Istio operator API is through a new set of"
+" ``istioctl`` commands. For example, to install Istio into a cluster:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:79
+msgid ""
+"Make changes to the installation configuration by editing the "
+"configuration file and executing ``istioctl manifest apply`` again."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:82
+msgid "To upgrade to a new version of Istio:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:88
+msgid ""
+"In addition to specifying the complete configuration in an "
+"``IstioControlPlane`` resource, the ``istioctl`` commands can also be "
+"passed individual settings using a ``--set`` flag:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:97
+msgid ""
+"There are also a number of other ``istioctl`` commands that, for example,"
+" help you list, display, and compare configuration profiles and "
+"manifests."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:101
+msgid ""
+"Refer to the Istio `install instructions </docs/setup/install/istioctl>`_"
+" for more details."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:105
+msgid "Istio Controller (alpha)"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:107
+msgid ""
+"Operator implementations use a Kubernetes controller to continuously "
+"monitor their custom resource and apply the corresponding configuration "
+"changes. The Istio controller monitors an ``IstioControlPlane`` resource "
+"and reacts to changes by updating the Istio installation configuration in"
+" the corresponding cluster."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:113
+msgid ""
+"In the 1.4 release, the Istio controller is in the alpha phase of "
+"development and not fully integrated with ``istioctl``. It is, however, "
+"`available for experimentation </docs/setup/install/standalone-"
+"operator/>`_ using ``kubectl`` commands. For example, to install the "
+"controller and a default version of Istio into your cluster, run the "
+"following command:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:123
+msgid "apply -f https:///default-cr.yaml"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:125
+msgid "You can then make changes to the Istio installation configuration:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:130
+msgid "example-istiocontrolplane -n istio-system"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:132
+msgid ""
+"As soon as the resource is updated, the controller will detect the "
+"changes and respond by updating the Istio installation correspondingly."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:135
+msgid ""
+"Both the operator controller and ``istioctl`` commands share the same "
+"implementation. The significant difference is the execution context. In "
+"the ``istioctl`` case, the operation runs in the admin user’s command "
+"execution and security context. In the controller case, a pod in the "
+"cluster runs the code in its security context. In both cases, "
+"configuration is validated against a schema and the same correctness "
+"checks are performed."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:144
+msgid "Migration from Helm"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:146
+msgid ""
+"To help ease the transition from previous configurations using Helm, "
+"``istioctl`` and the controller support pass-through access for the full "
+"Helm installation API."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:150
+msgid ""
+"You can pass Helm configuration options using ``istioctl --set`` by "
+"prepending the string ``values.`` to the option name. For example, "
+"instead of this Helm command:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:158
+msgid "You can use this ``istioctl`` command:"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:163
+msgid "values.global.mtls.enabled=true"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:165
+msgid ""
+"You can also set Helm configuration values in an ``IstioControlPlane`` "
+"custom resource. See `Customize Istio settings using Helm "
+"</docs/setup/install/istioctl/#customize-istio-settings-using-the-helm-"
+"api>`_ for details."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:170
+msgid ""
+"Another feature to help with the transition from Helm is the alpha `{{< "
+"istioctl >}} manifest migrate </docs/reference/commands/istioctl"
+"/#istioctl-manifest-migrate>`_ command. This command can be used to "
+"automatically convert a Helm ``values.yaml`` file to a corresponding "
+"``IstioControlPlane`` configuration."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:178
+msgid "Implementation"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:180
+msgid ""
+"Several frameworks have been created to help implement operators by "
+"generating stubs for some or all of the components. The Istio operator "
+"was created with the help of a combination of `kubebuilder "
+"<https://github.com/kubernetes-sigs/kubebuilder>`_ and `operator "
+"framework <https://github.com/operator-framework>`_. Istio’s installation"
+" now uses a proto to describe the API such that runtime validation can be"
+" executed against a schema."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:188
+msgid ""
+"More information about the implementation can be found in the README and "
+"ARCHITECTURE documents in the `Istio operator repository "
+"<https://github.com/istio/operator>`_."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:193
+msgid "Summary"
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:195
+msgid ""
+"Starting in Istio 1.4, Helm installation is being replaced by new "
+"``istioctl`` commands using a new operator custom resource definition, "
+"``IstioControlPlane``, for the configuration API. An alpha controller is "
+"also available for early experimentation with the operator."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:200
+msgid ""
+"The new ``istioctl`` commands and operator controller both validate "
+"configuration schemas and perform a range of checks for installation "
+"change or upgrade. These checks are tightly integrated with the tools to "
+"prevent common errors and simplify troubleshooting."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:205
+msgid ""
+"The Istio maintainers expect that this new approach will improve the user"
+" experience during Istio installation and upgrade, better stabilize the "
+"installation API, and help users better manage and monitor their Istio "
+"installations."
+msgstr ""
+
+#: ../../source/blog/2019/introducing-istio-operator/index.rst:210
+msgid ""
+"We welcome your feedback about the new installation approach at "
+"`discuss.istio.io <https://discuss.istio.io/>`_."
+msgstr ""
+

@@ -1,0 +1,196 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:2
+msgid "overview"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:4
+msgid ""
+"Distributed tracing enables users to track a request through mesh that is"
+" distributed across multiple services. This allows a deeper understanding"
+" about request latency, serialization and parallelism via visualization."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:9
+msgid ""
+"Istio leverages `Envoy’s distributed tracing "
+"<https://www.envoyproxy.io/docs/envoy/v1.12.0/intro/arch_overview/observability/tracing>`_"
+" feature to provide tracing integration out of the box. Specifically, "
+"Istio provides options to install various tracing backend and configure "
+"proxies to send trace spans to them automatically. See `Zipkin "
+"<../zipkin/>`_, `Jaeger <../jaeger/>`_ and `LightStep "
+"</docs/tasks/observability/distributed-tracing/lightstep/>`_ task docs "
+"about how Istio works with those tracing systems."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:19
+msgid "Trace context propagation"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:21
+msgid ""
+"Although Istio proxies are able to automatically send spans, they need "
+"some hints to tie together the entire trace. Applications need to "
+"propagate the appropriate HTTP headers so that when the proxies send span"
+" information, the spans can be correlated correctly into a single trace."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:27
+msgid ""
+"To do this, an application needs to collect and propagate the following "
+"headers from the incoming request to any outgoing requests:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:30
+msgid "``x-request-id``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:31
+msgid "``x-b3-traceid``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:32
+msgid "``x-b3-spanid``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:33
+msgid "``x-b3-parentspanid``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:34
+msgid "``x-b3-sampled``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:35
+msgid "``x-b3-flags``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:36
+msgid "``x-ot-span-context``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:38
+msgid ""
+"Additionally, tracing integrations based on `OpenCensus "
+"<https://opencensus.io/>`_ (e.g. Stackdriver) propagate the following "
+"headers:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:42
+msgid "``x-cloud-trace-context``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:43
+msgid "``traceparent``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:44
+msgid "``grpc-trace-bin``"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:46
+msgid ""
+"If you look at the sample Python ``productpage`` service, for example, "
+"you see that the application extracts the required headers from an HTTP "
+"request using `OpenTracing <https://opentracing.io/>`_ libraries:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:50
+msgid "{{< text python >}} def getForwardHeaders(request): headers = {}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:79
+msgid "The reviews application (Java) does something similar:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:81
+msgid ""
+"{{< text java >}} @GET @Path(“/reviews/{productId}”) public Response "
+"bookReviewsById(@PathParam(“productId”) int productId, @HeaderParam(“end-"
+"user”) String user, @HeaderParam(“x-request-id”) String xreq, "
+"@HeaderParam(“x-b3-traceid”) String xtraceid, @HeaderParam(“x-b3-spanid”)"
+" String xspanid, @HeaderParam(“x-b3-parentspanid”) String xparentspanid, "
+"@HeaderParam(“x-b3-sampled”) String xsampled, @HeaderParam(“x-b3-flags”) "
+"String xflags, @HeaderParam(“x-ot-span-context”) String xotspan) {"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:90
+msgid ""
+"if (ratings_enabled) { JsonObject ratingsResponse = "
+"getRatings(Integer.toString(productId), user, xreq, xtraceid, xspanid, "
+"xparentspanid, xsampled, xflags, xotspan);"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:94
+msgid ""
+"When you make downstream calls in your applications, make sure to include"
+" these headers."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:98
+msgid "Trace sampling"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:100
+msgid ""
+"Istio captures a trace for all requests by default when installing with "
+"the demo profile. For example, when using the Bookinfo sample application"
+" above, every time you access ``/productpage`` you see a corresponding "
+"trace in the dashboard. This sampling rate is suitable for a test or low "
+"traffic mesh. For a high traffic mesh you can lower the trace sampling "
+"percentage in one of two ways:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:107
+msgid ""
+"During the mesh setup, use the option ``values.pilot.traceSampling`` to "
+"set the percentage of trace sampling. See the `Installing with {{< "
+"istioctl >}} </docs/setup/install/istioctl/>`_ documentation for details "
+"on setting options."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:112
+msgid ""
+"In a running mesh, edit the ``istio-pilot`` deployment and change the "
+"environment variable with the following steps:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:115
+msgid ""
+"To open your text editor with the deployment configuration file loaded, "
+"run the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:120
+msgid "$ kubectl -n istio-system edit deploy istio-pilot"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:123
+msgid ""
+"Find the ``PILOT_TRACE_SAMPLING`` environment variable, and change the "
+"``value:`` to your desired percentage."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/distributed-tracing/overview/index.rst:126
+msgid ""
+"In both cases, valid values are from 0.0 to 100.0 with a precision of "
+"0.01."
+msgstr ""
+

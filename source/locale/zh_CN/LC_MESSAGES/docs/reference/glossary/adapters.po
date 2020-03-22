@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/glossary/adapters.rst:2
+msgid "adapters"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/adapters.rst:4
+msgid ""
+"Adapters are plug-ins to `Mixer </docs/reference/glossary/#mixer>`_, "
+"Istio’s `policy and telemetry </docs/reference/config/policy-and-"
+"telemetry/>`_ component, which enable it to interface with an open-ended "
+"set of infrastructure backends that deliver core functionality, such as "
+"logging, monitoring, quotas, ACL checking, and more. The exact set of "
+"adapters used at runtime is determined through configuration and can "
+"easily be extended to target new or custom infrastructure backends."
+msgstr ""
+
+#: ../../source/docs/reference/glossary/adapters.rst:13
+msgid ""
+"`Learn more about adapters </docs/reference/config/policy-and-"
+"telemetry/adapters>`_."
+msgstr ""
+

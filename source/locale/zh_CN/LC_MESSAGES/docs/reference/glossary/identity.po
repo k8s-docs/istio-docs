@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/glossary/identity.rst:2
+msgid "Identity"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:4
+msgid ""
+"Identity is a fundamental security infrastructure concept. The Istio "
+"identity model is based on a first-class workload identity. At the "
+"beginning of service-to-service communication, the two parties exchange "
+"credentials with their identity information for mutual authentication "
+"purposes."
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:10
+msgid ""
+"Clients check the server’s identity against their secure naming "
+"information to determine if the server is authorized to run the service."
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:13
+msgid ""
+"Servers check the client’s identity to determine what information the "
+"client can access. Servers base that determination on the configured "
+"authorization policies."
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:17
+msgid ""
+"Using identity, servers can audit the time information was accessed and "
+"what information was accessed by a specific client. They can also charge "
+"clients based on the services they use and reject any clients that failed"
+" to pay their bill from accessing the services."
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:22
+msgid ""
+"The Istio identity model is flexible and granular enough to represent a "
+"human user, an individual service, or a group of services. On platforms "
+"without first-class service identity, Istio can use other identities that"
+" can group service instances, such as service names."
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:27
+msgid "Istio supports the following service identities on different platforms:"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:29
+msgid "Kubernetes: Kubernetes service account"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:31
+msgid "GKE/GCE: GCP service account"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:33
+msgid "GCP: GCP service account"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:35
+msgid "AWS: AWS IAM user/role account"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:37
+msgid ""
+"On-premises (non-Kubernetes): user account, custom service account, "
+"service name, Istio service account, or GCP service account. The custom "
+"service account refers to the existing service account just like the "
+"identities that the customer’s Identity Directory manages."
+msgstr ""
+
+#: ../../source/docs/reference/glossary/identity.rst:42
+msgid ""
+"Typically, the `trust domain </docs/reference/glossary/#trust-domain>`_ "
+"specifies the mesh the identity belongs to."
+msgstr ""
+

@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:2
+msgid "OpenShift"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:6
+msgid "OpenShift 4.1 and above use ``nftables``, which is"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:7
+msgid ""
+"incompatible with the Istio ``proxy-init`` container. Make sure to use "
+"`CNI </docs/setup/additional-setup/cni/>`_ instead."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:10
+msgid "Follow these instructions to prepare an OpenShift cluster for Istio."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:12
+msgid ""
+"By default, OpenShift doesn’t allow containers running with user ID 0. "
+"You must enable containers running with UID 0 for Istio’s service "
+"accounts by running the command below. Make sure to replace ``istio-"
+"system`` if you are deploying Istio in another namespace:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:20
+msgid "system:serviceaccounts:istio-system"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:22
+msgid ""
+"Now you can install Istio using the `CNI </docs/setup/additional-"
+"setup/cni/>`_ instructions."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:25
+msgid ""
+"After installation is complete, expose an OpenShift route for the ingress"
+" gateway."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:31
+msgid "–port=http2"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:34
+msgid "Automatic sidecar injection"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:38
+msgid "This setup is not necessary if you are running OpenShift 4.1"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:39
+msgid "or higher. If this is the case, skip to the next section."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:41
+msgid ""
+"Webhook and certificate signing requests support must be enabled for "
+"`automatic injection </docs/setup/additional-setup/sidecar-injection"
+"/#automatic-sidecar-injection>`_ to work. Modify the master configuration"
+" file on the master node for the cluster as follows."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:49
+msgid "By default, the master configuration file can be found in"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:50
+msgid "``/etc/origin/master/master-config.yaml``."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:52
+msgid ""
+"In the same directory as the master configuration file, create a file "
+"named ``master-config.patch`` with the following contents:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:58
+msgid ""
+"MutatingAdmissionWebhook: configuration: apiVersion: "
+"apiserver.config.k8s.io/v1alpha1 kubeConfigFile: /dev/null kind: "
+"WebhookAdmission ValidatingAdmissionWebhook: configuration: apiVersion: "
+"apiserver.config.k8s.io/v1alpha1 kubeConfigFile: /dev/null kind: "
+"WebhookAdmission"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:64
+msgid "In the same directory, execute:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:69
+msgid ""
+"$ oc ex config patch master-config.yaml.prepatch -p “$(cat master-"
+"config.patch)” > master-config.yaml $ master-restart api $ master-restart"
+" controllers"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:74
+msgid "Privileged security context constraints for application sidecars"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:76
+msgid ""
+"The Istio sidecar injected into each application pod runs with user ID "
+"1337, which is not allowed by default in OpenShift. To allow this user ID"
+" to be used, execute the following commands. Replace ``<target-"
+"namespace>`` with the appropriate namespace."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:84
+msgid ""
+"system:serviceaccounts: $ oc adm policy add-scc-to-group anyuid "
+"system:serviceaccounts:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:87
+msgid "When removing your application, remove the permissions as follows."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:92
+msgid ""
+"system:serviceaccounts: $ oc adm policy remove-scc-from-group anyuid "
+"system:serviceaccounts:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:96
+msgid "Additional requirements for the application namespace"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:98
+msgid ""
+"CNI on OpenShift is managed by ``Multus``, and it requires a "
+"``NetworkAttachmentDefinition`` to be present in the application "
+"namespace in order to invoke the ``istio-cni`` plugin. Execute the "
+"following commands. Replace ``<target-namespace>`` with the appropriate "
+"namespace."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:107
+msgid ""
+"“k8s.cni.cncf.io/v1” kind: NetworkAttachmentDefinition metadata: name: "
+"istio-cni EOF"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/openshift/index.rst:110
+msgid ""
+"When removing your application, remove the "
+"``NetworkAttachmentDefinition`` as follows."
+msgstr ""
+

@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2018/hp/index.rst:2
+msgid "hp"
+msgstr ""
+
+#: ../../source/blog/2018/hp/index.rst:4
+msgid ""
+"The FitStation team at HP strongly believes in the future of Kubernetes, "
+"BPF and service-mesh as the next standards in cloud infrastructure. We "
+"are also very happy to see Istio coming to its official Istio 1.0 release"
+" – thanks to the joint collaboration that started at Google, IBM and Lyft"
+" beginning in May 2017."
+msgstr ""
+
+#: ../../source/blog/2018/hp/index.rst:10
+msgid ""
+"Throughout the development of FitStation’s large scale and progressive "
+"cloud platform, Istio, Cilium and Kubernetes technologies have delivered "
+"a multitude of opportunities to make our systems more robust and "
+"scalable. Istio was a game changer in creating reliable and dynamic "
+"network communication."
+msgstr ""
+
+#: ../../source/blog/2018/hp/index.rst:16
+msgid ""
+"`FitStation powered by HP <http://www.fitstation.com>`_ is a technology "
+"platform that captures 3D biometric data to design personalized footwear "
+"to perfectly fit individual foot size and shape as well as gait profile. "
+"It uses 3D scanning, pressure sensing, 3D printing and variable density "
+"injection molding to create unique footwear. Footwear brands such as "
+"Brooks, Steitz Secura or Superfeet are connecting to FitStation to build "
+"their next generation of high performance sports, professional and "
+"medical shoes."
+msgstr ""
+
+#: ../../source/blog/2018/hp/index.rst:25
+msgid ""
+"FitStation is built on the promise of ultimate security and privacy for "
+"users’ biometric data. ISTIO is the cornerstone to make that possible for"
+" data-at-flight within our cloud. By managing these aspects at the "
+"infrastructure level, we focused on solving business problems instead of "
+"spending time on individual implementations of secure service "
+"communication. Using Istio allowed us to dramatically reduce the "
+"complexity of maintaining a multitude of libraries and services to "
+"provide secure service communication."
+msgstr ""
+
+#: ../../source/blog/2018/hp/index.rst:34
+msgid ""
+"As a bonus benefit of Istio 1.0, we gained network visibility, metrics "
+"and tracing out of the box. This radically improved decision-making and "
+"response quality for our development and devops teams. The team got in-"
+"depth insight in the network communication across the entire platform, "
+"both for new as well as legacy applications. The integration of Cilium "
+"with Envoy delivered a remarkable performance benefit on Istio service "
+"mesh communication, combined with a fine-grained kernel driven L7 network"
+" security layer. This was due to the powers of BPF brought to Istio by "
+"Cilium. We believe this will drive the future of Linux kernel security."
+msgstr ""
+
+#: ../../source/blog/2018/hp/index.rst:45
+msgid ""
+"It has been very exciting to follow Istio’s growth. We have been able to "
+"see clear improvements of performance and stability over the different "
+"development versions. The improvements between version 0.7 and 0.8 made "
+"our teams feel comfortable with version 1.0, we can state that Istio is "
+"now ready for real production usage."
+msgstr ""
+
+#: ../../source/blog/2018/hp/index.rst:51
+msgid ""
+"We are looking forward to the promising roadmaps of Istio, Envoy, Cilium "
+"and CNCF."
+msgstr ""
+

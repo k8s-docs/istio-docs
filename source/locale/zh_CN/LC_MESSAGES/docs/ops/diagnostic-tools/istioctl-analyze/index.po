@@ -1,0 +1,354 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:1
+msgid ""
+"``istioctl analyze`` is a diagnostic tool that can detect potential "
+"issues with your Istio configuration. It can run against a live cluster "
+"or a set of local configuration files. It can also run against a "
+"combination of the two, allowing you to catch problems before you apply "
+"changes to a cluster."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:8
+msgid "Getting started in under a minute"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:10
+msgid "You can analyze your current Kubernetes cluster by running:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:16
+msgid "And that’s it! It’ll give you any recommendations that apply."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:18
+msgid ""
+"For example, if you forgot to enable Istio injection (a very common "
+"issue), you would get the following warning:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:21
+#, python-format
+msgid ""
+"{{< text plain >}} Warn `IST0102 <Namespace%20default>`_ The namespace is"
+" not enabled for Istio injection. Run ‘kubectl label namespace default "
+"istio-injection=enabled’ to enable it, or ‘kubectl label namespace "
+"default istio-injection=disabled’ to explicitly mark it as not needing "
+"injection"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:28
+msgid "Analyzing live clusters, local files, or both"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:30
+msgid ""
+"The example above is doing analysis on a live cluster. But the tool also "
+"supports performing analysis of a set of local Kubernetes yaml "
+"configuration files, or on a combination of local files and a live "
+"cluster. When analyzing a set of local files, the file set is expected to"
+" be fully self-contained. Typically, this is used to analyze the entire "
+"set of configuration files that are intended to be deployed to a cluster."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:38
+msgid "Analyze a specific set of local Kubernetes yaml files:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:44
+msgid "Analyze all yaml files in the current folder:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:49
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:51
+msgid "Simulate applying the files in the current folder to the current cluster:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:58
+msgid "You can run ``istioctl analyze --help`` to see the full set of options."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:61
+msgid "Helping us improve this tool"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:63
+msgid ""
+"We’re continuing to add more analysis capability and we’d love your help "
+"in identifying more use cases. If you’ve discovered some Istio "
+"configuration “gotcha”, some tricky situation that caused you some "
+"problems, open an issue and let us know. We might be able to "
+"automatically flag this problem so that others can discover and avoid the"
+" problem in the first place."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:70
+msgid ""
+"To do this, `open an issue <https://github.com/istio/istio/issues>`_ "
+"describing your scenario. For example:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:73
+msgid "Look at all the virtual services"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:74
+msgid "For each, look at their list of gateways"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:75
+msgid "If some of the gateways don’t exist, produce an error"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:77
+msgid ""
+"We already have an analyzer for this specific scenario, so this is just "
+"an example to illustrate what the kind of information you should provide."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:82
+msgid "Q&A"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:84
+msgid "**What Istio release does this tool target?**"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:94
+msgid "**What analyzers are supported today?**"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:103
+msgid "**Can analysis do anything harmful to my cluster?**"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:109
+msgid "**What about analysis that goes beyond configuration?**"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:115
+msgid "**Where can I find out how to fix the errors I’m getting?**"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:122
+msgid "Advanced"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:125
+msgid "Getting the latest version of ``istioctl analyze``"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:127
+msgid ""
+"Although ``istioctl analyze`` is included in versions of Istio 1.4 and "
+"beyond, you can also directly download the very latest version to use on "
+"your cluster. This version may be unstable, but will have the most "
+"complete and up to date set of analyzers and may find issues that older "
+"versions miss."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:133
+msgid ""
+"You can download the latest ``istioctl`` into the current folder using "
+"the following command:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:136
+msgid "{{< tabset category-name=“platform” >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:138
+msgid "{{< tab name=“Mac” category-value=“macos” >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:143
+msgid ""
+"https://storage.googleapis.com/istio-build/dev/latest \\| xargs -I {} "
+"curl https://storage.googleapis.com/istio-"
+"build/dev/{}/istioctl-{}-osx.tar.gz \\| tar xvz"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:148
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:160
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:150
+msgid "{{< tab name=“Linux” category-value=“linux” >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:155
+msgid ""
+"https://storage.googleapis.com/istio-build/dev/latest \\| xargs -I {} "
+"curl https://storage.googleapis.com/istio-"
+"build/dev/{}/istioctl-{}-linux.tar.gz \\| tar xvz"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:162
+msgid "{{< /tabset >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:165
+msgid "Enabling validation messages for resource status"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:167
+msgid "{{< boilerplate experimental-feature-warning >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:169
+msgid ""
+"Starting with Istio 1.4, Galley can be set up to perform configuration "
+"analysis alongside the configuration distribution that it is primarily "
+"responsible for, via the ``galley.enableAnalysis`` flag. This analysis "
+"uses the same logic and error messages as when using ``istioctl "
+"analyze``. Validation messages from the analysis are written to the "
+"status subresource of the affected Istio resource."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:176
+msgid ""
+"For example. if you have a misconfigured gateway on your “ratings” "
+"virtual service, running ``kubectl get virtualservice ratings`` would "
+"give you something like:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:183
+msgid ""
+"VirtualService metadata: annotations: kubectl.kubernetes.io/last-applied-"
+"configuration: \\| "
+"{“apiVersion”:“networking.istio.io/v1alpha3”,“kind”:“VirtualService”,“metadata”:{“annotations”:{},“name”:“ratings”,“namespace”:“default”},“spec”:{“hosts”:[“ratings”],“http”:[{“route”:[{“destination”:{“host”:“ratings”,“subset”:“v1”}}]}]}}"
+" creationTimestamp: “2019-09-04T17:31:46Z” generation: 11 name: ratings "
+"namespace: default resourceVersion: “12760039” selfLink: "
+"/apis/networking.istio.io/v1alpha3/namespaces/default/virtualservices/ratings"
+" uid: dec86702-cf39-11e9-b803-42010a8a014a spec: gateways: - bogus-"
+"gateway hosts: - ratings http: - route: - destination: host: ratings "
+"subset: v1 status: validationMessages: - code: IST0101 level: Error "
+"message: ‘Referenced gateway not found: “bogus-gateway”’ {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:195
+msgid ""
+"``enableAnalysis`` runs in the background, and will keep the status field"
+" of a resource up to date with its current validation status. Note that "
+"this isn’t a replacement for ``istioctl analyze``:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:199
+msgid ""
+"Not all resources have a custom status field (e.g. Kubernetes "
+"``namespace`` resources), so messages attached to those resources won’t "
+"show validation messages."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:202
+msgid ""
+"``enableAnalysis`` only works on Istio versions starting with 1.4, while "
+"``istioctl analyze`` can be used with older versions."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:204
+msgid ""
+"While it makes it easy to see what’s wrong with a particular resource, "
+"it’s harder to get a holistic view of validation status in the mesh."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:208
+msgid "You can enable this feature with:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:213
+msgid "values.galley.enableAnalysis=true"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:216
+msgid "Ignoring specific analyzer messages via CLI"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:218
+msgid ""
+"Sometimes you might find it useful to hide or ignore analyzer messages in"
+" certain cases. For example, imagine a situation where a message is "
+"emitted about a resource you don’t have permissions to update:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:225
+msgid ""
+"(Namespace frod) The namespace is not enabled for Istio injection. Run "
+"‘kubectl label namespace frod istio-injection=enabled’ to enable it, or "
+"‘kubectl label namespace frod istio-injection=disabled’ to explicitly "
+"mark it as not needing injection Error: Analyzers found issues. See "
+"https://istio.io/docs/reference/config/analysis for more information "
+"about causes and resolutions."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:232
+msgid ""
+"Because you don’t have permissions to update the namespace, you cannot "
+"resolve the message by annotating the namespace. Instead, you can direct "
+"``istioctl analyze`` to suppress the above message on the resource:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:239
+msgid "“IST0102=Namespace frod” ✔ No validation issues found."
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:241
+msgid ""
+"The syntax used for suppression is the same syntax used throughout "
+"``istioctl`` when referring to resources: ``<kind> <name>.<namespace>``, "
+"or just ``<kind> <name>`` for cluster-scoped resources like "
+"``Namespace``. If you want to suppress multiple objects, you can either "
+"repeat the ``--suppress`` argument or use wildcards:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:250
+msgid ""
+"IST0107 on all pods in namespace baz $ istioctl analyze -k –all-"
+"namespaces –suppress “IST0102=Namespace frod” –suppress \"IST0107=Pod "
+"\\*.baz\""
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:255
+msgid "Ignoring specific analyzer messages via annotations"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:257
+msgid ""
+"You can also ignore specific analyzer messages using an annotation on the"
+" resource. For example, to ignore code IST0107 (``MisplacedAnnotation``) "
+"on resource ``deployment/my-deployment``:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:264
+msgid "galley.istio.io/analyze-suppress=IST0107"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:266
+msgid "To ignore multiple codes for a resource, separate each code with a comma:"
+msgstr ""
+
+#: ../../source/docs/ops/diagnostic-tools/istioctl-analyze/index.rst:272
+msgid "galley.istio.io/analyze-suppress=IST0107,IST0002"
+msgstr ""
+

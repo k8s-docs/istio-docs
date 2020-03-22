@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:2
+msgid "envoy-stats"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:4
+msgid "The Envoy proxy keeps detailed statistics about network traffic."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:6
+msgid ""
+"Envoy’s statistics only cover the traffic for a particular Envoy "
+"instance. See `Observability </docs/tasks/observability/>`_ for "
+"persistent per-service Istio telemetry. The statistics the Envoy proxies "
+"record can provide more information about specific pod instances."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:11
+msgid "To see the statistics for a pod:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:16
+msgid "request GET stats"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:18
+msgid ""
+"See `the Envoy documentation "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/upstream/cluster_manager/cluster_stats>`_"
+" for an explanation of the data recorded."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:22
+msgid ""
+"By default, Istio configures Envoy to record minimal statistics. The "
+"default collection keys are:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:25
+msgid "``cluster_manager``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:26
+msgid "``listener_manager``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:27
+msgid "``http_mixer_filter``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:28
+msgid "``tcp_mixer_filter``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:29
+msgid "``server``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:30
+msgid "``cluster.xds-grpc``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:32
+msgid ""
+"To see the Envoy settings for statistics data collection use ```istioctl "
+"proxy-config bootstrap`` </docs/reference/commands/istioctl/#istioctl-"
+"proxy-config-bootstrap>`_ and follow the `deep dive into Envoy "
+"configuration </docs/ops/diagnostic-tools/proxy-cmd/#deep-dive-into-"
+"envoy-configuration>`_. Envoy only collects statistical data on items "
+"matching the ``inclusion_list`` within the ``stats_matcher`` JSON "
+"element."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:39
+#, python-format
+msgid ""
+"To Configure Envoy to record statistics for inbound or outbound traffic, "
+"add the ``sidecar.istio.io/statsInclusionPrefixes`` annotation to the pod"
+" template in the Kubernetes ``Deployment``. Add the ``cluster.outbound`` "
+"prefix to gather data about outbound traffic activity and circuit "
+"breaking. To gather data on inbound traffic, add the ``listener`` prefix."
+" The sample `fortio-deploy.yaml "
+"<%7B%7B%3C%20github_file%3E%7D%7D/samples/httpbin/sample-client/fortio-"
+"deploy.yaml>`_ shows use of ``sidecar.istio.io/statsInclusionPrefixes`` "
+"with the ``cluster.outbound`` prefix."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/telemetry/envoy-stats/index.rst:49
+msgid ""
+"You can override the Envoy defaults to gather less data than usual. Use "
+"``sidecar.istio.io/statsInclusionPrefixes: "
+"cluster_manager,listener_manager`` to collect the least statistics "
+"possible."
+msgstr ""
+

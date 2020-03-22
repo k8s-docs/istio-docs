@@ -1,0 +1,35 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/glossary/service.rst:2
+msgid "service"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/service.rst:4
+msgid ""
+"A delineated group of related behaviors within a `service mesh "
+"</docs/reference/glossary/#service-mesh>`_. Services are identified using"
+" a `service name </docs/reference/glossary/#service-name>`_, and Istio "
+"policies such as load balancing and routing are applied using these "
+"names. A service is typically materialized by one or more `service "
+"endpoints </docs/reference/glossary/#service-endpoint>`_, and may consist"
+" of multiple `service versions </docs/reference/glossary/#service-"
+"version>`_."
+msgstr ""
+

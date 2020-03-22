@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:2
+msgid "Memory quota"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: Memory quota "
+"description: Adapter for a simple in-memory quota management system. "
+"location: https://istio.io/docs/reference/config/policy-and-"
+"telemetry/adapters/memquota.html layout: protoc-gen-docs generator: "
+"protoc-gen-docs supported_templates: quota aliases:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:14
+msgid "/docs/reference/config/adapters/memquota.html"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:15
+msgid ""
+"number_of_entries: 3 --- <p>The <code>memquota</code> adapter can be used"
+" to support Istio&rsquo;s quota management system. Although functional, "
+"this adapter is not intended for production use and is suited for local "
+"testing only. The reason for this limitation is that this adapter can "
+"only be used in meshes where there is a single instance of Mixer running "
+"for the whole mesh (i.e. non-HA configuration) and if that single "
+"instance crashes, all outstanding quota values will be lost.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:25
+msgid ""
+"<p>This adapter supports the <a href=\"/docs/reference/config/policy-and-"
+"telemetry/templates/quota/\">quota template</a>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:27
+msgid ""
+"<h2 id=\"Params\">Params</h2> <section> <p>Configuration format for the "
+"<code>memquota</code> adapter.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:31
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-quotas\"> <td><code>quotas</code></td> "
+"<td><code><a href=\"#Params-Quota\">Quota[]</a></code></td> <td> <p>The "
+"set of known quotas.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:47
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-min_deduplication_duration\"> "
+"<td><code>minDeduplicationDuration</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> <p>Minimum number of seconds that deduplication is possible for a "
+"given operation.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:58
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"Override\">Params.Override</h2> <section> <p>Defines an override value "
+"for a quota. If no override matches a particular quota request, the "
+"default for the quota is used.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:71
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-Override-dimensions\"> "
+"<td><code>dimensions</code></td> "
+"<td><code>map&lt;string,&nbsp;string&gt;</code></td> <td> <p>The specific"
+" dimensions for which this override applies. String representation of "
+"instance dimensions is used to check against configured dimensions.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:88
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Override-max_amount\"> "
+"<td><code>maxAmount</code></td> <td><code>int64</code></td> <td> <p>The "
+"upper limit for this quota.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:99
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Override-valid_duration\"> "
+"<td><code>validDuration</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> <p>The amount of time allocated quota remains valid before it is "
+"automatically released. This is only meaningful for rate limit quotas, "
+"otherwise the value must be zero.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:112
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 id=\"Params-"
+"Quota\">Params.Quota</h2> <section> <p>Defines a quota&rsquo;s limit and "
+"duration.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:124
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Params-Quota-name\"> <td><code>name</code></td> "
+"<td><code>string</code></td> <td> <p>The name of the quota</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:140
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Quota-max_amount\"> "
+"<td><code>maxAmount</code></td> <td><code>int64</code></td> <td> <p>The "
+"upper limit for this quota.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:151
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Quota-valid_duration\"> "
+"<td><code>validDuration</code></td> <td><code><a "
+"href=\"https://developers.google.com/protocol-"
+"buffers/docs/reference/google.protobuf#duration\">Duration</a></code></td>"
+" <td> <p>The amount of time allocated quota remains valid before it is "
+"automatically released. This is only meaningful for rate limit quotas, "
+"otherwise the value must be zero.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:164
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Params-Quota-overrides\"> "
+"<td><code>overrides</code></td> <td><code><a href=\"#Params-"
+"Override\">Override[]</a></code></td> <td> <p>Overrides associated with "
+"this quota. The first matching override is applied.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/adapters/memquota/index.rst:176
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

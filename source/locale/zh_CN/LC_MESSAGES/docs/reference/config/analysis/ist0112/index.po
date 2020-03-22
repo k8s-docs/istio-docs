@@ -1,0 +1,37 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/analysis/ist0112/index.rst:2
+msgid "ist0112"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0112/index.rst:4
+msgid ""
+"This message occurs when a virtual service routes to a service with more "
+"than one port exposed, but does not specify which one to use. This "
+"ambiguity can lead to undefined behavior."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0112/index.rst:8
+msgid ""
+"To fix, add a ``port`` to the virtual service `Destination "
+"</docs/reference/config/networking/virtual-service/#Destination>`_ to "
+"disambiguate which service port should be routed to."
+msgstr ""
+

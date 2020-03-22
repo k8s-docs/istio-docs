@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/distributed-tracing/why-mixer-spans.rst:2
+msgid "why-mixer-spans"
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/why-mixer-spans.rst:4
+msgid ""
+"Mixer generates application-level traces for requests that reach Mixer "
+"with tracing headers. Mixer generates spans, labeled ``istio-mixer`` for "
+"any critical work that it does, including dispatch to individual "
+"adapters."
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/why-mixer-spans.rst:9
+msgid ""
+"Envoy caches calls to Mixer on the data path. As a result, calls out to "
+"Mixer made via the ``istio-policy`` service only happen for certain "
+"requests, for example: cache-expiry or different request characteristics."
+" For this reason, you only see Mixer participate in *some* of your "
+"traces."
+msgstr ""
+
+#: ../../source/faq/distributed-tracing/why-mixer-spans.rst:15
+msgid ""
+"To turn off the application-level trace spans for Mixer itself, you must "
+"edit the deployment configuration for ``istio-policy`` and remove the "
+"``--trace_zipkin_url`` command-line parameter."
+msgstr ""
+

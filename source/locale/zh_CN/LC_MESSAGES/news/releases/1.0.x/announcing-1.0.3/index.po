@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:2
+msgid "announcing-1.0.3"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:4
+msgid ""
+"We’re pleased to announce the availability of Istio 1.0.3. Please see "
+"below for what’s changed."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:10
+msgid "Behavior changes"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:12
+msgid ""
+"`Validating webhook </docs/ops/common-problems/validation>`_ is now "
+"mandatory. Disabling it may result in Pilot crashes."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:15
+msgid ""
+"`Service entry </docs/reference/config/networking/service-entry/>`_ "
+"validation now rejects the wildcard hostname (``*``) when configuring DNS"
+" resolution. The API has never allowed this, however ``ServiceEntry`` was"
+" erroneously excluded from validation in the previous release. Use of "
+"wildcards as part of a hostname, e.g. \\ ``*.bar.com``, remains "
+"unchanged."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:22
+msgid "The core dump path for ``istio-proxy`` has changed to ``/var/lib/istio``."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:26
+msgid "Networking"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:28
+msgid "Mutual TLS Permissive mode is enabled by default."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:30
+msgid ""
+"Pilot performance and scalability has been greatly enhanced. Pilot now "
+"delivers endpoint updates to 500 sidecars in under 1 second."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:33
+msgid ""
+"Default `trace sampling </docs/tasks/observability/distributed-"
+"tracing/overview/#trace-sampling>`_ is set to 1%."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:38
+msgid "Policy and telemetry"
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:40
+msgid ""
+"Mixer (``istio-telemetry``) now supports load shedding based on request "
+"rate and expected latency."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:43
+msgid "Mixer client (``istio-policy``) now supports ``FAIL_OPEN`` setting."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:45
+msgid "Istio Performance dashboard added to Grafana."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:47
+msgid "Reduced ``istio-telemetry`` CPU usage by 10%."
+msgstr ""
+
+#: ../../source/news/releases/1.0.x/announcing-1.0.3/index.rst:49
+msgid ""
+"Eliminated ``statsd-to-prometheus`` deployment. Prometheus now directly "
+"scrapes from ``istio-proxy``."
+msgstr ""
+

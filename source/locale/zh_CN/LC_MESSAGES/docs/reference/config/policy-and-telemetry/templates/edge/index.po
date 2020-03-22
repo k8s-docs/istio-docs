@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:2
+msgid "Edge"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/istio' REPO "
+"source_repo: https://github.com/istio/istio title: Edge description: A "
+"template designed to report observed communication edges between "
+"workloads. location: https://istio.io/docs/reference/config/policy-and-"
+"telemetry/templates/edge.html layout: protoc-gen-docs generator: protoc-"
+"gen-docs number_of_entries: 1 --- <p>The <code>edge</code> template "
+"represents an edge in the mesh graph.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:16
+msgid ""
+"<h2 id=\"Template\">Template</h2> <section> <p>The <code>edge</code> "
+"template represents an edge in the mesh graph</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:20
+msgid ""
+"<p>When writing the configuration, the value for the fields associated "
+"with this template can either be a literal or an <a "
+"href=\"/docs/reference/config/policy-and-telemetry/expression-"
+"language/\">expression</a>. Please note that if the datatype of a field "
+"is not istio.mixer.adapter.model.v1beta1.Value, then the "
+"expression&rsquo;s <a href=\"/docs/reference/config/policy-and-telemetry"
+"/expression-language/#type-checking\">inferred type</a> must match the "
+"datatype of the field.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:28
+msgid "<p>Example config:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:30
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"&quot;config.istio.io/v1alpha2&quot; kind: instance metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:33
+msgid "name: default namespace: istio-system"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:49
+msgid "spec:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:36
+msgid "compiledTemplate: edge params:"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:38
+msgid ""
+"timestamp: request.time sourceUid: source.uid | &quot;Unknown&quot; "
+"sourceOwner: source.owner | &quot;Unknown&quot; sourceWorkloadName: "
+"source.workload.name | &quot;Unknown&quot; sourceWorkloadNamespace: "
+"source.workload.namespace | &quot;Unknown&quot; destinationUid: "
+"destination.uid | &quot;Unknown&quot; destinationOwner: destination.owner"
+" | &quot;Unknown&quot; destinationWorkloadName: destination.workload.name"
+" | &quot;Unknown&quot; destinationWorkloadNamespace: "
+"destination.workload.namespace | &quot;Unknown&quot; "
+"destinationServiceName: destination.service.name | &quot;Unknown&quot; "
+"destinationServiceNamespace: destination.service.namespace | "
+"&quot;Unknown&quot; apiProtocol: api.protocol | &quot;Unknown&quot; "
+"contextProtocol: context.protocol | &quot;Unknown&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:51
+msgid "</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:53
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Template-timestamp\"> <td><code>timestamp</code></td> "
+"<td><code><a href=\"/docs/reference/config/policy-and-"
+"telemetry/istio.policy.v1beta1.html#TimeStamp\">TimeStamp</a></code></td>"
+" <td> <p>Timestamp of the edge</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:69
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-source_workload_namespace\"> "
+"<td><code>sourceWorkloadNamespace</code></td> "
+"<td><code>string</code></td> <td> <p>Namespace of the source workload</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:80
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-source_workload_name\"> "
+"<td><code>sourceWorkloadName</code></td> <td><code>string</code></td> "
+"<td> <p>Name of the source workload</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:91
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-source_owner\"> "
+"<td><code>sourceOwner</code></td> <td><code>string</code></td> <td> "
+"<p>Owner of the source workload (often k8s deployment)</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:102
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-source_uid\"> "
+"<td><code>sourceUid</code></td> <td><code>string</code></td> <td> <p>UID "
+"of the source workload</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:113
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-"
+"destination_workload_namespace\"> "
+"<td><code>destinationWorkloadNamespace</code></td> "
+"<td><code>string</code></td> <td> <p>Namespace of the destination "
+"workload</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:124
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-destination_workload_name\"> "
+"<td><code>destinationWorkloadName</code></td> "
+"<td><code>string</code></td> <td> <p>Name of the destination workload</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:135
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-destination_owner\"> "
+"<td><code>destinationOwner</code></td> <td><code>string</code></td> <td> "
+"<p>Owner of the destination workload (often k8s deployment)</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:146
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-destination_uid\"> "
+"<td><code>destinationUid</code></td> <td><code>string</code></td> <td> "
+"<p>UID of the destination workload</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:157
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-"
+"destination_service_namespace\"> "
+"<td><code>destinationServiceNamespace</code></td> "
+"<td><code>string</code></td> <td> <p>Namespace of the destination "
+"Service</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:168
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-destination_service_name\"> "
+"<td><code>destinationServiceName</code></td> <td><code>string</code></td>"
+" <td> <p>Name of the destination Service</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:179
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-context_protocol\"> "
+"<td><code>contextProtocol</code></td> <td><code>string</code></td> <td> "
+"<p>Protocol used for communication (http, tcp)</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:190
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Template-api_protocol\"> "
+"<td><code>apiProtocol</code></td> <td><code>string</code></td> <td> "
+"<p>The protocol type of the API call (http, https, grpc)</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/policy-and-telemetry/templates/edge/index.rst:201
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

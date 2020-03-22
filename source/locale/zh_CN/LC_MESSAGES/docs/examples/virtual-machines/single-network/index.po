@@ -1,0 +1,516 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:2
+msgid "single-network"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:4
+msgid ""
+"This example shows how to integrate a VM or a bare metal host into a "
+"single-network Istio mesh deployed on Kubernetes."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:8
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:10
+msgid ""
+"You have already set up Istio on Kubernetes. If you haven’t done so, you "
+"can find out how in the `Installation guide </docs/setup/getting-"
+"started/>`_."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:14
+msgid ""
+"Virtual machines (VMs) must have IP connectivity to the endpoints in the "
+"mesh. This typically requires a VPC or a VPN, as well as a container "
+"network that provides direct (without NAT or firewall deny) routing to "
+"the endpoints. The machine is not required to have access to the cluster "
+"IP addresses assigned by Kubernetes."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:20
+msgid ""
+"VMs must have access to a DNS server that resolves names to cluster IP "
+"addresses. Options include exposing the Kubernetes DNS server through an "
+"internal load balancer, using a `Core DNS <https://coredns.io/>`_ server,"
+" or configuring the IPs in any other DNS server accessible from the VM."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:26
+msgid "The following instructions:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:28
+msgid "Assume the expansion VM is running on GCE."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:29
+msgid "Use Google platform-specific commands for some steps."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:32
+msgid "Installation steps"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:34
+msgid ""
+"Setup consists of preparing the mesh for expansion and installing and "
+"configuring each VM."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:38
+msgid "Preparing the Kubernetes cluster for VMs"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:40
+msgid ""
+"The first step when adding non-Kubernetes services to an Istio mesh is to"
+" configure the Istio installation itself, and generate the configuration "
+"files that let VMs connect to the mesh. Prepare the cluster for the VM "
+"with the following commands on a machine with cluster admin privileges:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:46
+msgid ""
+"Create a Kubernetes secret for your generated CA certificates using a "
+"command similar to the following. See `Certificate Authority (CA) "
+"certificates </docs/tasks/security/citadel-config/plugin-ca-cert"
+"/#plugging-in-the-existing-certificate-and-key>`_ for more details."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:53
+msgid ""
+"The root and intermediate certificate from the samples directory are "
+"widely distributed and known. Do **not** use these certificates in "
+"production as your clusters would then be open to security "
+"vulnerabilities and compromise."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:60
+msgid "$ kubectl create namespace istio-system $ kubectl"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:61
+msgid "create secret generic cacerts -n istio-system"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst
+msgid "–from-file=@samples/certs/ca-cert.pem@"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst
+msgid "–from-file=@samples/certs/ca-key.pem@"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst
+msgid "–from-file=@samples/certs/root-cert.pem@"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst
+msgid "–from-file=@samples/certs/cert-chain.pem@"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:67
+msgid "Deploy Istio control plane into the cluster"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:78
+msgid ""
+"For further details and customization options, refer to the `installation"
+" instructions </docs/setup/install/istioctl/>`_."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:81
+msgid ""
+"Define the namespace the VM joins. This example uses the "
+"``SERVICE_NAMESPACE`` environment variable to store the namespace. The "
+"value of this variable must match the namespace you use in the "
+"configuration files later on."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:90
+msgid ""
+"Determine and store the IP address of the Istio ingress gateway since the"
+" VMs access `Citadel </docs/concepts/security/>`_ and `Pilot "
+"</docs/ops/deployment/architecture/#pilot>`_ through this IP address."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:98
+msgid ""
+"istio-ingressgateway -o jsonpath=‘{.status.loadBalancer.ingress[0].ip}’) "
+"$ echo $GWIP 35.232.112.158"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:102
+msgid ""
+"Generate a ``cluster.env`` configuration to deploy in the VMs. This file "
+"contains the Kubernetes cluster IP address ranges to intercept and "
+"redirect via Envoy. You specify the CIDR range when you install "
+"Kubernetes as ``servicesIpv4Cidr``. Replace ``$MY_ZONE`` and "
+"``$MY_PROJECT`` in the following example commands with the appropriate "
+"values to obtain the CIDR after installation:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:112
+msgid ""
+"describe $K8S_CLUSTER –zone $MY_ZONE –project $MY_PROJECT –format "
+"“value(servicesIpv4Cidr)”) $ echo -e \"ISTIO_CP_AUTH=MUTUAL_TLS:raw-"
+"latex:`\\nISTIO`\\_SERVICE_CIDR=$ISTIO_SERVICE_CIDR:raw-latex:`\\n`\" > "
+"cluster.env"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:117
+msgid ""
+"Check the contents of the generated ``cluster.env`` file. It should be "
+"similar to the following example:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:123
+msgid "ISTIO_SERVICE_CIDR=10.55.240.0/20"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:125
+msgid ""
+"If the VM only calls services in the mesh, you can skip this step. "
+"Otherwise, add the ports the VM exposes to the ``cluster.env`` file with "
+"the following command. You can change the ports later if necessary."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:133
+msgid "cluster.env"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:135
+msgid "Extract the initial keys the service account needs to use on the VMs."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:139
+msgid "$ kubectl -n $SERVICE_NAMESPACE get secret"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:140
+msgid "istio.default"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst
+msgid ""
+"-o jsonpath=‘{.data.root-cert.pem}’ \\|base64 –decode > root-cert.pem $ "
+"kubectl -n $SERVICE_NAMESPACE get secret istio.default"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst
+msgid ""
+"-o jsonpath=‘{.data.key.pem}’ \\|base64 –decode > key.pem $ kubectl -n "
+"$SERVICE_NAMESPACE get secret istio.default"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst
+msgid "-o jsonpath=‘{.data.cert-chain.pem}’ \\|base64 –decode > cert-chain.pem"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:150
+msgid "Setting up the VM"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:152
+msgid ""
+"Next, run the following commands on each machine that you want to add to "
+"the mesh:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:155
+msgid ""
+"Copy the previously created ``cluster.env`` and ``*.pem`` files to the "
+"VM. For example:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:161
+msgid ""
+"compute scp –project=:math:`{MY_PROJECT} --zone=`\\ {MY_ZONE} {key.pem"
+",cert-chain.pem,cluster.env,root-cert.pem} ${GCE_NAME}:~"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:164
+msgid "Install the Debian package with the Envoy sidecar."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:169
+msgid ""
+"–project=:math:`{MY_PROJECT} --zone=`\\ {MY_ZONE} “${GCE_NAME}” $ curl -L"
+" https://storage.googleapis.com/istio-release/releases/{{< "
+"istio_full_version >}}/deb/istio-sidecar.deb > istio-sidecar.deb $ sudo "
+"dpkg -i istio-sidecar.deb"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:174
+msgid ""
+"Add the IP address of the Istio gateway to ``/etc/hosts``. Revisit the "
+"`preparing the cluster <#preparing-the-kubernetes-cluster-for-vms>`_ "
+"section to learn how to obtain the IP address. The following example "
+"updates the ``/etc/hosts`` file with the Istio gateway address:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:183
+msgid "istio-pilot.istio-system” \\| sudo tee -a /etc/hosts"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:185
+msgid ""
+"Install ``root-cert.pem``, ``key.pem`` and ``cert-chain.pem`` under "
+"``/etc/certs/``."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:191
+msgid "{root-cert.pem,cert-chain.pem,key.pem} /etc/certs"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:193
+msgid "Install ``cluster.env`` under ``/var/lib/istio/envoy/``."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:199
+msgid ""
+"Transfer ownership of the files in ``/etc/certs/`` and "
+"``/var/lib/istio/envoy/`` to the Istio proxy."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:205
+msgid "/var/lib/istio/envoy"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:207
+msgid "Verify the Istio Agent works:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:212
+msgid "Will renew cert in 1079h59m59.84568493s"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:214
+msgid "Start Istio using ``systemctl``."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:219
+msgid "systemctl start istio"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:222
+msgid "Send requests from VM workloads to Kubernetes services"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:224
+msgid ""
+"After setup, the machine can access services running in the Kubernetes "
+"cluster or on other VMs."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:227
+msgid ""
+"The following example shows accessing a service running in the Kubernetes"
+" cluster from a VM using ``/etc/hosts/``, in this case using a service "
+"from the `Bookinfo example </docs/examples/bookinfo/>`_."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:231
+msgid ""
+"First, on the cluster admin machine get the virtual IP address "
+"(``clusterIP``) for the service:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:237
+msgid "jsonpath=‘{.spec.clusterIP}’ 10.55.246.247"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:239
+msgid ""
+"Then on the added VM, add the service name and address to its "
+"``etc/hosts`` file. You can then connect to the cluster service from the "
+"VM, as in the example below:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:246
+msgid ""
+"productpage.default.svc.cluster.local” \\| sudo tee -a /etc/hosts $ curl "
+"-v productpage.default.svc.cluster.local:9080 < HTTP/1.1 200 OK < "
+"content-type: text/html; charset=utf-8 < content-length: 1836 < server: "
+"envoy … html content …"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:251
+msgid ""
+"The ``server: envoy`` header indicates that the sidecar intercepted the "
+"traffic."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:255
+msgid "Running services on the added VM"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:257
+msgid ""
+"Setup an HTTP server on the VM instance to serve HTTP traffic on port "
+"8080:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:263
+msgid "SimpleHTTPServer 8080"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:265
+msgid ""
+"Determine the VM instance’s IP address. For example, find the IP address "
+"of the GCE instance with the following commands:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:271
+msgid ""
+"–format=“value(networkInterfaces[0].networkIP)” compute instances "
+"describe ${GCE_NAME}) $ echo ${GCE_IP}"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:274
+msgid "Add VM services to the mesh"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:279
+msgid "external-service vmhttp ${VM_IP} http:8080 -n ${SERVICE_NAMESPACE}"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:284
+msgid ""
+"Ensure you have added the ``istioctl`` client to your path, as described "
+"in the `download page </docs/setup/getting-started/#download>`_."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:288
+msgid ""
+"Deploy a pod running the ``sleep`` service in the Kubernetes cluster, and"
+" wait until it is ready:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:294
+msgid ""
+"kubectl get pod NAME READY STATUS RESTARTS AGE sleep-88ddbcfdd-rm42k 2/2 "
+"Running 0 1s …"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:297
+msgid ""
+"Send a request from the ``sleep`` service on the pod to the VM’s HTTP "
+"service:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:303
+msgid "curl vmhttp.${SERVICE_NAMESPACE}.svc.cluster.local:8080"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:305
+msgid "You should see something similar to the output below."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:307
+msgid "{{< text html >}} <!DOCTYPE html PUBLIC “-//W3C//DTD HTML 3.2 Final//EN”>"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:318
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:332
+msgid "Directory listing for /"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:350
+msgid ".bashrc"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:360
+msgid ".ssh/"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:366
+msgid "…"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:374
+msgid ""
+"**Congratulations!** You successfully configured a service running in a "
+"pod within the cluster to send traffic to a service running on a VM "
+"outside of the cluster and tested that the configuration worked."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:379
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:381
+msgid ""
+"Run the following commands to remove the expansion VM from the mesh’s "
+"abstract model."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:387
+msgid ""
+"${SERVICE_NAMESPACE} vmhttp Kubernetes Service “vmhttp.vm” has been "
+"deleted for external service “vmhttp” Service Entry “mesh-expansion-"
+"vmhttp” has been deleted for external service “vmhttp”"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:393
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:395
+msgid ""
+"The following are some basic troubleshooting steps for common VM-related "
+"issues."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:398
+msgid ""
+"When making requests from a VM to the cluster, ensure you don’t run the "
+"requests as ``root`` or ``istio-proxy`` user. By default, Istio excludes "
+"both users from interception."
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:402
+msgid ""
+"Verify the machine can reach the IP of the all workloads running in the "
+"cluster. For example:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:421
+msgid "Check the status of the Istio Agent and sidecar:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:432
+msgid ""
+"Check that the processes are running. The following is an example of the "
+"processes you should see on the VM if you run ``ps``, filtered for "
+"``istio``:"
+msgstr ""
+
+#: ../../source/docs/examples/virtual-machines/single-network/index.rst:448
+msgid "Check the Envoy access and error logs:"
+msgstr ""
+

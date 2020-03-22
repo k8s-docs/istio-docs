@@ -1,0 +1,218 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:2
+msgid "TCP Traffic Shifting"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:4
+msgid ""
+"This task shows you how to gradually migrate TCP traffic from one version"
+" of a microservice to another. For example, you might migrate TCP traffic"
+" from an older version to a new version."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:8
+#, python-format
+msgid ""
+"A common use case is to migrate TCP traffic gradually from one version of"
+" a microservice to another. In Istio, you accomplish this goal by "
+"configuring a sequence of rules that route a percentage of TCP traffic to"
+" one service or another. In this task, you will send 100% of the TCP "
+"traffic to ``tcp-echo:v1``. Then, you will route 20% of the TCP traffic "
+"to ``tcp-echo:v2`` using Istio’s weighted routing feature."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:16
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:18
+msgid ""
+"Setup Istio by following the instructions in the `Installation guide "
+"</docs/setup/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:20
+msgid ""
+"Review the `Traffic Management </docs/concepts/traffic-management>`_ "
+"concepts doc."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:23
+msgid "Apply weight-based TCP routing"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:25
+msgid ""
+"To get started, deploy the ``v1`` version of the ``tcp-echo`` "
+"microservice."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:27
+msgid "First, create a namespace for testing TCP traffic shifting"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:33
+msgid ""
+"If you are using `manual sidecar injection </docs/setup/additional-setup"
+"/sidecar-injection/#manual-sidecar-injection>`_, use the following "
+"command"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:38
+msgid ""
+"$ kubectl apply -f <(istioctl kube-inject -f @samples/tcp-echo/tcp-echo-"
+"services.yaml@) -n istio-io-tcp-traffic-shifting"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:40
+msgid ""
+"The `istioctl kube-inject </docs/reference/commands/istioctl/#istioctl-"
+"kube-inject>`_ command is used to manually modify the ``tcp-echo-"
+"services.yaml`` file before creating the deployments."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:45
+msgid ""
+"If you are using a cluster with `automatic sidecar injection </docs/setup"
+"/additional-setup/sidecar-injection/#automatic-sidecar-injection>`_ "
+"enabled, label the ``istio-io-tcp-traffic-shifting`` namespace with "
+"``istio-injection=enabled``"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:53
+msgid "Then simply deploy the services using ``kubectl``"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:59
+msgid ""
+"Next, route all TCP traffic to the ``v1`` version of the ``tcp-echo`` "
+"microservice."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:65
+msgid "Confirm that the ``tcp-echo`` service is up and running."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:67
+msgid ""
+"The ``$INGRESS_HOST`` variable below is the External IP address of the "
+"ingress, as explained in the `Ingress Gateways </docs/tasks/traffic-"
+"management/ingress/ingress-control/#determining-the-ingress-ip-and-"
+"ports>`_ doc. To obtain the ``$INGRESS_PORT`` value, use the following "
+"command."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:75
+msgid "Send some TCP traffic to the ``tcp-echo`` microservice."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:93
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:142
+msgid ""
+"The ``docker`` command may require using ``sudo`` depending on your "
+"Docker installation."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:95
+msgid ""
+"You should notice that all the timestamps have a prefix of *one*, which "
+"means that all traffic was routed to the ``v1`` version of the ``tcp-"
+"echo`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:99
+#, python-format
+msgid ""
+"Transfer 20% of the traffic from ``tcp-echo:v1`` to ``tcp-echo:v2`` with "
+"the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:106
+msgid "Wait a few seconds for the new rules to propagate."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:108
+msgid "Confirm that the rule was replaced:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:116
+msgid "match:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:118
+msgid "port: 31400 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:119
+msgid "destination: host: tcp-echo port: number: 9000 subset: v1 weight: 80"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:121
+msgid "destination: host: tcp-echo port: number: 9000 subset: v2 weight: 20"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:124
+msgid "Send some more TCP traffic to the ``tcp-echo`` microservice."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:145
+#, python-format
+msgid ""
+"You should now notice that about 20% of the timestamps have a prefix of "
+"*two*, which means that 80% of the TCP traffic was routed to the ``v1`` "
+"version of the ``tcp-echo`` service, while 20% was routed to ``v2``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:151
+msgid "Understanding what happened"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:153
+msgid ""
+"In this task you partially migrated TCP traffic from an old to new "
+"version of the ``tcp-echo`` service using Istio’s weighted routing "
+"feature. Note that this is very different than doing version migration "
+"using the deployment features of container orchestration platforms, which"
+" use instance scaling to manage the traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:159
+msgid ""
+"With Istio, you can allow the two versions of the ``tcp-echo`` service to"
+" scale up and down independently, without affecting the traffic "
+"distribution between them."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:163
+msgid ""
+"For more information about version routing with autoscaling, check out "
+"the blog article `Canary Deployments using Istio "
+"</blog/2017/0.1-canary/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:167
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/tcp-traffic-shifting/index.rst:169
+msgid "Remove the ``tcp-echo`` application and routing rules:"
+msgstr ""
+

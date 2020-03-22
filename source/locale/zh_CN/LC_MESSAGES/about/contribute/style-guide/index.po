@@ -1,0 +1,319 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/contribute/style-guide/index.rst:2
+msgid "style-guide"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:4
+msgid ""
+"All content accepted into the Istio documentation must be **clear** and "
+"**understandable**. The standard we use to make that determination is "
+"defined by the `highlights "
+"<https://developers.google.com/style/highlights>`_ and the `general "
+"principles <https://developers.google.com/style/tone>`_ of the Google "
+"developer style guide. See our `review page </about/contribute/review>`_ "
+"for details on how your content contributions are reviewed and accepted."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:13
+msgid ""
+"Here you can find all the scenarios where the Istio project has decided "
+"to follow a different practice and basic style guidance with Istio-"
+"specific examples."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:18
+msgid "Use sentence case for headings"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:20
+msgid ""
+"Use sentence case for the headings in your document. Only capitalize the "
+"first word of the heading, except for proper nouns or acronyms."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:24
+#: ../../source/about/contribute/style-guide/index.rst:42
+#: ../../source/about/contribute/style-guide/index.rst:54
+#: ../../source/about/contribute/style-guide/index.rst:87
+#: ../../source/about/contribute/style-guide/index.rst:98
+#: ../../source/about/contribute/style-guide/index.rst:134
+#: ../../source/about/contribute/style-guide/index.rst:171
+#: ../../source/about/contribute/style-guide/index.rst:192
+msgid "Do"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:24
+#: ../../source/about/contribute/style-guide/index.rst:42
+#: ../../source/about/contribute/style-guide/index.rst:54
+#: ../../source/about/contribute/style-guide/index.rst:87
+#: ../../source/about/contribute/style-guide/index.rst:98
+#: ../../source/about/contribute/style-guide/index.rst:134
+#: ../../source/about/contribute/style-guide/index.rst:171
+#: ../../source/about/contribute/style-guide/index.rst:192
+msgid "Don’t"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:26
+msgid "Configuring rate limits"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:26
+msgid "Configuring Rate Limits"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:27
+msgid "Using Envoy for ingress"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:27
+msgid "Using envoy for ingress"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:28
+msgid "Using HTTPS"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:28
+msgid "Using https"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:32
+msgid "Use title case for the value of the ``title:`` field of the front-matter"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:34
+msgid ""
+"The text for the ``title:`` field of the front-matter must use title "
+"case. Capitalize the first letter of every word except conjunctions and "
+"prepositions."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:39
+msgid "Use present tense"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:44
+msgid "This command starts a proxy."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:44
+msgid "This command will start a proxy."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:47
+msgid ""
+"Exception: Use future or past tense if it is required to convey the "
+"correct meaning. This exception is extremely rare and should be avoided."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:51
+msgid "Use active voice"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:56
+msgid "You can explore the API using a browser."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:56
+msgid "The API can be explo red using a brows er."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:67
+msgid "The YAML file specifies the replica count."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:67
+msgid "The repli ca count is speci fied in the YAML file."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:81
+msgid "Use simple and direct language"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:83
+msgid ""
+"Use simple and direct language. Avoid using unnecessary phrases, such as "
+"saying “please.”"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:89
+msgid "To create a ``ReplicaSet``, …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:89
+msgid "In order to create a ``ReplicaSet``, …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:90
+msgid "See the configuration file."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:90
+msgid "Please see the configuration file."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:91
+msgid "View the Pods."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:91
+msgid "With this next command, we’ll view the Pods."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:95
+msgid "Address the reader as “you”"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:100
+msgid "You can create a ``Deployment`` by …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:100
+msgid "We’ll create a ``Depl oyment `` by …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:108
+msgid "In the preceding output, you can see…"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:108
+msgid "In the preced ing output , we can see …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:118
+msgid "Create useful links"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:120
+msgid ""
+"There are good hyperlinks, and bad hyperlinks. The common practice of "
+"calling links *here* or *click here* are examples of bad hyperlinks. "
+"Check out `this excellent article <https://medium.com/@heyoka/dont-use-"
+"click-here-f32f445d1021>`_ explaining what makes a good hyperlink and try"
+" to keep these guidelines in mind when creating or reviewing site "
+"content."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:128
+msgid "Avoid using “we”"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:130
+msgid ""
+"Using “we” in a sentence can be confusing, because the reader might not "
+"know whether they’re part of the “we” you’re describing."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:136
+msgid "Version 1.4 includes …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:136
+msgid "In versio n 1.4, we have added …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:145
+msgid "Istio provides a new feature for …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:145
+msgid "We provid e a new featur e …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:153
+msgid "This page teaches you how to use pods."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:153
+msgid "In this page, we are going to learn about pods."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:165
+msgid "Avoid jargon and idioms"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:167
+msgid ""
+"Some readers speak English as a second language. Avoid jargon and idioms "
+"to help make their understanding easier."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:173
+msgid "Internally, …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:173
+msgid "Under the hood, …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:174
+msgid "Create a new cluster."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:174
+msgid "Turn up a new cluster."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:175
+msgid "Initially, …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:175
+msgid "Out of the box, …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:179
+msgid "Avoid statements about the future"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:181
+msgid ""
+"Avoid making promises or giving hints about the future. If you need to "
+"talk about a feature in development, add a boilerplate under the front "
+"matter that identifies the information accordingly."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:186
+msgid "Avoid statements that will soon be out of date"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:188
+msgid ""
+"Avoid using wording that becomes outdated quickly like “currently” and "
+"“new”. A feature that is new today is not new for long."
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:194
+msgid "In version 1.4, …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:194
+msgid "In the current version, …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:195
+msgid "The Federation feature provides …"
+msgstr ""
+
+#: ../../source/about/contribute/style-guide/index.rst:195
+msgid "The new Federation feature provides …"
+msgstr ""
+

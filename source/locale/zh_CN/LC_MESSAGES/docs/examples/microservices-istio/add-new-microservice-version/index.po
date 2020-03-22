@@ -1,0 +1,265 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:2
+msgid "add-new-microservice-version"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:4
+msgid ""
+"In this module, you deploy a new version of the ``reviews`` service, "
+"``_v2_``, which will return the number and star color of ratings provided"
+" by reviewers. In a real-world scenario, before you deploy, you would "
+"perform static analysis tests, unit tests, integration tests, end-to-end "
+"tests and tests in a staging environment."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:10
+msgid ""
+"Deploy the new version of the ``reviews`` microservice without the "
+"``app=reviews`` label. Without that label, the new version will not be "
+"selected to provide the ``reviews`` service. As such, it will not be "
+"called by the production code. Run the following command to deploy the "
+"``reviews`` microservice version 2, while replacing the label "
+"``app=reviews`` by ``app=reviews_test``:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:20
+msgid ""
+">}}/samples/bookinfo/platform/kube/bookinfo.yaml \\| sed ‘s/app: "
+"reviews/app: reviews_test/’ \\| kubectl apply -l "
+"app=reviews_test,version=v2 -f - deployment “reviews-v2” created"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:24
+msgid ""
+"Access your application to ensure the deployed microservice did not "
+"disrupt it."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:27
+msgid ""
+"Test the new version of your microservice from inside the cluster using "
+"the testing container you deployed earlier. Note that your new version "
+"accesses the production pods of the ``ratings`` microservice during the "
+"test. Also note that you have to use the pod IP to access your new "
+"version of the microservice, because it is not selected for the "
+"``reviews`` service."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:34
+msgid "Get the IP of the pod:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:38
+msgid ""
+"$ REVIEWS_V2_POD_IP=$(kubectl get pod -l app=reviews_test,version=v2 -o "
+"jsonpath=‘{.items[0].status.podIP}’) $ echo $REVIEWS_V2_POD_IP"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:42
+msgid "Send a request to the pod and see that it returns the correct result:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:47
+msgid ""
+"$ kubectl exec -it $(kubectl get pod -l app=sleep -o "
+"jsonpath=‘{.items[0].metadata.name}’) – curl "
+"$REVIEWS_V2_POD_IP:9080/reviews/7 {“id”: “7”,“reviews”: [{ “reviewer”: "
+"“Reviewer1”, “text”: “An extremely entertaining play by Shakespeare. The "
+"slapstick humour is refreshing!”, “rating”: {“stars”: 5, “color”: "
+"“black”}},{ “reviewer”: “Reviewer2”, “text”: “Absolutely fun and "
+"entertaining. The play lacks thematic depth when compared to other plays "
+"by Shakespeare.”, “rating”: {“stars”: 4, “color”: “black”}}]}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:57
+msgid "Perform primitive load testing by sending a request 10 times in a row:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:62
+msgid ""
+"$ kubectl exec -it $(kubectl get pod -l app=sleep -o "
+"jsonpath=‘{.items[0].metadata.name}’) – sh -c “for i in 1 2 3 4 5 6 7 8 9"
+" 10; do curl -o /dev/null -s -w ‘%{http_code}:raw-latex:`\\n`’ "
+"$REVIEWS_V2_POD_IP:9080/reviews/7; done” 200 200 …"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:68
+#, python-format
+msgid ""
+"The previous steps ensure that your new version of ``reviews`` will work "
+"and you can deploy it. You will deploy a single replica of the service "
+"into production so the real production traffic will start to arrive to "
+"your new service version. With the current setting, 75% of the traffic "
+"will arrive to the old version (three pods of the old version) and 25% "
+"will arrive to the new version (a single pod)."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:75
+msgid ""
+"To deploy *reviews v2*, redeploy the new version with the ``app=reviews``"
+" label, so it will become addressable by the ``reviews`` service."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:82
+msgid "–overwrite pod “reviews-v2-79c8c8c7c5-4p4mn” labeled"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:84
+#, python-format
+msgid ""
+"Now, you access the application web page and observe that the black stars"
+" appear for ratings. You can access the page several times and see that "
+"sometimes the page is returned with stars (approximately 25% of the time)"
+" and sometimes without stars (approximately 75% of the time)."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:95
+msgid ""
+"If you encounter any problems with the new version in a real-world "
+"scenario, you could quickly undeploy the new version, so only the old "
+"version will be used:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:102
+msgid ""
+"delete pod -l app=reviews,version=v2 deployment “reviews-v2” deleted pod "
+"“reviews-v2-79c8c8c7c5-4p4mn” deleted"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:105
+msgid ""
+"Allow time for the configuration change to propagate through the system. "
+"Then, access your application’s webpage several times and see that now "
+"black stars do not appear."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:109
+msgid "To restore the new version:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:114
+msgid ""
+"github_file >}}/samples/bookinfo/platform/kube/bookinfo.yaml deployment "
+"“reviews-v2” created"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:117
+#, python-format
+msgid ""
+"Access your application’s webpage several times and see that now the "
+"black stars are present approximately 25% of the time."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:120
+msgid ""
+"Next, increase the replicas of your new version. You can do it gradually,"
+" carefully checking that the number of errors does not increase:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:127
+msgid "deployment “reviews-v2” scaled"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:129
+msgid ""
+"Now, access your application’s webpage several times and see that the "
+"black stars appear approximately half the time."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:132
+msgid "Now, you can decommission the old version:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:137
+msgid "“reviews-v1” deleted"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:139
+msgid ""
+"Accessing the web page of the application will return reviews with black "
+"stars only."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:142
+msgid ""
+"In the previous steps, you performed the update of ``reviews``. First, "
+"you deployed the new version without sending it simulated production "
+"traffic. You tested it in the production environment using test traffic. "
+"You checked that the new version provides correct results. You released "
+"the new version, gradually increasing the production traffic to it. "
+"Finally, you decommissioned the old version."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:149
+msgid ""
+"From here, you can improve your deployment strategy using the following "
+"example tasks. First, test the new version end-to-end in production. This"
+" requires the ability to drive traffic to your new version using request "
+"parameters, for example using the user name stored in a cookie. In "
+"addition, perform shadowing of the production traffic to your new version"
+" and check if your new version provides incorrect results or produces "
+"errors. Finally, gain more detailed control of the rollout. As an "
+"example, you can deploy at 1%, then increase by 1% an hour as long as "
+"there does not appear to be degradation in the service. Istio enhances "
+"the value of Kubernetes by helping you perform these tasks in a "
+"straightforward way. For more detailed information and best practices "
+"about deployment, see `Deployment models </docs/ops/deployment"
+"/deployment-models/>`_."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:163
+msgid "From here, you have two choices:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:165
+msgid ""
+"Use a *service mesh*. In a service mesh, you put all the reporting, "
+"routing, policies, security logic in *sidecar* proxies, injected "
+"*transparently* into your application pods. The business logic remains in"
+" the code of the application, no changes are required to the application "
+"code."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:171
+msgid ""
+"Implement the required functionality in the application code. Most of the"
+" functionality is already available in various libraries, for example in "
+"the Netflix’s `Hystrix <https://github.com/Netflix/Hystrix>`_ library for"
+" the Java programming language. However, now you have to change your code"
+" to use the libraries. You have to put additional effort, your code will "
+"bloat, business logic will be mixed with reporting, routing, policies, "
+"networking logic. Since your microservices use different programming "
+"languages, you have to learn, use, update multiple libraries."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:182
+msgid ""
+"See `Istio service mesh </docs/concepts/what-is-istio/#what-is-a-service-"
+"mesh>`_ to learn how Istio can perform the tasks mentioned here and more."
+" In the next modules, you explore various Istio features."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/add-new-microservice-version/index.rst:187
+msgid ""
+"You are ready to `enable Istio on ``productpage`` </docs/examples"
+"/microservices-istio/add-istio/>`_."
+msgstr ""
+

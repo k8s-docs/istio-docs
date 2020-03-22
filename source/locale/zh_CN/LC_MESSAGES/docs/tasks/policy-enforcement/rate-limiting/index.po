@@ -1,0 +1,488 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:2
+msgid "rate-limiting"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:6
+msgid "The mixer policy is deprecated in Istio 1.5 and not"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:7
+msgid "recommended for production usage."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:9
+msgid ""
+"Consider using `Envoy native rate limiting "
+"<https://www.envoyproxy.io/docs/envoy/v1.13.0/intro/arch_overview/other_features/global_rate_limiting>`_"
+" instead of mixer rate limiting. Istio will add support for native rate "
+"limiting API through the Istio extensions API."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:14
+msgid ""
+"This task shows you how to use Istio to dynamically limit the traffic to "
+"a service."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:18
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:20
+msgid ""
+"Setup Istio in a Kubernetes cluster by following the instructions in the "
+"`Installation Guide </docs/setup/getting-started/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:25
+msgid ""
+"Policy enforcement **must** be enabled in your cluster for this task. "
+"Follow the steps in `Enabling Policy Enforcement </docs/tasks/policy-"
+"enforcement/enabling-policy/>`_ to ensure that policy enforcement is "
+"enabled."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:30
+msgid "Deploy the `Bookinfo </docs/examples/bookinfo/>`_ sample application."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:33
+msgid "The Bookinfo sample deploys 3 versions of the ``reviews`` service:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:35
+msgid "Version v1 doesn’t call the ``ratings`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:36
+msgid ""
+"Version v2 calls the ``ratings`` service, and displays each rating as 1 "
+"to 5 black stars."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:38
+msgid ""
+"Version v3 calls the ``ratings`` service, and displays each rating as 1 "
+"to 5 red stars."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:41
+msgid ""
+"You need to set a default route to one of the versions. Otherwise, when "
+"you send requests to the ``reviews`` service, Istio routes requests to "
+"all available versions randomly, and sometimes the output contains star "
+"ratings and sometimes it doesn’t."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:46
+msgid "Set the default version for all services to v1."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:51
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:329
+msgid "@samples/bookinfo/networking/virtual-service-all-v1.yaml@ {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:55
+msgid "Rate limits"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:57
+msgid ""
+"In this task, you configure Istio to rate limit traffic to "
+"``productpage`` based on the IP address of the originating client. You "
+"will use ``X-Forwarded-For`` request header as the client IP address. You"
+" will also use a conditional rate limit that exempts logged in users."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:62
+msgid ""
+"For convenience, you configure the `memory quota </docs/reference/config"
+"/policy-and-telemetry/adapters/memquota/>`_ (``memquota``) adapter to "
+"enable rate limiting. On a production system, however, you need `Redis "
+"<http://redis.io/>`_, and you configure the `Redis quota "
+"</docs/reference/config/policy-and-telemetry/adapters/redisquota/>`_ "
+"(``redisquota``) adapter. Both the ``memquota`` and ``redisquota`` "
+"adapters support the `quota template </docs/reference/config/policy-and-"
+"telemetry/templates/quota/>`_, so the configuration to enable rate "
+"limiting on both adapters is the same."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:74
+msgid "Rate limit configuration is split into 2 parts."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:76
+msgid "Client Side"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:78
+msgid ""
+"``QuotaSpec`` defines quota name and amount that the client should "
+"request."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:80
+msgid ""
+"``QuotaSpecBinding`` conditionally associates ``QuotaSpec`` with one or "
+"more services."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:83
+msgid "Mixer Side"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:85
+msgid "``quota instance`` defines how quota is dimensioned by Mixer."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:86
+msgid "``memquota handler`` defines ``memquota`` adapter configuration."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:88
+msgid ""
+"``quota rule`` defines when quota instance is dispatched to the "
+"``memquota`` adapter."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:91
+msgid "Run the following command to enable rate limits using ``memquota``:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:96
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:303
+msgid "@samples/bookinfo/policy/mixer-rule-productpage-ratelimit.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:100
+msgid ""
+"If you use Istio 1.1.2 or prior, please use the following configuration "
+"instead:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:106
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:310
+msgid "@samples/bookinfo/policy/mixer-rule-productpage-ratelimit-crd.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:111
+msgid ""
+"The ``memquota`` handler defines 4 different rate limit schemes. The "
+"default, if no overrides match, is ``500`` requests per one second "
+"(``1s``). Two overrides are also defined:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:115
+msgid ""
+"The first is ``1`` request (the ``maxAmount`` field) every ``5s`` (the "
+"``validDuration`` field), if the ``destination`` is ``reviews``."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:118
+msgid ""
+"The second is ``500`` requests every ``1s``, if the destination is "
+"``productpage`` and source is ``10.28.11.20``"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:120
+msgid ""
+"The third is ``2`` requests every ``5s``, if the ``destination`` is "
+"``productpage``."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:123
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:153
+msgid ""
+"When a request is processed, the first matching override is picked "
+"(reading from top to bottom)."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:126
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:313
+msgid "Or"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:128
+msgid "Run the following command to enable rate limits using ``redisquota``:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:133
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:321
+msgid ""
+"@samples/bookinfo/policy/mixer-rule-productpage-redis-quota-rolling-"
+"window.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:136
+msgid ""
+"*Note:* Replace `rate_limit_algorithm </docs/reference/config/policy-and-"
+"telemetry/adapters/redisquota/#Params-QuotaAlgorithm>`_, "
+"`redis_server_url </docs/reference/config/policy-and-"
+"telemetry/adapters/redisquota/#Params>`_ with values for your "
+"configuration."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:141
+msgid ""
+"The ``redisquota`` handler defines 4 different rate limit schemes. The "
+"default, if no overrides match, is ``500`` requests per one second "
+"(``1s``). It is using ``ROLLING_WINDOW`` algorithm for quota check and "
+"thus define ``bucketDuration`` of 500ms for ``ROLLING_WINDOW`` algorithm."
+" Three overrides are also defined:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:147
+msgid ""
+"The first is ``1`` request (the ``maxAmount`` field), if the "
+"``destination`` is ``reviews``."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:149
+msgid ""
+"The second is ``500``, if the destination is ``productpage`` and source "
+"is ``10.28.11.20``"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:151
+msgid "The third is ``2``, if the ``destination`` is ``productpage``."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:156
+msgid "Confirm the ``quota instance`` was created:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:161
+msgid "requestcountquota -o yaml"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:163
+msgid ""
+"The ``quota`` template defines three dimensions that are used by "
+"``memquota`` or ``redisquota`` to set overrides on requests that match "
+"certain attributes. The ``destination`` will be set to the first non-"
+"empty value in ``destination.labels[\"app\"]``, "
+"``destination.service.host``, or ``\"unknown\"``. For more information on"
+" expressions, see `Expression Language </docs/reference/config/policy-"
+"and-telemetry/expression-language/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:171
+msgid "Confirm the ``quota rule`` was created:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:178
+msgid ""
+"The ``rule`` tells Mixer to invoke the ``memquota`` or ``redisquota`` "
+"handler (created above) and pass it the object constructed using the "
+"instance ``requestcountquota`` (also created above). This maps the "
+"dimensions from the ``quota`` template to ``memquota`` or ``redisquota`` "
+"handler."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:184
+msgid "Confirm the ``QuotaSpec`` was created:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:189
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:199
+msgid "request-count -o yaml"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:191
+msgid ""
+"This ``QuotaSpec`` defines the ``requestcountquota`` you created above "
+"with a charge of ``1``."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:194
+msgid "Confirm the ``QuotaSpecBinding`` was created:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:201
+msgid ""
+"This ``QuotaSpecBinding`` binds the ``QuotaSpec`` you created above to "
+"the services you want to apply it to. ``productpage`` is explicitly bound"
+" to ``request-count``, note that you must define the namespace since it "
+"differs from the namespace of the ``QuotaSpecBinding``. If the last line "
+"is uncommented, ``service: '*'`` binds all services to the ``QuotaSpec`` "
+"making the first entry redundant."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:209
+msgid "Refresh the product page in your browser."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:211
+msgid ""
+"``request-count`` quota applies to ``productpage`` and it permits 2 "
+"requests every 5 seconds. If you keep refreshing the page you should see "
+"``RESOURCE_EXHAUSTED:Quota is exhausted for: requestcount``."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:216
+msgid "Conditional rate limits"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:218
+msgid ""
+"In the above example we have effectively rate limited ``productpage`` at "
+"``2 rps`` per client IP. Consider a scenario where you would like to "
+"exempt clients from this rate limit if a user is logged in. In the "
+"``bookinfo`` example, we use cookie ``session=<sessionid>`` to denote a "
+"logged in user. In a realistic scenario you may use a ``jwt`` token for "
+"this purpose."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:225
+msgid ""
+"You can update the ``quota rule`` by adding a match condition based on "
+"the ``cookie``."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:231
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:236
+msgid "\"session=*\") == false actions: …"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:240
+msgid "Don’t enable `chrome"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:241
+msgid ""
+"preload "
+"<https://support.google.com/chrome/answer/114836?hl=en&co=GENIE.Platform=Desktop>`_"
+" as it can preload cookies and fail this task."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:246
+msgid ""
+"``memquota`` or ``redisquota`` adapter is now dispatched only if "
+"``session=<sessionid>`` cookie is absent from the request. This ensures "
+"that a logged in user is not subject to this quota."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:250
+msgid "Verify that rate limit does not apply to a logged in user."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:252
+msgid ""
+"Log in as ``jason`` and repeatedly refresh the ``productpage``. Now you "
+"should be able to do this without a problem."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:255
+msgid "Verify that rate limit *does* apply when not logged in."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:257
+msgid ""
+"Logout as ``jason`` and repeatedly refresh the ``productpage``. You "
+"should again see ``RESOURCE_EXHAUSTED:Quota is exhausted for: "
+"requestcount``."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:262
+msgid "Understanding rate limits"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:264
+msgid ""
+"In the preceding examples you saw how Mixer applies rate limits to "
+"requests that match certain conditions."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:267
+msgid ""
+"Every named quota instance like ``requestcount`` represents a set of "
+"counters. The set is defined by a Cartesian product of all quota "
+"dimensions. If the number of requests in the last ``expiration`` duration"
+" exceed ``maxAmount``, Mixer returns a ``RESOURCE_EXHAUSTED`` message to "
+"the Envoy proxy, and Envoy returns status ``HTTP 429`` to the caller."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:274
+msgid ""
+"The ``memquota`` adapter uses a sliding window of sub-second resolution "
+"to enforce rate limits."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:277
+msgid ""
+"The ``redisquota`` adapter can be configured to use either the "
+"```ROLLING_WINDOW`` or ``FIXED_WINDOW`` </docs/reference/config/policy-"
+"and-telemetry/adapters/redisquota/#Params-QuotaAlgorithm>`_ algorithms to"
+" enforce rate limits."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:282
+msgid ""
+"The ``maxAmount`` in the adapter configuration sets the default limit for"
+" all counters associated with a quota instance. This default limit "
+"applies if a quota override does not match the request. The "
+"``memquota/redisquota`` adapter selects the first override that matches a"
+" request. An override need not specify all quota dimensions. In the "
+"example, the 0.2 qps override is selected by matching only three out of "
+"four quota dimensions."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:290
+msgid ""
+"If you want the policies enforced for a given namespace instead of the "
+"entire Istio mesh, you can replace all occurrences of ``istio-system`` "
+"with the given namespace."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:295
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:297
+msgid "If using ``memquota``, remove the ``memquota`` rate limit configuration:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:305
+msgid "If you are using Istio 1.1.2 or prior:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:315
+msgid ""
+"If using ``redisquota``, remove the ``redisquota`` rate limit "
+"configuration:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:324
+msgid "Remove the application routing rules:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/rate-limiting/index.rst:332
+msgid ""
+"If you are not planning to explore any follow-on tasks, refer to the "
+"`Bookinfo cleanup </docs/examples/bookinfo/#cleanup>`_ instructions to "
+"shutdown the application."
+msgstr ""
+

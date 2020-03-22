@@ -1,0 +1,328 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:2
+msgid "Ingress Gateway without TLS Termination"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:4
+msgid ""
+"The `Securing Gateways with HTTPS </docs/tasks/traffic-management/ingress"
+"/secure-ingress-mount/>`_ task describes how to configure HTTPS ingress "
+"access to an HTTP service. This example describes how to configure HTTPS "
+"ingress access to an HTTPS service, i.e., configure an ingress gateway to"
+" perform SNI passthrough, instead of TLS termination on incoming "
+"requests."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:11
+msgid ""
+"The example HTTPS service used for this task is a simple `NGINX "
+"<https://www.nginx.com>`_ server. In the following steps you first deploy"
+" the NGINX service in your Kubernetes cluster. Then you configure a "
+"gateway to provide ingress access to the service via host "
+"``nginx.example.com``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:18
+msgid "Generate client and server certificates and keys"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:20
+msgid ""
+"For this task you can use your favorite tool to generate certificates and"
+" keys. The commands below use `openssl "
+"<https://man.openbsd.org/openssl.1>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:24
+msgid ""
+"Create a root certificate and private key to sign the certificate for "
+"your services:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:30
+msgid ""
+"-newkey rsa:2048 -subj ‘/O=example Inc./CN=example.com’ -keyout "
+"example.com.key -out example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:33
+msgid "Create a certificate and a private key for ``nginx.example.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:38
+msgid ""
+"rsa:2048 -nodes -keyout nginx.example.com.key -subj "
+"“/CN=nginx.example.com/O=some organization” $ openssl x509 -req -days 365"
+" -CA example.com.crt -CAkey example.com.key -set_serial 0 -in "
+"nginx.example.com.csr -out nginx.example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:44
+msgid "Deploy an NGINX server"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:46
+msgid ""
+"Create a Kubernetes `Secret "
+"<https://kubernetes.io/docs/concepts/configuration/secret/>`_ to hold the"
+" server’s certificate."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:53
+msgid "nginx.example.com.key –cert nginx.example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:55
+msgid "Create a configuration file for the NGINX server:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:61
+msgid ""
+"http { log_format main ‘$remote_addr - :math:`remote_user [`\\ "
+"time_local] :math:`status '  '\"`\\ request\" :math:`body_bytes_sent "
+"\"`\\ http_referer\"’ ‘“:math:`http_user_agent\" \"`\\ "
+"http_x_forwarded_for”’; access_log /var/log/nginx/access.log main; "
+"error_log /var/log/nginx/error.log;"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:67
+msgid "server { listen 443 ssl;"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:78
+msgid "} } EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:80
+msgid ""
+"Create a Kubernetes `ConfigMap <https://kubernetes.io/docs/tasks"
+"/configure-pod-container/configure-pod-configmap/>`_ to hold the "
+"configuration of the NGINX server:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:87
+msgid "–from-file=nginx.conf=./nginx.conf"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:89
+msgid "Deploy the NGINX server:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:94
+msgid ""
+"apply -f - apiVersion: v1 kind: Service metadata: name: my-nginx labels: "
+"run: my-nginx spec: ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:97
+msgid ""
+"port: 443 protocol: TCP selector: run: my-nginx — apiVersion: apps/v1 "
+"kind: Deployment metadata: name: my-nginx spec: selector: matchLabels: "
+"run: my-nginx replicas: 1 template: metadata: labels: run: my-nginx spec:"
+" containers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:102
+msgid "name: my-nginx image: nginx ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:104
+msgid "containerPort: 443 volumeMounts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:105
+msgid "name: nginx-config mountPath: /etc/nginx readOnly: true"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:106
+msgid ""
+"name: nginx-server-certs mountPath: /etc/nginx-server-certs readOnly: "
+"true volumes:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:109
+msgid "name: nginx-config configMap: name: nginx-configmap"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:110
+msgid "name: nginx-server-certs secret: secretName: nginx-server-certs EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:113
+msgid ""
+"To test that the NGINX server was deployed successfully, send a request "
+"to the server from its sidecar proxy without checking the server’s "
+"certificate (use the ``-k`` option of ``curl``). Ensure that the server’s"
+" certificate is printed correctly, i.e., ``common name`` is equal to "
+"``nginx.example.com``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:122
+msgid ""
+"run=my-nginx -o jsonpath={.items..metadata.name}) -c istio-proxy – curl "
+"-v -k –resolve nginx.example.com:443:127.0.0.1 https://nginx.example.com "
+"… SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256 server "
+"certificate verification SKIPPED server certificate status verification "
+"SKIPPED common name: nginx.example.com (matched) server certificate "
+"expiration date OK server certificate activation date OK certificate "
+"public key: RSA certificate version: #3 subject: CN=nginx.example.com; "
+"O=some organization start date: Wed, 15 Aug 2018 07:29:07 GMT expire "
+"date: Sun, 25 Aug 2019 07:29:07 GMT issuer: O=example Inc.; "
+"CN=example.com"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:133
+msgid ""
+"GET / HTTP/1.1 User-Agent: curl/7.35.0 Host: nginx.example.com … < "
+"HTTP/1.1 200 OK"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:136
+msgid "< Server: nginx/1.15.2 … <!DOCTYPE html>"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:150
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:228
+msgid "Welcome to nginx!"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:156
+msgid "…"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:159
+msgid "Configure an ingress gateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:161
+msgid ""
+"Define a ``Gateway`` with a ``server`` section for port 443. Note the "
+"``PASSTHROUGH`` TLS mode which instructs the gateway to pass the ingress "
+"traffic AS IS, without terminating TLS."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:168
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: mygateway "
+"spec: selector: istio: ingressgateway # use istio default ingress gateway"
+" servers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:172
+msgid ""
+"port: number: 443 name: https protocol: HTTPS tls: mode: PASSTHROUGH "
+"hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:175
+msgid "nginx.example.com EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:177
+msgid "Configure routes for traffic entering via the ``Gateway``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:182
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: nginx "
+"spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:185
+msgid "nginx.example.com gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:186
+msgid "mygateway tls:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:187
+msgid "match:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:189
+msgid "port: 443 sni_hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:191
+msgid "nginx.example.com route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:193
+msgid "destination: host: my-nginx port: number: 443 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:195
+msgid ""
+"Follow the instructions in `Determining the ingress IP and ports "
+"</docs/tasks/traffic-management/ingress/ingress-control/#determining-the-"
+"ingress-ip-and-ports>`_ to define the ``SECURE_INGRESS_PORT`` and "
+"``INGRESS_HOST`` environment variables."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:200
+msgid ""
+"Access the NGINX service from outside the cluster. Note that the correct "
+"certificate is returned by the server and it is successfully verified "
+"(*SSL certificate verify ok* is printed)."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:207
+msgid ""
+"nginx.example.com:\\ :math:`SECURE_INGRESS_PORT:`\\ INGRESS_HOST –cacert "
+"example.com.crt https://nginx.example.com:$SECURE_INGRESS_PORT Server "
+"certificate: subject: CN=nginx.example.com; O=some organization start "
+"date: Wed, 15 Aug 2018 07:29:07 GMT expire date: Sun, 25 Aug 2019 "
+"07:29:07 GMT issuer: O=example Inc.; CN=example.com SSL certificate "
+"verify ok."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:214
+msgid "< HTTP/1.1 200 OK < Server: nginx/1.15.2 …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:237
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:239
+msgid "Remove created Kubernetes resources:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:244
+msgid ""
+"kubectl delete configmap nginx-configmap $ kubectl delete service my-"
+"nginx $ kubectl delete deployment my-nginx $ kubectl delete gateway "
+"mygateway $ kubectl delete virtualservice nginx"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:248
+msgid "Delete the certificates and keys:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:253
+msgid "nginx.example.com.crt nginx.example.com.key nginx.example.com.csr"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/index.rst:255
+msgid "Delete the generated configuration files used in this example:"
+msgstr ""
+

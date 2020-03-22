@@ -1,0 +1,269 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:2
+msgid "custom-ingress-gateway"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:4
+msgid ""
+"This post provides instructions to manually create a custom ingress "
+"`gateway </docs/reference/config/networking/gateway/>`_ with automatic "
+"provisioning of certificates based on cert-manager."
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:8
+msgid ""
+"The creation of custom ingress gateway could be used in order to have "
+"different ``loadbalancer`` in order to isolate traffic."
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:12
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:14
+msgid ""
+"Setup Istio by following the instructions in the `Installation guide "
+"</docs/setup/>`_."
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:16
+msgid ""
+"Setup ``cert-manager`` with helm `chart "
+"<https://github.com/helm/charts/tree/master/stable/cert-manager"
+"#installing-the-chart>`_"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:18
+msgid ""
+"We will use ``demo.mydemo.com`` for our example, it must be resolved with"
+" your DNS"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:22
+msgid "Configuring the custom ingress gateway"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:24
+msgid ""
+"Check if `cert-manager <https://github.com/helm/charts/tree/master/stable"
+"/cert-manager>`_ was installed using Helm with the following command:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:32
+msgid ""
+"The output should be similar to the example below and show cert-manager "
+"with a ``STATUS`` of ``DEPLOYED``:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:35
+msgid ""
+"{{< text plain >}} NAME REVISION UPDATED STATUS CHART APP VERSION "
+"NAMESPACE istio 1 Thu Oct 11 13:34:24 2018 DEPLOYED istio-1.0.X 1.0.X "
+"istio-system cert 1 Wed Oct 24 14:08:36 2018 DEPLOYED cert-"
+"manager-v0.6.0-dev.2 v0.6.0-dev.2 istio-system"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:40
+msgid "To create the cluster’s issuer, apply the following configuration:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:60
+msgid "Change the cluster’s"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:45
+msgid ""
+"`issuer <https://cert-"
+"manager.readthedocs.io/en/latest/reference/issuers.html>`_ provider with "
+"your own configuration values. The example uses the values under "
+"``route53``."
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:51
+msgid ""
+"apiVersion: certmanager.k8s.io/v1alpha1 kind: ClusterIssuer metadata: "
+"name: letsencrypt-demo namespace: kube-system spec: acme: # The ACME "
+"server URL server: https://acme-v02.api.letsencrypt.org/directory # Email"
+" address used for ACME registration email: # Name of a secret used to "
+"store the ACME account private key privateKeySecretRef: name: "
+"letsencrypt-demo dns01: # Here we define a list of DNS-01 providers that "
+"can solve DNS challenges providers: - name: your-dns route53: "
+"accessKeyID: region: eu-central-1 secretAccessKeySecretRef: name: prod-"
+"route53-credentials-secret key: secret-access-key"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:62
+msgid ""
+"If you use the ``route53`` `provider <https://cert-"
+"manager.readthedocs.io/en/latest/tasks/acme/configuring-"
+"dns01/route53.html>`_, you must provide a secret to perform DNS ACME "
+"Validation. To create the secret, apply the following configuration file:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:69
+msgid ""
+"apiVersion: v1 kind: Secret metadata: name: prod-route53-credentials-"
+"secret type: Opaque data: secret-access-key:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:73
+msgid "Create your own certificate:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:77
+msgid ""
+"apiVersion: certmanager.k8s.io/v1alpha1 kind: Certificate metadata: name:"
+" demo-certificate namespace: istio-system spec: acme: config: - dns01: "
+"provider: your-dns domains: - ‘*.mydemo.com’ commonName: ’*.mydemo.com’ "
+"dnsNames:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:82
+msgid ""
+"’*.mydemo.com’ issuerRef: kind: ClusterIssuer name: letsencrypt-demo "
+"secretName: istio-customingressgateway-certs"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:85
+msgid ""
+"Make a note of the value of ``secretName`` since a future step requires "
+"it."
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:88
+msgid ""
+"To scale automatically, declare a new horizontal pod autoscaler with the "
+"following configuration:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:93
+msgid ""
+"apiVersion: autoscaling/v1 kind: HorizontalPodAutoscaler metadata: name: "
+"my-ingressgateway namespace: istio-system spec: maxReplicas: 5 "
+"minReplicas: 1 scaleTargetRef: apiVersion: apps/v1beta1 kind: Deployment "
+"name: my-ingressgateway targetCPUUtilizationPercentage: 80 status: "
+"currentCPUUtilizationPercentage: 0 currentReplicas: 1 desiredReplicas: 1"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:101
+msgid ""
+"Apply your deployment with declaration provided in the `yaml definition "
+"</blog/2019/custom-ingress-gateway/deployment-custom-ingress.yaml>`_"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:107
+msgid "The annotations used, for example"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:107
+msgid "``aws-load-balancer-type``, only apply for AWS."
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:109
+msgid "Create your service:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:113
+msgid "The ``NodePort`` used needs to be an available port."
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:118
+msgid ""
+"apiVersion: v1 kind: Service metadata: name: my-ingressgateway "
+"annotations: service.beta.kubernetes.io/aws-load-balancer-type: nlb "
+"labels: app: my-ingressgateway istio: my-ingressgateway spec: type: "
+"LoadBalancer selector: app: my-ingressgateway istio: my-ingressgateway "
+"ports: - name: http2 nodePort: 32380 port: 80 targetPort: 80 - name: "
+"https nodePort: 32390 port: 443 - name: tcp nodePort: 32400 port: 31400"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:127
+msgid "Create your Istio custom gateway configuration object:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:131
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: Gateway metadata: "
+"annotations: name: istio-custom-gateway namespace: default spec: "
+"selector: istio: my-ingressgateway servers:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:135
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:140
+msgid "hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:137
+msgid ""
+"’*.mydemo.com’ port: name: http number: 80 protocol: HTTP tls: "
+"httpsRedirect: true"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:142
+msgid ""
+"’*.mydemo.com’ port: name: https number: 443 protocol: HTTPS tls: mode: "
+"SIMPLE privateKey: /etc/istio/ingressgateway-certs/tls.key "
+"serverCertificate: /etc/istio/ingressgateway-certs/tls.crt"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:147
+msgid "Link your ``istio-custom-gateway`` with your ``VirtualService``:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:151
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: VirtualService metadata: "
+"name: my-virtualservice spec: hosts:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:154
+msgid "“demo.mydemo.com” gateways:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:155
+msgid "istio-custom-gateway http:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:156
+msgid "route:"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:158
+msgid "destination: host: my-demoapp"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:160
+msgid ""
+"Correct certificate is returned by the server and it is successfully "
+"verified (*SSL certificate verify ok* is printed):"
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:166
+msgid "certificate: SSL certificate verify ok."
+msgstr ""
+
+#: ../../source/blog/2019/custom-ingress-gateway/index.rst:168
+msgid ""
+"**Congratulations!** You can now use your custom ``istio-custom-gateway``"
+" `gateway </docs/reference/config/networking/gateway/>`_ configuration "
+"object."
+msgstr ""
+

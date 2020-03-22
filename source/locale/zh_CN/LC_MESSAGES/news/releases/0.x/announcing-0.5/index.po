@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:2
+msgid "announcing-0.5"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:4
+msgid ""
+"In addition to the usual pile of bug fixes and performance improvements, "
+"this release includes the new or updated features detailed below."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:10
+msgid "Networking"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:12
+msgid ""
+"**Incremental Istio Deployment**. (Preview) You can now adopt Istio "
+"incrementally, more easily than before, by installing only the components"
+" you want (e.g, Pilot+Ingress only as the minimal Istio install). Refer "
+"to the ``istioctl`` CLI tool for generating a information on customized "
+"Istio deployments."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:18
+msgid ""
+"**Automatic Proxy Injection**. We leverage Kubernetes 1.9’s new `mutating"
+" webhook feature "
+"<https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.9.md"
+"#api-machinery>`_ to provide automatic pod-level proxy injection. "
+"Automatic injection requires Kubernetes 1.9 or beyond and therefore "
+"doesn’t work on older versions. The alpha initializer mechanism is no "
+"longer supported. `Learn more </docs/setup/additional-setup/sidecar-"
+"injection/#automatic-sidecar-injection>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:27
+msgid ""
+"**Revised Traffic Rules**. Based on user feedback, we have made "
+"significant changes to Istio’s traffic management (routing rules, "
+"destination rules, etc.). We would love your continuing feedback while we"
+" polish this in the coming weeks."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:33
+msgid "Mixer adapters"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:35
+msgid ""
+"**Open Policy Agent**. Mixer now has an authorization adapter "
+"implementing the `open policy agent <https://www.openpolicyagent.org>`_ "
+"model, providing a flexible fine-grained access control mechanism. `Learn"
+" more "
+"<https://docs.google.com/document/d/1U2XFmah7tYdmC5lWkk3D43VMAAQ0xkBatKmohf90ICA>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:41
+msgid ""
+"**Istio RBAC**. Mixer now has a role-based access control adapter. `Learn"
+" more </docs/concepts/security/#authorization>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:44
+msgid ""
+"**Fluentd**. Mixer now has an adapter for log collection through `Fluentd"
+" <https://www.fluentd.org>`_. `Learn more "
+"</docs/tasks/observability/mixer/logs/fluentd/>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:48
+msgid ""
+"**Stdio**. The stdio adapter now lets you log to files with support for "
+"log rotation & backup, along with a host of controls."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:52
+msgid "Security"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:54
+msgid ""
+"**Bring Your Own CA**. There have been many enhancements to the ‘bring "
+"your own CA’ feature. `Learn more </docs/tasks/security/citadel-config"
+"/plugin-ca-cert/>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:58
+msgid "**PKCS8**. Add support for PKCS8 keys to Istio PKI."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:60
+msgid ""
+"**Istio RBAC** Istio RBAC provides access control for services in Istio "
+"mesh. `Learn more </docs/concepts/security/#authorization>`_."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:64
+msgid "Other"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:66
+msgid ""
+"**Release-Mode Binaries**. We switched release and installation default "
+"to release for improved performance and security."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:69
+msgid ""
+"**Component Logging**. Istio components now offer a rich set of command-"
+"line options to control local logging, including common support for log "
+"rotation."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:73
+msgid ""
+"**Consistent Version Reporting**. Istio components now offer a consistent"
+" command-line interface to report their version information."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:77
+msgid ""
+"**Optional Instance Fields**. Within configuration, definitions of Mixer "
+"instances no longer need to include every field of the associated "
+"template. Omitted fields get a zero or empty value."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:82
+msgid "Known issues"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:84
+msgid "Installing with Helm charts is currently broken."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.5/index.rst:86
+msgid "Automatic sidecar injection only works with Kubernetes 1.9 or later."
+msgstr ""
+

@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/glossary/workload.rst:2
+msgid "workload"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload.rst:4
+msgid ""
+"A binary deployed by `operators </docs/reference/glossary/#operator>`_ to"
+" deliver some function of a service mesh application. Workloads have "
+"names, namespaces, and unique ids. These properties are available in "
+"policy and telemetry configuration using the following `attributes "
+"</docs/reference/glossary/#attribute>`_:"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload.rst:10
+msgid ""
+"``source.workload.name``, ``source.workload.namespace``, "
+"``source.workload.uid``"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload.rst:12
+msgid ""
+"``destination.workload.name``, ``destination.workload.namespace``, "
+"``destination.workload.uid``"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/workload.rst:15
+msgid ""
+"In Kubernetes, a workload typically corresponds to a Kubernetes "
+"deployment, while a `workload instance </docs/reference/glossary"
+"/#workload-instance>`_ corresponds to an individual `pod "
+"</docs/reference/glossary/#pod>`_ managed by the deployment."
+msgstr ""
+

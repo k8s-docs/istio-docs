@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/contribute/diagrams/index.rst:2
+msgid "diagrams"
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:4
+msgid "Welcome to the Istio diagram guide!"
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:6
+msgid ""
+"The guide is available as an `SVG file <./diagram-guidelines.svg>`_ or as"
+" a `Google Draw file "
+"<https://docs.google.com/drawings/d/1f3NyutAQIDOA8ojGNyMA5JAJllDShZGQAFfdD01XdSc/edit>`_"
+" to allow you to reuse the shapes and styles with ease. Use these "
+"guidelines to create SVG diagrams for the Istio website using any vector "
+"graphics tool like Google Draw, InkScape, or Illustrator. Please ensure "
+"that the text in your diagrams remains editable."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:14
+msgid ""
+"Our goal is to drive consistency across all diagrams in our website to "
+"ensure diagrams are clear, technically accurate, and accessible."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:17
+msgid ""
+"Keeping the text editable allows the community to improve and change the "
+"diagrams as needed."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:20
+msgid "To create your diagrams, follow these steps:"
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:22
+msgid ""
+"Refer to the `guide <./diagram-guidelines.svg>`_ and copy-paste from it "
+"as needed."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:24
+msgid "Connect the shapes with the appropriate style of line."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:25
+msgid "Label the shapes and lines with descriptive yet short text."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:26
+msgid "Add a legend for any labels that apply multiple times."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:27
+msgid ""
+"`Contribute </about/contribute/add-content>`_ your diagram to our "
+"documentation."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:30
+msgid "If you create the diagram in Google Draw, follow these steps:"
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:32
+msgid ""
+"Put your diagram in our `team drive "
+"<https://drive.google.com/corp/drive/u/0/folders/1jczscJueUBR3IOvH30q9HAZX0jC7GSyW>`_."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:34
+msgid ""
+"When the diagram is complete, export it as SVG and include the SVG file "
+"in your PR."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:36
+msgid ""
+"Leave a comment in the Markdown file containing the diagram with the URL "
+"to the Google Draw file."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:39
+msgid ""
+"If your diagram depicts a process, **do not add the descriptions of the "
+"steps** to the diagram. Instead, only add the numbers of the steps to the"
+" diagram and add the descriptions of the steps as a numbered list in the "
+"document. Ensure that the numbers on the list match the numbers on your "
+"diagram. This approach helps make diagrams easier to understand and the "
+"content more accessible."
+msgstr ""
+
+#: ../../source/about/contribute/diagrams/index.rst:46
+msgid "Thank you for contributing to the Istio documentation!"
+msgstr ""
+

@@ -1,0 +1,500 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:2
+msgid "auto-mtls"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:4
+msgid "This tasks shows a simplified workflow for mutual TLS adoption."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:6
+msgid ""
+"With Istio auto mutual TLS feature, you can adopt mutual TLS by only "
+"configuring authentication policy without worrying about destination "
+"rule."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:10
+msgid ""
+"Istio tracks the server workloads migrated to Istio sidecar, and "
+"configures client sidecar to send mutual TLS traffic to those workloads "
+"automatically, and send plain text traffic to workloads without sidecars."
+" This allows you to adopt Istio mutual TLS incrementally with minimal "
+"manual configuration."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:17
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:19
+msgid ""
+"Understand Istio `authentication policy </docs/concepts/security"
+"/#authentication-policies>`_ and related `mutual TLS authentication "
+"</docs/concepts/security/#mutual-tls-authentication>`_ concepts."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:25
+msgid ""
+"Install Istio with the ``global.mtls.enabled`` option set to false and "
+"``global.mtls.auto`` set to true. For example, using the ``demo`` "
+"configuration profile:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:29
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:31
+msgid "$ istioctl manifest apply –set profile=demo"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:32
+msgid "–set values.global.mtls.auto=true"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:33
+msgid "–set values.global.mtls.enabled=false"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:36
+msgid "Instructions"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:39
+msgid "Setup"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:41
+msgid ""
+"Our examples deploy ``httpbin`` service into three namespaces, ``full``, "
+"``partial``, and ``legacy``. Each represents different phase of Istio "
+"migration."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:45
+msgid ""
+"``full`` namespace contains all server workloads finishing the Istio "
+"migration. All deployments have sidecar injected."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:51
+msgid ""
+"kube-inject -f @samples/httpbin/httpbin.yaml@) -n full $ kubectl apply -f"
+" <(istioctl kube-inject -f @samples/sleep/sleep.yaml@) -n full"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:54
+msgid ""
+"``partial`` namespace contains server workloads partially migrated to "
+"Istio. Only migrated one has sidecar injected, able to serve mutual TLS "
+"traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:61
+msgid ""
+"<(istioctl kube-inject -f @samples/httpbin/httpbin.yaml@) -n partial $ "
+"cat <<EOF \\| kubectl apply -n partial -f - apiVersion: apps/v1 kind: "
+"Deployment metadata: name: httpbin-nosidecar spec: replicas: 1 selector: "
+"matchLabels: app: httpbin template: metadata: labels: app: httpbin "
+"version: nosidecar spec: containers: - image: "
+"docker.io/kennethreitz/httpbin imagePullPolicy: IfNotPresent name: "
+"httpbin ports: - containerPort: 80 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:69
+msgid ""
+"``legacy`` namespace contains the workloads and none of them have Envoy "
+"sidecar."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:75
+msgid ""
+"@samples/httpbin/httpbin.yaml@ -n legacy $ kubectl apply -f "
+"@samples/sleep/sleep.yaml@ -n legacy"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:78
+msgid "Last we deploy two ``sleep`` workloads, one has sidecar and one does not."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:84
+msgid ""
+"@samples/sleep/sleep.yaml@) -n full $ kubectl apply -f "
+"@samples/sleep/sleep.yaml@ -n legacy"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:87
+msgid "You can confirm the deployments in all namespaces."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:92
+msgid ""
+"partial $ kubectl get pods -n legacy NAME READY STATUS RESTARTS AGE "
+"httpbin-dcd949489-5cndk 2/2 Running 0 39s sleep-58d6644d44-gb55j 2/2 "
+"Running 0 38s NAME READY STATUS RESTARTS AGE httpbin-6f6fc94fb6-8d62h 1/1"
+" Running 0 10s httpbin-dcd949489-5fsbs 2/2 Running 0 12s NAME READY "
+"STATUS RESTARTS AGE httpbin-54f5bb4957-lzxlg 1/1 Running 0 6s sleep-"
+"74564b477b-vb6h4 1/1 Running 0 4s"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:99
+msgid ""
+"You should also verify that there is a default mesh authentication policy"
+" in the system, which you can do as follows:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:105
+msgid ""
+"–all-namespaces $ kubectl get meshpolicies -o yaml \\| grep ’ mode’ "
+"NAMESPACE NAME AGE istio-system grafana-ports-mtls-disabled 2h mode: "
+"PERMISSIVE"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:109
+msgid ""
+"Last but not least, verify that there are no destination rules that apply"
+" on the example services. You can do this by checking the ``host:`` value"
+" of existing destination rules and make sure they do not match. For "
+"example:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:117
+msgid ""
+"–all-namespaces -o yaml \\| grep “host:” host: istio-policy.istio-"
+"system.svc.cluster.local host: istio-telemetry.istio-"
+"system.svc.cluster.local"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:121
+msgid ""
+"You can verify setup by sending an HTTP request with ``curl`` from any "
+"``sleep`` pod in the namespace ``full``, ``partial`` or ``legacy`` to "
+"either ``httpbin.full``, ``httpbin.partial`` or ``httpbin.legacy``. All "
+"requests should succeed with HTTP code 200."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:126
+msgid ""
+"For example, here is a command to check ``sleep.full`` to "
+"``httpbin.full`` reachability:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:132
+msgid ""
+":math:`(kubectl get pod -l app=sleep -n full -o "
+"jsonpath={.items..metadata.name}) -c sleep -n full -- curl "
+"http://httpbin.full:8000/headers -s -w \"response %{http_code}\\n\" | "
+"egrep -o 'URI\\=spiffe.*sa/[a-z]*|response.*`\\ ’ "
+"URI=spiffe://cluster.local/ns/full/sa/sleep response 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:135
+msgid ""
+"The SPIFFE URI shows the client identity from X509 certificate, which "
+"indicates the traffic is sent in mutual TLS. If the traffic is in plain "
+"text, no client certificate will be displayed."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:140
+msgid "Start from PERMISSIVE mode"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:142
+msgid "In the setup, we start with ``PERMISSIVE`` for all services in the mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:144
+msgid ""
+"All ``httpbin.full`` workloads and the workload with sidecar for "
+"``httpbin.partial`` are able to serve both mutual TLS traffic and plain "
+"text traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:147
+msgid ""
+"The workload without sidecar for ``httpbin.partial`` and workloads of "
+"``httpbin.legacy`` can only serve plain text traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:150
+msgid ""
+"Automatic mutual TLS configures the client, ``sleep.full``, to send "
+"mutual TLS to the first type of workloads and plain text to the second "
+"type."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:154
+msgid "You can verify the reachability as:"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:159
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:242
+msgid ""
+"“partial” “legacy”; do echo “sleep.\\ :math:`{from} to httpbin.`\\ "
+"{to}”;kubectl exec $(kubectl get pod -l app=sleep -n ${from} -o "
+"jsonpath={.items..metadata.name}) -c sleep -n :math:`{from} -- curl "
+"http://httpbin.`\\ {to}:8000/headers -s -w “response code: %{http_code"
+"}:raw-latex:`\\n`” \\| egrep -o ’URI=spiffe.\\ *sa/[a-z]*\\ "
+"\\|response.*$’; echo -n “:raw-latex:`\\n`”; done; done sleep.full to "
+"httpbin.full URI=spiffe://cluster.local/ns/full/sa/sleep response code: "
+"200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:168
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:251
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:337
+msgid ""
+"sleep.full to httpbin.partial URI=spiffe://cluster.local/ns/full/sa/sleep"
+" response code: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:171
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:254
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:294
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:340
+msgid "sleep.full to httpbin.legacy response code: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:173
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:296
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:342
+msgid "sleep.legacy to httpbin.full response code: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:175
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:259
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:298
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:344
+msgid "sleep.legacy to httpbin.partial response code: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:177
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:261
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:300
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:346
+msgid "sleep.legacy to httpbin.legacy response code: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:182
+msgid "Working with Sidecar Migration"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:184
+msgid ""
+"The request to ``httpbin.partial`` can reach to server workloads with or "
+"without sidecar. Istio automatically configures the ``sleep.full`` client"
+" to initiates mutual TLS connection to workload with sidecar."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:191
+msgid ""
+":math:`(kubectl get pod -l app=sleep -n full -o "
+"jsonpath={.items..metadata.name}) -c sleep -nfull -- curl "
+"http://httpbin.partial:8000/headers -s -w \"response code: "
+"%{http_code}\\n\" | egrep -o 'URI\\=spiffe.*sa/[a-z]*|response.*`\\ ’; "
+"echo -n “:raw-latex:`\\n`”; done "
+"URI=spiffe://cluster.local/ns/full/sa/sleep response code: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:195
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:199
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:205
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:209
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:211
+msgid "response code: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:197
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:201
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:203
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:207
+msgid "URI=spiffe://cluster.local/ns/full/sa/sleep response code: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:213
+msgid ""
+"Without automatic mutual TLS feature, you have to track the sidecar "
+"migration finishes, and then explicitly configure the destination rule to"
+" make client send mutual TLS traffic to ``httpbin.full``."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:218
+msgid "Lock down mutual TLS to STRICT"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:220
+msgid ""
+"Imagine now you need to lock down the ``httpbin.full`` service to only "
+"accept mutual TLS traffic. You can configure authentication policy to "
+"``STRICT``."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:227
+msgid ""
+"“authentication.istio.io/v1alpha1” kind: “Policy” metadata: name: "
+"“httpbin” spec: targets: - name: httpbin peers: - mtls: {} EOF {{< /text "
+">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:231
+msgid ""
+"All ``httpbin.full`` workloads and the workload with sidecar for "
+"``httpbin.partial`` can only serve mutual TLS traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:234
+msgid ""
+"Now the requests from the ``sleep.legacy`` starts to fail, since it can’t"
+" send mutual TLS traffic. But the client ``sleep.full`` is automatically "
+"configured with auto mutual TLS, to send mutual TLS request, returning "
+"200."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:256
+msgid ""
+"sleep.legacy to httpbin.full response code: 000 command terminated with "
+"exit code 56"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:266
+msgid "Disable mutual TLS to plain text"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:268
+msgid ""
+"If for some reason, you want service to be in plain text mode explicitly,"
+" we can configure authentication policy as plain text."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:274
+msgid ""
+"“authentication.istio.io/v1alpha1” kind: “Policy” metadata: name: "
+"“httpbin” spec: targets: - name: httpbin EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:277
+msgid ""
+"In this case, since the service is in plain text mode. Istio "
+"automatically configures client sidecars to send plain text traffic to "
+"avoid breakage."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:284
+msgid ""
+"“partial” “legacy”; do echo “sleep.\\ :math:`{from} to httpbin.`\\ "
+"{to}”;kubectl exec $(kubectl get pod -l app=sleep -n ${from} -o "
+"jsonpath={.items..metadata.name}) -c sleep -n :math:`{from} -- curl "
+"http://httpbin.`\\ {to}:8000/headers -s -w “response code: %{http_code"
+"}:raw-latex:`\\n`” \\| egrep -o ’URI=spiffe.\\ *sa/[a-z]*\\ "
+"\\|response.*$’; echo -n “:raw-latex:`\\n`”; done; done sleep.full to "
+"httpbin.full response code: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:292
+msgid "sleep.full to httpbin.partial response code: 200"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:302
+msgid "All traffic are now in plain text."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:305
+msgid "Destination rule overrides"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:307
+msgid ""
+"For backward compatibility, you can still use destination rule to "
+"override the TLS configuration as before. When destination rule has an "
+"explicit TLS configuration, that overrides the client sidecars’ TLS "
+"configuration."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:312
+msgid ""
+"For example, you can explicitly configure destination rule for "
+"``httpbin.full`` to enable or disable mutual TLS explicitly."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:318
+msgid ""
+"“networking.istio.io/v1alpha3” kind: “DestinationRule” metadata: name: "
+"“httpbin-full-mtls” spec: host: httpbin.full.svc.cluster.local "
+"trafficPolicy: tls: mode: ISTIO_MUTUAL EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:322
+msgid ""
+"Since in previous steps, we already disable the authentication policy for"
+" ``httpbin.full`` to disable mutual TLS, we should see the traffic from "
+"``sleep.full`` starting to fail."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:329
+msgid ""
+"“partial” “legacy”; do echo “sleep.\\ :math:`{from} to httpbin.`\\ "
+"{to}”;kubectl exec $(kubectl get pod -l app=sleep -n ${from} -o "
+"jsonpath={.items..metadata.name}) -c sleep -n :math:`{from} -- curl "
+"http://httpbin.`\\ {to}:8000/headers -s -w “response code: %{http_code"
+"}:raw-latex:`\\n`” \\| egrep -o ’URI=spiffe.\\ *sa/[a-z]*\\ "
+"\\|response.*$’; echo -n “:raw-latex:`\\n`”; done; done sleep.full to "
+"httpbin.full response code: 503"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:351
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:358
+msgid "Summary"
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:360
+msgid ""
+"Automatic mutual TLS configures the client sidecar to send TLS traffic by"
+" default between sidecars. You only need to configure authentication "
+"policy."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:364
+msgid ""
+"As aforementioned, automatic mutual TLS is a mesh wide Helm installation "
+"option. You have to re-deploy Istio to enable or disable the feature. "
+"When disabling the feature, if you already rely on it to automatically "
+"encrypt the traffic, then traffic can **fall back to plain text**, which "
+"can affect your **security posture or break the traffic**, if the service"
+" is already configured as ``STRICT`` to only accept mutual TLS traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:372
+msgid ""
+"Currently, automatic mutual TLS is an Alpha stage feature, please be "
+"aware of the risk, and the additional CPU cost for TLS encryption."
+msgstr ""
+
+#: ../../source/docs/tasks/security/authentication/auto-mtls/index.rst:375
+msgid ""
+"We’re considering to make this feature the default enabled. Please "
+"consider to send your feedback or encountered issues when trying auto "
+"mutual TLS via `Git Hub <https://github.com/istio/istio/issues/18548>`_."
+msgstr ""
+

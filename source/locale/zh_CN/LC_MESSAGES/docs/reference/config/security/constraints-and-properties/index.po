@@ -1,0 +1,385 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:2
+msgid "Constraints and properties"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:6
+msgid "The constraints and properties in the RBAC policy are"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:7
+msgid ""
+"deprecated by the conditions in the ``AuthorizationPolicy``. Please use "
+"the conditions in ``AuthorizationPolicy`` resources, this page is for "
+"reference only and will be removed in the future."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:11
+msgid ""
+"This section contains the supported keys and value formats you can use as"
+" constraints and properties in the service roles and service role "
+"bindings configuration objects. Constraints and properties are extra "
+"conditions you can add as fields in configuration objects with a "
+"``kind:`` value of ``ServiceRole`` and ``ServiceRoleBinding`` to specify "
+"detailed access control requirements."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:18
+msgid ""
+"Specifically, you can use constraints to specify extra conditions in the "
+"access rule field of a service role. You can use properties to specify "
+"extra conditions in the subject field of a service role binding. Istio "
+"supports all keys listed on this page for the HTTP protocol but supports "
+"only some for the plain TCP protocol."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:26
+msgid "Unsupported keys and values will be ignored silently."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:29
+msgid ""
+"For more information, refer to the `authorization concept page "
+"</docs/concepts/security/#authorization>`_."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:33
+msgid "Supported constraints"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:35
+msgid ""
+"The following table lists the currently supported keys for the "
+"``constraints`` field:"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:39
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:143
+msgid "Na me"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:39
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:143
+msgid "Descripti on"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:39
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:143
+msgid "Supported for TCP services"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:39
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:143
+msgid "Key Example"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:39
+msgid "Values Example"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:42
+msgid "`` de st in at io n. ip ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:42
+msgid "Destinati on workload instance IP address, supports single IP or CIDR"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:42
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:52
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:63
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:75
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:89
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:100
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:146
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:155
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:166
+msgid "YES"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:42
+msgid "``destina tion.ip``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:42
+msgid "``[\"10.1.2.3 \", \"10.2.0.0 /16\"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:52
+msgid "`` de st in at io n. po rt ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:52
+msgid ""
+"The recipient port on the server IP address, must be in the range [0, "
+"65535]"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:52
+msgid "``destina tion.port ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:52
+msgid "``[\"80\", \"44 3\"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:63
+msgid "`` de st in at io n. la be ls ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:63
+msgid "A map of key-value pairs attached to the server instance"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:63
+msgid "``destina tion.labe ls[versio n]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:63
+msgid "``[\"v1\", \"v2 \"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:75
+msgid "`` de st in at io n. na me sp ac e` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:75
+msgid "Destinati on workload instance namespace"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:75
+msgid "``destina tion.name space``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:75
+msgid "``[\"default\" ]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:89
+msgid "`` de st in at io n. us er ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:89
+msgid "The identity of the destinati on workload"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:89
+msgid "``destina tion.user ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:89
+msgid "``[\"bookinfo -productpage \"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:100
+msgid "`` ex pe ri me nt al .e nv oy .f il te rs .* ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:100
+msgid ""
+"Experimen tal metadata matching for filters, values wrapped in ``[]`` are"
+" matched as a list"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:100
+msgid "``experim ental.env oy.filter s.network .mysql_pr oxy[db.ta ble]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:100
+msgid "``[\"[update] \"]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:117
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:177
+msgid "`` re qu es t. he ad er s` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:117
+msgid "HTTP request headers, The actual header name is surrounde d by brackets"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:117
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:177
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:189
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:203
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:217
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:231
+msgid "NO"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:117
+msgid "``request .headers[ X-Custom- Token]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:117
+msgid "``[\"abc123\"] ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:132
+msgid "Note that no backward compatibility is guaranteed for"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:133
+msgid ""
+"the ``experimental.*`` keys. They may be removed at any time, and "
+"customers are advised to use them at their own risk."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:137
+msgid "Supported properties"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:139
+msgid ""
+"The following table lists the currently supported keys for the "
+"``properties`` field:"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:143
+msgid "Value Example"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:146
+msgid "`` so ur ce .i p` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:146
+msgid "Source workload instance IP address, supports single IP or CIDR"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:146
+msgid "``source. ip``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:146
+msgid "``\"10.1.2.3 \"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:155
+msgid "`` so ur ce .n am es pa ce ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:155
+msgid "Source workload instance namespace"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:155
+msgid "``source. namespace ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:155
+msgid "``\"default\" ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:166
+msgid "`` so ur ce .p ri nc ip al ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:166
+msgid "The identity of the source workload"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:166
+msgid "``source. principal ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:166
+msgid "``\"cluster. local/ns/de fault/sa/pr oductpage\"` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:177
+msgid "HTTP request headers. The actual header name is surrounde d by brackets"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:177
+msgid "``request .headers[ User-Agen t]``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:177
+msgid "``\"Mozilla/ *\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:189
+msgid "`` re qu es t. au th .p ri nc ip al ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:189
+msgid "The authentic ated principal of the request."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:189
+msgid "``request .auth.pri ncipal``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:189
+msgid "``\"accounts .my-svc.com /1049585606 06\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:203
+msgid "`` re qu es t. au th .a ud ie nc es ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:203
+msgid "The intended audience( s) for this authentic ation informati on"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:203
+msgid "``request .auth.aud iences``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:203
+msgid "``\"my-svc.c om\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:217
+msgid "`` re qu es t. au th .p re se nt er ``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:217
+msgid "The authorize d presenter of the credentia l"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:217
+msgid "``request .auth.pre senter``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:217
+msgid "``\"12345678 9012.my-svc .com\"``"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:231
+msgid "`` re qu es t. au th .c la im s` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:231
+msgid ""
+"Claims from the origin JWT. The actual claim name is surrounde d by "
+"brackets"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:231
+msgid "``request .auth.cla ims[iss]` `"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/constraints-and-properties/index.rst:231
+msgid "``\"*@foo.co m\"``"
+msgstr ""
+

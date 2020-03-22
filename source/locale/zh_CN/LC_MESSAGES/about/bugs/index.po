@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/about/bugs/index.rst:2
+msgid "bugs"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:4
+msgid "Oh no! You found a bug? We’d love to hear about it."
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:7
+msgid "Product bugs"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:9
+msgid ""
+"Search our `issue database <https://github.com/istio/istio/issues/>`_ to "
+"see if we already know about your problem and learn about when we think "
+"we can fix it. If you don’t find your problem in the database, please "
+"open a `new issue <https://github.com/istio/istio/issues/new/choose>`_ "
+"and let us know what’s going on."
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:16
+msgid ""
+"If you think a bug is in fact a security vulnerability, please visit "
+"`Reporting Security Vulnerabilities </about/security-vulnerabilities/>`_ "
+"to learn what to do."
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:22
+msgid "Kubernetes cluster state archives"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:24
+msgid ""
+"If you’re running on Kubernetes, consider including a cluster state "
+"archive with your bug report. For convenience, you can run a dump script "
+"to produce an archive containing all of the relevant state from your "
+"Kubernetes cluster:"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:29
+msgid "Run via ``curl``:"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:36
+msgid "Run locally, from the release directory’s root:"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:42
+msgid "Then attach the produced ``istio-dump.tar.gz`` with your reported problem."
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:45
+msgid ""
+"If you are unable to use the dump script, please attach your own archive "
+"containing:"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:48
+msgid "Pods, services, deployments, and endpoints across all namespaces:"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:53
+msgid "–all-namespaces -o yaml > k8s_resources.yaml"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:55
+msgid "Secret names in ``istio-system``:"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:61
+msgid "configmaps in the ``istio-system`` namespace:"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:68
+msgid "Current and previous logs from all Istio components and sidecar"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:70
+msgid "Pilot logs:"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:75
+msgid "discovery $ kubectl logs -n istio-system -l istio=pilot -c istio-proxy"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:78
+msgid "All Istio configuration artifacts:"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:83
+#, python-format
+msgid ""
+"‘{printf “%s,”,$1}END{printf “attributemanifests.config.istio.io:raw-"
+"latex:`\\n`”}’) –all-namespaces"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:88
+msgid "Documentation bugs"
+msgstr ""
+
+#: ../../source/about/bugs/index.rst:90
+msgid ""
+"Search our `documentation issue database "
+"<https://github.com/istio/istio.io/issues/>`_ to see if we already know "
+"about your problem and learn about when we think we can fix it. If you "
+"don’t find your problem in the database, please navigate to the page with"
+" the problem, then select the gear menu at the top right of this page, "
+"and finally chose *Report a Site Bug*."
+msgstr ""
+

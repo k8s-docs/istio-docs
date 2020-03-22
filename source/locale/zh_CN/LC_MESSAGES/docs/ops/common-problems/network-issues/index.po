@@ -1,0 +1,527 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:2
+msgid "network-issues"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:6
+msgid "Requests are rejected by Envoy"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:8
+msgid ""
+"Requests may be rejected for various reasons. The best way to understand "
+"why requests are being rejected is by inspecting Envoy’s access logs. By "
+"default, access logs are output to the standard output of the container. "
+"Run the following command to see the log:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:17
+msgid ""
+"In the default access log format, Envoy response flags and Mixer policy "
+"status are located after the response code, if you are using a custom log"
+" format, make sure to include ``%RESPONSE_FLAGS%`` and "
+"``%DYNAMIC_METADATA(istio.mixer:status)%``."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:22
+msgid ""
+"Refer to the `Envoy response flags "
+"<https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log"
+"#config-access-log-format-response-flags>`_ for details of response "
+"flags."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:26
+msgid "Common response flags are:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:28
+msgid ""
+"``NR``: No route configured, check your ``DestinationRule`` or "
+"``VirtualService``."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:30
+msgid ""
+"``UO``: Upstream overflow with circuit breaking, check your circuit "
+"breaker configuration in ``DestinationRule``."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:32
+msgid ""
+"``UF``: Failed to connect to upstream, if you’re using Istio "
+"authentication, check for a `mutual TLS configuration conflict <#503"
+"-errors-after-setting-destination-rule>`_."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:36
+msgid ""
+"A request is rejected by Mixer if the response flag is ``UAEX`` and the "
+"Mixer policy status is not ``-``."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:39
+msgid "Common Mixer policy statuses are:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:41
+msgid ""
+"``UNAVAILABLE``: Envoy cannot connect to Mixer and the policy is "
+"configured to fail close."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:43
+msgid "``UNAUTHENTICATED``: The request is rejected by Mixer authentication."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:44
+msgid "``PERMISSION_DENIED``: The request is rejected by Mixer authorization."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:46
+msgid "``RESOURCE_EXHAUSTED``: The request is rejected by Mixer quota."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:47
+msgid "``INTERNAL``: The request is rejected due to Mixer internal error."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:50
+msgid "Route rules don’t seem to affect traffic flow"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:52
+msgid ""
+"With the current Envoy sidecar implementation, up to 100 requests may be "
+"required for weighted version distribution to be observed."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:55
+msgid ""
+"If route rules are working perfectly for the `Bookinfo "
+"</docs/examples/bookinfo/>`_ sample, but similar version routing rules "
+"have no effect on your own application, it may be that your Kubernetes "
+"services need to be changed slightly. Kubernetes services must adhere to "
+"certain restrictions in order to take advantage of Istio’s L7 routing "
+"features. Refer to the `Requirements for Pods and Services "
+"</docs/ops/deployment/requirements/>`_ for details."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:63
+msgid ""
+"Another potential issue is that the route rules may simply be slow to "
+"take effect. The Istio implementation on Kubernetes utilizes an "
+"eventually consistent algorithm to ensure all Envoy sidecars have the "
+"correct configuration including all route rules. A configuration change "
+"will take some time to propagate to all the sidecars. With large "
+"deployments the propagation will take longer and there may be a lag time "
+"on the order of seconds."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:72
+msgid "503 errors after setting destination rule"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:74
+msgid ""
+"If requests to a service immediately start generating HTTP 503 errors "
+"after you applied a ``DestinationRule`` and the errors continue until you"
+" remove or revert the ``DestinationRule``, then the ``DestinationRule`` "
+"is probably causing a TLS conflict for the service."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:79
+msgid ""
+"For example, if you configure mutual TLS in the cluster globally, the "
+"``DestinationRule`` must include the following ``trafficPolicy``:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:86
+msgid ""
+"Otherwise, the mode defaults to ``DISABLE`` causing client proxy sidecars"
+" to make plain HTTP requests instead of TLS encrypted requests. Thus, the"
+" requests conflict with the server proxy because the server proxy expects"
+" encrypted requests."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:91
+msgid ""
+"To confirm there is a conflict, check whether the ``STATUS`` field in the"
+" output of the ```istioctl authn tls-check`` "
+"</docs/reference/commands/istioctl/#istioctl-authn-tls-check>`_ command "
+"is set to ``CONFLICT`` for your service. For example, a command similar "
+"to the following could be used to check for a conflict with the "
+"``httpbin`` service:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:101
+msgid ""
+"istio-ingressgateway-db454d49b-lmtg8.istio-system "
+"httpbin.default.svc.cluster.local HOST:PORT STATUS SERVER CLIENT AUTHN "
+"POLICY DESTINATION RULE httpbin.default.svc.cluster.local:8000 CONFLICT "
+"mTLS HTTP default/ httpbin/default"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:106
+msgid ""
+"Whenever you apply a ``DestinationRule``, ensure the ``trafficPolicy`` "
+"TLS mode matches the global server configuration."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:110
+msgid "Route rules have no effect on ingress gateway requests"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:112
+msgid ""
+"Let’s assume you are using an ingress ``Gateway`` and corresponding "
+"``VirtualService`` to access an internal service. For example, your "
+"``VirtualService`` looks something like this:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:119
+msgid ""
+"VirtualService metadata: name: myapp spec: hosts: - “myapp.com” # or "
+"maybe \"*\" if you are testing without DNS using the ingress-gateway IP "
+"(e.g., http://1.2.3.4/hello) gateways: - myapp-gateway http: - match: - "
+"uri: prefix: /hello route: - destination: host: "
+"helloworld.default.svc.cluster.local - match: …"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:125
+msgid ""
+"You also have a ``VirtualService`` which routes traffic for the "
+"helloworld service to a particular subset:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:131
+msgid ""
+"VirtualService metadata: name: helloworld spec: hosts: - "
+"helloworld.default.svc.cluster.local http: - route: - destination: host: "
+"helloworld.default.svc.cluster.local subset: v1"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:135
+msgid ""
+"In this situation you will notice that requests to the helloworld service"
+" via the ingress gateway will not be directed to subset v1 but instead "
+"will continue to use default round-robin routing."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:139
+msgid ""
+"The ingress requests are using the gateway host (e.g., ``myapp.com``) "
+"which will activate the rules in the myapp ``VirtualService`` that routes"
+" to any endpoint of the helloworld service. Only internal requests with "
+"the host ``helloworld.default.svc.cluster.local`` will use the helloworld"
+" ``VirtualService`` which directs traffic exclusively to subset v1."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:146
+msgid ""
+"To control the traffic from the gateway, you need to also include the "
+"subset rule in the myapp ``VirtualService``:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:152
+msgid ""
+"VirtualService metadata: name: myapp spec: hosts: - “myapp.com” # or "
+"maybe \"*\" if you are testing without DNS using the ingress-gateway IP "
+"(e.g., http://1.2.3.4/hello) gateways: - myapp-gateway http: - match: - "
+"uri: prefix: /hello route: - destination: host: "
+"helloworld.default.svc.cluster.local subset: v1 - match: …"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:158
+msgid ""
+"Alternatively, you can combine both ``VirtualServices`` into one unit if "
+"possible:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:164
+msgid ""
+"VirtualService metadata: name: myapp spec: hosts: - myapp.com # cannot "
+"use \"*\" here since this is being combined with the mesh services - "
+"helloworld.default.svc.cluster.local gateways: - mesh # applies "
+"internally as well as externally - myapp-gateway http: - match: - uri: "
+"prefix: /hello gateways: - myapp-gateway #restricts this rule to apply "
+"only to ingress gateway route: - destination: host: "
+"helloworld.default.svc.cluster.local subset: v1 - match: - gateways: - "
+"mesh # applies to all services inside the mesh route: - destination: "
+"host: helloworld.default.svc.cluster.local subset: v1"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:175
+msgid "Headless TCP services losing connection"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:177
+msgid ""
+"If ``istio-citadel`` is deployed, Envoy is restarted every 45 days to "
+"refresh certificates. This causes the disconnection of TCP streams or "
+"long-running connections between services."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:181
+msgid ""
+"You should build resilience into your application for this type of "
+"disconnect, but if you still want to prevent the disconnects from "
+"happening, you will need to disable mutual TLS and the ``istio-citadel`` "
+"deployment."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:186
+msgid "First, edit your ``istio`` configuration to disable mutual TLS:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:191
+msgid "kubectl delete pods -n istio-system -l istio=pilot"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:193
+msgid ""
+"Next, scale down the ``istio-citadel`` deployment to disable Envoy "
+"restarts:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:199
+msgid "istio-system"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:201
+msgid ""
+"This should stop Istio from restarting Envoy and disconnecting TCP "
+"connections."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:205
+msgid "Envoy is crashing under load"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:207
+msgid ""
+"Check your ``ulimit -a``. Many systems have a 1024 open file descriptor "
+"limit by default which will cause Envoy to assert and crash with:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:210
+msgid ""
+"{{< text plain >}} [2017-05-17 03:00:52.735][14236][critical][assert] "
+"assert failure: fd\\_ != -1: "
+"external/envoy/source/common/network/connection_impl.cc:58"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:214
+msgid "Make sure to raise your ulimit. Example: ``ulimit -n 16384``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:217
+msgid "Envoy won’t connect to my HTTP/1.0 service"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:219
+msgid ""
+"Envoy requires ``HTTP/1.1`` or ``HTTP/2`` traffic for upstream services. "
+"For example, when using `NGINX <https://www.nginx.com/>`_ for serving "
+"traffic behind Envoy, you will need to set the `proxy_http_version "
+"<https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_http_version>`_"
+" directive in your NGINX configuration to be “1.1”, since the NGINX "
+"default is 1.0."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:226
+msgid "Example configuration:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:228
+msgid "{{< text plain >}} upstream http_backend { server 127.0.0.1:8080;"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:234
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:247
+msgid "}"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:236
+msgid "server { …"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:250
+msgid ""
+"404 errors occur when multiple gateways configured with same TLS "
+"certificate"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:252
+msgid ""
+"Configuring more than one gateway using the same TLS certificate will "
+"cause browsers that leverage `HTTP/2 connection reuse "
+"<https://httpwg.org/specs/rfc7540.html#reuse>`_ (i.e., most browsers) to "
+"produce 404 errors when accessing a second host after a connection to "
+"another host has already been established."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:258
+msgid ""
+"For example, let’s say you have 2 hosts that share the same TLS "
+"certificate like this:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:261
+msgid "Wildcard certificate ``*.test.com`` installed in ``istio-ingressgateway``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:263
+msgid ""
+"``Gateway`` configuration ``gw1`` with host ``service1.test.com``, "
+"selector ``istio: ingressgateway``, and TLS using gateway’s mounted "
+"(wildcard) certificate"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:266
+msgid ""
+"``Gateway`` configuration ``gw2`` with host ``service2.test.com``, "
+"selector ``istio: ingressgateway``, and TLS using gateway’s mounted "
+"(wildcard) certificate"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:269
+msgid ""
+"``VirtualService`` configuration ``vs1`` with host ``service1.test.com`` "
+"and gateway ``gw1``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:271
+msgid ""
+"``VirtualService`` configuration ``vs2`` with host ``service2.test.com`` "
+"and gateway ``gw2``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:274
+msgid ""
+"Since both gateways are served by the same workload (i.e., selector "
+"``istio: ingressgateway``) requests to both services "
+"(``service1.test.com`` and ``service2.test.com``) will resolve to the "
+"same IP. If ``service1.test.com`` is accessed first, it will return the "
+"wildcard certificate (``*.test.com``) indicating that connections to "
+"``service2.test.com`` can use the same certificate. Browsers like Chrome "
+"and Firefox will consequently reuse the existing connection for requests "
+"to ``service2.test.com``. Since the gateway (``gw1``) has no route for "
+"``service2.test.com``, it will then return a 404 (Not Found) response."
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:284
+msgid ""
+"You can avoid this problem by configuring a single wildcard ``Gateway``, "
+"instead of two (``gw1`` and ``gw2``). Then, simply bind both "
+"``VirtualServices`` to it like this:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:288
+msgid ""
+"``Gateway`` configuration ``gw`` with host ``*.test.com``, selector "
+"``istio: ingressgateway``, and TLS using gateway’s mounted (wildcard) "
+"certificate"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:291
+msgid ""
+"``VirtualService`` configuration ``vs1`` with host ``service1.test.com`` "
+"and gateway ``gw``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:293
+msgid ""
+"``VirtualService`` configuration ``vs2`` with host ``service2.test.com`` "
+"and gateway ``gw``"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:297
+msgid "Port conflict when configuring multiple TLS hosts in a gateway"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:299
+msgid ""
+"If you apply a ``Gateway`` configuration that has the same ``selector`` "
+"labels as another existing ``Gateway``, then if they both expose the same"
+" HTTPS port you must ensure that they have unique port names. Otherwise, "
+"the configuration will be applied without an immediate error indication "
+"but it will be ignored in the runtime gateway configuration. For example:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:309
+msgid ""
+"metadata: name: mygateway spec: selector: istio: ingressgateway # use "
+"istio default ingress gateway servers: - port: number: 443 name: https "
+"protocol: HTTPS tls: mode: SIMPLE serverCertificate: /etc/istio"
+"/ingressgateway-certs/tls.crt privateKey: /etc/istio/ingressgateway-"
+"certs/tls.key hosts: - “myhost.com” — apiVersion: "
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: mygateway2 "
+"spec: selector: istio: ingressgateway # use istio default ingress gateway"
+" servers: - port: number: 443 name: https protocol: HTTPS tls: mode: "
+"SIMPLE serverCertificate: /etc/istio/ingressgateway-certs/tls.crt "
+"privateKey: /etc/istio/ingressgateway-certs/tls.key hosts: - "
+"“myhost2.com” {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:322
+msgid ""
+"With this configuration, requests to the second host, ``myhost2.com``, "
+"will fail because both gateway ports have ``name: https``. A *curl* "
+"request, for example, will produce an error message something like this:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:326
+msgid ""
+"{{< text plain >}} curl: (35) LibreSSL SSL_connect: SSL_ERROR_SYSCALL in "
+"connection to myhost2.com:443"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:329
+msgid ""
+"You can confirm that this has happened by checking Pilot’s logs for a "
+"message similar to the following:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:335
+msgid ""
+"istio=pilot -n istio-system -o jsonpath={.items..metadata.name}) -c "
+"discovery \\| grep “non unique port” 2018-09-14T19:02:31.916960Z info "
+"model skipping server on gateway mygateway2 port https.443.HTTPS: non "
+"unique port name for HTTPS port"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:340
+msgid ""
+"To avoid this problem, ensure that multiple uses of the same ``protocol: "
+"HTTPS`` port are uniquely named. For example, change the second one to "
+"``https2``:"
+msgstr ""
+
+#: ../../source/docs/ops/common-problems/network-issues/index.rst:347
+msgid ""
+"metadata: name: mygateway2 spec: selector: istio: ingressgateway # use "
+"istio default ingress gateway servers: - port: number: 443 name: https2 "
+"protocol: HTTPS tls: mode: SIMPLE serverCertificate: /etc/istio"
+"/ingressgateway-certs/tls.crt privateKey: /etc/istio/ingressgateway-"
+"certs/tls.key hosts: - “myhost2.com” {{< /text >}}"
+msgstr ""
+

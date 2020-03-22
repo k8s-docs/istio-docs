@@ -1,0 +1,374 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:2
+msgid "egress-traffic-control-in-istio-part-3"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:4
+msgid ""
+"Welcome to part 3 in our series about secure control of egress traffic in"
+" Istio. In `the first part in the series </blog/2019/egress-traffic-"
+"control-in-istio-part-1/>`_, I presented the attacks involving egress "
+"traffic and the requirements we collected for a secure control system for"
+" egress traffic. In `the second part in the series </blog/2019/egress-"
+"traffic-control-in-istio-part-2/>`_, I presented the Istio way of "
+"securing egress traffic and showed how you can prevent the attacks using "
+"Istio."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:14
+msgid ""
+"In this installment, I compare secure control of egress traffic in Istio "
+"with alternative solutions such as using Kubernetes network policies and "
+"legacy egress proxies and firewalls. Finally, I describe the performance "
+"considerations regarding the secure control of egress traffic in Istio."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:20
+msgid "Alternative solutions for egress traffic control"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:22
+msgid ""
+"First, let’s remember the `requirements for egress traffic control "
+"</blog/2019/egress-traffic-control-in-istio-part-1/#requirements-for-"
+"egress-traffic-control>`_ we previously collected:"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:26
+msgid ""
+"Support of `TLS "
+"<https://en.wikipedia.org/wiki/Transport_Layer_Security>`_ with `SNI "
+"<https://en.wikipedia.org/wiki/Server_Name_Indication>`_ or of `TLS "
+"origination </docs/reference/glossary/#tls-origination>`_."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:30
+msgid "**Monitor** SNI and the source workload of every egress access."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:31
+msgid "Define and enforce **policies per cluster**."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:32
+msgid "Define and enforce **policies per source**, *Kubernetes-aware*."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:33
+msgid "**Prevent tampering**."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:34
+msgid "Traffic control is **transparent** to the applications."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:36
+msgid ""
+"Next, I’m going to cover two alternative solutions for egress traffic "
+"control: the Kubernetes network policies and egress proxies and "
+"firewalls. I show the requirements they satisfy, and, more importantly, "
+"the requirements they can’t satisfy."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:41
+msgid ""
+"Kubernetes provides a native solution for traffic control, and in "
+"particular, for control of egress traffic, through the `network policies "
+"<https://kubernetes.io/docs/concepts/services-networking/network-"
+"policies/>`_. Using these network policies, cluster operators can "
+"configure which pods can access specific external services. Cluster "
+"operators can identify pods by pod labels, namespace labels, or by IP "
+"ranges. To specify the external services, cluster operators can use IP "
+"ranges, but cannot use domain names like ``cnn.com``. This is because "
+"**Kubernetes network policies are not DNS-aware**. Network policies "
+"satisfy the first requirement since they can control any TCP traffic. "
+"Network policies only partially satisfy the third and the fourth "
+"requirements because cluster operators can specify policies per cluster "
+"or per pod but operators can’t identify external services by domain "
+"names. Network policies only satisfy the fifth requirement if the "
+"attackers are not able to break from a malicious container into the "
+"Kubernetes node and interfere with the implementation of the policies "
+"inside said node. Lastly, network policies do satisfy the sixth "
+"requirement: Operators don’t need to change the code or the container "
+"environment. In summary, we can say that Kubernetes Network Policies "
+"provide transparent, Kubernetes-aware egress traffic control, which is "
+"not DNS-aware."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:62
+msgid ""
+"The second alternative predates the Kubernetes network policies. Using a "
+"**DNS-aware egress proxy or firewall** lets you configure applications to"
+" direct the traffic to the proxy and use some proxy protocol, for "
+"example, `SOCKS <https://en.wikipedia.org/wiki/SOCKS>`_. Since operators "
+"must configure the applications, this solution is not transparent. "
+"Moreover, operators can’t use pod labels or pod service accounts to "
+"configure the proxies because the egress proxies don’t know about them. "
+"Therefore, **the egress proxies are not Kubernetes-aware** and can’t "
+"fulfill the fourth requirement because egress proxies cannot enforce "
+"policies by source if a Kubernetes artifact specifies the source. In "
+"summary, egress proxies can fulfill the first, second, third and fifth "
+"requirements, but can’t satisfy the fourth and the six requirements "
+"because they are not transparent and not Kubernetes-aware."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:77
+msgid "Advantages of Istio egress traffic control"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:79
+msgid ""
+"Istio egress traffic control is **DNS-aware**: you can define policies "
+"based on URLs or on wildcard domains like ``*.ibm.com``. In this sense, "
+"it is better than Kubernetes network policies which are not DNS-aware."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:83
+msgid ""
+"Istio egress traffic control is **transparent** with regard to TLS "
+"traffic, since Istio is transparent: you don’t need to change the "
+"applications or configure their containers. For HTTP traffic with TLS "
+"origination, you must configure the applications in the mesh to use HTTP "
+"instead of HTTPS."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:89
+msgid ""
+"Istio egress traffic control is **Kubernetes-aware**: the identity of the"
+" source of egress traffic is based on Kubernetes service accounts. Istio "
+"egress traffic control is better than the legacy DNS-aware proxies or "
+"firewalls which are not transparent and not Kubernetes-aware."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:94
+msgid ""
+"Istio egress traffic control is **secure**: it is based on the strong "
+"identity of Istio and, when you apply `additional security measures "
+"</docs/tasks/traffic-management/egress/egress-gateway/#additional-"
+"security-considerations>`_, Istio’s traffic control is resilient to "
+"tampering."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:99
+msgid ""
+"Additionally, Istio’s egress traffic control provides the following "
+"advantages:"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:102
+msgid ""
+"Define access policies in the same language for ingress, egress, and in-"
+"cluster traffic. You need to learn a single policy and configuration "
+"language for all types of traffic."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:105
+msgid ""
+"Out-of-the-Box integration of Istio’s egress traffic control with Istio’s"
+" policy and observability adapters."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:107
+msgid ""
+"Write the adapters to use external monitoring or access control systems "
+"with Istio only once and apply them for all types of traffic: ingress, "
+"egress, and in-cluster."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:110
+msgid ""
+"Use Istio’s `traffic management features </docs/concepts/traffic-"
+"management/>`_ for egress traffic: load balancing, passive and active "
+"health checking, circuit breaker, timeouts, retries, fault injection, and"
+" others."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:115
+msgid "We refer to a system with the advantages above as **Istio-aware**."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:117
+msgid ""
+"The following table summarizes the egress traffic control features that "
+"Istio and the alternative solutions provide:"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:121
+msgid "Istio Egress Traffic Control"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:121
+msgid "Kubernetes Network Policies"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:121
+msgid "Legacy Egress Proxy or Firewall"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:125
+msgid "DNS-aware"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:125
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:129
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:133
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:137
+msgid "{{< checkmark_icon >}}"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:125
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:129
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:133
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:137
+msgid "{{< cancel_icon >}}"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:129
+msgid "Kubernetes-awar e"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:133
+msgid "Transparent"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:137
+msgid "Istio-aware"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:143
+msgid "Performance considerations"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:145
+msgid ""
+"Controlling egress traffic using Istio has a price: increased latency of "
+"calls to external services and increased CPU usage by the cluster’s pods."
+" Traffic passes through two proxies:"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:149
+msgid "The application’s sidecar proxy"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:150
+msgid "The egress gateway’s proxy"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:152
+msgid ""
+"If you use `TLS egress traffic to wildcard domains </docs/tasks/traffic-"
+"management/egress/wildcard-egress-hosts/>`_, you must add `an additional "
+"proxy </docs/tasks/traffic-management/egress/wildcard-egress-hosts"
+"/#wildcard-configuration-for-arbitrary-domains>`_ between the application"
+" and the external service. Since the traffic between the egress gateway’s"
+" proxy and the proxy needed for the configuration of arbitrary domains "
+"using wildcards is on the pod’s local network, that traffic shouldn’t "
+"have a significant impact on latency."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:161
+msgid ""
+"See a `performance evaluation </blog/2019/egress-performance/>`_ of "
+"different Istio configurations set to control egress traffic. I would "
+"encourage you to carefully measure different configurations with your own"
+" applications and your own external services, before you decide whether "
+"you can afford the performance overhead for your use cases. You should "
+"weigh the required level of security versus your performance requirements"
+" and compare the performance overhead of all alternative solutions."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:170
+msgid ""
+"Let me share my thoughts on the performance overhead that controlling "
+"egress traffic using Istio adds: Accessing external services already "
+"could have high latency and the overhead added because of two or three "
+"proxies inside the cluster could likely not be very significant by "
+"comparison. After all, applications with a microservice architecture can "
+"have chains of dozens of calls between microservices. Therefore, an "
+"additional hop with one or two proxies in the egress gateway should not "
+"have a large impact."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:179
+msgid ""
+"Moreover, we continue to work towards reducing Istio’s performance "
+"overhead. Possible optimizations include:"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:182
+msgid ""
+"Extending Envoy to handle wildcard domains: This would eliminate the need"
+" for a third proxy between the application and the external services for "
+"that use case."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:185
+msgid ""
+"Using mutual TLS for authentication only without encrypting the TLS "
+"traffic, since the traffic is already encrypted."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:189
+msgid "Summary"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:191
+msgid ""
+"I hope that after reading this series you are convinced that controlling "
+"egress traffic is very important for the security of your cluster. "
+"Hopefully, I also managed to convince you that Istio is an effective tool"
+" to control egress traffic securely, and that Istio has multiple "
+"advantages over the alternative solutions. Istio is the only solution I’m"
+" aware of that lets you:"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:198
+msgid "Control egress traffic in a secure and transparent way"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:199
+msgid "Specify external services as domain names"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:200
+msgid "Use Kubernetes artifacts to specify the traffic source"
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:202
+msgid ""
+"In my opinion, secure control of egress traffic is a great choice if you "
+"are looking for your first Istio use case. In this case, Istio already "
+"provides you some benefits even before you start using all other Istio "
+"features: `traffic management </docs/tasks/traffic-management/>`_, "
+"`security </docs/tasks/security/>`_, `policies </docs/tasks/policy-"
+"enforcement/>`_ and `observability </docs/tasks/observability/>`_, "
+"applied to traffic between microservices inside the cluster."
+msgstr ""
+
+#: ../../source/blog/2019/egress-traffic-control-in-istio-part-3/index.rst:211
+msgid ""
+"So, if you haven’t had the chance to work with Istio yet, `install Istio "
+"</docs/setup/install/>`_ on your cluster and check our `egress traffic "
+"control tasks </docs/tasks/traffic-management/egress/>`_ and the tasks "
+"for the other `Istio features </docs/tasks/>`_. We also want to hear from"
+" you, please join us at `discuss.istio.io <https://discuss.istio.io>`_."
+msgstr ""
+

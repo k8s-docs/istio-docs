@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:2
+msgid "ist0119"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:4
+msgid ""
+"This message occurs when a authentication Policy specifies the use of JWT"
+" authentication, but the targeted `Kubernetes services "
+"<https://kubernetes.io/docs/concepts/services-networking/service/>`_ is "
+"not configured properly. A properly targeted Kubernetes service requires "
+"the port to be named with a prefix of http|http2|https (see `Protocol "
+"Selection </docs/ops/configuration/traffic-management/protocol-"
+"selection/>`_) and also requires the protocol to be TCP; an empty "
+"protocol is acceptable as TCP is the default value."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:15
+msgid "Example"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:17
+msgid "You will receive this message:"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:19
+msgid ""
+"{{< text plain >}} Warn [IST0119] (Policy secure-httpbin.default) "
+"Authentication policy with JWT targets Service with invalid port "
+"specification (port: 8080, name: svc-8080, protocol: TCP, targetPort: "
+"80)."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:24
+msgid "when your cluster has following policy:"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:29
+msgid ""
+"Policy metadata: name: secure-httpbin namespace: default spec: targets: -"
+" name: httpbin origins: - jwt: issuer: “testing@secure.istio.io” jwksUri:"
+" "
+"“https://raw.githubusercontent.com/istio/istio-1.4/security/tools/jwt/samples/jwks.json”"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:35
+msgid "that targets the following service:"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:40
+msgid ""
+"namespace: default labels: app: httpbin spec: ports: - name: svc-8080 "
+"port: 8080 targetPort: 80 protocol: TCP selector: app: httpbin {{< /text "
+">}}"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:44
+msgid ""
+"In this example, the port ``svc-8080`` does follow the syntax: ``name: "
+"<http|https|http2>[-<suffix>]``."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:48
+msgid "How to resolve"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0119/index.rst:50
+msgid ""
+"JWT authentication is only supported over http, https or http2. Rename "
+"the Service port name to conform with ``<http|https|http2>[-<suffix>]``"
+msgstr ""
+

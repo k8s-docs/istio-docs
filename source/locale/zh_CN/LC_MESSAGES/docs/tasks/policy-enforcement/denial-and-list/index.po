@@ -1,0 +1,330 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:2
+msgid "denial-and-list"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:6
+msgid "The mixer policy is deprecated in Istio 1.5 and not"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:7
+msgid "recommended for production usage."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:9
+msgid ""
+"Please use the `Authorization Policy "
+"</docs/concepts/security/#authorization>`_ for enforcing access control "
+"to a workload."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:13
+msgid ""
+"This task shows how to control access to a service using simple denials, "
+"attribute-based white or black listing, or IP-based white or black "
+"listing."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:18
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:20
+msgid ""
+"Set up Istio on Kubernetes by following the instructions in the "
+"`Installation guide </docs/setup/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:25
+msgid ""
+"Policy enforcement **must** be enabled in your cluster for this task. "
+"Follow the steps in `Enabling Policy Enforcement </docs/tasks/policy-"
+"enforcement/enabling-policy/>`_ to ensure that policy enforcement is "
+"enabled."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:30
+msgid "Deploy the `Bookinfo </docs/examples/bookinfo/>`_ sample application."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:33
+msgid ""
+"Initialize the application version routing to direct ``reviews`` service "
+"requests from test user “jason” to version v2 and requests from any other"
+" user to v3."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:40
+msgid "@samples/bookinfo/networking/virtual-service-all-v1.yaml@ {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:43
+msgid "and then run the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:48
+msgid "@samples/bookinfo/networking/virtual-service-reviews-jason-v2-v3.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:53
+msgid ""
+"If you are using a namespace other than ``default``, use ``kubectl -n "
+"namespace ...`` to specify the namespace."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:57
+msgid "Simple *denials*"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:59
+msgid ""
+"Using Istio you can control access to a service based on any attributes "
+"that are available within Mixer. This simple form of access control is "
+"based on conditionally denying requests using Mixer selectors."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:63
+msgid ""
+"Consider the `Bookinfo </docs/examples/bookinfo/>`_ sample application "
+"where the ``ratings`` service is accessed by multiple versions of the "
+"``reviews`` service. We would like to cut off access to version ``v3`` of"
+" the ``reviews`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:68
+msgid ""
+"Point your browser at the Bookinfo ``productpage`` "
+"(``http://$GATEWAY_URL/productpage``)."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:71
+msgid ""
+"If you log in as user “jason”, you should see black rating stars with "
+"each review, indicating that the ``ratings`` service is being called by "
+"the “v2” version of the ``reviews`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:75
+msgid ""
+"If you log in as any other user (or logout) you should see red rating "
+"stars with each review, indicating that the ``ratings`` service is being "
+"called by the “v3” version of the ``reviews`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:79
+msgid "Explicitly deny access to version ``v3`` of the ``reviews`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:81
+msgid ""
+"Run the following command to set up the deny rule along with a handler "
+"and an instance."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:87
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:140
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:228
+msgid "@samples/bookinfo/policy/mixer-rule-deny-label.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:91
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:167
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:205
+msgid ""
+"If you use Istio 1.1.2 or prior, please use the following configuration "
+"instead:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:97
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:147
+msgid "@samples/bookinfo/policy/mixer-rule-deny-label-crd.yaml@ {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:102
+msgid "Notice the following in the ``denyreviewsv3`` rule:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:104
+msgid ""
+"{{< text plain >}} match: destination.labels[“app”] == “ratings” && "
+"source.labels[“app”]==“reviews” && source.labels[“version”] == “v3”"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:108
+msgid ""
+"It matches requests coming from the workload ``reviews`` with label "
+"``v3`` to the workload ``ratings``."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:111
+msgid ""
+"This rule uses the ``denier`` adapter to deny requests coming from "
+"version ``v3`` of the reviews service. The adapter always denies requests"
+" with a preconfigured status code and message. The status code and the "
+"message is specified in the `denier </docs/reference/config/policy-and-"
+"telemetry/adapters/denier/>`_ adapter configuration."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:118
+msgid "Refresh the ``productpage`` in your browser."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:120
+msgid ""
+"If you are logged out or logged in as any user other than “jason” you "
+"will no longer see red ratings stars because the ``reviews:v3`` service "
+"has been denied access to the ``ratings`` service. In contrast, if you "
+"log in as user “jason” (the ``reviews:v2`` user) you continue to see the "
+"black ratings stars."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:127
+msgid "Attribute-based *whitelists* or *blacklists*"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:129
+msgid ""
+"Istio supports attribute-based whitelists and blacklists. The following "
+"whitelist configuration is equivalent to the ``denier`` configuration in "
+"the previous section. The rule effectively rejects requests from version "
+"``v3`` of the ``reviews`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:134
+msgid "Remove the denier configuration that you added in the previous section."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:142
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:239
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:253
+msgid "If you are using Istio 1.1.2 or prior:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:150
+msgid ""
+"Verify that when you access the Bookinfo ``productpage`` "
+"(``http://$GATEWAY_URL/productpage``) without logging in, you see red "
+"stars. After performing the following steps you will no longer be able to"
+" see stars unless you are logged in as “jason”."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:155
+msgid ""
+"Apply configuration for the `list </docs/reference/config/policy-and-"
+"telemetry/adapters/list/>`_ adapter that white-lists versions ``v1, v2``:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:162
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:236
+msgid "@samples/bookinfo/policy/mixer-rule-deny-whitelist.yaml@ {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:173
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:244
+msgid "@samples/bookinfo/policy/mixer-rule-deny-whitelist-crd.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:177
+msgid ""
+"Verify that when you access the Bookinfo ``productpage`` "
+"(``http://$GATEWAY_URL/productpage``) without logging in, you see **no** "
+"stars. Verify that after logging in as “jason” you see black stars."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:183
+msgid "IP-based *whitelists* or *blacklists*"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:185
+msgid ""
+"Istio supports *whitelists* and *blacklists* based on IP address. You can"
+" configure Istio to accept or reject requests from a specific IP address "
+"or a subnet."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:189
+msgid ""
+"Verify you can access the Bookinfo ``productpage`` found at "
+"``http://$GATEWAY_URL/productpage``. You won’t be able to access it once "
+"you apply the rules below."
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:193
+msgid ""
+"Apply configuration for the `list </docs/reference/config/policy-and-"
+"telemetry/adapters/list/>`_ adapter that white-lists subnet "
+"``\"10.57.0.0\\16\"`` at the ingress gateway:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:201
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:251
+msgid "@samples/bookinfo/policy/mixer-rule-deny-ip.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:211
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:258
+msgid "@samples/bookinfo/policy/mixer-rule-deny-ip-crd.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:215
+msgid ""
+"Try to access the Bookinfo ``productpage`` at "
+"``http://$GATEWAY_URL/productpage`` and verify that you get an error "
+"similar to: ``PERMISSION_DENIED:staticversion.istio-system:<your mesh "
+"source ip> is not whitelisted``"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:221
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:223
+msgid "Remove the Mixer configuration for simple denials:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:230
+msgid ""
+"Remove the Mixer configuration for attribute-based white- and "
+"blacklisting:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:246
+msgid "Remove the Mixer configuration for IP-based white- and blacklisting:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:260
+msgid "Remove the application routing rules:"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:265
+msgid ""
+"@samples/bookinfo/networking/virtual-service-all-v1.yaml@ $ kubectl "
+"delete -f @samples/bookinfo/networking/virtual-service-reviews-"
+"jason-v2-v3.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/policy-enforcement/denial-and-list/index.rst:270
+msgid ""
+"If you are not planning to explore any follow-on tasks, refer to the "
+"`Bookinfo cleanup </docs/examples/bookinfo/#cleanup>`_ instructions to "
+"shutdown the application."
+msgstr ""
+

@@ -1,0 +1,330 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:2
+msgid "Using an External HTTPS Proxy"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:4
+msgid ""
+"The `Configure an Egress Gateway </docs/tasks/traffic-management/egress"
+"/egress-gateway/>`_ example shows how to direct traffic to external "
+"services from your mesh via an Istio edge component called *Egress "
+"Gateway*. However, some cases require an external, legacy (non-Istio) "
+"HTTPS proxy to access external services. For example, your company may "
+"already have such a proxy in place and all the applications within the "
+"organization may be required to direct their traffic through it."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:13
+msgid ""
+"This example shows how to enable access to an external HTTPS proxy. Since"
+" applications use the HTTP `CONNECT "
+"<https://tools.ietf.org/html/rfc7231#section-4.3.6>`_ method to establish"
+" connections with HTTPS proxies, configuring traffic to an external HTTPS"
+" proxy is different from configuring traffic to external HTTP and HTTPS "
+"services."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:20
+msgid "{{< boilerplate before-you-begin-egress >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:22
+msgid ""
+"`Enable Envoy’s access logging </docs/tasks/observability/logs/access-log"
+"/#enable-envoy-s-access-logging>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:26
+msgid "Deploy an HTTPS proxy"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:28
+msgid ""
+"To simulate a legacy proxy and only for this example, you deploy an HTTPS"
+" proxy inside your cluster. Also, to simulate a more realistic proxy that"
+" is running outside of your cluster, you will address the proxy’s pod by "
+"its IP address and not by the domain name of a Kubernetes service. This "
+"example uses `Squid <http://www.squid-cache.org>`_ but you can use any "
+"HTTPS proxy that supports HTTP CONNECT."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:35
+msgid ""
+"Create a namespace for the HTTPS proxy, without labeling it for sidecar "
+"injection. Without the label, sidecar injection is disabled in the new "
+"namespace so Istio will not control the traffic there. You need this "
+"behavior to simulate the proxy being outside of the cluster."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:45
+msgid "Create a configuration file for the Squid proxy."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:51
+msgid "acl SSL_ports port 443 acl CONNECT method CONNECT"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:53
+msgid ""
+"http_access deny CONNECT !SSL_ports http_access allow localhost manager "
+"http_access deny manager http_access allow all"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:56
+msgid "coredump_dir /var/spool/squid EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:58
+msgid ""
+"Create a Kubernetes `ConfigMap <https://kubernetes.io/docs/tasks"
+"/configure-pod-container/configure-pod-configmap/>`_ to hold the "
+"configuration of the proxy:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:65
+msgid "external –from-file=squid.conf=./proxy.conf"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:67
+msgid "Deploy a container with Squid:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:72
+msgid ""
+"kind: Deployment metadata: name: squid namespace: external spec: "
+"replicas: 1 template: metadata: labels: app: squid spec: volumes: - name:"
+" proxy-config configMap: name: proxy-configmap containers: - name: squid "
+"image: sameersbn/squid:3.5.27 imagePullPolicy: IfNotPresent volumeMounts:"
+" - name: proxy-config mountPath: /etc/squid readOnly: true EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:79
+#, python-format
+msgid ""
+"Deploy the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ "
+"sample in the ``external`` namespace to test traffic to the proxy without"
+" Istio traffic control."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:87
+msgid "@samples/sleep/sleep.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:89
+msgid ""
+"Obtain the IP address of the proxy pod and define the ``PROXY_IP`` "
+"environment variable to store it:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:95
+msgid "app=squid -o jsonpath={.items..podIP})"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:97
+msgid ""
+"Define the ``PROXY_PORT`` environment variable to store the port of your "
+"proxy. In this case, Squid uses port"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:106
+msgid ""
+"Send a request from the ``sleep`` pod in the ``external`` namespace to an"
+" external service via the proxy:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:112
+msgid ""
+":math:`(kubectl get pod -n external -l app=sleep -o "
+"jsonpath={.items..metadata.name}) -n external -- sh -c \"HTTPS_PROXY=`\\ "
+"PROXY_IP:$PROXY_PORT curl https://en.wikipedia.org/wiki/Main_Page\" \\| "
+"grep -o \""
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:119
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:191
+msgid ".\\*"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:125
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:197
+msgid "\""
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:131
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:203
+msgid "Wikipedia, the free encyclopedia"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:139
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:220
+msgid "Check the access log of the proxy for your request:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:144
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:225
+msgid ""
+"app=squid -o jsonpath={.items..metadata.name}) -n external – tail -f "
+"/var/log/squid/access.log 1544160065.248 228 172.30.109.89 TCP_TUNNEL/200"
+" 87633 CONNECT en.wikipedia.org:443 - HIER_DIRECT/91.198.174.192 -"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:149
+msgid "So far, you completed the following tasks without Istio:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:151
+msgid "You deployed the HTTPS proxy."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:152
+msgid ""
+"You used ``curl`` to access the ``wikipedia.org`` external service "
+"through the proxy."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:155
+msgid ""
+"Next, you must configure the traffic from the Istio-enabled pods to use "
+"the HTTPS proxy."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:159
+msgid "Configure traffic to external HTTPS proxy"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:161
+msgid ""
+"Define a TCP (not HTTP!) Service Entry for the HTTPS proxy. Although "
+"applications use the HTTP CONNECT method to establish connections with "
+"HTTPS proxies, you must configure the proxy for TCP traffic, instead of "
+"HTTP. Once the connection is established, the proxy simply acts as a TCP "
+"tunnel."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:170
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: proxy "
+"spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:173
+msgid "my-company-proxy.com # ignored addresses:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:174
+msgid "$PROXY_IP/32 ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:175
+msgid "number: $PROXY_PORT name: tcp protocol: TCP location: MESH_EXTERNAL EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:178
+msgid ""
+"Send a request from the ``sleep`` pod in the ``default`` namespace. "
+"Because the ``sleep`` pod has a sidecar, Istio controls its traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:184
+msgid ""
+":math:`SOURCE_POD -c sleep -- sh -c \"HTTPS_PROXY=`\\ "
+"PROXY_IP:$PROXY_PORT curl https://en.wikipedia.org/wiki/Main_Page\" \\| "
+"grep -o \""
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:211
+msgid "Check the Istio sidecar proxy’s logs for your request:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:216
+msgid ""
+"[2018-12-07T10:38:02.841Z] “- - -” 0 - 702 87599 92 - “-” “-” “-” “-” "
+"“172.30.109.95:3128” outbound|3128||my-company-proxy.com "
+"172.30.230.52:44478 172.30.109.95:3128 172.30.230.52:44476 -"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:231
+msgid "Understanding what happened"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:233
+msgid "In this example, you took the following steps:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:235
+msgid "Deployed an HTTPS proxy to simulate an external proxy."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:236
+msgid ""
+"Created a TCP service entry to enable Istio-controlled traffic to the "
+"external proxy."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:239
+msgid ""
+"Note that you must not create service entries for the external services "
+"you access through the external proxy, like ``wikipedia.org``. This is "
+"because from Istio’s point of view the requests are sent to the external "
+"proxy only; Istio is not aware of the fact that the external proxy "
+"forwards the requests further."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:246
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:248
+#, python-format
+msgid ""
+"Shutdown the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_"
+" service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:256
+#, python-format
+msgid ""
+"Shutdown the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_"
+" service in the ``external`` namespace:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:263
+msgid "external"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:265
+msgid ""
+"Shutdown the Squid proxy, remove the ``ConfigMap`` and the configuration "
+"file:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:271
+msgid "kubectl delete -n external configmap proxy-configmap $ rm ./proxy.conf"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:274
+msgid "Delete the ``external`` namespace:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/http-proxy/index.rst:280
+msgid "Delete the Service Entry:"
+msgstr ""
+

@@ -1,0 +1,455 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:2
+msgid "requirements"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:4
+msgid ""
+"To be part of a mesh, Kubernetes pods and services must satisfy the "
+"following requirements:"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:7
+msgid ""
+"**Service association**: A pod must belong to at least one Kubernetes "
+"service even if the pod does NOT expose any port. If a pod belongs to "
+"multiple `Kubernetes services <https://kubernetes.io/docs/concepts"
+"/services-networking/service/>`_, the services cannot use the same port "
+"number for different protocols, for instance HTTP and TCP."
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:14
+msgid ""
+"**Application UIDs**: Ensure your pods do **not** run applications as a "
+"user with the user ID (UID) value of **1337**."
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:17
+msgid ""
+"**``NET_ADMIN`` and ``NET_RAW`` capabilities**: If your cluster enforces "
+"pod security policies, they must allow injected pods to add the "
+"``NET_ADMIN`` and ``NET_RAW`` capabilities. If you use the `Istio CNI "
+"Plugin </docs/setup/additional-setup/cni/>`_, this requirement no longer "
+"applies. To learn more about the ``NET_ADMIN`` and ``NET_RAW`` "
+"capabilities, see `Required pod capabilities <#required-pod-"
+"capabilities>`_, below."
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:25
+msgid ""
+"**Deployments with app and version labels**: We recommend adding an "
+"explicit ``app`` label and ``version`` label to deployments. Add the "
+"labels to the deployment specification of pods deployed using the "
+"Kubernetes ``Deployment``. The ``app`` and ``version`` labels add "
+"contextual information to the metrics and telemetry Istio collects."
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:31
+msgid ""
+"The ``app`` label: Each deployment specification should have a distinct "
+"``app`` label with a meaningful value. The ``app`` label is used to add "
+"contextual information in distributed tracing."
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:35
+msgid ""
+"The ``version`` label: This label indicates the version of the "
+"application corresponding to the particular deployment."
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:38
+msgid ""
+"**Named service ports**: Service ports may optionally be named to "
+"explicitly specify a protocol. See `Protocol Selection "
+"</docs/ops/configuration/traffic-management/protocol-selection/>`_ for "
+"more details."
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:44
+msgid "Ports used by Istio"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:46
+msgid "The following ports and protocols are used by Istio."
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:49
+msgid "Port"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:49
+msgid "Protocol"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:49
+msgid "Used by"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:49
+msgid "Description"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:51
+msgid "15000"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:51
+#: ../../source/docs/ops/deployment/requirements/index.rst:56
+#: ../../source/docs/ops/deployment/requirements/index.rst:58
+#: ../../source/docs/ops/deployment/requirements/index.rst:103
+msgid "TCP"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:51
+#: ../../source/docs/ops/deployment/requirements/index.rst:56
+#: ../../source/docs/ops/deployment/requirements/index.rst:58
+#: ../../source/docs/ops/deployment/requirements/index.rst:60
+#: ../../source/docs/ops/deployment/requirements/index.rst:62
+msgid "Envoy"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:51
+msgid "Envoy admin port (commands/diagn ostics)"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:56
+msgid "15001"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:56
+msgid "Envoy Outbound"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:58
+msgid "15006"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:58
+msgid "Envoy Inbound"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:60
+msgid "15020"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:60
+#: ../../source/docs/ops/deployment/requirements/index.rst:62
+#: ../../source/docs/ops/deployment/requirements/index.rst:76
+#: ../../source/docs/ops/deployment/requirements/index.rst:80
+#: ../../source/docs/ops/deployment/requirements/index.rst:86
+#: ../../source/docs/ops/deployment/requirements/index.rst:89
+#: ../../source/docs/ops/deployment/requirements/index.rst:92
+#: ../../source/docs/ops/deployment/requirements/index.rst:95
+#: ../../source/docs/ops/deployment/requirements/index.rst:101
+#: ../../source/docs/ops/deployment/requirements/index.rst:106
+#: ../../source/docs/ops/deployment/requirements/index.rst:110
+#: ../../source/docs/ops/deployment/requirements/index.rst:113
+#: ../../source/docs/ops/deployment/requirements/index.rst:115
+msgid "HTTP"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:60
+msgid "Health checks"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:62
+msgid "15090"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:62
+msgid "Prometheus telemetry"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:65
+msgid "15010"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:65
+#: ../../source/docs/ops/deployment/requirements/index.rst:69
+#: ../../source/docs/ops/deployment/requirements/index.rst:73
+#: ../../source/docs/ops/deployment/requirements/index.rst:118
+msgid "GRPC"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:65
+#: ../../source/docs/ops/deployment/requirements/index.rst:69
+#: ../../source/docs/ops/deployment/requirements/index.rst:73
+#: ../../source/docs/ops/deployment/requirements/index.rst:76
+#: ../../source/docs/ops/deployment/requirements/index.rst:78
+msgid "Istiod"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:65
+msgid "XDS and CA services (plaintext)"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:69
+msgid "15011"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:69
+msgid "XDS and CA services (TLS, legacy)"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:73
+msgid "15012"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:73
+msgid "XDS and CA services (TLS)"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:76
+msgid "8080"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:76
+msgid "Debug interface"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:78
+msgid "443"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:78
+msgid "HTTPS"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:78
+msgid "Webhooks"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:80
+msgid "15014"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:80
+msgid "Citadel, Citadel agent, Galley, Mixer, Istiod, Sidecar Injector"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:80
+msgid "Control plane monitoring"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:86
+msgid "15029"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:86
+msgid "Kiali"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:86
+msgid "Kiali User Interface"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:89
+msgid "15030"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:89
+#: ../../source/docs/ops/deployment/requirements/index.rst:101
+msgid "Prometheus"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:89
+msgid "Prometheus User Interface"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:92
+msgid "15031"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:92
+msgid "Grafana"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:92
+msgid "Grafana User Interface"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:95
+msgid "15032"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:95
+msgid "Tracing"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:95
+msgid "Tracing User Interface"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:98
+msgid "15443"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:98
+msgid "TLS"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:98
+msgid "Ingress and Egress Gateways"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:98
+msgid "SNI"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:101
+msgid "9090"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:103
+msgid "42422"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:103
+#: ../../source/docs/ops/deployment/requirements/index.rst:110
+msgid "Mixer"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:103
+msgid "Telemetry - Prometheus"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:106
+msgid "15004"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:106
+msgid "Mixer, Pilot"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:106
+msgid "Policy/Telemetr y - ``mTLS``"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:110
+msgid "9091"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:110
+msgid "Policy/Telemetr y"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:113
+msgid "8060"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:113
+msgid "Citadel"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:113
+msgid "GRPC server"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:115
+msgid "9876"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:115
+msgid "Citadel, Citadel agent"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:115
+msgid "ControlZ user interface"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:118
+msgid "9901"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:118
+msgid "Galley"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:118
+msgid "Mesh Configuration Protocol"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:124
+msgid "Required pod capabilities"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:126
+msgid ""
+"If `pod security policies <https://kubernetes.io/docs/concepts/policy"
+"/pod-security-policy/>`_ are `enforced "
+"<https://kubernetes.io/docs/concepts/policy/pod-security-policy"
+"/#enabling-pod-security-policies>`_ in your cluster and unless you use "
+"the Istio CNI Plugin, your pods must have the ``NET_ADMIN`` and "
+"``NET_RAW`` capabilities allowed. The initialization containers of the "
+"Envoy proxies require these capabilities."
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:135
+msgid ""
+"To check if the ``NET_ADMIN`` and ``NET_RAW`` capabilities are allowed "
+"for your pods, you need to check if their `service account "
+"<https://kubernetes.io/docs/tasks/configure-pod-container/configure-"
+"service-account/>`_ can use a pod security policy that allows the "
+"``NET_ADMIN`` and ``NET_RAW`` capabilities. If you haven’t specified a "
+"service account in your pods’ deployment, the pods run using the "
+"``default`` service account in their deployment’s namespace."
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:143
+msgid ""
+"To list the capabilities for a service account, replace ``<your "
+"namespace>`` and ``<your service account>`` with your values in the "
+"following command:"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:150
+msgid ""
+".items[*]}{@.metadata.name}{‘:raw-latex:`\\n`’}{end}”); do if [ "
+":math:`(kubectl auth can-i use psp/`\\ psp –as=system:serviceaccount::) ="
+" yes ]; then kubectl get psp/$psp –no-headers -o=custom-"
+"columns=NAME:.metadata.name,CAPS:.spec.allowedCapabilities; fi; done"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:156
+msgid ""
+"For example, to check for the ``default`` service account in the "
+"``default`` namespace, run the following command:"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:162
+msgid ""
+".items[*]}{@.metadata.name}{‘:raw-latex:`\\n`’}{end}”); do if [ "
+":math:`(kubectl auth can-i use psp/`\\ psp "
+"–as=system:serviceaccount:default:default) = yes ]; then kubectl get "
+"psp/$psp –no-headers -o=custom-"
+"columns=NAME:.metadata.name,CAPS:.spec.allowedCapabilities; fi; done"
+msgstr ""
+
+#: ../../source/docs/ops/deployment/requirements/index.rst:169
+msgid ""
+"If you see ``NET_ADMIN`` and ``NET_ADMIN`` or ``*`` in the list of "
+"capabilities of one of the allowed policies for your service account, "
+"your pods have permission to run the Istio init containers. Otherwise, "
+"you will need to `provide the permission "
+"<https://kubernetes.io/docs/concepts/policy/pod-security-policy"
+"/#authorizing-policies>`_."
+msgstr ""
+

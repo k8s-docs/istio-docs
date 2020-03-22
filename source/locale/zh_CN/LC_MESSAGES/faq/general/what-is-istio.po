@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/general/what-is-istio.rst:2
+msgid "what-is-istio"
+msgstr ""
+
+#: ../../source/faq/general/what-is-istio.rst:4
+msgid ""
+"Istio is an open platform-independent service mesh that provides traffic "
+"management, policy enforcement, and telemetry collection."
+msgstr ""
+
+#: ../../source/faq/general/what-is-istio.rst:7
+msgid ""
+"*Open*: Istio is being developed and maintained as open-source software. "
+"We encourage contributions and feedback from the community at-large."
+msgstr ""
+
+#: ../../source/faq/general/what-is-istio.rst:10
+msgid ""
+"*Platform-independent*: Istio is not targeted at any specific deployment "
+"environment. During the initial stages of development, Istio will support"
+" Kubernetes-based deployments. However, Istio is being built to enable "
+"rapid and easy adaptation to other environments."
+msgstr ""
+
+#: ../../source/faq/general/what-is-istio.rst:15
+msgid ""
+"*Service mesh*: Istio is designed to manage communications between "
+"microservices and applications. Without requiring changes to the "
+"underlying services, Istio provides automated baseline traffic "
+"resilience, service metrics collection, distributed tracing, traffic "
+"encryption, protocol upgrades, and advanced routing functionality for all"
+" service-to-service communication."
+msgstr ""
+
+#: ../../source/faq/general/what-is-istio.rst:22
+msgid ""
+"For more detail, please see: `What is Istio? </docs/concepts/what-is-"
+"istio/>`_"
+msgstr ""
+

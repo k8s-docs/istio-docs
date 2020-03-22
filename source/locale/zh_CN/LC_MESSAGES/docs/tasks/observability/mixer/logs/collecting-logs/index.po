@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:53+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:2
+msgid "collecting-logs"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:4
+msgid ""
+"This task shows how to configure Istio to automatically gather telemetry "
+"for services in a mesh. At the end of this task, a new log stream will be"
+" enabled for calls to services within your mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:8
+msgid ""
+"The `Bookinfo </docs/examples/bookinfo/>`_ sample application is used as "
+"the example application throughout this task."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:12
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:14
+msgid ""
+"`Install Istio </docs/setup>`_ in your cluster and deploy an application."
+" This task assumes that Mixer is setup in a default configuration "
+"(``--configDefaultNamespace=istio-system``). If you use a different "
+"value, update the configuration and commands in this task to match the "
+"value."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:21
+msgid "Collecting new logs data"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:23
+msgid ""
+"Apply a YAML file with configuration for the new log stream that Istio "
+"will generate and collect automatically."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:32
+msgid ""
+"If you use Istio 1.1.2 or prior, please use the following configuration "
+"instead:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:40
+msgid "Send traffic to the sample application."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:42
+msgid ""
+"For the Bookinfo sample, visit ``http://$GATEWAY_URL/productpage`` in "
+"your web browser or issue the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:49
+msgid ""
+"Verify that the log stream has been created and is being populated for "
+"requests."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:52
+msgid ""
+"In a Kubernetes environment, search through the logs for the ``istio-"
+"telemetry`` pods as follows:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:55
+msgid ""
+"{{< text bash json >}} $ kubectl logs -n istio-system -l istio-mixer-"
+"type=telemetry -c mixer \\| grep “newlog” \\| grep -v "
+"‘“destination”:“telemetry”’ \\| grep -v ‘“destination”:“pilot”’ \\| grep "
+"-v ‘“destination”:“policy”’ \\| grep -v ‘“destination”:“unknown”’ "
+"{“level”:“warn”,“time”:“2018-09-15T20:46:36.009801Z”,“instance”:“newlog.xxxxx"
+".istio-"
+"system”,“destination”:“details”,“latency”:“13.601485ms”,“responseCode”:200,“responseSize”:178,“source”:“productpage”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“time”:“2018-09-15T20:46:36.026993Z”,“instance”:“newlog.xxxxx"
+".istio-"
+"system”,“destination”:“reviews”,“latency”:“919.482857ms”,“responseCode”:200,“responseSize”:295,“source”:“productpage”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“time”:“2018-09-15T20:46:35.982761Z”,“instance”:“newlog.xxxxx"
+".istio-"
+"system”,“destination”:“productpage”,“latency”:“968.030256ms”,“responseCode”:200,“responseSize”:4415,“source"
+"”:“istio-ingressgateway”,“user”:“unknown”}"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:65
+msgid "Understanding the logs configuration"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:67
+msgid ""
+"In this task, you added Istio configuration that instructed Mixer to "
+"automatically generate and report a new log stream for all traffic within"
+" the mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:71
+msgid "The added configuration controlled three pieces of Mixer functionality:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:73
+msgid ""
+"Generation of *instances* (in this example, log entries) from Istio "
+"attributes"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:75
+msgid ""
+"Creation of *handlers* (configured Mixer adapters) capable of processing "
+"generated *instances*"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:77
+msgid "Dispatch of *instances* to *handlers* according to a set of *rules*"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:79
+msgid ""
+"The logs configuration directs Mixer to send log entries to stdout. It "
+"uses three stanzas (or blocks) of configuration: *instance* "
+"configuration, *handler* configuration, and *rule* configuration."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:83
+msgid ""
+"The ``kind: instance`` stanza of configuration defines a schema for "
+"generated log entries (or *instances*) named ``newlog``. This instance "
+"configuration tells Mixer *how* to generate log entries for requests "
+"based on the attributes reported by Envoy."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:88
+msgid ""
+"The ``severity`` parameter is used to indicate the log level for any "
+"generated ``logentry``. In this example, a literal value of "
+"``\"warning\"`` is used. This value will be mapped to supported logging "
+"levels by a ``logentry`` *handler*."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:93
+msgid ""
+"The ``timestamp`` parameter provides time information for all log "
+"entries. In this example, the time is provided by the attribute value of "
+"``request.time``, as provided by Envoy."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:97
+msgid ""
+"The ``variables`` parameter allows operators to configure what values "
+"should be included in each ``logentry``. A set of expressions controls "
+"the mapping from Istio attributes and literal values into the values that"
+" constitute a ``logentry``. In this example, each ``logentry`` instance "
+"has a field named ``latency`` populated with the value from the attribute"
+" ``response.duration``. If there is no known value for "
+"``response.duration``, the ``latency`` field will be set to a duration of"
+" ``0ms``."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:106
+msgid ""
+"The ``kind: handler`` stanza of configuration defines a *handler* named "
+"``newloghandler``. The handler ``spec`` configures how the ``stdio`` "
+"compiled adapter code processes received ``logentry`` instances. The "
+"``severity_levels`` parameter controls how ``logentry`` values for the "
+"``severity`` field are mapped to supported logging levels. Here, the "
+"value of ``\"warning\"`` is mapped to the ``WARNING`` log level. The "
+"``outputAsJson`` parameter directs the adapter to generate JSON-formatted"
+" log lines."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:115
+msgid ""
+"The ``kind: rule`` stanza of configuration defines a new *rule* named "
+"``newlogstdio``. The rule directs Mixer to send all ``newlog`` instances "
+"to the ``newloghandler`` handler. Because the ``match`` parameter is set "
+"to ``true``, the rule is executed for all requests in the mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:120
+msgid ""
+"A ``match: true`` expression in the rule specification is not required to"
+" configure a rule to be executed for all requests. Omitting the entire "
+"``match`` parameter from the ``spec`` is equivalent to setting ``match: "
+"true``. It is included here to illustrate how to use ``match`` "
+"expressions to control rule execution."
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:127
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:129
+msgid "Remove the new logs configuration:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:135
+msgid "If you are using Istio 1.1.2 or prior:"
+msgstr ""
+
+#: ../../source/docs/tasks/observability/mixer/logs/collecting-logs/index.rst:141
+msgid ""
+"If you are not planning to explore any follow-on tasks, refer to the "
+"`Bookinfo cleanup </docs/examples/bookinfo/#cleanup>`_ instructions to "
+"shutdown the application."
+msgstr ""
+

@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:2
+msgid "announcing-1.2.3"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:4
+msgid ""
+"We’re pleased to announce the availability of Istio 1.2.3. Please see "
+"below for what’s changed."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:10
+msgid "Bug fixes"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:12
+msgid ""
+"Fix a bug where the sidecar could infinitely forward requests to itself "
+"when pod defines a port undefined for service (`Issue 14443 "
+"<https://github.com/istio/istio/issues/14443>`_) and (`Issue 14242 "
+"<https://github.com/istio/istio/issues/14242>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:16
+msgid "Fix a bug where Stackdriver adapter shuts down after telemetry is started."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:18
+msgid "Fix Redis connectivity issues."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:19
+msgid ""
+"Fix case-sensitivity in regex-based HTTP URI matching for Virtual Service"
+" (`Issue 14983 <https://github.com/istio/istio/issues/14983>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:22
+msgid ""
+"Fix HPA and CPU settings for demo profile (`Issue 15338 "
+"<https://github.com/istio/istio/issues/15338>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:24
+msgid ""
+"Relax Keep-Alive enforcement policy to avoid dropping connections under "
+"load (`Issue 15088 <https://github.com/istio/istio/issues/15088>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:27
+msgid ""
+"When SDS is not used, skip Kubernetes JWT authentication to mitigate the "
+"risk of compromised (untrustworthy) JWTs being used."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:31
+msgid "Tests upgrade"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:33
+msgid ""
+"Update base image version for Bookinfo reviews sample app (`Issue 15477 "
+"<https://github.com/istio/istio/issues/15477>`_)"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.3/index.rst:35
+msgid ""
+"Bookinfo samples image qualification (`Issue 14237 "
+"<https://github.com/istio/istio/issues/14237>`_)"
+msgstr ""
+

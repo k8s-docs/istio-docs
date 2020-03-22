@@ -1,0 +1,435 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/annotations/index.rst:2
+msgid "Resource Annotations"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/api' REPO "
+"source_repo: https://github.com/istio/api title: Resource Annotations "
+"description: Resource annotations used by Istio. location: "
+"https://istio.io/docs/reference/config/annotations.html weight: 60 --- "
+"<p> This page presents the various <a "
+"href=\"https://kubernetes.io/docs/concepts/overview/working-with-"
+"objects/annotations/\">resource annotations</a> that Istio supports to "
+"control its behavior. </p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:440
+msgid "<table class=\"annotations\">"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:22
+msgid "<thead>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:21
+#: ../../source/docs/reference/config/annotations/index.rst:35
+#: ../../source/docs/reference/config/annotations/index.rst:45
+#: ../../source/docs/reference/config/annotations/index.rst:55
+#: ../../source/docs/reference/config/annotations/index.rst:65
+#: ../../source/docs/reference/config/annotations/index.rst:75
+#: ../../source/docs/reference/config/annotations/index.rst:91
+#: ../../source/docs/reference/config/annotations/index.rst:101
+#: ../../source/docs/reference/config/annotations/index.rst:111
+#: ../../source/docs/reference/config/annotations/index.rst:121
+#: ../../source/docs/reference/config/annotations/index.rst:131
+#: ../../source/docs/reference/config/annotations/index.rst:141
+#: ../../source/docs/reference/config/annotations/index.rst:151
+#: ../../source/docs/reference/config/annotations/index.rst:161
+#: ../../source/docs/reference/config/annotations/index.rst:171
+#: ../../source/docs/reference/config/annotations/index.rst:181
+#: ../../source/docs/reference/config/annotations/index.rst:193
+#: ../../source/docs/reference/config/annotations/index.rst:203
+#: ../../source/docs/reference/config/annotations/index.rst:213
+#: ../../source/docs/reference/config/annotations/index.rst:223
+#: ../../source/docs/reference/config/annotations/index.rst:233
+#: ../../source/docs/reference/config/annotations/index.rst:243
+#: ../../source/docs/reference/config/annotations/index.rst:253
+#: ../../source/docs/reference/config/annotations/index.rst:263
+#: ../../source/docs/reference/config/annotations/index.rst:273
+#: ../../source/docs/reference/config/annotations/index.rst:283
+#: ../../source/docs/reference/config/annotations/index.rst:293
+#: ../../source/docs/reference/config/annotations/index.rst:303
+#: ../../source/docs/reference/config/annotations/index.rst:313
+#: ../../source/docs/reference/config/annotations/index.rst:323
+#: ../../source/docs/reference/config/annotations/index.rst:333
+#: ../../source/docs/reference/config/annotations/index.rst:343
+#: ../../source/docs/reference/config/annotations/index.rst:353
+#: ../../source/docs/reference/config/annotations/index.rst:363
+#: ../../source/docs/reference/config/annotations/index.rst:373
+#: ../../source/docs/reference/config/annotations/index.rst:383
+#: ../../source/docs/reference/config/annotations/index.rst:393
+#: ../../source/docs/reference/config/annotations/index.rst:403
+#: ../../source/docs/reference/config/annotations/index.rst:413
+#: ../../source/docs/reference/config/annotations/index.rst:423
+#: ../../source/docs/reference/config/annotations/index.rst:433
+msgid "<tr>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:20
+msgid "<th>Annotation Name</th> <th>Resource Types</th> <th>Description</th>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:23
+#: ../../source/docs/reference/config/annotations/index.rst:40
+#: ../../source/docs/reference/config/annotations/index.rst:50
+#: ../../source/docs/reference/config/annotations/index.rst:60
+#: ../../source/docs/reference/config/annotations/index.rst:70
+#: ../../source/docs/reference/config/annotations/index.rst:80
+#: ../../source/docs/reference/config/annotations/index.rst:96
+#: ../../source/docs/reference/config/annotations/index.rst:106
+#: ../../source/docs/reference/config/annotations/index.rst:116
+#: ../../source/docs/reference/config/annotations/index.rst:126
+#: ../../source/docs/reference/config/annotations/index.rst:136
+#: ../../source/docs/reference/config/annotations/index.rst:146
+#: ../../source/docs/reference/config/annotations/index.rst:156
+#: ../../source/docs/reference/config/annotations/index.rst:166
+#: ../../source/docs/reference/config/annotations/index.rst:176
+#: ../../source/docs/reference/config/annotations/index.rst:186
+#: ../../source/docs/reference/config/annotations/index.rst:198
+#: ../../source/docs/reference/config/annotations/index.rst:208
+#: ../../source/docs/reference/config/annotations/index.rst:218
+#: ../../source/docs/reference/config/annotations/index.rst:228
+#: ../../source/docs/reference/config/annotations/index.rst:238
+#: ../../source/docs/reference/config/annotations/index.rst:248
+#: ../../source/docs/reference/config/annotations/index.rst:258
+#: ../../source/docs/reference/config/annotations/index.rst:268
+#: ../../source/docs/reference/config/annotations/index.rst:278
+#: ../../source/docs/reference/config/annotations/index.rst:288
+#: ../../source/docs/reference/config/annotations/index.rst:298
+#: ../../source/docs/reference/config/annotations/index.rst:308
+#: ../../source/docs/reference/config/annotations/index.rst:318
+#: ../../source/docs/reference/config/annotations/index.rst:328
+#: ../../source/docs/reference/config/annotations/index.rst:338
+#: ../../source/docs/reference/config/annotations/index.rst:348
+#: ../../source/docs/reference/config/annotations/index.rst:358
+#: ../../source/docs/reference/config/annotations/index.rst:368
+#: ../../source/docs/reference/config/annotations/index.rst:378
+#: ../../source/docs/reference/config/annotations/index.rst:388
+#: ../../source/docs/reference/config/annotations/index.rst:398
+#: ../../source/docs/reference/config/annotations/index.rst:408
+#: ../../source/docs/reference/config/annotations/index.rst:418
+#: ../../source/docs/reference/config/annotations/index.rst:428
+#: ../../source/docs/reference/config/annotations/index.rst:438
+msgid "</tr>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:24
+msgid "</thead> <tbody>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:37
+msgid ""
+"<td><code>galley.istio.io/analyze-suppress</code></td> <td>[Any]</td> "
+"<td>A comma separated list of configuration analysis message codes to "
+"suppress when Istio analyzers are run. For example, to suppress reporting"
+" of IST0103 (PodMissingProxy) and IST0108 (UnknownAnnotation) on a "
+"resource, apply the annotation 'galley.istio.io/analyze-"
+"suppress=IST0108,IST0103'. If the value is '*', then all configuration "
+"analysis messages are suppressed.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:47
+msgid ""
+"<td><code>install.operator.istio.io/chart-owner</code></td> "
+"<td>[Any]</td> <td>Represents the name of the chart used to create this "
+"resource.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:57
+msgid ""
+"<td><code>install.operator.istio.io/owner-generation</code></td> "
+"<td>[Any]</td> <td>Represents the generation to which the resource was "
+"last reconciled.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:67
+msgid ""
+"<td><code>install.operator.istio.io/version</code></td> <td>[Any]</td> "
+"<td>Represents the Istio version associated with the resource</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:77
+msgid ""
+"<td><code>kubernetes.io/ingress.class</code></td> <td>[Ingress]</td> "
+"<td>Annotation on an Ingress resources denoting the class of controllers "
+"responsible for it.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:93
+msgid ""
+"<td><code>networking.istio.io/exportTo</code></td> <td>[Service]</td> "
+"<td>Specifies the namespaces to which this service should be exported to."
+" A value of '*' indicates it is reachable within the mesh '.' indicates "
+"it is reachable within its namespace.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:103
+msgid ""
+"<td><code>policy.istio.io/check</code></td> <td>[Pod]</td> <td>Determines"
+" the policy for behavior when unable to connect to Mixer. If not set, "
+"FAIL_CLOSE is set, rejecting requests.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:113
+msgid ""
+"<td><code>policy.istio.io/checkBaseRetryWaitTime</code></td> "
+"<td>[Pod]</td> <td>Base time to wait between retries, will be adjusted by"
+" backoff and jitter. In duration format. If not set, this will be "
+"80ms.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:123
+msgid ""
+"<td><code>policy.istio.io/checkMaxRetryWaitTime</code></td> "
+"<td>[Pod]</td> <td>Maximum time to wait between retries to Mixer. In "
+"duration format. If not set, this will be 1000ms.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:133
+msgid ""
+"<td><code>policy.istio.io/checkRetries</code></td> <td>[Pod]</td> <td>The"
+" maximum number of retries on transport errors to Mixer. If not set, this"
+" will be 0, indicating no retries.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:143
+msgid ""
+"<td><code>policy.istio.io/lang</code></td> <td>[Pod]</td> <td>Selects the"
+" attribute expression language runtime for Mixer.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:153
+msgid ""
+"<td><code>readiness.status.sidecar.istio.io/applicationPorts</code></td> "
+"<td>[Pod]</td> <td>Specifies the list of ports exposed by the application"
+" container. Used by the Envoy sidecar readiness probe to determine that "
+"Envoy is configured and ready to receive traffic.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:163
+msgid ""
+"<td><code>readiness.status.sidecar.istio.io/failureThreshold</code></td> "
+"<td>[Pod]</td> <td>Specifies the failure threshold for the Envoy sidecar "
+"readiness probe.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:173
+msgid ""
+"<td><code>readiness.status.sidecar.istio.io/initialDelaySeconds</code></td>"
+" <td>[Pod]</td> <td>Specifies the initial delay (in seconds) for the "
+"Envoy sidecar readiness probe.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:183
+msgid ""
+"<td><code>readiness.status.sidecar.istio.io/periodSeconds</code></td> "
+"<td>[Pod]</td> <td>Specifies the period (in seconds) for the Envoy "
+"sidecar readiness probe.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:195
+msgid ""
+"<td><code>sidecar.istio.io/bootstrapOverride</code></td> <td>[Pod]</td> "
+"<td>Specifies an alternative Envoy bootstrap configuration file.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:205
+msgid ""
+"<td><code>sidecar.istio.io/componentLogLevel</code></td> <td>[Pod]</td> "
+"<td>Specifies the component log level for Envoy.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:215
+msgid ""
+"<td><code>sidecar.istio.io/controlPlaneAuthPolicy</code></td> "
+"<td>[Pod]</td> <td>Specifies the auth policy used by the Istio control "
+"plane. If NONE, traffic will not be encrypted. If MUTUAL_TLS, traffic "
+"between Envoy sidecar will be wrapped into mutual TLS connections.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:225
+msgid ""
+"<td><code>sidecar.istio.io/discoveryAddress</code></td> <td>[Pod]</td> "
+"<td>Specifies the XDS discovery address to be used by the Envoy "
+"sidecar.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:235
+msgid ""
+"<td><code>sidecar.istio.io/enableCoreDump</code></td> <td>[Pod]</td> "
+"<td>Specifies whether or not an Envoy sidecar should enable core "
+"dump.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:245
+msgid ""
+"<td><code>sidecar.istio.io/inject</code></td> <td>[Pod]</td> "
+"<td>Specifies whether or not an Envoy sidecar should be automatically "
+"injected into the workload.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:255
+msgid ""
+"<td><code>sidecar.istio.io/interceptionMode</code></td> <td>[Pod]</td> "
+"<td>Specifies the mode used to redirect inbound connections to Envoy "
+"(REDIRECT or TPROXY).</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:265
+msgid ""
+"<td><code>sidecar.istio.io/logLevel</code></td> <td>[Pod]</td> "
+"<td>Specifies the log level for Envoy.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:275
+msgid ""
+"<td><code>sidecar.istio.io/proxyCPU</code></td> <td>[Pod]</td> "
+"<td>Specifies the requested CPU setting for the Envoy sidecar.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:285
+msgid ""
+"<td><code>sidecar.istio.io/proxyImage</code></td> <td>[Pod]</td> "
+"<td>Specifies the Docker image to be used by the Envoy sidecar.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:295
+msgid ""
+"<td><code>sidecar.istio.io/proxyMemory</code></td> <td>[Pod]</td> "
+"<td>Specifies the requested memory setting for the Envoy sidecar.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:305
+msgid ""
+"<td><code>sidecar.istio.io/rewriteAppHTTPProbers</code></td> "
+"<td>[Pod]</td> <td>Rewrite HTTP readiness and liveness probes to be "
+"redirected to the Envoy sidecar.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:315
+msgid ""
+"<td><code>sidecar.istio.io/statsInclusionPrefixes</code></td> "
+"<td>[Pod]</td> <td>Specifies the comma separated list of prefixes of the "
+"stats to be emitted by Envoy.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:325
+msgid ""
+"<td><code>sidecar.istio.io/statsInclusionRegexps</code></td> "
+"<td>[Pod]</td> <td>Specifies the comma separated list of regexes the "
+"stats should match to be emitted by Envoy.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:335
+msgid ""
+"<td><code>sidecar.istio.io/statsInclusionSuffixes</code></td> "
+"<td>[Pod]</td> <td>Specifies the comma separated list of suffixes of the "
+"stats to be emitted by Envoy.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:345
+msgid ""
+"<td><code>sidecar.istio.io/status</code></td> <td>[Pod]</td> "
+"<td>Generated by Envoy sidecar injection that indicates the status of the"
+" operation. Includes a version hash of the executed template, as well as "
+"names of injected resources.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:355
+msgid ""
+"<td><code>sidecar.istio.io/userVolume</code></td> <td>[Pod]</td> "
+"<td>Specifies one or more user volumes (as a JSON array) to be added to "
+"the Envoy sidecar.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:365
+msgid ""
+"<td><code>sidecar.istio.io/userVolumeMount</code></td> <td>[Pod]</td> "
+"<td>Specifies one or more user volume mounts (as a JSON array) to be "
+"added to the Envoy sidecar.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:375
+msgid ""
+"<td><code>status.sidecar.istio.io/port</code></td> <td>[Pod]</td> "
+"<td>Specifies the HTTP status Port for the Envoy sidecar. If zero, the "
+"sidecar will not provide status.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:385
+msgid ""
+"<td><code>traffic.sidecar.istio.io/excludeInboundPorts</code></td> "
+"<td>[Pod]</td> <td>A comma separated list of inbound ports to be excluded"
+" from redirection to Envoy. Only applies when all inbound traffic (i.e. "
+"'*') is being redirected.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:395
+msgid ""
+"<td><code>traffic.sidecar.istio.io/excludeOutboundIPRanges</code></td> "
+"<td>[Pod]</td> <td>A comma separated list of IP ranges in CIDR form to be"
+" excluded from redirection. Only applies when all outbound traffic (i.e. "
+"'*') is being redirected.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:405
+msgid ""
+"<td><code>traffic.sidecar.istio.io/excludeOutboundPorts</code></td> "
+"<td>[Pod]</td> <td>A comma separated list of outbound ports to be "
+"excluded from redirection to Envoy.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:415
+msgid ""
+"<td><code>traffic.sidecar.istio.io/includeInboundPorts</code></td> "
+"<td>[Pod]</td> <td>A comma separated list of inbound ports for which "
+"traffic is to be redirected to Envoy. The wildcard character '*' can be "
+"used to configure redirection for all ports. An empty list will disable "
+"all inbound redirection.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:425
+msgid ""
+"<td><code>traffic.sidecar.istio.io/includeOutboundIPRanges</code></td> "
+"<td>[Pod]</td> <td>A comma separated list of IP ranges in CIDR form to "
+"redirect to Envoy (optional). The wildcard character '*' can be used to "
+"redirect all outbound traffic. An empty list will disable all outbound "
+"redirection.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:435
+msgid ""
+"<td><code>traffic.sidecar.istio.io/kubevirtInterfaces</code></td> "
+"<td>[Pod]</td> <td>A comma separated list of virtual interfaces whose "
+"inbound traffic (from VM) will be treated as outbound.</td>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:441
+msgid "</tbody>"
+msgstr ""
+
+#: ../../source/docs/reference/config/annotations/index.rst:442
+msgid "</table>"
+msgstr ""
+

@@ -1,0 +1,206 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/test/tb/index.rst:2
+msgid "tb"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:4
+msgid "Plain text block with html tag"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:6
+msgid ""
+"{{< text plain >}} $ kubectl get svc -n istio-system NAME TYPE CLUSTER-IP"
+" EXTERNAL-IP PORT(S) grafana ClusterIP 172.21.211.123 3000/TCP …"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:10
+msgid "Bash text block with plain output"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:12
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:14
+msgid "$ this is a text block $ echo Foo"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:15
+msgid "Bar Foo Bar"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:17
+msgid "Bash text block with redirection"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:22
+msgid "networking.istio.io/v1alpha3 kind: ServiceEntry"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:24
+msgid "Bash text block with html tag"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:29
+msgid "EXTERNAL-IP PORT(S) grafana ClusterIP 172.21.211.123 3000/TCP …"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:31
+msgid "Bash text block with yaml output and download name"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:33
+msgid ""
+"{{< text syntax=“bash” outputis=“yaml” downloadas=“foo.yaml” >}} $ "
+"kubectl -n istio-system get configmap istio-galley-configuration -o "
+"jsonpath=‘{.data}’ map[validatingwebhookconfiguration.yaml:apiVersion: "
+"admissionregistration.k8s.io/v1beta1 kind: ValidatingWebhookConfiguration"
+" metadata: name: istio-galley namespace: istio-system labels: app: istio-"
+"galley chart: galley-1.0.0 release: istio heritage: Tiller webhooks: - "
+"name: pilot.validation.istio.io clientConfig: service: name: istio-galley"
+" namespace: istio-system path: “/admitpilot” caBundle: \"\" rules: - "
+"operations: (… snip …)"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:43
+msgid "Bash text block with json output and download name"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:45
+msgid ""
+"{{< text syntax=“bash” outputis=“json” downloadas=“foo.txt” >}} $ kubectl"
+" logs -n istio-system -l istio-mixer-type=telemetry -c mixer \\| grep "
+"\"instance\":\"newlog.logentry.istio-system\" \\| grep -v "
+"‘“destination”:“telemetry”’ \\| grep -v ‘“destination”:“pilot”’ \\| grep "
+"-v ‘“destination”:“policy”’ \\| grep -v ‘“destination”:“unknown”’ "
+"{“level”:“warn”,“time”:“2018-09-15T20:46:36.009801Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“details”,“latency”:“13.601485ms”,“responseCode”:200,“responseSize”:178,“source”:“productpage”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“time”:“2018-09-15T20:46:36.026993Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“reviews”,“latency”:“919.482857ms”,“responseCode”:200,“responseSize”:295,“source”:“productpage”,“user”:“unknown”}"
+" "
+"{“level”:“warn”,“time”:“2018-09-15T20:46:35.982761Z”,“instance”:“newlog.logentry"
+".istio-"
+"system”,“destination”:“productpage”,“latency”:“968.030256ms”,“responseCode”:200,“responseSize”:4415,“source"
+"”:“istio-ingressgateway”,“user”:“unknown”}"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:55
+msgid "File-based text block"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:57
+msgid "{{< text_import file=“test/snippet_example.txt” syntax=“plain” >}}"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:59
+msgid "File-based text block with snippet extraction and download name"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:61
+msgid ""
+"{{< text_import file=“test/snippet_example.txt” syntax=“plain” "
+"snippet=“SNIP2” downloadas=“foo.txt” >}}"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:64
+msgid "File-based bash text block with download name"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:66
+msgid ""
+"{{< text_import file=“test/command_example.txt” syntax=“bash” "
+"downloadas=“foo.sh” >}}"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:69
+msgid "URL-based text block"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:71
+msgid ""
+"{{< text_import "
+"url=“https://raw.githubusercontent.com/istio/istio.io/master/test/snippet_example.txt”"
+" syntax=“plain” >}}"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:75
+msgid "URL-based text block with snippet extraction"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:77
+msgid ""
+"{{< text_import "
+"url=“https://raw.githubusercontent.com/istio/istio.io/master/test/snippet_example.txt”"
+" syntax=“plain” snippet=“SNIP1” >}}"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:81
+msgid "URL-based text block with redirects"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:83
+msgid ""
+"{{< text_import "
+"url=“https://raw.githubusercontent.com/istio/istio.io/master/test/command_example.txt”"
+" syntax=“bash” outputis=“yaml” >}}"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:87
+msgid "URL-based text block with @@ content"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:89
+msgid ""
+"{{< text_import "
+"url=“https://raw.githubusercontent.com/istio/istio.io/release-1.1/test/command_example_atat.txt”"
+" syntax=“bash” >}}"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:93
+msgid "Very wide text block"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:95
+msgid ""
+"{{< text plain >}} Reeeeeaaaaaalllllllllly "
+"lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllong"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:99
+msgid "Very tall text block"
+msgstr ""
+
+#: ../../source/test/tb/index.rst:101
+msgid ""
+"{{< text plain >}} Really tall Really tall Really tall Really tall Really"
+" tall Really tall Really tall Really tall Really tall Really tall Really "
+"tall Really tall Really tall Really tall Really tall Really tall Really "
+"tall Really tall Really tall Really tall Really tall Really tall Really "
+"tall Really tall Really tall Really tall Really tall Really tall Really "
+"tall Really tall Really tall Really tall Really tall Really tall Really "
+"tall Really tall Really tall Really tall Really tall Really tall Really "
+"tall Really tall Really tall Really tall Really tall Really tall Really "
+"tall"
+msgstr ""
+

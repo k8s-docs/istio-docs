@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:2
+msgid "injection-concepts"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:4
+msgid ""
+"Automatic sidecar injection adds the sidecar proxy into user-created "
+"pods. It uses a ``MutatingWebhook`` to append the sidecar’s containers "
+"and volumes to each pod’s template spec during creation time. Injection "
+"can be scoped to particular sets of namespaces using the webhooks "
+"``namespaceSelector`` mechanism. Injection can also be enabled and "
+"disabled per-pod with an annotation."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:11
+msgid ""
+"Whether or not a sidecar is injected depends on three pieces of "
+"configuration and two security rules:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:14
+msgid "Configuration:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:16
+msgid "webhooks ``namespaceSelector``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:17
+msgid "default ``policy``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:18
+msgid "per-pod override annotation"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:20
+msgid "Security rules:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:22
+msgid ""
+"sidecars cannot be injected in the ``kube-system`` or ``kube-public`` "
+"namespaces"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:24
+msgid "sidecars cannot be injected into pods that use the host network"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:26
+msgid ""
+"The following truth table shows the final injection status based on the "
+"three configuration items. The security rules above cannot be overridden."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:31
+msgid "``namespaceSele ctor`` match"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:31
+msgid "default ``policy` `"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:31
+msgid "Pod override annotation ``sidecar.istio.io/inject``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:31
+msgid "Side car inje cted ?"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:37
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:39
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:41
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:43
+msgid "yes"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:37
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:39
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:45
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:47
+msgid "enabled"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:37
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:45
+msgid "true (default)"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:39
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:47
+msgid "false"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:39
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:43
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:45
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:47
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:49
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:51
+msgid "no"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:41
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:43
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:49
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:51
+msgid "disabled"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:41
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:49
+msgid "true"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:43
+#: ../../source/docs/ops/configuration/mesh/injection-concepts/index.rst:51
+msgid "false (default)"
+msgstr ""
+

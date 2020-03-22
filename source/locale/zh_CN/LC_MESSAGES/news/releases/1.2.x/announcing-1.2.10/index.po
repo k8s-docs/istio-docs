@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.10/index.rst:2
+msgid "announcing-1.2.10"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.10/index.rst:4
+msgid ""
+"This release contains fixes for the security vulnerability described in "
+"`our December 10th, 2019 news post </news/security/istio-"
+"security-2019-007>`_. This release note describes what’s different "
+"between Istio 1.2.9 and Istio 1.2.10."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.10/index.rst:9
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.10/index.rst:12
+msgid "Security update"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.10/index.rst:14
+msgid ""
+"**ISTIO-SECURITY-2019-007** A heap overflow and improper input validation"
+" have been discovered in Envoy."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.10/index.rst:17
+msgid ""
+"`CVE-2019-18801 <https://cve.mitre.org/cgi-"
+"bin/cvename.cgi?name=CVE-2019-18801>`_: Fix a vulnerability affecting "
+"Envoy’s processing of large HTTP/2 request headers. A successful "
+"exploitation of this vulnerability could lead to a denial of service, "
+"escalation of privileges, or information disclosure. `CVE-2019-18802 "
+"<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18802>`_: Fix a "
+"vulnerability resulting from whitespace after HTTP/1 header values which "
+"could allow an attacker to bypass Istio’s policy checks, potentially "
+"resulting in information disclosure or escalation of privileges. "
+"`CVE-2019-18838 <https://cve.mitre.org/cgi-"
+"bin/cvename.cgi?name=CVE-2019-18838>`_: Fix a vulnerability resulting "
+"from malformed HTTP request missing the “Host” header. An encoder filter "
+"that invokes Envoy’s route manager APIs that access request’s “Host” "
+"header will cause a NULL pointer to be dereferenced and result in "
+"abnormal termination of the Envoy process."
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.10/index.rst:33
+msgid "Bug fix"
+msgstr ""
+
+#: ../../source/news/releases/1.2.x/announcing-1.2.10/index.rst:35
+msgid ""
+"Add support for Citadel to automatically rotate root cert. (`Issue 17059 "
+"<https://github.com/istio/istio/issues/17059>`_)"
+msgstr ""
+

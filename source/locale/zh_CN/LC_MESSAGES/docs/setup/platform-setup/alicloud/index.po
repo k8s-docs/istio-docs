@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:2
+msgid "Alibaba Cloud"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:4
+msgid ""
+"Follow these instructions to prepare an `Alibaba Cloud Kubernetes "
+"Container Service <https://www.alibabacloud.com/product/kubernetes>`_ "
+"cluster for Istio. You can deploy a Kubernetes cluster to Alibaba Cloud "
+"quickly and easily in the ``Container Service console``, which fully "
+"supports Istio."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:9
+msgid ""
+"To install and configure an Istio mesh in the Alibaba Cloud Kubernetes "
+"Container Service using the ``Application Catalog`` module, follow the "
+"`Alibaba Application Catalog instructions "
+"<https://archive.istio.io/v1.1/docs/setup/kubernetes/install/platform/alicloud/>`_"
+" instead."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:12
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:14
+msgid ""
+"`Follow the Alibaba Cloud instructions <https://www.alibabacloud.com/help"
+"/doc-detail/53752.htm>`_ to activate the following services: Container "
+"Service, Resource Orchestration Service (ROS), and RAM."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:18
+msgid "Procedure"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:20
+msgid ""
+"Log on to the ``Container Service console``, and click **Clusters** under"
+" **Kubernetes** in the left-side navigation pane to enter the **Cluster "
+"List** page."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:21
+msgid "Click the **Create Kubernetes Cluster** button in the upper-right corner."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:22
+msgid ""
+"Enter the cluster name. The cluster name can be 1–63 characters long and "
+"it can contain numbers, Chinese characters, English letters, and hyphens "
+"(-)."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:23
+msgid "Select the **region** and **zone** in which the cluster resides."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:24
+msgid ""
+"Set the cluster network type. Kubernetes clusters only support the VPC "
+"network type now."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:25
+msgid ""
+"Configure the node type, Pay-As-You-Go and Subscription types are "
+"supported."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:26
+msgid ""
+"Configure the master nodes. Select the generation, family, and type for "
+"the master nodes."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:27
+msgid ""
+"Configure the worker nodes. Select whether to create a worker node or add"
+" an existing ECS instance as the worker node."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:28
+msgid ""
+"Configure the logon mode, and configure the Pod Network CIDR and  Service"
+" CIDR."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/alicloud/index.rst:30
+msgid "The image below shows the GUI where you complete all the previous steps:"
+msgstr ""
+

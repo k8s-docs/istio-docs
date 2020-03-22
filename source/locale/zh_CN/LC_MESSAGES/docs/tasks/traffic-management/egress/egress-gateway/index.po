@@ -1,0 +1,913 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:2
+msgid "Egress Gateways"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:4
+msgid "{{"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:10
+msgid "}} This example does not work in Minikube. {{"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:16
+msgid "}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:18
+msgid ""
+"The `Control Egress Traffic </docs/tasks/traffic-management/egress/>`_ "
+"task shows how to configure Istio to allow access to external HTTP and "
+"HTTPS services from applications inside the mesh. There, the external "
+"services are called directly from the client sidecar. This example also "
+"shows how to configure Istio to call external services, although this "
+"time indirectly via a dedicated *egress gateway* service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:25
+msgid ""
+"Istio uses `ingress and egress gateways "
+"</docs/reference/config/networking/gateway/>`_ to configure load "
+"balancers executing at the edge of a service mesh. An ingress gateway "
+"allows you to define entry points into the mesh that all incoming traffic"
+" flows through. Egress gateway is a symmetrical concept; it defines exit "
+"points from the mesh. Egress gateways allow you to apply Istio features, "
+"for example, monitoring and route rules, to traffic exiting the mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:35
+msgid "Use case"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:37
+msgid ""
+"Consider an organization that has a strict security requirement that all "
+"traffic leaving the service mesh must flow through a set of dedicated "
+"nodes. These nodes will run on dedicated machines, separated from the "
+"rest of the nodes running applications in the cluster. These special "
+"nodes will serve for policy enforcement on the egress traffic and will be"
+" monitored more thoroughly than other nodes."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:44
+msgid ""
+"Another use case is a cluster where the application nodes don’t have "
+"public IPs, so the in-mesh services that run on them cannot access the "
+"Internet. Defining an egress gateway, directing all the egress traffic "
+"through it, and allocating public IPs to the egress gateway nodes allows "
+"the application nodes to access external services in a controlled way."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:50
+msgid "{{< boilerplate before-you-begin-egress >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:52
+msgid ""
+"`Enable Envoy’s access logging </docs/tasks/observability/logs/access-log"
+"/#enable-envoy-s-access-logging>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:56
+msgid "Deploy Istio egress gateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:58
+msgid "Check if the Istio egress gateway is deployed:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:63
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:412
+msgid "istio-system"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:65
+msgid ""
+"If no pods are returned, deploy the Istio egress gateway by performing "
+"the next step."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:68
+msgid "Run the following command:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:72
+msgid "$ istioctl manifest apply –set"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:73
+msgid "values.global.istioNamespace=istio-system"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst
+msgid "–set values.gateways.istio-ingressgateway.enabled=false"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst
+msgid "–set values.gateways.istio-egressgateway.enabled=true"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:79
+msgid "The following instructions create a destination rule for"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:80
+msgid ""
+"the egress gateway in the ``default`` namespace and assume that the "
+"client, ``SOURCE_POD``, is also running in the ``default`` namespace. If "
+"not, the destination rule will not be found on the `destination rule "
+"lookup path </docs/ops/best-practices/traffic-management/#cross-"
+"namespace-configuration>`_ and the client requests will fail."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:90
+msgid "Egress gateway for HTTP traffic"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:92
+msgid ""
+"First create a ``ServiceEntry`` to allow direct traffic to an external "
+"service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:95
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:268
+msgid "Define a ``ServiceEntry`` for ``edition.cnn.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:100
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:273
+msgid ""
+"networking.istio.io/v1alpha3 kind: ServiceEntry metadata: name: cnn spec:"
+" hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:103
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:276
+msgid "edition.cnn.com ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:104
+msgid "number: 80 name: http-port protocol: HTTP"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:105
+msgid "number: 443 name: https protocol: HTTPS resolution: DNS EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:107
+msgid ""
+"Verify that your ``ServiceEntry`` was applied correctly by sending an "
+"HTTP request to http://edition.cnn.com/politics."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:113
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:219
+msgid ""
+"-o /dev/null -D - http://edition.cnn.com/politics HTTP/1.1 301 Moved "
+"Permanently … location: https://edition.cnn.com/politics …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:116
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:222
+msgid ""
+"HTTP/1.1 200 OK Content-Type: text/html; charset=utf-8 … Content-Length: "
+"151654 …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:119
+msgid ""
+"The output should be the same as in the `TLS Origination for Egress "
+"Traffic </docs/tasks/traffic-management/egress/egress-tls-origination/>`_"
+" example, without TLS origination."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:123
+msgid ""
+"Create an egress ``Gateway`` for *edition.cnn.com*, port 80, and a "
+"destination rule for traffic directed to the egress gateway."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:126
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:293
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:607
+msgid ""
+"Choose the instructions corresponding to whether or not you have `mutual "
+"TLS Authentication </docs/tasks/security/authentication/authn-policy/>`_ "
+"enabled in Istio."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:131
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:298
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:612
+msgid "{{< tabset category-name=“mtls” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:133
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:300
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:614
+msgid "{{< tab name=“mutual TLS enabled” category-value=“enabled” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:138
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:163
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:305
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:354
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: istio-"
+"egressgateway spec: selector: istio: egressgateway servers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:141
+msgid "port: number: 80 name: https protocol: HTTPS hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:143
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:310
+msgid ""
+"edition.cnn.com tls: mode: MUTUAL serverCertificate: /etc/certs/cert-"
+"chain.pem privateKey: /etc/certs/key.pem caCertificates: /etc/certs/root-"
+"cert.pem — apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule"
+" metadata: name: egressgateway-for-cnn spec: host: istio-egressgateway"
+".istio-system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:150
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:317
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:623
+msgid ""
+"name: cnn trafficPolicy: loadBalancer: simple: ROUND_ROBIN "
+"portLevelSettings:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:153
+msgid "port: number: 80 tls: mode: ISTIO_MUTUAL sni: edition.cnn.com EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:156
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:177
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:347
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:393
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:629
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:642
+msgid "{{< /tab >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:158
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:349
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:631
+msgid "{{< tab name=“mutual TLS disabled” category-value=“disabled” >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:166
+msgid "port: number: 80 name: http protocol: HTTP hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst
+msgid "edition.cnn.com"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:171
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:619
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:636
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: DestinationRule metadata: "
+"name: egressgateway-for-cnn spec: host: istio-egressgateway.istio-"
+"system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:175
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:640
+msgid "name: cnn EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:179
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:395
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:644
+msgid "{{< /tabset >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:181
+msgid ""
+"Define a ``VirtualService`` to direct traffic from the sidecars to the "
+"egress gateway and from the egress gateway to the external service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:188
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: direct-"
+"cnn-through-egress-gateway spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:191
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:324
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:369
+msgid "edition.cnn.com gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:192
+msgid "istio-egressgateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:193
+msgid "mesh http:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:194
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:204
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:327
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:338
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:372
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:383
+msgid "match:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:196
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:206
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:329
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:340
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:374
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:385
+msgid "gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:198
+msgid "mesh port: 80 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:200
+msgid ""
+"destination: host: istio-egressgateway.istio-system.svc.cluster.local "
+"subset: cnn port: number: 80 weight: 100"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:208
+msgid "istio-egressgateway port: 80 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:210
+msgid "destination: host: edition.cnn.com port: number: 80 weight: 100 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:213
+msgid ""
+"Resend the HTTP request to `http://edition.cnn.com/politics "
+"<https://edition.cnn.com/politics>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:225
+msgid "The output should be the same as in the step 2."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:227
+msgid ""
+"Check the log of the ``istio-egressgateway`` pod for a line corresponding"
+" to our request. If Istio is deployed in the ``istio-system`` namespace, "
+"the command to print the log is:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:234
+msgid "istio-proxy -n istio-system \\| tail"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:236
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:414
+msgid "You should see a line similar to the following:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:238
+msgid ""
+"{{< text plain >}} [2019-09-03T20:57:49.103Z] “GET /politics HTTP/2” 301 "
+"- “-” “-” 0 0 90 89 “10.244.2.10” “curl/7.64.0” "
+"“ea379962-9b5c-4431-ab66-f01994f5a5a5” “edition.cnn.com” "
+"“151.101.65.67:80” outbound|80||edition.cnn.com - 10.244.1.5:80 "
+"10.244.2.10:50482 edition.cnn.com -"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:244
+msgid ""
+"Note that you only redirected the traffic from port 80 to the egress "
+"gateway. The HTTPS traffic to port 443 went directly to "
+"*edition.cnn.com*."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:249
+msgid "Cleanup HTTP gateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:251
+msgid "Remove the previous definitions before proceeding to the next step:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:256
+msgid ""
+"delete serviceentry cnn $ kubectl delete virtualservice direct-cnn-"
+"through-egress-gateway $ kubectl delete destinationrule egressgateway-"
+"for-cnn"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:261
+msgid "Egress gateway for HTTPS traffic"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:263
+msgid ""
+"In this section you direct HTTPS traffic (TLS originated by the "
+"application) through an egress gateway. You need to specify port 443 with"
+" protocol ``TLS`` in a corresponding ``ServiceEntry``, an egress "
+"``Gateway`` and a ``VirtualService``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:277
+msgid "number: 443 name: tls protocol: TLS resolution: DNS EOF {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:280
+msgid ""
+"Verify that your ``ServiceEntry`` was applied correctly by sending an "
+"HTTPS request to https://edition.cnn.com/politics."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:286
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:403
+msgid ""
+"-o /dev/null -D - https://edition.cnn.com/politics HTTP/1.1 200 OK "
+"Content-Type: text/html; charset=utf-8 … Content-Length: 151654 …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:289
+msgid ""
+"Create an egress ``Gateway`` for *edition.cnn.com*, a destination rule "
+"and a virtual service to direct the traffic through the egress gateway "
+"and from the egress gateway to the external service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:308
+msgid "port: number: 443 name: tls-cnn protocol: TLS hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:320
+msgid ""
+"port: number: 443 tls: mode: ISTIO_MUTUAL sni: edition.cnn.com — "
+"apiVersion: networking.istio.io/v1alpha3 kind: VirtualService metadata: "
+"name: direct-cnn-through-egress-gateway spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:325
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:370
+msgid "mesh"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:326
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:371
+msgid "istio-egressgateway tls:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:331
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:376
+msgid "mesh port: 443 sni_hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:332
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:377
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:388
+msgid "edition.cnn.com route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:334
+msgid ""
+"destination: host: istio-egressgateway.istio-system.svc.cluster.local "
+"subset: cnn port: number: 443 tcp:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:342
+msgid "istio-egressgateway port: 443 route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:344
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:390
+msgid "destination: host: edition.cnn.com port: number: 443 weight: 100 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:357
+msgid "port: number: 443 name: tls protocol: TLS hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:359
+msgid ""
+"edition.cnn.com tls: mode: PASSTHROUGH — apiVersion: "
+"networking.istio.io/v1alpha3 kind: DestinationRule metadata: name: "
+"egressgateway-for-cnn spec: host: istio-egressgateway.istio-"
+"system.svc.cluster.local subsets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst
+msgid "name: cnn"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:367
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: VirtualService metadata: "
+"name: direct-cnn-through-egress-gateway spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:379
+msgid ""
+"destination: host: istio-egressgateway.istio-system.svc.cluster.local "
+"subset: cnn port: number: 443"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:387
+msgid "istio-egressgateway port: 443 sni_hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:397
+msgid ""
+"Send an HTTPS request to https://edition.cnn.com/politics. The output "
+"should be the same as before."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:406
+msgid ""
+"Check the log of the egress gateway’s proxy. If Istio is deployed in the "
+"``istio-system`` namespace, the command to print the log is:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:416
+msgid ""
+"{{< text plain >}} [2019-01-02T11:46:46.981Z] “- - -” 0 - 627 1879689 44 "
+"- “-” “-” “-” “-” “151.101.129.67:443” outbound|443||edition.cnn.com "
+"172.30.109.80:41122 172.30.109.80:443 172.30.109.112:59970 "
+"edition.cnn.com"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:422
+msgid "Cleanup HTTPS gateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:427
+msgid ""
+"gateway istio-egressgateway $ kubectl delete virtualservice direct-cnn-"
+"through-egress-gateway $ kubectl delete destinationrule egressgateway-"
+"for-cnn"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:432
+msgid "Additional security considerations"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:434
+msgid ""
+"Note that defining an egress ``Gateway`` in Istio does not in itself "
+"provides any special treatment for the nodes on which the egress gateway "
+"service runs. It is up to the cluster administrator or the cloud provider"
+" to deploy the egress gateways on dedicated nodes and to introduce "
+"additional security measures to make these nodes more secure than the "
+"rest of the mesh."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:441
+msgid ""
+"Istio *cannot securely enforce* that all egress traffic actually flows "
+"through the egress gateways. Istio only enables such flow through its "
+"sidecar proxies. If attackers bypass the sidecar proxy, they could "
+"directly access external services without traversing the egress gateway. "
+"Thus, the attackers escape Istio’s control and monitoring. The cluster "
+"administrator or the cloud provider must ensure that no traffic leaves "
+"the mesh bypassing the egress gateway. Mechanisms external to Istio must "
+"enforce this requirement. For example, the cluster administrator can "
+"configure a firewall to deny all traffic not coming from the egress "
+"gateway. The `Kubernetes network policies "
+"<https://kubernetes.io/docs/concepts/services-networking/network-"
+"policies/>`_ can also forbid all the egress traffic not originating from "
+"the egress gateway (see `the next section <#apply-kubernetes-network-"
+"policies>`_ for an example). Additionally, the cluster administrator or "
+"the cloud provider can configure the network to ensure application nodes "
+"can only access the Internet via a gateway. To do this, the cluster "
+"administrator or the cloud provider can prevent the allocation of public "
+"IPs to pods other than gateways and can configure NAT devices to drop "
+"packets not originating at the egress gateways."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:462
+msgid "Apply Kubernetes network policies"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:464
+#, python-format
+msgid ""
+"This section shows you how to create a `Kubernetes network policy "
+"<https://kubernetes.io/docs/concepts/services-networking/network-"
+"policies/>`_ to prevent bypassing of the egress gateway. To test the "
+"network policy, you create a namespace, ``test-egress``, deploy the "
+"`sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ sample to "
+"it, and then attempt to send requests to a gateway-secured external "
+"service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:472
+msgid ""
+"Follow the steps in the `Egress gateway for HTTPS traffic <#egress-"
+"gateway-for-https-traffic>`_ section."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:475
+msgid "Create the ``test-egress`` namespace:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:480
+msgid ">}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:482
+#, python-format
+msgid ""
+"Deploy the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_ "
+"sample to the ``test-egress`` namespace."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:489
+msgid "@samples/sleep/sleep.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:491
+msgid ""
+"Check that the deployed pod has a single container with no Istio sidecar "
+"attached:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:497
+msgid ""
+"-l app=sleep -o jsonpath={.items..metadata.name}) -n test-egress NAME "
+"READY STATUS RESTARTS AGE sleep-776b7bcdcd-z7mc4 1/1 Running 0 18m"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:501
+msgid ""
+"Send an HTTPS request to https://edition.cnn.com/politics from the "
+"``sleep`` pod in the ``test-egress`` namespace. The request will succeed "
+"since you did not define any restrictive policies yet."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:508
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:655
+msgid ""
+"test-egress -l app=sleep -o jsonpath={.items..metadata.name}) -n test-"
+"egress -c sleep – curl -s -o /dev/null -w “%{http_code}:raw-latex:`\\n`” "
+"https://edition.cnn.com/politics 200"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:513
+msgid ""
+"Label the namespaces where the Istio components (the control plane and "
+"the gateways) run. If you deployed the Istio components to ``istio-"
+"system``, the command is:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:520
+msgid "istio=system"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:522
+msgid "Label the ``kube-system`` namespace."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:529
+msgid ""
+"Define a ``NetworkPolicy`` to limit the egress traffic from the ``test-"
+"egress`` namespace to traffic destined to ``istio-system``, and to the "
+"``kube-system`` DNS service (port 53):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:536
+msgid ""
+"apiVersion: networking.k8s.io/v1 kind: NetworkPolicy metadata: name: "
+"allow-egress-to-istio-system-and-kube-dns spec: podSelector: {} "
+"policyTypes:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:540
+msgid "Egress egress:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:541
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:546
+msgid "to:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:543
+msgid "namespaceSelector: matchLabels: kube-system: “true” ports:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:544
+msgid "protocol: UDP port: 53"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:548
+msgid "namespaceSelector: matchLabels: istio: system EOF {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:551
+msgid ""
+"Resend the previous HTTPS request to https://edition.cnn.com/politics. "
+"Now it should fail since the traffic is blocked by the network policy. "
+"Note that the ``sleep`` pod cannot bypass ``istio-egressgateway``. The "
+"only way it can access ``edition.cnn.com`` is by using an Istio sidecar "
+"proxy and by directing the traffic to ``istio-egressgateway``. This "
+"setting demonstrates that even if some malicious pod manages to bypass "
+"its sidecar proxy, it will not be able to access external sites and will "
+"be blocked by the network policy."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:564
+msgid ""
+"test-egress -l app=sleep -o jsonpath={.items..metadata.name}) -n test-"
+"egress -c sleep – curl -v https://edition.cnn.com/politics Hostname was "
+"NOT found in DNS cache Trying 151.101.65.67… Trying 2a04:4e42:200::323… "
+"Immediate connect fail for 2a04:4e42:200::323: Cannot assign requested "
+"address Trying 2a04:4e42:400::323… Immediate connect fail for "
+"2a04:4e42:400::323: Cannot assign requested address Trying "
+"2a04:4e42:600::323… Immediate connect fail for 2a04:4e42:600::323: Cannot"
+" assign requested address Trying 2a04:4e42::323… Immediate connect fail "
+"for 2a04:4e42::323: Cannot assign requested address connect to "
+"151.101.65.67 port 443 failed: Connection timed out"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:576
+msgid ""
+"Now inject an Istio sidecar proxy into the ``sleep`` pod in the ``test-"
+"egress`` namespace by first enabling automatic sidecar proxy injection in"
+" the ``test-egress`` namespace:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:583
+msgid "istio-injection=enabled"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:585
+msgid "Then redeploy the ``sleep`` deployment:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:590
+msgid "kubectl apply -f @samples/sleep/sleep.yaml@ -n test-egress {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:593
+msgid ""
+"Check that the deployed pod has two containers, including the Istio "
+"sidecar proxy (``istio-proxy``):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:599
+msgid ""
+"-l app=sleep -o jsonpath={.items..metadata.name}) -n test-egress -o "
+"jsonpath=‘{.spec.containers[*].name}’ sleep istio-proxy {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:603
+msgid ""
+"Create the same destination rule as for the ``sleep`` pod in the "
+"``default`` namespace to direct the traffic through the egress gateway:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:626
+msgid "port: number: 443 tls: mode: ISTIO_MUTUAL sni: edition.cnn.com EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:646
+msgid ""
+"Send an HTTPS request to https://edition.cnn.com/politics. Now it should "
+"succeed since the traffic flows to ``istio-egressgateway`` in the "
+"``istio-system`` namespace, which is allowed by the Network Policy you "
+"defined. ``istio-egressgateway`` forwards the traffic to "
+"``edition.cnn.com``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:660
+msgid ""
+"Check the statistics of the egress gateway’s proxy and see a counter that"
+" corresponds to our requests to *edition.cnn.com*. If Istio is deployed "
+"in the ``istio-system`` namespace, the command to print the counter is:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:668
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:739
+msgid ""
+"istio=egressgateway -n istio-system -o "
+"jsonpath=‘{.items[0].metadata.name}’) -c istio-proxy -n istio-system – "
+"pilot-agent request GET stats \\| grep edition.cnn.com.upstream_cx_total "
+"cluster.outbound|443||edition.cnn.com.upstream_cx_total: 2 {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:676
+msgid "Cleanup network policies"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:678
+msgid "Delete the resources created in this section:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:683
+msgid ""
+"test-egress $ kubectl delete destinationrule egressgateway-for-cnn -n "
+"test-egress $ kubectl delete networkpolicy allow-egress-to-istio-system-"
+"and-kube-dns -n test-egress $ kubectl label namespace kube-system kube-"
+"system- $ kubectl label namespace istio-system istio- $ kubectl delete "
+"namespace test-egress {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:690
+msgid ""
+"Follow the steps in the `Cleanup HTTPS gateway <#cleanup-https-gateway>`_"
+" section."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:694
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:696
+msgid ""
+"Check if you have `mutual TLS Authentication "
+"</docs/tasks/security/authentication/authn-policy/>`_ enabled in Istio. "
+"If mutual TLS is enabled, make sure you create the configuration items "
+"accordingly (note the remarks *If you have mutual TLS Authentication "
+"enabled in Istio, you must create…*)."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:702
+msgid ""
+"If `mutual TLS Authentication </docs/tasks/security/authentication/authn-"
+"policy/>`_ is enabled, verify the correct certificate of the egress "
+"gateway:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:709
+msgid ""
+"-l istio=egressgateway -n istio-system -o "
+"jsonpath=‘{.items[0].metadata.name}’) – cat /etc/certs/cert-chain.pem \\|"
+" openssl x509 -text -noout \\| grep ‘Subject Alternative Name’ -A 1 "
+"X509v3 Subject Alternative Name: URI:spiffe://cluster.local/ns/istio-"
+"system/sa/istio-egressgateway-service-account"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:716
+msgid ""
+"For HTTPS traffic (TLS originated by the application), test the traffic "
+"flow by using the *openssl* command. *openssl* has an explicit option for"
+" setting the SNI, namely ``-servername``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:723
+msgid ""
+"s_client -connect edition.cnn.com:443 -servername edition.cnn.com "
+"CONNECTED(00000003) … Certificate chain 0 s:/C=US/ST=California/L=San "
+"Francisco/O=Fastly, Inc./CN=turner-tls.map.fastly.net "
+"i:/C=BE/O=GlobalSign nv-sa/CN=GlobalSign CloudSSL CA - SHA256 - G3 1 "
+"s:/C=BE/O=GlobalSign nv-sa/CN=GlobalSign CloudSSL CA - SHA256 - G3 "
+"i:/C=BE/O=GlobalSign nv-sa/OU=Root CA/CN=GlobalSign Root CA — Server "
+"certificate —–BEGIN CERTIFICATE—– …"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:731
+msgid ""
+"If you get the certificate as in the output above, your traffic is routed"
+" correctly. Check the statistics of the egress gateway’s proxy and see a "
+"counter that corresponds to your requests (sent by *openssl* and *curl*) "
+"to *edition.cnn.com*."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:747
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/egress/egress-gateway/index.rst:749
+#, python-format
+msgid ""
+"Shutdown the `sleep <%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/sleep>`_"
+" service:"
+msgstr ""
+

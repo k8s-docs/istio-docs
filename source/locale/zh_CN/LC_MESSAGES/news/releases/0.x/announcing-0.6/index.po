@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:2
+msgid "announcing-0.6"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:4
+msgid ""
+"In addition to the usual pile of bug fixes and performance improvements, "
+"this release includes the new or updated features detailed below."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:7
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:10
+msgid "Networking"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:12
+msgid ""
+"**Custom Envoy Configuration**. Pilot now supports ferrying custom Envoy "
+"configuration to the proxy. `Learn more "
+"<https://github.com/mandarjog/istioluawebhook>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:17
+msgid "Mixer adapters"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:19
+msgid ""
+"**SolarWinds**. Mixer can now interface to AppOptics and Papertrail. "
+"`Learn more </docs/reference/config/policy-and-"
+"telemetry/adapters/solarwinds/>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:23
+msgid ""
+"**Redis Quota**. Mixer now supports a Redis-based adapter for rate limit "
+"tracking. `Learn more </docs/reference/config/policy-and-"
+"telemetry/adapters/redisquota/>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:27
+msgid ""
+"**Datadog**. Mixer now provides an adapter to deliver metric data to a "
+"Datadog agent. `Learn more </docs/reference/config/policy-and-"
+"telemetry/adapters/datadog/>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:32
+msgid "Other"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:34
+msgid ""
+"**Separate Check & Report Clusters**. When configuring Envoy, it’s now "
+"possible to use different clusters for Mixer instances that are used for "
+"Mixer’s Check functionality from those used for Mixer’s Report "
+"functionality. This may be useful in large deployments for better scaling"
+" of Mixer instances."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:40
+msgid ""
+"**Monitoring Dashboards**. There are now preliminary Mixer & Pilot "
+"monitoring dashboard in Grafana."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:43
+msgid ""
+"**Liveness and Readiness Probes**. Istio components now provide canonical"
+" liveness and readiness probe support to help ensure mesh infrastructure "
+"health. `Learn more </docs/tasks/security/citadel-config/health-check/>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.6/index.rst:48
+msgid ""
+"**Egress Policy and Telemetry**. Istio can monitor traffic to external "
+"services defined by ``EgressRule`` or External Service. Istio can also "
+"apply Mixer policies on this traffic."
+msgstr ""
+

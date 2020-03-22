@@ -1,0 +1,335 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/blog/2018/istio-authorization/index.rst:2
+msgid "istio-authorization"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:4
+msgid ""
+"Micro-segmentation is a security technique that creates secure zones in "
+"cloud deployments and allows organizations to isolate workloads from one "
+"another and secure them individually. `Istio’s authorization feature "
+"</docs/concepts/security/#authorization>`_, also known as Istio Role "
+"Based Access Control, provides micro-segmentation for services in an "
+"Istio mesh. It features:"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:11
+msgid ""
+"Authorization at different levels of granularity, including namespace "
+"level, service level, and method level."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:13
+msgid "Service-to-service and end-user-to-service authorization."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:14
+msgid "High performance, as it is enforced natively on Envoy."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:15
+msgid "Role-based semantics, which makes it easy to use."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:16
+msgid ""
+"High flexibility as it allows users to define conditions using "
+"`combinations of attributes </docs/reference/config/security/constraints-"
+"and-properties/>`_."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:20
+msgid ""
+"In this blog post, you’ll learn about the main authorization features and"
+" how to use them in different situations."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:24
+msgid "Characteristics"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:27
+msgid "RPC level authorization"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:29
+msgid ""
+"Authorization is performed at the level of individual RPCs. Specifically,"
+" it controls “who can access my ``bookstore`` service”, or “who can "
+"access method ``getBook`` in my ``bookstore`` service”. It is not "
+"designed to control access to application-specific resource instances, "
+"like access to “storage bucket X” or access to “3rd book on 2nd shelf”. "
+"Today this kind of application specific access control logic needs to be "
+"handled by the application itself."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:38
+msgid "Role-based access control with conditions"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:40
+msgid ""
+"Authorization is a `role-based access control (RBAC) "
+"<https://en.wikipedia.org/wiki/Role-based_access_control>`_ system, "
+"contrast this to an `attribute-based access control (ABAC) "
+"<https://en.wikipedia.org/wiki/Attribute-based_access_control>`_ system. "
+"Compared to ABAC, RBAC has the following advantages:"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:46
+msgid ""
+"**Roles allow grouping of attributes.** Roles are groups of permissions, "
+"which specifies the actions you are allowed to perform on a system. Users"
+" are grouped based on the roles within an organization. You can define "
+"the roles and reuse them for different cases."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:52
+msgid ""
+"**It is easier to understand and reason about who has access.** The RBAC "
+"concepts map naturally to business concepts. For example, a DB admin may "
+"have all access to DB backend services, while a web client may only be "
+"able to view the frontend service."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:57
+msgid ""
+"**It reduces unintentional errors.** RBAC policies make otherwise complex"
+" security changes easier. You won’t have duplicate configurations in "
+"multiple places and later forget to update some of them when you need to "
+"make changes."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:62
+msgid ""
+"On the other hand, Istio’s authorization system is not a traditional RBAC"
+" system. It also allows users to define **conditions** using "
+"`combinations of attributes </docs/reference/config/security/constraints-"
+"and-properties/>`_. This gives Istio flexibility to express complex "
+"access control policies. In fact, **the “RBAC + conditions” model that "
+"Istio authorization adopts, has all the benefits an RBAC system has, and "
+"supports the level of flexibility that normally an ABAC system "
+"provides.** You’ll see some `examples <#examples>`_ below."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:73
+msgid "High performance"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:75
+msgid ""
+"Because of its simple semantics, Istio authorization is enforced on Envoy"
+" as a native authorization support. At runtime, the authorization "
+"decision is completely done locally inside an Envoy filter, without "
+"dependency to any external module. This allows Istio authorization to "
+"achieve high performance and availability."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:82
+msgid "Work with/without primary identities"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:84
+msgid ""
+"Like any other RBAC system, Istio authorization is identity aware. In "
+"Istio authorization policy, there is a primary identity called ``user``, "
+"which represents the principal of the client."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:88
+msgid ""
+"In addition to the primary identity, you can also specify any conditions "
+"that define the identities. For example, you can specify the client "
+"identity as “user Alice calling from Bookstore frontend service”, in "
+"which case, you have a combined identity of the calling service "
+"(``Bookstore frontend``) and the end user (``Alice``)."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:94
+msgid ""
+"To improve security, you should enable `authentication features "
+"</docs/concepts/security/#authentication>`_, and use authenticated "
+"identities in authorization policies. However, strongly authenticated "
+"identity is not required for using authorization. Istio authorization "
+"works with or without identities. If you are working with a legacy "
+"system, you may not have mutual TLS or JWT authentication setup for your "
+"mesh. In this case, the only way to identify the client is, for example, "
+"through IP. You can still use Istio authorization to control which IP "
+"addresses or IP ranges are allowed to access your service."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:105
+msgid "Examples"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:107
+msgid ""
+"The `authorization task </docs/tasks/security/authorization/authz-"
+"http/>`_ shows you how to use Istio’s authorization feature to control "
+"namespace level and service level access using the `Bookinfo application "
+"</docs/examples/bookinfo/>`_. In this section, you’ll see more examples "
+"on how to achieve micro-segmentation with Istio authorization."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:116
+msgid "Namespace level segmentation via RBAC + conditions"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:118
+msgid ""
+"Suppose you have services in the ``frontend`` and ``backend`` namespaces."
+" You would like to allow all your services in the ``frontend`` namespace "
+"to access all services that are marked ``external`` in the ``backend`` "
+"namespace."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:126
+msgid ""
+"metadata: name: external-api-caller namespace: backend spec: rules: - "
+"services: [\"*\"] methods: [\"*”] constraints: - key: "
+"“destination.labels[visibility]” values: [“external”] — apiVersion: "
+"“rbac.istio.io/v1alpha1” kind: ServiceRoleBinding metadata: name: "
+"external-api-caller namespace: backend spec: subjects: - properties: "
+"source.namespace: “frontend” roleRef: kind: ServiceRole name: “external-"
+"api-caller”"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:134
+msgid ""
+"The ``ServiceRole`` and ``ServiceRoleBinding`` above expressed “*who* is "
+"allowed to do *what* under *which conditions*” (RBAC + conditions). "
+"Specifically:"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:138
+msgid "**“who”** are the services in the ``frontend`` namespace."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:139
+msgid "**“what”** is to call services in ``backend`` namespace."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:140
+msgid ""
+"**“conditions”** is the ``visibility`` label of the destination service "
+"having the value ``external``."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:144
+msgid "Service/method level isolation with/without primary identities"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:146
+msgid ""
+"Here is another example that demonstrates finer grained access control at"
+" service/method level. The first step is to define a ``book-reader`` "
+"service role that allows READ access to ``/books/*`` resource in "
+"``bookstore`` service."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:154
+msgid ""
+"metadata: name: book-reader namespace: default spec: rules: - services: "
+"[“bookstore.default.svc.cluster.local”] paths: [\"/books/*”] methods: "
+"[“GET”]"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:159
+msgid "Using authenticated client identities"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:161
+msgid ""
+"Suppose you want to grant this ``book-reader`` role to your ``bookstore-"
+"frontend`` service. If you have enabled `mutual TLS authentication "
+"</docs/concepts/security/#mutual-tls-authentication>`_ for your mesh, you"
+" can use a service account to identify your ``bookstore-frontend`` "
+"service. Granting the ``book-reader`` role to the ``bookstore-frontend`` "
+"service can be done by creating a ``ServiceRoleBinding`` as shown below:"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:172
+msgid ""
+"ServiceRoleBinding metadata: name: book-reader namespace: default spec: "
+"subjects: - user: “cluster.local/ns/default/sa/bookstore-frontend” "
+"roleRef: kind: ServiceRole name: “book-reader”"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:176
+msgid ""
+"You may want to restrict this further by adding a condition that “only "
+"users who belong to the ``qualified-reviewer`` group are allowed to read "
+"books”. The ``qualified-reviewer`` group is the end user identity that is"
+" authenticated by `JWT authentication "
+"</docs/concepts/security/#authentication>`_. In this case, the "
+"combination of the client service identity (``bookstore-frontend``) and "
+"the end user identity (``qualified-reviewer``) is used in the "
+"authorization policy."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:188
+msgid ""
+"ServiceRoleBinding metadata: name: book-reader namespace: default spec: "
+"subjects: - user: “cluster.local/ns/default/sa/bookstore-frontend” "
+"properties: request.auth.claims[group]: “qualified-reviewer” roleRef: "
+"kind: ServiceRole name: “book-reader”"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:194
+msgid "Client does not have identity"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:196
+msgid ""
+"Using authenticated identities in authorization policies is strongly "
+"recommended for security. However, if you have a legacy system that does "
+"not support authentication, you may not have authenticated identities for"
+" your services. You can still use Istio authorization to protect your "
+"services even without authenticated identities. The example below shows "
+"that you can specify allowed source IP range in your authorization "
+"policy."
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:207
+msgid ""
+"ServiceRoleBinding metadata: name: book-reader namespace: default spec: "
+"subjects: - properties: source.ip: 10.20.0.0/9 roleRef: kind: ServiceRole"
+" name: “book-reader”"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:212
+msgid "Summary"
+msgstr ""
+
+#: ../../source/blog/2018/istio-authorization/index.rst:214
+msgid ""
+"Istio’s authorization feature provides authorization at namespace-level, "
+"service-level, and method-level granularity. It adopts “RBAC + "
+"conditions” model, which makes it easy to use and understand as an RBAC "
+"system, while providing the level of flexibility that an ABAC system "
+"normally provides. Istio authorization achieves high performance as it is"
+" enforced natively on Envoy. While it provides the best security by "
+"working together with `Istio authentication features "
+"</docs/concepts/security/#authentication>`_, Istio authorization can also"
+" be used to provide access control for legacy systems that do not have "
+"authentication."
+msgstr ""
+

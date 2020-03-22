@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:42+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:2
+msgid "Mirroring"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:4
+msgid "This task demonstrates the traffic mirroring capabilities of Istio."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:6
+msgid ""
+"Traffic mirroring, also called shadowing, is a powerful concept that "
+"allows feature teams to bring changes to production with as little risk "
+"as possible. Mirroring sends a copy of live traffic to a mirrored "
+"service. The mirrored traffic happens out of band of the critical request"
+" path for the primary service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:12
+msgid ""
+"In this task, you will first force all traffic to ``v1`` of a test "
+"service. Then, you will apply a rule to mirror a portion of traffic to "
+"``v2``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:17
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:19
+msgid ""
+"Set up Istio by following the instructions in the `Installation guide "
+"</docs/setup/>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:21
+#, python-format
+msgid ""
+"Start by deploying two versions of the `httpbin "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/httpbin>`_ service that have"
+" access logging enabled:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:23
+msgid "**httpbin-v1:**"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:36
+msgid "**httpbin-v2:**"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:49
+msgid "**httpbin Kubernetes service:**"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:55
+msgid "name: http port: 8000 targetPort: 80 selector: app: httpbin EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:58
+msgid "Start the ``sleep`` service so you can use ``curl`` to provide load:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:60
+msgid "**sleep service:**"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:72
+msgid "Creating a default routing policy"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:74
+msgid ""
+"By default Kubernetes load balances across both versions of the "
+"``httpbin`` service. In this step, you will change that behavior so that "
+"all traffic goes to ``v1``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:78
+msgid "Create a default route rule to route all traffic to ``v1`` of the service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:83
+msgid ""
+"If you installed/configured Istio with mutual TLS authentication enabled,"
+" you must add a TLS traffic policy ``mode: ISTIO_MUTUAL`` to the "
+"``DestinationRule`` before applying it. Otherwise requests will `generate"
+" 503 errors </docs/ops/common-problems/network-issues/#503-errors-after-"
+"setting-destination-rule>`_."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:95
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:145
+msgid "route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:97
+msgid ""
+"destination: host: httpbin subset: v1 weight: 100 — apiVersion: "
+"networking.istio.io/v1alpha3 kind: DestinationRule metadata: name: "
+"httpbin spec: host: httpbin subsets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:101
+msgid "name: v1 labels: version: v1"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:102
+msgid "name: v2 labels: version: v2 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:104
+msgid "Now all traffic goes to the ``httpbin:v1`` service."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:106
+msgid "Send some traffic to the service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:118
+msgid ""
+"Check the logs for ``v1`` and ``v2`` of the ``httpbin`` pods. You should "
+"see access log entries for ``v1`` and none for ``v2``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:135
+msgid "Mirroring traffic to v2"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:137
+msgid "Change the route rule to mirror traffic to v2:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:147
+msgid ""
+"destination: host: httpbin subset: v1 weight: 100 mirror: host: httpbin "
+"subset: v2 mirror_percent: 100 EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:150
+#, python-format
+msgid ""
+"This route rule sends 100% of the traffic to ``v1``. The last stanza "
+"specifies that you want to mirror to the ``httpbin:v2`` service. When "
+"traffic gets mirrored, the requests are sent to the mirrored service with"
+" their Host/Authority headers appended with ``-shadow``. For example, "
+"``cluster-1`` becomes ``cluster-1-shadow``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:156
+msgid ""
+"Also, it is important to note that these requests are mirrored as “fire "
+"and forget”, which means that the responses are discarded."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:159
+msgid ""
+"You can use the ``mirror_percent`` field to mirror a fraction of the "
+"traffic, instead of mirroring all requests. If this field is absent, for "
+"compatibility with older versions, all traffic will be mirrored."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:163
+msgid "Send in traffic:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:170
+msgid ""
+"Now, you should see access logging for both ``v1`` and ``v2``. The access"
+" logs created in ``v2`` are the mirrored requests that are actually going"
+" to ``v1``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:187
+msgid ""
+"If you want to examine traffic internals, run the following commands on "
+"another console:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:260
+msgid "You can see request and response contents of the traffic."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:263
+msgid "Cleaning up"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:265
+msgid "Remove the rules:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/mirroring/index.rst:272
+#, python-format
+msgid ""
+"Shutdown the `httpbin "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/httpbin>`_ service and "
+"client:"
+msgstr ""
+

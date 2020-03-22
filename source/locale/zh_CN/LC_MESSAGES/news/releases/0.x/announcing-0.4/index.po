@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/0.x/announcing-0.4/index.rst:2
+msgid "announcing-0.4"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.4/index.rst:4
+msgid ""
+"This release has only got a few weeks’ worth of changes, as we stabilize "
+"our monthly release process. In addition to the usual pile of bug fixes "
+"and performance improvements, this release includes the items below."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.4/index.rst:8
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.4/index.rst:11
+msgid "General"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.4/index.rst:13
+msgid ""
+"**Cloud Foundry**. Added minimum Pilot support for the `Cloud Foundry "
+"<https://www.cloudfoundry.org>`_ platform, making it possible for Pilot "
+"to discover CF services and service instances."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.4/index.rst:17
+msgid ""
+"**Circonus**. Mixer now includes an adapter for the `Circonus "
+"<https://www.circonus.com>`_ analytics and monitoring platform."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.4/index.rst:21
+msgid "**Pilot Metrics**. Pilot now collects metrics for diagnostics."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.4/index.rst:23
+msgid "**Helm Charts**. We now provide Helm charts to install Istio."
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.4/index.rst:25
+msgid ""
+"**Enhanced Attribute Expressions**. Mixer’s expression language gained a "
+"few new functions to make it easier to write policy rules. `Learn more "
+"</docs/reference/config/policy-and-telemetry/expression-language/>`_"
+msgstr ""
+
+#: ../../source/news/releases/0.x/announcing-0.4/index.rst:30
+msgid ""
+"If you’re into the nitty-gritty details, you can see our more detailed "
+"low-level release notes `here "
+"<https://github.com/istio/istio/wiki/v0.4.0>`_."
+msgstr ""
+

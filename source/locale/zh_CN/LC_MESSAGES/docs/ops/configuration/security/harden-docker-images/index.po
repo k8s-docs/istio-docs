@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:2
+msgid "harden-docker-images"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:4
+msgid ""
+"To ease the process of hardening docker images, Istio provides a set of "
+"images based on `distroless images "
+"<https://github.com/GoogleContainerTools/distroless>`_"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:10
+msgid "The *distroless images* are work-in-progress. The"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:11
+msgid "following images haven’t been updated to support *distroless*:"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:13
+msgid "``proxyproxy``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:14
+msgid "``proxy_debug``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:15
+msgid "``kubectl``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:16
+msgid "``app_sidecar``"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:18
+msgid ""
+"For ease of the installation, they are available with a ``-distroless`` "
+"suffix."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:22
+msgid "Install distroless images"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:24
+msgid ""
+"Follow the `Installation Steps </docs/setup/install/istioctl/>`_ to setup"
+" Istio. Add the option ``--set tag={{< istio_full_version "
+">}}-distroless`` to use the *distroless images*."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:30
+msgid "Benefits"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:32
+msgid ""
+"Non-essential executables and libraries are no longer part of the images "
+"when using the distroless variant."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:35
+msgid ""
+"The attack surface is reduced. Include the smallest possible set of "
+"vulnerabilities."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:37
+msgid "The images are smaller, which allows faster start-up."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:39
+msgid ""
+"See also the `Why should I use distroless images? "
+"<https://github.com/GoogleContainerTools/distroless#why-should-i-use-"
+"distroless-images>`_ section in the official distroless README."
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:45
+msgid "Be aware that common debugging tools such as ``bash``,"
+msgstr ""
+
+#: ../../source/docs/ops/configuration/security/harden-docker-images/index.rst:46
+msgid ""
+"``curl``, ``netcat``, ``tcpdump``, etc. are not available on distroless "
+"images."
+msgstr ""
+

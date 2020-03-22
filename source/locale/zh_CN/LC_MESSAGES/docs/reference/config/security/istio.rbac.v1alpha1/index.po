@@ -1,0 +1,483 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:2
+msgid "RBAC (deprecated)"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:4
+msgid ""
+"--- WARNING: THIS IS AN AUTO-GENERATED FILE, DO NOT EDIT. PLEASE MODIFY "
+"THE ORIGINAL SOURCE IN THE 'https://github.com/istio/api' REPO "
+"source_repo: https://github.com/istio/api title: RBAC (deprecated) "
+"description: Configuration for Role Based Access Control. location: "
+"https://istio.io/docs/reference/config/security/istio.rbac.v1alpha1.html "
+"layout: protoc-gen-docs generator: protoc-gen-docs schema: "
+"istio.rbac.v1alpha1.RbacConfig schema: istio.rbac.v1alpha1.ServiceRole "
+"schema: istio.rbac.v1alpha1.ServiceRoleBinding weight: 40 aliases: "
+"[/docs/reference/config/authorization/istio.rbac.v1alpha1] "
+"number_of_entries: 9 --- <p>Note: The v1alpha1 RBAC policy is deprecated "
+"by the v1beta1 Authorization policy. This page is kept for migration "
+"purpose and will be removed in Istio 1.6.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:22
+msgid ""
+"<p>Istio RBAC (Role Based Access Control) defines ServiceRole and "
+"ServiceRoleBinding objects.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:25
+msgid ""
+"<p>A ServiceRole specification includes a list of rules (permissions). "
+"Each rule has the following standard fields:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:28
+msgid ""
+"<ul> <li>services: a list of services.</li> <li>methods: A list of HTTP "
+"methods. You can set the value to <code>[&quot;*&quot;]</code> to include"
+" all HTTP methods."
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:31
+msgid ""
+"This field should not be set for TCP services. The policy will be "
+"ignored. For gRPC services, only <code>POST</code> is allowed; other "
+"methods will result in denying services.</li>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:33
+msgid ""
+"<li>paths: HTTP paths or gRPC methods. Note that gRPC methods should be "
+"presented in the form of "
+"&ldquo;/packageName.serviceName/methodName&rdquo; and are case "
+"sensitive.</li> </ul>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:37
+msgid ""
+"<p>In addition to the standard fields, operators can also use custom keys"
+" in the <code>constraints</code> field, the supported keys are listed in "
+"the &ldquo;constraints and properties&rdquo; page.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:40
+msgid ""
+"<p>Below is an example of ServiceRole object &ldquo;product-"
+"viewer&rdquo;, which has &ldquo;read&rdquo; (&ldquo;GET&rdquo; and "
+"&ldquo;HEAD&rdquo;) access to &ldquo;products.svc.cluster.local&rdquo; "
+"service at versions &ldquo;v1&rdquo; and &ldquo;v2&rdquo;. "
+"&ldquo;path&rdquo; is not specified, so it applies to any path in the "
+"service.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:44
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"&quot;rbac.istio.io/v1alpha1&quot; kind: ServiceRole metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:47
+msgid "name: products-viewer namespace: default"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:54
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:87
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:225
+msgid "spec:"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:50
+msgid "rules: - services: [&quot;products.svc.cluster.local&quot;]"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:52
+msgid ""
+"methods: [&quot;GET&quot;, &quot;HEAD&quot;] constraints: - key: "
+"&quot;destination.labels[version]&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:55
+msgid "values: [&quot;v1&quot;, &quot;v2&quot;]"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:56
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:89
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:227
+msgid "</code></pre>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:58
+msgid "<p>A ServiceRoleBinding specification includes two parts:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:60
+msgid ""
+"<ul> <li>The <code>roleRef</code> field that refers to a ServiceRole "
+"object in the same namespace.</li> <li>A list of <code>subjects</code> "
+"that are assigned the roles.</li> </ul>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:65
+msgid ""
+"<p>In addition to a simple <code>user</code> field, operators can also "
+"use custom keys in the <code>properties</code> field, the supported keys "
+"are listed in the &ldquo;constraints and properties&rdquo; page.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:68
+msgid ""
+"<p>Below is an example of ServiceRoleBinding object &ldquo;test-binding-"
+"products&rdquo;, which binds two subjects to ServiceRole &ldquo;product-"
+"viewer&rdquo;:</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:71
+msgid ""
+"<ul> <li>User &ldquo;alice@yahoo.com&rdquo;</li> <li>Services in "
+"&ldquo;abc&rdquo; namespace.</li> </ul>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:76
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"&quot;rbac.istio.io/v1alpha1&quot; kind: ServiceRoleBinding metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:79
+msgid "name: test-binding-products namespace: default"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:82
+msgid "subjects: - user: alice@yahoo.com - properties:"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:85
+msgid "source.namespace: &quot;abc&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:87
+msgid "roleRef:"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:87
+msgid "kind: ServiceRole name: &quot;products-viewer&quot;"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:91
+msgid ""
+"<h2 id=\"AccessRule\">AccessRule</h2> <section> <p>AccessRule defines a "
+"permission to access a list of services.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:95
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"AccessRule-services\"> <td><code>services</code></td> "
+"<td><code>string[]</code></td> <td> <p>A list of service names. Exact "
+"match, prefix match, and suffix match are supported for service names. "
+"For example, the service name &ldquo;bookstore.mtv.cluster.local&rdquo; "
+"matches &ldquo;bookstore.mtv.cluster.local&rdquo; (exact match), or "
+"&ldquo;bookstore*&rdquo; (prefix match), or "
+"&ldquo;*.mtv.cluster.local&rdquo; (suffix match). If set to "
+"[&rdquo;*&rdquo;], it refers to all services in the namespace.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:116
+msgid ""
+"</td> <td> Yes </td> </tr> <tr id=\"AccessRule-paths\"> "
+"<td><code>paths</code></td> <td><code>string[]</code></td> <td> "
+"<p>Optional. A list of HTTP paths or gRPC methods. gRPC methods must be "
+"presented as fully-qualified name in the form of "
+"&ldquo;/packageName.serviceName/methodName&rdquo; and are case sensitive."
+" Exact match, prefix match, and suffix match are supported. For example, "
+"the path &ldquo;/books/review&rdquo; matches &ldquo;/books/review&rdquo; "
+"(exact match), or &ldquo;/books/*&rdquo; (prefix match), or "
+"&ldquo;*/review&rdquo; (suffix match). If not specified, it matches to "
+"any path. This field should not be set for TCP services. The policy will "
+"be ignored.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:134
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"AccessRule-methods\"> "
+"<td><code>methods</code></td> <td><code>string[]</code></td> <td> "
+"<p>Optional. A list of HTTP methods (e.g., &ldquo;GET&rdquo;, "
+"&ldquo;POST&rdquo;). If not specified or specified as &ldquo;*&rdquo;, it"
+" matches to any methods. This field should not be set for TCP services. "
+"The policy will be ignored. For gRPC services, only <code>POST</code> is "
+"allowed; other methods will result in denying services.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:148
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"AccessRule-constraints\"> "
+"<td><code>constraints</code></td> <td><code><a href=\"#AccessRule-"
+"Constraint\">Constraint[]</a></code></td> <td> <p>Optional. Extra "
+"constraints in the ServiceRole specification.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:159
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 id"
+"=\"AccessRule-Constraint\">AccessRule.Constraint</h2> <section> "
+"<p>Definition of a custom constraint. The supported keys are listed in "
+"the &ldquo;constraint and properties&rdquo; page.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:171
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"AccessRule-Constraint-key\"> <td><code>key</code></td> "
+"<td><code>string</code></td> <td> <p>Key of the constraint.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:187
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"AccessRule-Constraint-values\"> "
+"<td><code>values</code></td> <td><code>string[]</code></td> <td> <p>List "
+"of valid values for the constraint. Exact match, prefix match, and suffix"
+" match are supported. For example, the value &ldquo;v1alpha2&rdquo; "
+"matches &ldquo;v1alpha2&rdquo; (exact match), or &ldquo;v1*&rdquo; "
+"(prefix match), or &ldquo;*alpha2&rdquo; (suffix match).</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:201
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 "
+"id=\"RbacConfig\">RbacConfig</h2> <section> <p>RbacConfig implements the "
+"ClusterRbacConfig Custom Resource Definition for controlling Istio RBAC "
+"behavior. The ClusterRbacConfig Custom Resource is a singleton where only"
+" one ClusterRbacConfig should be created globally in the mesh and the "
+"namespace should be the same to other Istio components, which usually is "
+"<code>istio-system</code>.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:215
+msgid ""
+"<p>Below is an example of an <code>ClusterRbacConfig</code> resource "
+"called <code>istio-rbac-config</code> which enables Istio RBAC for all "
+"services in the default namespace.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:218
+msgid ""
+"<pre><code class=\"language-yaml\">apiVersion: "
+"&quot;rbac.istio.io/v1alpha1&quot; kind: ClusterRbacConfig metadata:"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:221
+msgid "name: default namespace: istio-system"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:224
+msgid "mode: ON_WITH_INCLUSION inclusion:"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:226
+msgid "namespaces: [ &quot;default&quot; ]"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:229
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"RbacConfig-mode\"> <td><code>mode</code></td> "
+"<td><code><a href=\"#RbacConfig-Mode\">Mode</a></code></td> <td> <p>Istio"
+" RBAC mode.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:245
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"RbacConfig-inclusion\"> "
+"<td><code>inclusion</code></td> <td><code><a href=\"#RbacConfig-"
+"Target\">Target</a></code></td> <td> <p>A list of services or namespaces "
+"that should be enforced by Istio RBAC policies. Note: This field have "
+"effect only when mode is ON<em>WITH</em>INCLUSION and will be ignored for"
+" any other modes.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:257
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"RbacConfig-exclusion\"> "
+"<td><code>exclusion</code></td> <td><code><a href=\"#RbacConfig-"
+"Target\">Target</a></code></td> <td> <p>A list of services or namespaces "
+"that should not be enforced by Istio RBAC policies. Note: This field have"
+" effect only when mode is ON<em>WITH</em>EXCLUSION and will be ignored "
+"for any other modes.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:269
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 id"
+"=\"RbacConfig-Mode\">RbacConfig.Mode</h2> <section> <table class=\"enum-"
+"values\"> <thead> <tr> <th>Name</th> <th>Description</th> </tr> </thead> "
+"<tbody> <tr id=\"RbacConfig-Mode-OFF\"> <td><code>OFF</code></td> <td> "
+"<p>Disable Istio RBAC completely, Istio RBAC policies will not be "
+"enforced.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:292
+msgid ""
+"</td> </tr> <tr id=\"RbacConfig-Mode-ON\"> <td><code>ON</code></td> <td> "
+"<p>Enable Istio RBAC for all services and namespaces. Note Istio RBAC is "
+"deny-by-default which means all requests will be denied if it&rsquo;s not"
+" allowed by RBAC rules.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:300
+msgid ""
+"</td> </tr> <tr id=\"RbacConfig-Mode-ON_WITH_INCLUSION\"> "
+"<td><code>ON_WITH_INCLUSION</code></td> <td> <p>Enable Istio RBAC only "
+"for services and namespaces specified in the inclusion field. Any other "
+"services and namespaces not in the inclusion field will not be enforced "
+"by Istio RBAC policies.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:308
+msgid ""
+"</td> </tr> <tr id=\"RbacConfig-Mode-ON_WITH_EXCLUSION\"> "
+"<td><code>ON_WITH_EXCLUSION</code></td> <td> <p>Enable Istio RBAC for all"
+" services and namespaces except those specified in the exclusion field. "
+"Any other services and namespaces not in the exclusion field will be "
+"enforced by Istio RBAC policies.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:316
+msgid ""
+"</td> </tr> </tbody> </table> </section> <h2 id=\"RbacConfig-"
+"Target\">RbacConfig.Target</h2> <section> <p>Target defines a list of "
+"services or namespaces.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:325
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"RbacConfig-Target-services\"> "
+"<td><code>services</code></td> <td><code>string[]</code></td> <td> <p>A "
+"list of services.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:341
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"RbacConfig-Target-namespaces\"> "
+"<td><code>namespaces</code></td> <td><code>string[]</code></td> <td> <p>A"
+" list of namespaces.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:352
+msgid ""
+"</td> <td> No </td> </tr> </tbody> </table> </section> <h2 "
+"id=\"RoleRef\">RoleRef</h2> <section> <p>RoleRef refers to a role "
+"object.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:364
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"RoleRef-kind\"> <td><code>kind</code></td> "
+"<td><code>string</code></td> <td> <p>The type of the role being "
+"referenced. Currently, &ldquo;ServiceRole&rdquo; is the only supported "
+"value for &ldquo;kind&rdquo;.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:381
+msgid ""
+"</td> <td> Yes </td> </tr> <tr id=\"RoleRef-name\"> "
+"<td><code>name</code></td> <td><code>string</code></td> <td> <p>The name "
+"of the ServiceRole object being referenced. The ServiceRole object must "
+"be in the same namespace as the ServiceRoleBinding object.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:393
+msgid ""
+"</td> <td> Yes </td> </tr> </tbody> </table> </section> <h2 "
+"id=\"ServiceRole\">ServiceRole</h2> <section> <p>ServiceRole "
+"specification contains a list of access rules (permissions).</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:405
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"ServiceRole-rules\"> <td><code>rules</code></td> "
+"<td><code><a href=\"#AccessRule\">AccessRule[]</a></code></td> <td> "
+"<p>The set of access rules (permissions) that the role has.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:421
+msgid ""
+"</td> <td> Yes </td> </tr> </tbody> </table> </section> <h2 "
+"id=\"ServiceRoleBinding\">ServiceRoleBinding</h2> <section> "
+"<p>ServiceRoleBinding assigns a ServiceRole to a list of subjects.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:433
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"ServiceRoleBinding-subjects\"> "
+"<td><code>subjects</code></td> <td><code><a "
+"href=\"#Subject\">Subject[]</a></code></td> <td> <p>List of subjects that"
+" are assigned the ServiceRole object.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:449
+msgid ""
+"</td> <td> Yes </td> </tr> <tr id=\"ServiceRoleBinding-roleRef\"> "
+"<td><code>roleRef</code></td> <td><code><a "
+"href=\"#RoleRef\">RoleRef</a></code></td> <td> <p>Reference to the "
+"ServiceRole object.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:460
+msgid ""
+"</td> <td> Yes </td> </tr> </tbody> </table> </section> <h2 "
+"id=\"Subject\">Subject</h2> <section> <p>Subject defines an identity. The"
+" identity is either a user or identified by a set of "
+"<code>properties</code>. The supported keys in <code>properties</code> "
+"are listed in &ldquo;constraint and properties&rdquo; page.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:473
+msgid ""
+"<table class=\"message-fields\"> <thead> <tr> <th>Field</th> "
+"<th>Type</th> <th>Description</th> <th>Required</th> </tr> </thead> "
+"<tbody> <tr id=\"Subject-user\"> <td><code>user</code></td> "
+"<td><code>string</code></td> <td> <p>Optional. The user name/ID that the "
+"subject represents.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:489
+msgid ""
+"</td> <td> No </td> </tr> <tr id=\"Subject-properties\"> "
+"<td><code>properties</code></td> "
+"<td><code>map&lt;string,&nbsp;string&gt;</code></td> <td> <p>Optional. "
+"The set of properties that identify the subject.</p>"
+msgstr ""
+
+#: ../../source/docs/reference/config/security/istio.rbac.v1alpha1/index.rst:500
+msgid "</td> <td> No </td> </tr> </tbody> </table> </section>"
+msgstr ""
+

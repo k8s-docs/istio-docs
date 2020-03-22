@@ -1,0 +1,33 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/glossary/mesh-federation.rst:2
+msgid "mesh federation"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/mesh-federation.rst:4
+msgid ""
+"Mesh federation is the act of exposing services between meshes and "
+"enabling communication across mesh boundaries. Each mesh may expose a "
+"subset of its services to enable one or more other meshes to consume the "
+"exposed services. You can use mesh federation to enable communication "
+"between meshes in a `multi-mesh deployment </docs/ops/deployment"
+"/deployment-models/#multiple-meshes>`_."
+msgstr ""
+

@@ -1,0 +1,426 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:2
+msgid "traffic-management"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:4
+msgid ""
+"This section provides specific deployment or configuration guidelines to "
+"avoid networking or traffic management issues."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:8
+msgid "Set default routes for services"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:10
+msgid ""
+"Although the default Istio behavior conveniently sends traffic from any "
+"source to all versions of a destination service without any rules being "
+"set, creating a ``VirtualService`` with a default route for every "
+"service, right from the start, is generally considered a best practice in"
+" Istio."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:16
+msgid ""
+"Even if you initially have only one version of a service, as soon as you "
+"decide to deploy a second version, you need to have a routing rule in "
+"place **before** the new version is started, to prevent it from "
+"immediately receiving traffic in an uncontrolled way."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:21
+msgid ""
+"Another potential issue when relying on Istio’s default round-robin "
+"routing is due to a subtlety in Istio’s destination rule evaluation "
+"algorithm. When routing a request, Envoy first evaluates route rules in "
+"virtual services to determine if a particular subset is being routed to. "
+"If so, only then will it activate any destination rule policies "
+"corresponding to the subset. Consequently, Istio only applies the "
+"policies you define for specific subsets if you **explicitly** routed "
+"traffic to the corresponding subset."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:30
+msgid ""
+"For example, consider the following destination rule as the one and only "
+"configuration defined for the *reviews* service, that is, there are no "
+"route rules in a corresponding ``VirtualService`` definition:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:37
+msgid ""
+"DestinationRule metadata: name: reviews spec: host: reviews subsets: - "
+"name: v1 labels: version: v1 trafficPolicy: connectionPool: tcp: "
+"maxConnections: 100"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:41
+msgid ""
+"Even if Istio’s default round-robin routing calls “v1” instances on "
+"occasion, maybe even always if “v1” is the only running version, the "
+"above traffic policy will never be invoked."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:45
+msgid ""
+"You can fix the above example in one of two ways. You can either move the"
+" traffic policy up a level in the ``DestinationRule`` to make it apply to"
+" any version:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:52
+msgid ""
+"DestinationRule metadata: name: reviews spec: host: reviews "
+"trafficPolicy: connectionPool: tcp: maxConnections: 100 subsets: - name: "
+"v1 labels: version: v1"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:56
+msgid ""
+"Or, better yet, define a proper route rule for the service in the "
+"``VirtualService`` definition. For example, add a simple route rule for "
+"“reviews:v1”:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:63
+msgid ""
+"VirtualService metadata: name: reviews spec: hosts: - reviews http: - "
+"route: - destination: host: reviews subset: v1"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:69
+msgid "Control configuration sharing across namespaces"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:71
+msgid ""
+"You can define virtual services, destination rules, or service entries in"
+" one namespace and then reuse them in other namespaces, if they are "
+"exported to those namespaces. Istio exports all traffic management "
+"resources to all namespaces by default, but you can override the "
+"visibility with the ``exportTo`` field. For example, only clients in the "
+"same namespace can use the following virtual service:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:81
+msgid ""
+"VirtualService metadata: name: myservice spec: hosts: - myservice.com "
+"exportTo: - “.” http: - route: - destination: host: myservice {{< /text "
+">}}"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:87
+msgid "You can similarly control the visibility of a Kubernetes"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:88
+msgid ""
+"``Service`` using the ``networking.istio.io/exportTo`` annotation. {{< "
+"/tip >}}"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:91
+msgid ""
+"Setting the visibility of destination rules in a particular namespace "
+"doesn’t guarantee the rule is used. Exporting a destination rule to other"
+" namespaces enables you to use it in those namespaces, but to actually be"
+" applied during a request the namespace also needs to be on the "
+"destination rule lookup path:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:97
+msgid "client namespace"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:98
+msgid "service namespace"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:99
+msgid "Istio configuration root (``istio-system`` by default)"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:101
+msgid "For example, consider the following destination rule:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:106
+msgid ""
+"DestinationRule metadata: name: myservice spec: host: "
+"myservice.default.svc.cluster.local trafficPolicy: connectionPool: tcp: "
+"maxConnections: 100"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:110
+msgid "Let’s assume you create this destination rule in namespace ``ns1``."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:112
+msgid ""
+"If you send a request to the ``myservice`` service from a client in "
+"``ns1``, the destination rule would be applied, because it is in the "
+"first namespace on the lookup path, that is, in the client namespace."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:116
+msgid ""
+"If you now send the request from a different namespace, for example "
+"``ns2``, the client is no longer in the same namespace as the destination"
+" rule, ``ns1``. Because the corresponding service, "
+"``myservice.default.svc.cluster.local``, is also not in ``ns1``, but "
+"rather in the ``default`` namespace, the destination rule will also not "
+"be found in the second namespace of the lookup path, the service "
+"namespace."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:124
+msgid ""
+"Even if the ``myservice`` service is exported to all namespaces and "
+"therefore visible in ``ns2`` and the destination rule is also exported to"
+" all namespaces, including ``ns2``, it will not be applied during the "
+"request from ``ns2`` because it’s not in any of the namespaces on the "
+"lookup path."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:130
+msgid ""
+"You can avoid this problem by creating the destination rule in the same "
+"namespace as the corresponding service, ``default`` in this example. It "
+"would then get applied to requests from clients in any namespace. You can"
+" also move the destination rule to the ``istio-system`` namespace, the "
+"third namespace on the lookup path, although this isn’t recommended "
+"unless the destination rule is really a global configuration that is "
+"applicable in all namespaces, and it would require administrator "
+"authority."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:139
+msgid "Istio uses this restricted destination rule lookup path for two reasons:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:141
+msgid ""
+"Prevent destination rules from being defined that can override the "
+"behavior of services in completely unrelated namespaces."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:143
+msgid ""
+"Have a clear lookup order in case there is more than one destination rule"
+" for the same host."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:149
+msgid "Split large virtual services and destination rules into multiple resources"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:151
+msgid ""
+"In situations where it is inconvenient to define the complete set of "
+"route rules or policies for a particular host in a single "
+"``VirtualService`` or ``DestinationRule`` resource, it may be preferable "
+"to incrementally specify the configuration for the host in multiple "
+"resources. Pilot will merge such destination rules and merge such virtual"
+" services if they are bound to a gateway."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:158
+msgid ""
+"Consider the case of a ``VirtualService`` bound to an ingress gateway "
+"exposing an application host which uses path-based delegation to several "
+"implementation services, something like this:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:165
+msgid ""
+"VirtualService metadata: name: myapp spec: hosts: - myapp.com gateways: -"
+" myapp-gateway http: - match: - uri: prefix: /service1 route: - "
+"destination: host: service1.default.svc.cluster.local - match: - uri: "
+"prefix: /service2 route: - destination: host: "
+"service2.default.svc.cluster.local - match: …"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:171
+msgid ""
+"The downside of this kind of configuration is that other configuration "
+"(e.g., route rules) for any of the underlying microservices, will need to"
+" also be included in this single configuration file, instead of in "
+"separate resources associated with, and potentially owned by, the "
+"individual service teams. See `Route rules have no effect on ingress "
+"gateway requests </docs/ops/common-problems/network-issues/#route-rules-"
+"have-no-effect-on-ingress-gateway-requests>`_ for details."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:180
+msgid ""
+"To avoid this problem, it may be preferable to break up the configuration"
+" of ``myapp.com`` into several ``VirtualService`` fragments, one per "
+"backend service. For example:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:187
+msgid ""
+"VirtualService metadata: name: myapp-service1 spec: hosts: - myapp.com "
+"gateways: - myapp-gateway http: - match: - uri: prefix: /service1 route: "
+"- destination: host: service1.default.svc.cluster.local — apiVersion: "
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: myapp-"
+"service2 spec: hosts: - myapp.com gateways: - myapp-gateway http: - "
+"match: - uri: prefix: /service2 route: - destination: host: "
+"service2.default.svc.cluster.local — apiVersion: "
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: myapp-…"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:197
+msgid ""
+"When a second and subsequent ``VirtualService`` for an existing host is "
+"applied, ``istio-pilot`` will merge the additional route rules into the "
+"existing configuration of the host. There are, however, several caveats "
+"with this feature that must be considered carefully when using it."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:202
+msgid ""
+"Although the order of evaluation for rules in any given source "
+"``VirtualService`` will be retained, the cross-resource order is "
+"UNDEFINED. In other words, there is no guaranteed order of evaluation for"
+" rules across the fragment configurations, so it will only have "
+"predictable behavior if there are no conflicting rules or order "
+"dependency between rules across fragments."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:208
+msgid ""
+"There should only be one “catch-all” rule (i.e., a rule that matches any "
+"request path or header) in the fragments. All such “catch-all” rules will"
+" be moved to the end of the list in the merged configuration, but since "
+"they catch all requests, whichever is applied first will essentially "
+"override and disable any others."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:213
+msgid ""
+"A ``VirtualService`` can only be fragmented this way if it is bound to a "
+"gateway. Host merging is not supported in sidecars."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:216
+msgid ""
+"A ``DestinationRule`` can also be fragmented with similar merge semantic "
+"and restrictions."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:219
+msgid ""
+"There should only be one definition of any given subset across multiple "
+"destination rules for the same host. If there is more than one with the "
+"same name, the first definition is used and any following duplicates are "
+"discarded. No merging of subset content is supported."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:224
+msgid ""
+"There should only be one top-level ``trafficPolicy`` for the same host. "
+"When top-level traffic policies are defined in multiple destination "
+"rules, the first one will be used. Any following top-level "
+"``trafficPolicy`` configuration is discarded."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:228
+msgid ""
+"Unlike virtual service merging, destination rule merging works in both "
+"sidecars and gateways."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:232
+msgid "Avoid 503 errors while reconfiguring service routes"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:234
+msgid ""
+"When setting route rules to direct traffic to specific versions (subsets)"
+" of a service, care must be taken to ensure that the subsets are "
+"available before they are used in the routes. Otherwise, calls to the "
+"service may return 503 errors during a reconfiguration period."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:239
+msgid ""
+"Creating both the ``VirtualServices`` and ``DestinationRules`` that "
+"define the corresponding subsets using a single ``kubectl`` call (e.g., "
+"``kubectl apply -f myVirtualServiceAndDestinationRule.yaml`` is not "
+"sufficient because the resources propagate (from the configuration "
+"server, i.e., Kubernetes API server) to the Pilot instances in an "
+"eventually consistent manner. If the ``VirtualService`` using the subsets"
+" arrives before the ``DestinationRule`` where the subsets are defined, "
+"the Envoy configuration generated by Pilot would refer to non-existent "
+"upstream pools. This results in HTTP 503 errors until all configuration "
+"objects are available to Pilot."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:250
+msgid ""
+"To make sure services will have zero down-time when configuring routes "
+"with subsets, follow a “make-before-break” process as described below:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:253
+msgid "When adding new subsets:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:255
+msgid ""
+"Update ``DestinationRules`` to add a new subset first, before updating "
+"any ``VirtualServices`` that use it. Apply the rule using ``kubectl`` or "
+"any platform-specific tooling."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:259
+msgid ""
+"Wait a few seconds for the ``DestinationRule`` configuration to propagate"
+" to the Envoy sidecars"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:262
+msgid "Update the ``VirtualService`` to refer to the newly added subsets."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:264
+msgid "When removing subsets:"
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:266
+msgid ""
+"Update ``VirtualServices`` to remove any references to a subset, before "
+"removing the subset from a ``DestinationRule``."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:269
+msgid ""
+"Wait a few seconds for the ``VirtualService`` configuration to propagate "
+"to the Envoy sidecars."
+msgstr ""
+
+#: ../../source/docs/ops/best-practices/traffic-management/index.rst:272
+msgid "Update the ``DestinationRule`` to remove the unused subsets."
+msgstr ""
+

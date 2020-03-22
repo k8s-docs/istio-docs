@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:42+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/analysis/ist0104/index.rst:2
+msgid "ist0104"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0104/index.rst:4
+msgid ""
+"This message occurs when a gateway (usually ``istio-ingressgateway``) "
+"offers a port that the Kubernetes service workload selected by the "
+"gateway does not."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0104/index.rst:8
+msgid "For example, your Istio configuration contains these values:"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0104/index.rst:32
+msgid ""
+"In this example, the ``GatewayPortNotOnWorkload`` message occurs because "
+"this configuration uses port 8004, but a default ``IngressGateway`` is "
+"only open on ports 80, 443, 31400, and 15443."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0104/index.rst:36
+msgid ""
+"To resolve this problem, change your gateway configuration to use a valid"
+" port on the workload and try again."
+msgstr ""
+

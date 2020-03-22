@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:2
+msgid "istio-ingress-gateway"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:4
+msgid ""
+"Until now, you used a Kubernetes Ingress to access your application from "
+"the outside. In this module, you configure the traffic to enter through "
+"an Istio ingress gateway, in order to apply Istio control on traffic to "
+"your microservices."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:9
+msgid ""
+"Store the name of your namespace in the ``NAMESPACE`` environment "
+"variable. You will need it to recognize your microservices in the logs:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:16
+msgid ""
+"NAMESPACE=\\ :math:`(kubectl config view -o "
+"jsonpath=\"{.contexts[?(@.name == \\\"`\\ (kubectl config current-"
+"context)\")].context.namespace}\") $ echo $NAMESPACE tutorial"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:20
+msgid ""
+"Create an environment variable for the hostname of the Istio ingress "
+"gateway:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:26
+msgid ""
+"MY_INGRESS_GATEWAY_HOST=istio.$NAMESPACE.bookinfo.com $ echo "
+"$MY_INGRESS_GATEWAY_HOST istio.tutorial.bookinfo.com"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:29
+msgid "Configure an Istio ingress gateway:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:34
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: bookinfo-"
+"gateway spec: selector: istio: ingressgateway # use Istio default gateway"
+" implementation servers:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:38
+msgid "port: number: 80 name: http protocol: HTTP hosts:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst
+msgid "$MY_INGRESS_GATEWAY_HOST"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:43
+msgid ""
+"apiVersion: networking.istio.io/v1alpha3 kind: VirtualService metadata: "
+"name: bookinfo spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:46
+msgid "$MY_INGRESS_GATEWAY_HOST gateways:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:47
+msgid "bookinfo-gateway.$NAMESPACE.svc.cluster.local http:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:48
+msgid "match:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:50
+msgid "uri: exact: /productpage"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:51
+msgid "uri: exact: /login"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:52
+msgid "uri: exact: /logout"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:53
+msgid "uri: prefix: /static route:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:54
+msgid "destination: host: productpage port: number: 9080 EOF"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:56
+msgid ""
+"Set ``INGRESS_HOST`` and ``INGRESS_PORT`` using the instructions in the "
+"`Determining the Ingress IP and ports </docs/tasks/traffic-"
+"management/ingress/ingress-control/#determining-the-ingress-ip-and-"
+"ports>`_ section."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:61
+msgid "Add the output of this command to your ``/etc/hosts`` file:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:67
+msgid "Access the application’s home page from the command line:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:72
+msgid ":math:`MY_INGRESS_GATEWAY_HOST:`\\ INGRESS_PORT/productpage \\| grep -o \""
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:79
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:125
+msgid ".\\*"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:85
+msgid "\""
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:91
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:137
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:147
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:157
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:167
+msgid "Simple Bookstore App"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:99
+msgid "Paste the output of the following command in your browser address bar:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:105
+msgid "http://\\ :math:`MY_INGRESS_GATEWAY_HOST:`\\ INGRESS_PORT/productpage"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:108
+msgid ""
+"Simulate real-world user traffic to your application by setting an "
+"infinite loop in a new terminal window:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:119
+msgid "\\| grep -o \""
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:131
+msgid "\"; sleep 1; done"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:173
+msgid "…"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:175
+msgid ""
+"Check the graph of your namespace in the Kiali console ``my-"
+"kiali.io/kiali/console``. (The ``my-kiali.io`` URL should be in your "
+"``/etc/hosts`` file that you set `previously </docs/examples"
+"/microservices-istio/bookinfo-kubernetes/#update-your-etc-hosts-"
+"configuration-file>`_)."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:180
+msgid ""
+"This time, you can see that traffic arrives from two sources, ``unknown``"
+" (the Kubernetes Ingress) and from ``istio-ingressgateway istio-system`` "
+"(the Istio Ingress Gateway)."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:189
+msgid ""
+"At this point you can stop sending requests through the Kubernetes "
+"Ingress and use Istio Ingress Gateway only. Stop the infinite loop "
+"(``Ctrl-C`` in the terminal window) you set in the previous steps. In a "
+"real production environment, you would update the DNS entry of your "
+"application to contain the IP of Istio ingress gateway or configure your "
+"external Load Balancer."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:196
+msgid "Delete the Kubernetes Ingress resource:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:201
+msgid "ingress.extensions “bookinfo” deleted"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:203
+msgid ""
+"In a new terminal window, restart the real-world user traffic simulation "
+"as described in the previous steps."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:206
+msgid ""
+"Check your graph in the Kiali console. After about a minute, you will see"
+" the Istio Ingress Gateway as a single source of traffic for your "
+"application."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/istio-ingress-gateway/index.rst:215
+msgid ""
+"You are ready to configure `logging with Istio </docs/examples"
+"/microservices-istio/logs-istio>`_."
+msgstr ""
+

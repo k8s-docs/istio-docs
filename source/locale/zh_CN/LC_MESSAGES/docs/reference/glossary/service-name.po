@@ -1,0 +1,33 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/glossary/service-name.rst:2
+msgid "service name"
+msgstr ""
+
+#: ../../source/docs/reference/glossary/service-name.rst:4
+msgid ""
+"A name that uniquely identifies a `service "
+"</docs/reference/glossary/#service>`_ within the `service mesh "
+"</docs/reference/glossary/#service-mesh>`_. A service may not be renamed "
+"while maintaining its identity. A service may have multiple `versions "
+"</docs/reference/glossary/#service-version>`_, but a service name is "
+"version-independent."
+msgstr ""
+

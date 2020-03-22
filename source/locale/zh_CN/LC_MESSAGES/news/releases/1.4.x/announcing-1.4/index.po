@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:2
+msgid "announcing-1.4"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:4
+msgid "We are pleased to announce the release of Istio 1.4!"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:6
+msgid "{{< relnote >}}"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:8
+msgid ""
+"Istio 1.4 continues our efforts at improving the Istio user experience, "
+"with a focus on simplification. We’ve also continued to add features that"
+" improve the performance and experience of running Istio."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:13
+msgid "Mixer-less telemetry"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:15
+msgid ""
+"Our implementation of telemetry without Mixer will simplify installation "
+"and operation of meshes, all while vastly improving performance. The in-"
+"proxy generation of HTTP metrics has graduated from experimental to "
+"alpha. Users are very excited about this improvement and we are working "
+"hard to get it ready. We’ve also added new experimental features that "
+"don’t require Mixer: TCP metrics and Stackdriver metrics."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:23
+msgid "Authorization policy model in ``beta``"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:25
+msgid ""
+"The authorization policy model is now in Beta with the introduction of "
+"the `v1beta1 authorization policy </blog/2019/v1beta1-authorization-"
+"policy/>`_ that focuses on simplification and flexibility. This will also"
+" replace the old `v1alpha1 RBAC policy "
+"</docs/reference/config/security/istio.rbac.v1alpha1/>`_."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:31
+msgid "Automatic mutual TLS"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:33
+msgid ""
+"We added `automatic mutual TLS support "
+"</docs/tasks/security/authentication/auto-mtls/>`_. It allows you to "
+"adopt mutual TLS without needing to configure destination rules. Istio "
+"automatically programs client sidecar proxies to send mutual TLS to "
+"server endpoints that are able to accept mutual TLS."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:38
+msgid ""
+"Currently this feature must be explicitly enabled, but we plan to enable "
+"it by default in a future release."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:42
+msgid "Improved troubleshooting"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:44
+msgid ""
+"We’re introducing the `istioctl analyze </docs/ops/diagnostic-tools"
+"/istioctl-analyze/>`_ command to improve troubleshooting of your mesh. "
+"Check for problems with configuration in your mesh, and even validate new"
+" configuration prior to submitting it to the mesh."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:51
+msgid "Better sidecar"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:53
+msgid ""
+"We’ve been doing tons of work to improve Envoy, its feature set, and the "
+"experience of using it. Envoy now exits more gracefully on crashes, "
+"supports more metrics, and can mirror traffic to a percentage of traffic."
+" It reports the direction of traffic and has better configuration of "
+"``stat patterns``. Finally, there is a new `experimental command "
+"</docs/reference/commands/istioctl/#istioctl-experimental-wait>`_ that "
+"can tell you when configuration has been pushed to all proxies in the "
+"mesh."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:63
+msgid "Other enhancements"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:65
+msgid ""
+"Citadel will now periodically check for and rotate expired root "
+"certificates"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:67
+msgid "We’ve added support for OpenAPI v3 schema validation"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:68
+msgid "Experimental multi-cluster setup has been added to ``istioctl``"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:69
+msgid "We simplified installation by removing the ``proxy_init`` Docker image"
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:72
+msgid ""
+"As always, there is a lot happening in the `Community Meeting "
+"<https://github.com/istio/community#community-meeting>`_; join us every "
+"other Thursday at 11 AM Pacific."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:76
+msgid ""
+"We were very proud to be called out as one of the top five `fastest "
+"growing <https://octoverse.github.com/#top-and-trending-projects>`_ open "
+"source projects in all of GitHub. Want to get involved? Join one of our "
+"`Working Groups <https://github.com/istio/community/blob/master/WORKING-"
+"GROUPS.md>`_ and help us make Istio even better."
+msgstr ""
+
+#: ../../source/news/releases/1.4.x/announcing-1.4/index.rst:83
+msgid ""
+"To join the conversation, go to `discuss.istio.io "
+"<https://discuss.istio.io>`_, log in with your GitHub credentials and "
+"join us!"
+msgstr ""
+

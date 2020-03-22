@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/test/callouts/index.rst:2
+msgid "callouts"
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:6
+#: ../../source/test/callouts/index.rst:10
+msgid "This is a warning"
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:12
+#: ../../source/test/callouts/index.rst:18
+#: ../../source/test/callouts/index.rst:48
+#: ../../source/test/callouts/index.rst:54
+#: ../../source/test/callouts/index.rst:68
+#: ../../source/test/callouts/index.rst:76
+#: ../../source/test/callouts/index.rst:90
+#: ../../source/test/callouts/index.rst:96
+msgid "with two paragraphs"
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:16
+msgid "This is a warning with a reasonably long sentence."
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:20
+#: ../../source/test/callouts/index.rst:56
+#: ../../source/test/callouts/index.rst:78
+#: ../../source/test/callouts/index.rst:98
+msgid "{{< text plain >}} A nested text block"
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:26
+msgid "This is a warning with some very long text to see how"
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:27
+msgid ""
+"the wrapping behavior will be like since we’ve had problems in this area "
+"previously where wrapping would actually not take place"
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:32
+msgid "Very wide text block in a call out"
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:34
+msgid ""
+"{{< text plain >}} Reeeeeaaaaaalllllllllly "
+"lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllong"
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:42
+#: ../../source/test/callouts/index.rst:46
+#: ../../source/test/callouts/index.rst:52
+msgid "This is a tip"
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:62
+#: ../../source/test/callouts/index.rst:66
+#: ../../source/test/callouts/index.rst:74
+msgid "This is an idea"
+msgstr ""
+
+#: ../../source/test/callouts/index.rst:84
+#: ../../source/test/callouts/index.rst:88
+#: ../../source/test/callouts/index.rst:94
+msgid "This is a quote"
+msgstr ""
+

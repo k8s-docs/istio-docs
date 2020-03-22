@@ -1,0 +1,799 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:2
+msgid "Secure Gateways (File Mount)"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:4
+msgid ""
+"The `Control Ingress Traffic task </docs/tasks/traffic-"
+"management/ingress>`_ describes how to configure an ingress gateway to "
+"expose an HTTP service to external traffic. This task shows how to expose"
+" a secure HTTPS service using either simple or mutual TLS."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:10
+msgid ""
+"The TLS required private key, server certificate, and root certificate, "
+"are configured using a file mount based approach."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:14
+msgid "Before you begin"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:16
+#, python-format
+msgid ""
+"Perform the steps in the `Before you begin </docs/tasks/traffic-"
+"management/ingress/ingress-control#before-you-begin>`_ and `Determining "
+"the ingress IP and ports </docs/tasks/traffic-management/ingress/ingress-"
+"control/#determining-the-ingress-ip-and-ports>`_ sections of the `Control"
+" Ingress Traffic </docs/tasks/traffic-management/ingress>`_ task. After "
+"performing those steps you should have Istio and the `httpbin "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/httpbin>`_ service deployed,"
+" and the environment variables ``INGRESS_HOST`` and "
+"``SECURE_INGRESS_PORT`` set."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:27
+msgid ""
+"For macOS users, verify that you use *curl* compiled with the `LibreSSL "
+"<http://www.libressl.org>`_ library:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:33
+msgid ""
+"(x86_64-apple-darwin17.0) libcurl/7.54.0 LibreSSL/2.0.20 zlib/1.2.11 "
+"nghttp2/1.24.0"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:36
+msgid ""
+"If a version of *LibreSSL* is printed as in the output above, your *curl*"
+" should work correctly with the instructions in this task. Otherwise, try"
+" another installation of *curl*, for example on a Linux machine."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:42
+msgid "Generate server certificate and private key"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:44
+msgid ""
+"For this task you can use your favorite tool to generate certificates and"
+" keys. The commands below use `openssl "
+"<https://man.openbsd.org/openssl.1>`_"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:48
+msgid ""
+"Create a root certificate and private key to sign the certificate for "
+"your services:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:54
+msgid ""
+"-newkey rsa:2048 -subj ‘/O=example Inc./CN=example.com’ -keyout "
+"example.com.key -out example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:57
+msgid "Create a certificate and a private key for ``httpbin.example.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:62
+msgid ""
+"rsa:2048 -nodes -keyout httpbin.example.com.key -subj "
+"“/CN=httpbin.example.com/O=httpbin organization” $ openssl x509 -req "
+"-days 365 -CA example.com.crt -CAkey example.com.key -set_serial 0 -in "
+"httpbin.example.com.csr -out httpbin.example.com.crt {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:69
+msgid "Configure a TLS ingress gateway with a file mount-based approach"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:71
+msgid ""
+"In this section you configure an ingress gateway with port 443 to handle "
+"HTTPS traffic. You first create a secret with a certificate and a private"
+" key. The secret is mounted to a file on the ``/etc/istio/ingressgateway-"
+"certs`` path. You can then create a gateway definition that configures a "
+"server on port 443."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:77
+msgid ""
+"Create a Kubernetes secret to hold the server’s certificate and private "
+"key. Use ``kubectl`` to create the secret ``istio-ingressgateway-certs`` "
+"in namespace ``istio-system`` . The Istio gateway will load the secret "
+"automatically."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:84
+msgid ""
+"The secret **must** be named ``istio-ingressgateway-certs`` in the "
+"``istio-system`` namespace to align with the configuration of the Istio "
+"default ingress gateway used in this task."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:92
+msgid ""
+"istio-ingressgateway-certs –key httpbin.example.com.key –cert "
+"httpbin.example.com.crt secret “istio-ingressgateway-certs” created"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:96
+msgid ""
+"Note that by default all the pods in the ``istio-system`` namespace can "
+"mount this secret and access the private key. You may want to deploy the "
+"ingress gateway in a separate namespace and create the secret there, so "
+"that only the ingress gateway pod will be able to mount it."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:102
+msgid ""
+"Verify that ``tls.crt`` and ``tls.key`` have been mounted in the ingress "
+"gateway pod:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:108
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:483
+msgid ""
+"istio-system get pods -l istio=ingressgateway -o "
+"jsonpath=‘{.items[0].metadata.name}’) – ls -al /etc/istio/ingressgateway-"
+"certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:112
+msgid "Define a ``Gateway`` with a ``server`` section for port 443."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:116
+msgid ""
+"The location of the certificate and the private key **must** be "
+"``/etc/istio/ingressgateway-certs``, or the gateway will fail to load "
+"them."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:123
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:246
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: httpbin-"
+"gateway spec: selector: istio: ingressgateway # use istio default ingress"
+" gateway servers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:127
+msgid ""
+"port: number: 443 name: https protocol: HTTPS tls: mode: SIMPLE "
+"serverCertificate: /etc/istio/ingressgateway-certs/tls.crt privateKey: "
+"/etc/istio/ingressgateway-certs/tls.key hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:131
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:256
+msgid "“httpbin.example.com” EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:133
+msgid ""
+"Configure routes for traffic entering via the ``Gateway``. Define the "
+"same ``VirtualService`` as in the `Control Ingress Traffic </docs/tasks"
+"/traffic-management/ingress/ingress-control/#configuring-ingress-using-"
+"an-istio-gateway>`_ task:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:141
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: httpbin"
+" spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:144
+msgid "“httpbin.example.com” gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:145
+msgid "httpbin-gateway http:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:146
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:425
+msgid "match:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:148
+msgid "uri: prefix: /status"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:149
+msgid "uri: prefix: /delay route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:150
+msgid "destination: port: number: 8000 host: httpbin EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:152
+msgid ""
+"Access the ``httpbin`` service with HTTPS by sending an ``https`` request"
+" using *curl* to ``SECURE_INGRESS_PORT``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:155
+msgid ""
+"The ``--resolve`` flag instructs *curl* to supply the `SNI "
+"<https://en.wikipedia.org/wiki/Server_Name_Indication>`_ value "
+"``httpbin.example.com`` when accessing the gateway IP over TLS. The "
+"``--cacert`` option instructs *curl* to use your generated certificate to"
+" verify the server."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:163
+msgid ""
+"The ``-HHost:httpbin.example.com`` flag is included but only really "
+"needed if ``SECURE_INGRESS_PORT`` is different from the actual gateway "
+"port (443), for example, if you are accessing the server via a mapped "
+"``NodePort``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:168
+msgid ""
+"By sending the request to the ``/status/418`` URL path, you get a nice "
+"visual clue that your ``httpbin`` service was indeed accessed. The "
+"``httpbin`` service will return the `418 I’m a Teapot "
+"<https://tools.ietf.org/html/rfc7168#section-2.3.3>`_ code."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:176
+msgid ""
+"httpbin.example.com:\\ :math:`SECURE_INGRESS_PORT:`\\ INGRESS_HOST "
+"–cacert example.com.crt "
+"https://httpbin.example.com:$SECURE_INGRESS_PORT/status/418 … Server "
+"certificate: subject: CN=httpbin.example.com; O=httpbin organization "
+"start date: Oct 27 19:32:48 2019 GMT expire date: Oct 26 19:32:48 2020 "
+"GMT common name: httpbin.example.com (matched) issuer: O=example Inc.; "
+"CN=example.com SSL certificate verify ok. SSL certificate verify ok. … "
+"HTTP/2 418 … -=[ teapot ]=-"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:185
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:306
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:460
+msgid ""
+"*….* .’ \\_ \\_ ``. | .\"`` ^ ``\". _, \\_;``\\ “—”\\ ``|//   |       ;/"
+"   \\_     _/``\"\"\"\\` {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:191
+msgid ""
+"It might take time for the gateway definition to propagate so you might "
+"get the following error: ``Failed to connect to httpbin.example.com port "
+"<your secure port>: Connection refused``. Wait for a minute and then "
+"retry the *curl* call."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:196
+msgid ""
+"Look for the *Server certificate* section in the *curl* output and "
+"specifically a line with the matched *common name*: ``common name: "
+"httpbin.example.com (matched)``. The line ``SSL certificate verify ok`` "
+"in the output indicates that the server’s certificate was verified "
+"successfully. If all went well, you should also see a returned status of "
+"418 along with a nice drawing of a teapot."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:205
+msgid "Configure a mutual TLS ingress gateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:207
+msgid ""
+"In this section you extend your gateway’s definition from the previous "
+"section to support `mutual TLS "
+"<https://en.wikipedia.org/wiki/Mutual_authentication>`_ between external "
+"clients and the gateway."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:212
+msgid ""
+"Create a Kubernetes ``Secret`` to hold the `CA "
+"<https://en.wikipedia.org/wiki/Certificate_authority>`_ certificate that "
+"the server will use to verify its clients. Create the secret ``istio-"
+"ingressgateway-ca-certs`` in namespace ``istio-system`` using "
+"``kubectl``. The Istio gateway will automatically load the secret."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:221
+msgid ""
+"The secret **must** be named ``istio-ingressgateway-ca-certs`` in the "
+"``istio-system`` namespace to align with the configuration of the Istio "
+"default ingress gateway used in this task."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:229
+msgid ""
+"istio-ingressgateway-ca-certs –from-file=example.com.crt secret “istio-"
+"ingressgateway-ca-certs” created"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:232
+msgid ""
+"Redefine your previous ``Gateway`` to change the TLS mode to ``MUTUAL`` "
+"and to specify ``caCertificates``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:237
+msgid ""
+"The location of the certificate **must** be ``/etc/istio/ingressgateway-"
+"ca-certs``, or the gateway will fail to load them. The file (short) name "
+"of the certificate must be identical to the one you created the secret "
+"from, in this case ``example.com.crt``."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:250
+msgid ""
+"port: number: 443 name: https protocol: HTTPS tls: mode: MUTUAL "
+"serverCertificate: /etc/istio/ingressgateway-certs/tls.crt privateKey: "
+"/etc/istio/ingressgateway-certs/tls.key caCertificates: /etc/istio"
+"/ingressgateway-ca-certs/example.com.crt hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:258
+msgid "Access the ``httpbin`` service by HTTPS as in the previous section:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:263
+msgid ""
+"httpbin.example.com:\\ :math:`SECURE_INGRESS_PORT:`\\ INGRESS_HOST "
+"–cacert example.com.crt "
+"https://httpbin.example.com:$SECURE_INGRESS_PORT/status/418 curl: (35) "
+"error:14094410:SSL routines:SSL3_READ_BYTES:sslv3 alert handshake failure"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:271
+msgid ""
+"It might take time for the gateway definition to propagate so you might "
+"still get *418*. Wait for a minute and then retry the *curl* call."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:275
+msgid ""
+"This time you will get an error since the server refuses to accept "
+"unauthenticated requests. You need to pass *curl* a client certificate "
+"and your private key for signing the request."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:279
+msgid ""
+"Create a client certificate for the ``httpbin.example.com`` service. You "
+"can designate the client by the ``httpbin-client.example.com`` URI, or "
+"use any other URI."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:286
+msgid ""
+"-newkey rsa:2048 -nodes -keyout httpbin-client.example.com.key -subj “/CN"
+"=httpbin-client.example.com/O=httpbin’s client organization” $ openssl "
+"x509 -req -days 365 -CA example.com.crt -CAkey example.com.key "
+"-set_serial 0 -in httpbin-client.example.com.csr -out httpbin-"
+"client.example.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:292
+msgid ""
+"Resend the previous request by *curl*, this time passing as parameters "
+"your client certificate (additional ``--cert`` option) and your private "
+"key (the ``--key`` option):"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:299
+msgid ""
+"httpbin.example.com:\\ :math:`SECURE_INGRESS_PORT:`\\ INGRESS_HOST "
+"–cacert example.com.crt –cert httpbin-client.example.com.crt –key "
+"httpbin-client.example.com.key "
+"https://httpbin.example.com:$SECURE_INGRESS_PORT/status/418"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:304
+msgid "-=[ teapot ]=-"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:310
+msgid ""
+"This time the server performed client authentication successfully and you"
+" received the pretty teapot drawing again."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:314
+msgid "Configure a TLS ingress gateway for multiple hosts"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:316
+msgid ""
+"In this section you will configure an ingress gateway for multiple hosts,"
+" ``httpbin.example.com`` and ``bookinfo.com``. The ingress gateway will "
+"present to clients a unique certificate corresponding to each requested "
+"server."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:321
+msgid ""
+"Unlike the previous sections, the Istio default ingress gateway will not "
+"work out of the box because it is only preconfigured to support one "
+"secure host. You’ll need to first configure and redeploy the ingress "
+"gateway server with another secret, before you can use it to handle a "
+"second host."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:328
+msgid "Create a server certificate and private key for ``bookinfo.com``"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:333
+msgid ""
+"-nodes -keyout bookinfo.com.key -subj “/CN=bookinfo.com/O=bookinfo "
+"organization” $ openssl x509 -req -days 365 -CA example.com.crt -CAkey "
+"example.com.key -set_serial 0 -in bookinfo.com.csr -out bookinfo.com.crt"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:339
+msgid "Redeploy ``istio-ingressgateway`` with the new certificate"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:341
+msgid "Create a new secret to hold the certificate for ``bookinfo.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:346
+msgid ""
+"istio-ingressgateway-bookinfo-certs –key bookinfo.com.key –cert "
+"bookinfo.com.crt secret “istio-ingressgateway-bookinfo-certs” created"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:350
+msgid ""
+"To include a volume mounted from the new created secret, update the "
+"``istio-ingressgateway`` deployment. To patch the ``istio-"
+"ingressgateway`` deployment, create the following ``gateway-patch.json`` "
+"file:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:358
+msgid ""
+"“path”: “/spec/template/spec/containers/0/volumeMounts/0”, “value”: { "
+"“mountPath”: “/etc/istio/ingressgateway-bookinfo-certs”, “name”: "
+"“ingressgateway-bookinfo-certs”, “readOnly”: true } }, { “op”: “add”, "
+"“path”: “/spec/template/spec/volumes/0”, “value”: { “name”: "
+"“ingressgateway-bookinfo-certs”, “secret”: { “secretName”: “istio-"
+"ingressgateway-bookinfo-certs”, “optional”: true } } }] EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:366
+msgid ""
+"Apply ``istio-ingressgateway`` deployment patch with the following "
+"command:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:372
+msgid "istio-ingressgateway -p “$(cat gateway-patch.json)”"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:374
+msgid ""
+"Verify that the key and certificate have been successfully loaded in the "
+"``istio-ingressgateway`` pod:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:380
+msgid ""
+"istio-system get pods -l istio=ingressgateway -o "
+"jsonpath=‘{.items[0].metadata.name}’) – ls -al /etc/istio/ingressgateway-"
+"bookinfo-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:384
+msgid "``tls.crt`` and ``tls.key`` should appear in the directory contents."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:387
+msgid "Configure traffic for the ``bookinfo.com`` host"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:389
+msgid ""
+"Deploy the `Bookinfo sample application </docs/examples/bookinfo/>`_, "
+"without a gateway:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:395
+msgid "@samples/bookinfo/platform/kube/bookinfo.yaml@"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:397
+msgid "Define a gateway for ``bookinfo.com``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:402
+msgid ""
+"networking.istio.io/v1alpha3 kind: Gateway metadata: name: bookinfo-"
+"gateway spec: selector: istio: ingressgateway # use istio default ingress"
+" gateway servers:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:406
+msgid ""
+"port: number: 443 name: https-bookinfo protocol: HTTPS tls: mode: SIMPLE "
+"serverCertificate: /etc/istio/ingressgateway-bookinfo-certs/tls.crt "
+"privateKey: /etc/istio/ingressgateway-bookinfo-certs/tls.key hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:411
+msgid "“bookinfo.com” EOF"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:413
+#, python-format
+msgid ""
+"Configure the routes for ``bookinfo.com``. Define a ``VirtualService`` "
+"like the one in `samples/bookinfo/networking/bookinfo-gateway.yaml "
+"<%7B%7B%3C%20github_file%20%3E%7D%7D/samples/bookinfo/networking"
+"/bookinfo-gateway.yaml>`_:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:420
+msgid ""
+"networking.istio.io/v1alpha3 kind: VirtualService metadata: name: "
+"bookinfo spec: hosts:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:423
+msgid "“bookinfo.com” gateways:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:424
+msgid "bookinfo-gateway http:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:427
+msgid "uri: exact: /productpage"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:428
+msgid "uri: exact: /login"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:429
+msgid "uri: exact: /logout"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:430
+msgid "uri: prefix: /api/v1/products route:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:431
+msgid "destination: host: productpage port: number: 9080 EOF {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:434
+msgid "Send a request to the *Bookinfo* ``productpage``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:439
+msgid ""
+"“%{http_code}:raw-latex:`\\n`” -HHost:bookinfo.com –resolve "
+"bookinfo.com:\\ :math:`SECURE_INGRESS_PORT:`\\ INGRESS_HOST –cacert "
+"example.com.crt -HHost:bookinfo.com "
+"https://bookinfo.com:$SECURE_INGRESS_PORT/productpage … Server "
+"certificate: subject: CN=bookinfo.com; O=bookinfo organization start "
+"date: Oct 27 20:08:32 2019 GMT expire date: Oct 26 20:08:32 2020 GMT "
+"common name: bookinfo.com (matched) issuer: O=example Inc.; "
+"CN=example.com SSL certificate verify ok. … 200"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:448
+msgid ""
+"Verify that ``httbin.example.com`` is accessible as previously. Send a "
+"request to it and see again the teapot you should already love:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:454
+msgid ""
+"httpbin.example.com:\\ :math:`SECURE_INGRESS_PORT:`\\ INGRESS_HOST "
+"–cacert example.com.crt –cert httpbin-client.example.com.crt –key "
+"httpbin-client.example.com.key "
+"https://httpbin.example.com:$SECURE_INGRESS_PORT/status/418 … -=[ teapot "
+"]=-"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:465
+msgid "Troubleshooting"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:467
+msgid ""
+"Inspect the values of the ``INGRESS_HOST`` and ``SECURE_INGRESS_PORT`` "
+"environment variables. Make sure they have valid values, according to the"
+" output of the following commands:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:474
+msgid ""
+"INGRESS_HOST=\\ :math:`INGRESS_HOST, SECURE_INGRESS_PORT=`\\ "
+"SECURE_INGRESS_PORT"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:477
+msgid ""
+"Verify that the key and the certificate are successfully loaded in the "
+"``istio-ingressgateway`` pod:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:487
+msgid "``tls.crt`` and ``tls.key`` should exist in the directory contents."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:489
+msgid ""
+"If you created the ``istio-ingressgateway-certs`` secret, but the key and"
+" the certificate are not loaded, delete the ingress gateway pod and force"
+" the ingress gateway pod to restart and reload key and certificate."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:497
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:528
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:558
+msgid "istio=ingressgateway"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:499
+msgid ""
+"Verify that the ``Subject`` is correct in the certificate of the ingress "
+"gateway:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:505
+msgid ""
+"-l istio=ingressgateway -n istio-system -o "
+"jsonpath=‘{.items[0].metadata.name}’) – cat /etc/istio/ingressgateway-"
+"certs/tls.crt \\| openssl x509 -text -noout \\| grep ‘Subject:’ Subject: "
+"CN=httpbin.example.com, O=httpbin organization"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:511
+msgid "Verify that the proxy of the ingress gateway is aware of the certificates:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:517
+msgid ""
+"istio=ingressgateway -n istio-system -o "
+"jsonpath=‘{.items[0].metadata.name}’) -n istio-system – pilot-agent "
+"request GET certs { “ca_cert”: \"“,”cert_chain“:”Certificate Path: "
+"/etc/istio/ingressgateway-certs/tls.crt, Serial Number: 100212, Days "
+"until Expiration: 370\" }"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:523
+msgid "Check the log of ``istio-ingressgateway`` for error messages:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:530
+msgid ""
+"For macOS users, verify that you use ``curl`` compiled with the `LibreSSL"
+" <http://www.libressl.org>`_ library, as described in the `Before you "
+"begin <#before-you-begin>`_ section."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:535
+msgid "Troubleshooting for mutual TLS"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:537
+msgid "In addition to the steps in the previous section, perform the following:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:539
+msgid ""
+"Verify that the CA certificate is loaded in the ``istio-ingressgateway`` "
+"pod:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:545
+msgid ""
+"istio-system get pods -l istio=ingressgateway -o "
+"jsonpath=‘{.items[0].metadata.name}’) – ls -al /etc/istio/ingressgateway-"
+"ca-certs"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:549
+msgid "``example.com.crt`` should exist in the directory contents."
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:551
+msgid ""
+"If you created the ``istio-ingressgateway-ca-certs`` secret, but the CA "
+"certificate is not loaded, delete the ingress gateway pod and force it to"
+" reload the certificate:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:560
+msgid ""
+"Verify that the ``Subject`` is correct in the CA certificate of the "
+"ingress gateway:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:566
+msgid ""
+"-l istio=ingressgateway -n istio-system -o "
+"jsonpath=‘{.items[0].metadata.name}’) – cat /etc/istio/ingressgateway-ca-"
+"certs/example.com.crt \\| openssl x509 -text -noout \\| grep ‘Subject:’ "
+"Subject: O=example Inc., CN=example.com"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:573
+msgid "Cleanup"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:575
+msgid ""
+"Delete the ``Gateway`` configuration, the ``VirtualService``, and the "
+"secrets:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:581
+msgid ""
+"httpbin-gateway bookinfo-gateway $ kubectl delete virtualservice httpbin "
+"$ kubectl delete –ignore-not-found=true -n istio-system secret istio-"
+"ingressgateway-certs istio-ingressgateway-ca-certs $ kubectl delete "
+"–ignore-not-found=true virtualservice bookinfo"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:586
+msgid ""
+"Delete the directories of the certificates and the repository used to "
+"generate them:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:592
+msgid ""
+"httpbin.example.com.crt httpbin.example.com.key httpbin.example.com.csr "
+"httpbin-client.example.com.crt httpbin-client.example.com.key httpbin-"
+"client.example.com.csr bookinfo.com.crt bookinfo.com.key bookinfo.com.csr"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:597
+msgid ""
+"Remove the patch file you used for redeployment of ``istio-"
+"ingressgateway``:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:604
+#, python-format
+msgid ""
+"Shutdown the `httpbin "
+"<%7B%7B%3C%20github_tree%20%3E%7D%7D/samples/httpbin>`_ service:"
+msgstr ""
+
+#: ../../source/docs/tasks/traffic-management/ingress/secure-ingress-mount/index.rst:611
+msgid "@samples/httpbin/httpbin.yaml@"
+msgstr ""
+

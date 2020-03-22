@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/faq/mixer/writing-custom-adapters.rst:2
+msgid "writing-custom-adapters"
+msgstr ""
+
+#: ../../source/faq/mixer/writing-custom-adapters.rst:4
+msgid ""
+"Learn how to implement a new adapter for Mixer by consulting the `Adapter"
+" Developer’s Guide <https://github.com/istio/istio/wiki/Mixer-Compiled-"
+"In-Adapter-Dev-Guide>`_."
+msgstr ""
+
+#: ../../source/faq/mixer/writing-custom-adapters.rst:10
+msgid "Istio 1.0 introduces initial support for out-of-process"
+msgstr ""
+
+#: ../../source/faq/mixer/writing-custom-adapters.rst:11
+msgid ""
+"adapters. This will be the recommended approach moving forward for "
+"integrating with Mixer. Initial documentation on how to build an out-of-"
+"process adapter is provided by the `Out Of Process Adapter Dev Guide "
+"<https://github.com/istio/istio/wiki/Mixer-Out-Of-Process-Adapter-Dev-"
+"Guide>`_ and the `Out of Process Adapter Walk-through "
+"<https://github.com/istio/istio/wiki/Mixer-Out-Of-Process-Adapter-"
+"Walkthrough>`_."
+msgstr ""
+

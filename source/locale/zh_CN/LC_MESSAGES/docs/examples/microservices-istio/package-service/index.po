@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:2
+msgid "package-service"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:4
+msgid "{{< boilerplate work-in-progress >}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:6
+msgid ""
+"This module shows how you create a `Docker <https://www.docker.com>`_ "
+"image and run it locally."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:9
+msgid ""
+"Download the `Dockerfile "
+"<https://docs.docker.com/engine/reference/builder/>`_ for the ``ratings``"
+" microservice."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:16
+msgid ">}}/samples/bookinfo/src/ratings/Dockerfile -o Dockerfile {{< /text >}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:19
+msgid "Observe the ``Dockerfile``."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:25
+msgid ""
+"Note that it copies the files into the container’s filesystem and then "
+"runs the ``npm install`` command you ran in the previous module. The "
+"``CMD`` command instructs Docker to run the ``ratings`` service on port "
+"``9080``."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:30
+msgid "Build a Docker image from the ``Dockerfile``:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:35
+msgid ""
+"node /opt/microservices/ratings.js 9080 —> Using cache —> 77c6a304476c "
+"Successfully built 77c6a304476c Successfully tagged user/ratings:latest"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:39
+msgid ""
+"Run ratings in Docker. The following `docker run "
+"<https://docs.docker.com/engine/reference/commandline/run/>`_ command "
+"instructs Docker to expose port ``9080`` of the container to port "
+"``9081`` of your computer, allowing you to access the ``ratings`` "
+"microservice on port ``9081``."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:49
+msgid ""
+"Access http://localhost:9081/ratings/7 in your browser or use the "
+"following ``curl`` command:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:55
+msgid "{“id”:7,“ratings”:{“Reviewer1”:5,“Reviewer2”:4}}"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:57
+msgid ""
+"Observe the running container. Run the `docker ps "
+"<https://docs.docker.com/engine/reference/commandline/ps/>`_ command to "
+"list all the running containers and notice the container with the image "
+"``<your user name>/ratings``."
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:65
+msgid ""
+"STATUS PORTS NAMES 47e8c1fe6eca user/ratings “docker-entrypoint.s…” 2 "
+"minutes ago Up 2 minutes 0.0.0.0:9081->9080/tcp elated_stonebraker …"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:69
+msgid "Stop the running container:"
+msgstr ""
+
+#: ../../source/docs/examples/microservices-istio/package-service/index.rst:75
+msgid ""
+"You have learned how to package a single service into a container. The "
+"next step is to learn how to `deploy the whole application to a "
+"Kubernetes cluster </docs/examples/microservices-istio/bookinfo-"
+"kubernetes>`_."
+msgstr ""
+

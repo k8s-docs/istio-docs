@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/reference/config/analysis/ist0102/index.rst:2
+msgid "ist0102"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0102/index.rst:4
+msgid ""
+"This message occurs when you have a namespace that is missing the "
+"`annotation </docs/reference/config/annotations/>`_ to indicate whether "
+"the namespace is auto-injected, for example ``sidecar.istio.io/inject``."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0102/index.rst:8
+msgid "For example, you receive this error:"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0102/index.rst:10
+msgid ""
+"{{< text plain >}} Warn [IST0102] (Namespace default) The namespace is "
+"not enabled for Istio injection. Run ‘kubectl label namespace default "
+"istio-injection=enabled’ to enable it, or ‘kubectl label namespace "
+"default istio-injection=disabled’ to explicitly mark it as not needing "
+"injection Error: Analyzer found issues."
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0102/index.rst:16
+msgid ""
+"To resolve this problem, use an annotation to explicitly declare whether "
+"or not you want the namespace to be auto-injected. For example:"
+msgstr ""
+
+#: ../../source/docs/reference/config/analysis/ist0102/index.rst:23
+msgid ""
+"It is strongly recommended to explicitly define the desired injection "
+"behavior. Forgetting to annotate a namespace is a common cause of errors."
+msgstr ""
+

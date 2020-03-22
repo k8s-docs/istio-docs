@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/test/tb_and_lists/index.rst:2
+msgid "tb and lists"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:4
+msgid "A bullet"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:6
+msgid "{{< text plain >}} A text block nested in a bullet with a second line"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:8
+#: ../../source/test/tb_and_lists/index.rst:18
+#: ../../source/test/tb_and_lists/index.rst:33
+msgid "and a third line"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:10
+msgid "Another bullet"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:14
+msgid "A nested warning"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:16
+msgid "{{< text plain >}} Another nested text block with a second line"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:20
+msgid "Yet another bullet"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:22
+msgid "Second paragraph"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:24
+msgid "Still another bullet"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:28
+msgid "This is a warning in a bullet."
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:30
+msgid ""
+"{{< text plain >}} This is a text block in a warning in a bullet with a "
+"second line"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:37
+msgid "Deploy your application using the ``kubectl`` command:"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:42
+msgid "@samples/bookinfo/platform/kube/bookinfo.yaml@"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:46
+msgid ""
+"If you disabled automatic sidecar injection during installation and rely "
+"on [manual sidecar injection] (/docs/setup/additional-setup/sidecar-"
+"injection/#manual-sidecar-injection), use the ``istioctl kube-inject`` "
+"command to modify the ``bookinfo.yaml`` file before deploying your "
+"application. For more information please visit the ``istioctl`` "
+"`reference documentation </docs/reference/commands/istioctl/#istioctl-"
+"kube-inject>`_."
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:57
+msgid "@samples/bookinfo/platform/kube/bookinfo.yaml@)"
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:61
+msgid ""
+"The command launches all four services shown in the ``bookinfo`` "
+"application architecture diagram. All 3 versions of the reviews service, "
+"v1, v2, and v3, are started."
+msgstr ""
+
+#: ../../source/test/tb_and_lists/index.rst:67
+msgid ""
+"In a realistic deployment, new versions of a microservice are deployed "
+"over time instead of deploying all versions simultaneously."
+msgstr ""
+

@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, BandCamp
+# This file is distributed under the same license as the istio-docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: istio-docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-22 10:08+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:2
+msgid "IBM Cloud"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:4
+msgid ""
+"Follow these instructions to prepare a cluster for Istio using the `IBM "
+"Cloud Kubernetes Service <https://cloud.ibm.com/docs/containers?topic"
+"=containers-getting-started>`_. To install Istio on IBM Cloud Private, "
+"refer to `Istio on IBM Cloud Private "
+"<https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.2.1/manage_cluster/istio.html>`_"
+" instead."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:13
+msgid "IBM offers a {{< gloss >}}managed control plane{{< /gloss"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:14
+msgid ""
+">}} add-on for the IBM Cloud Kubernetes Service, which you can use "
+"instead of installing Istio manually. Refer to `Istio on IBM Cloud "
+"Kubernetes Service <https://cloud.ibm.com/docs/containers?topic"
+"=containers-istio>`_ for details and instructions."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:20
+msgid "To prepare a cluster before manually installing Istio, proceed as follows:"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:23
+msgid ""
+"`Install the IBM Cloud CLI, the IBM Cloud Kubernetes Service plug-in, and"
+" the Kubernetes CLI <https://cloud.ibm.com/docs/containers?topic"
+"=containers-cs_cli_install>`_."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:27
+msgid ""
+"Create a standard Kubernetes cluster using the following command. Replace"
+" ``<cluster-name>`` with the name you want to use for your cluster and "
+"``<zone-name>`` with the name of an available zone."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:33
+msgid ""
+"You can display your available zones by running ``ibmcloud ks zones``. "
+"The IBM Cloud Kubernetes Service `Locations Reference Guide "
+"<https://cloud.ibm.com/docs/containers?topic=containers-regions-and-"
+"zones>`_ describes the available zones and how to specify them."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst
+msgid ".. code:: sh"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:41
+msgid "$ ibmcloud ks cluster create classic –zone"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:42
+msgid "–machine-type b3c.4x16"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst
+msgid "–workers 3 –name"
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:47
+msgid ""
+"If you already have a private or a public VLAN, you must specify them in "
+"the above command using the ``--private-vlan`` and ``--public-vlan`` "
+"options. Otherwise, they will be automatically created for you. You can "
+"view your available VLANs by running ``ibmcloud ks vlans --zone <zone-"
+"name>``."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:53
+msgid ""
+"Run the following command to download your cluster configuration for "
+"``kubectl`` and then set the ``KUBECONFIG`` environment variable as "
+"specified in the command output."
+msgstr ""
+
+#: ../../source/docs/setup/platform-setup/ibm/index.rst:63
+msgid ""
+"Make sure to use the ``kubectl`` CLI version that matches the Kubernetes "
+"version of your cluster."
+msgstr ""
+
