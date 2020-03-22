@@ -17,7 +17,7 @@ see the Istio [contribution guidelines](https://github.com/istio/community/blob/
 - [istio.io](#istioio)
 - [Editing and building](#editing-and-building)
 - [Versions and releases](#versions-and-releases)
-  - [How versioning works](#how-versioning-works)
+  - [版本如何工作](#%e7%89%88%e6%9c%ac%e5%a6%82%e4%bd%95%e5%b7%a5%e4%bd%9c)
   - [立即发布内容](#%e7%ab%8b%e5%8d%b3%e5%8f%91%e5%b8%83%e5%86%85%e5%ae%b9)
   - [创建一个版本](#%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e7%89%88%e6%9c%ac)
     - [当 Istio 源代码被分支](#%e5%bd%93-istio-%e6%ba%90%e4%bb%a3%e7%a0%81%e8%a2%ab%e5%88%86%e6%94%af)
@@ -49,17 +49,16 @@ Istio maintains three variations of its public site.
 用户可以使用在每一页的右上角的齿轮菜单的网站的不同变化之间平凡导航。
 所有这三个网站都托管在[Netlify](https://netlify.com).
 
-### How versioning works
+### 版本如何工作
 
-- Documentation changes are primarily committed to the master branch of istio.io.
-  Changes committed to this branch are automatically reflected on preliminary.istio.io.
+- 文档更改主要致力于 istio.io 的主分支。
+  致力于这一分支的变化是在 preliminary.istio.io 自动反映。
 
-- The content of istio.io is taken from the latest release-XXX branch. The specific branch that
-  is used is determined by the istio.io [Netlify](https://netlify.com) project's configuration.
+- istio.io 的内容从最新的 release-XXX 分支跳转。
+  所使用的特定部门由 istio.io [Netlify](https://netlify.com)项目的配置决定。
 
-- The content of archive.istio.io is taken from the older release-XXX branches. The set of branches that
-  are included on archive.istio.io is determined by the `TOBUILD` variable in this
-  [script](https://github.com/istio/istio.io/blob/master/scripts/build_archive_site.sh).
+- archive.istio.io 的内容是从旧 release-XXX 分支服用。
+  被包括在 archive.istio.io 该组分支由`TOBUILD`变量在此[脚本](https://github.com/istio/istio.io/blob/master/scripts/build_archive_site.sh)确定.
 
 ### 立即发布内容
 
@@ -121,13 +120,10 @@ The day of a major Istio release, assuming you've previously done the steps from
 
 #### 更新 istio.io
 
-1. Go to the istio.io project on [Netlify](https://netlify.com)
-
-1. Change the branch that is built from the previous release's branch to the new release branch, in this case release-1.4
-
-1. Select the option to trigger an immediate rebuild and redeployment.
-
-1. Once deployment is done, browse istio.io and make sure everything looks good.
+1. 转到上[Netlify](https://netlify.com)的 istio.io 项目
+2. 改变是从以前的版本的分支内置到新版本分支的分支，在这种情况下 release-1.4
+3. 选择立即触发重建和重新部署的选项。
+4. 一旦部署完成后，浏览 istio.io，并确保一切看起来不错。
 
 ##### 更新 archive.istio.io
 
