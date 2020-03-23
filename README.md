@@ -6,17 +6,14 @@
 
 ## istio.io
 
-This repository contains the source code for the [istio.io](https://istio.io),
-[preliminary.istio.io](https://preliminary.istio.io), and [archive.istio.io](https://archive.istio.io) sites.
+This repository contains the source code for the [istio.io](https://istio.io),[preliminary.istio.io](https://preliminary.istio.io), and [archive.istio.io](https://archive.istio.io) sites.
 
-Please see the main Istio [README](https://github.com/istio/istio/blob/master/README.md)
-file to learn about the overall Istio project and how to get in touch with us. To learn how you can
-contribute to any of the Istio components, please
-see the Istio [contribution guidelines](https://github.com/istio/community/blob/master/CONTRIBUTING.md).
+Please see the main Istio [README](https://github.com/istio/istio/blob/master/README.md) file to learn about the overall Istio project and how to get in touch with us.
+To learn how you can contribute to any of the Istio components, please see the Istio [contribution guidelines](https://github.com/istio/community/blob/master/CONTRIBUTING.md).
 
 - [istio.io](#istioio)
-- [Editing and building](#editing-and-building)
-- [Versions and releases](#versions-and-releases)
+- [编辑和构建](#%e7%bc%96%e8%be%91%e5%92%8c%e6%9e%84%e5%bb%ba)
+- [版本和发布](#%e7%89%88%e6%9c%ac%e5%92%8c%e5%8f%91%e5%b8%83)
   - [版本如何工作](#%e7%89%88%e6%9c%ac%e5%a6%82%e4%bd%95%e5%b7%a5%e4%bd%9c)
   - [立即发布内容](#%e7%ab%8b%e5%8d%b3%e5%8f%91%e5%b8%83%e5%86%85%e5%ae%b9)
   - [创建一个版本](#%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e7%89%88%e6%9c%ac)
@@ -30,21 +27,17 @@ see the Istio [contribution guidelines](https://github.com/istio/community/blob/
 - [多语言支持](#%e5%a4%9a%e8%af%ad%e8%a8%80%e6%94%af%e6%8c%81)
 - [定期保养](#%e5%ae%9a%e6%9c%9f%e4%bf%9d%e5%85%bb)
 
-## Editing and building
+## 编辑和构建
 
-To learn how to edit and build this repo's content, please refer to
-[Creating and Editing Pages](https://preliminary.istio.io/about/contribute/creating-and-editing-pages/).
+要了解如何编辑和建立这种回购的内容，请参阅[创建和编辑页面](https://preliminary.istio.io/about/contribute/creating-and-editing-pages/).
 
-## Versions and releases
+## 版本和发布
 
-Istio maintains three variations of its public site.
+Istio 维护其公众网站的三个变化。
 
-- [istio.io](https://istio.io) is the main site, showing documentation for the current release of the product.
-
-- [archive.istio.io](https://archive.istio.io) contains snapshots of the documentation for previous releases of the product.
-  This is useful for customers still using these older releases.
-
-- [preliminary.istio.io](https://preliminary.istio.io) contains the actively updated documentation for the next release of the product.
+- [istio.io](https://istio.io) 是主要的网站，显示了产品的当前版本的文档。
+- [archive.istio.io](https://archive.istio.io) 包含了产品的先前版本的文档的快照。这对于客户仍然使用这些旧版本是有用的。
+- [preliminary.istio.io](https://preliminary.istio.io) 包含了产品的下一个版本的动态更新文档。
 
 用户可以使用在每一页的右上角的齿轮菜单的网站的不同变化之间平凡导航。
 所有这三个网站都托管在[Netlify](https://netlify.com).
@@ -62,25 +55,21 @@ Istio maintains three variations of its public site.
 
 ### 立即发布内容
 
-Checking in updates to the master branch will automatically update preliminary.istio.io, and will only be reflected on
-istio.io the next time a release is created, which can be several weeks in the future. If you'd like some changes to be
-immediately reflected on istio.io, you need to check your changes both to the master branch and to the
-current release branch (named release-XXX such as release-1.4).
+Checking in updates to the master branch will automatically update preliminary.istio.io, and will only be reflected on istio.io the next time a release is created, which can be several weeks in the future.
+If you'd like some changes to be immediately reflected on istio.io, you need to check your changes both to the master branch and to the current release branch (named release-XXX such as release-1.4).
 
-This process can be taken care of automatically by our infrastructure. If you submit a PR
-to the master branch and annotate the PR with the `actions/merge-to-release-branch` label,
-then as soon as your PR is merged into master, it will be merged into the current release branch.
+This process can be taken care of automatically by our infrastructure.
+If you submit a PR to the master branch and annotate the PR with the `actions/merge-to-release-branch` label, then as soon as your PR is merged into master, it will be merged into the current release branch.
 
 ### 创建一个版本
 
-Here are the steps necessary to create a new documentation version. Let's assume the current
-version of Istio is 1.3 and you wish to introduce 1.4 which has been under development.
+下面是步骤需要创建一个新的文件版本。
+假设 Istio 的当前版本是 1.3，你希望引进 1.4 这已经在开发中。
 
 #### 当 Istio 源代码被分支
 
-The documentation repo pulls content from the Istio source repos for inclusion in the published site.
-When the source repos are branched in preparation for a release, a few changes are needed in the
-documentation repo to track this:
+文档回购拉从 Istio 源回购包含在发布的网站内容。
+当源回购在制备是支化以便在一释放，需要在文档回购一些变化来跟踪此:
 
 1. Switch to the **master** branch of the istio/istio.io repo and make sure everything is up to date.
 
@@ -120,7 +109,7 @@ The day of a major Istio release, assuming you've previously done the steps from
 
 #### 更新 istio.io
 
-1. 转到上[Netlify](https://netlify.com)的 istio.io 项目
+1. 转到[Netlify](https://netlify.com)上的 istio.io 项目
 2. 改变是从以前的版本的分支内置到新版本分支的分支，在这种情况下 release-1.4
 3. 选择立即触发重建和重新部署的选项。
 4. 一旦部署完成后，浏览 istio.io，并确保一切看起来不错。
@@ -220,8 +209,8 @@ layout.
   Add another call to `check_content` for your new content directory.
   This ensures that the linting rules apply to your new content.
 
-- Edit the file `src/ts/lang.ts` and add your new language.
-  This will add your language to the language toggle button that is available on preliminary.istio.io and will make it so your language will be supported in the language selection menu.
+- 编辑文件`src/ts/lang.ts`，并添加新的语言。
+  这将您的语言添加到切换按钮语言上可用 preliminary.istio.io，将使它所以你的语言将在语言选择菜单的支持。
 
 - Get an Istio GitHub administrator to create a new maintainer team for your language. For Franch, this would be `WG - Docs Mintainers/French`.
 
