@@ -1,5 +1,5 @@
-defaultContentLanguage = "en"
-languageCode = "en-us"
+defaultContentLanguage = "zh"
+languageCode = "zh-CN"
 metaDataFormat = "yaml"
 title = "Istio"
 uglyURLs = false
@@ -106,5 +106,3 @@ disableAliases = true
         contentDir = "content/zh"
     [languages.en]
         contentDir = "content/en"
-    [languages.pt-br]
-        contentDir = "content/pt-br"

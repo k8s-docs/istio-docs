@@ -3,7 +3,7 @@ title: FAQ
 description: 关于 Istio 的常见问题。
 weight: 1
 layout: faq-landing
-aliases: 
+aliases:
   - /zh/docs/welcome/faq.html
   - /zh/docs/reference/faq.html
   - /zh/help/faq/
